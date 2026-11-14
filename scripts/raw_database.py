@@ -806,6 +806,20 @@ CARS_DATABASE = [
                         "fuel_economy": "16.8 km/L",
                         "dimensions": "4258 x 1790 x 1492 mm (軸距 2620 mm)",
                         "safety": "7氣囊、MCB二次碰撞預煞、MK7.5高階具ACC"
+                    },
+                    {
+                        "trim_name": "2.0 GTI 性能鋼砲 (濕式DSG)",
+                        "msrp_wan": 148.8,
+                        "engine_code": "EA888 Gen3 2.0L TSI 渦輪增壓",
+                        "displacement_cc": 1984,
+                        "horsepower": "220~245 ps / 4,500~6,200 rpm",
+                        "torque": "35.7~37.7 kgm / 1,500~4,400 rpm",
+                        "transmission": "DQ250 6速 / DQ381 7速濕式雙離合器",
+                        "drivetrain": "前輪驅動 + VAQ 電子限滑差速器",
+                        "suspension": "GTI 運動化獨立多連桿懸吊",
+                        "fuel_economy": "13.5 km/L",
+                        "dimensions": "4268 x 1790 x 1442 mm (軸距 2626 mm)",
+                        "safety": "7氣囊、XDS+ 主動電子差速、運動化煞車卡鉗"
                     }
                 ],
                 "common_issues": [

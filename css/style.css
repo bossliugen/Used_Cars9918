@@ -139,9 +139,40 @@ body {
 
 .selector-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr 1fr 1fr;
+  grid-template-columns: 1fr 1.1fr 1fr 1.3fr 1fr;
   gap: 12px;
   align-items: end;
+}
+
+.trim-count-badge {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  background: var(--bg-soft);
+  color: var(--blue-primary);
+  border: 1px solid var(--border-blue);
+}
+
+.trim-hint {
+  margin-top: 8px;
+  padding: 7px 12px;
+  border-radius: 9px;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #92400e;
+  font-size: 0.78rem;
+  font-weight: 600;
+  display: none;
+}
+
+.trim-hint.visible {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  animation: fadeSlideIn 0.24s ease;
 }
 
 .field-group label {
@@ -749,6 +780,44 @@ body {
   gap: 12px;
 }
 
+.hidden {
+  display: none !important;
+}
+
+/* Smooth Accordion for Details Section */
+.details-collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.34s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.24s ease;
+}
+
+.details-collapse.open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.details-collapse-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* Smooth View Transition Animations */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.anim-enter {
+  animation: fadeSlideIn 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 .detail-tabs {
   display: flex;
   flex-wrap: wrap;
@@ -767,12 +836,19 @@ body {
   font-size: 0.84rem;
   font-weight: 700;
   cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.detail-tab:hover {
+  border-color: var(--blue-primary);
+  color: var(--blue-dark);
 }
 
 .detail-tab.active {
   background: var(--blue-primary);
   border-color: var(--blue-primary);
   color: #ffffff;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
 }
 
 .detail-body {
@@ -898,6 +974,12 @@ tr.row-selected {
 
 .ranking-panel.open {
   display: block;
+}
+
+@media (max-width: 1100px) {
+  .selector-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 @media (max-width: 900px) {

@@ -91,6 +91,12 @@ function bindEvents() {
   document.getElementById("selectYear").addEventListener("change", (e) => {
     state.selectedYear = parseInt(e.target.value, 10);
     state.selectedTrimIdx = 0;
+    populateTrimSelect();
+    renderAllCarViews();
+  });
+
+  document.getElementById("selectTrim").addEventListener("change", (e) => {
+    state.selectedTrimIdx = parseInt(e.target.value, 10) || 0;
     renderAllCarViews();
   });
 
@@ -139,9 +145,11 @@ function bindEvents() {
     state.detailsOpen = !state.detailsOpen;
     const wrapper = document.getElementById("detailsWrapper");
     const btn = document.getElementById("btnToggleDetails");
-    wrapper.classList.toggle("hidden", !state.detailsOpen);
+    wrapper.classList.toggle("open", state.detailsOpen);
     btn.textContent = state.detailsOpen ? "收合詳細資料 ▴" : "展開詳細資料 ▾";
-    if (state.detailsOpen) renderDetailBody();
+    if (state.detailsOpen) {
+      renderDetailBody();
+    }
   });
 
   document.querySelectorAll(".detail-tab").forEach((btn) => {
@@ -230,7 +238,56 @@ function selectCar(carId) {
   state.selectedYear = defaultPt.year;
   selYear.value = String(state.selectedYear);
 
+  populateTrimSelect();
   renderAllCarViews();
+}
+
+function populateTrimSelect() {
+  const gen = getSelectedGen();
+  const selTrim = document.getElementById("selectTrim");
+  const badge = document.getElementById("trimCountBadge");
+  const hint = document.getElementById("trimHint");
+
+  if (!gen || !gen.trims || !gen.trims.length) return;
+  if (state.selectedTrimIdx >= gen.trims.length) {
+    state.selectedTrimIdx = 0;
+  }
+
+  selTrim.innerHTML = gen.trims
+    .map((t, idx) => `<option value="${idx}">${t.trim_name}</option>`)
+    .join("");
+  selTrim.value = String(state.selectedTrimIdx);
+
+  if (gen.trims.length > 1) {
+    badge.textContent = `${gen.trims.length} 種規格`;
+    badge.style.display = "inline-block";
+    hint.innerHTML = `<span>⚠</span><span>此世代有 <strong>${gen.trims.length}</strong> 種不同版本規格（例如引擎/油電/性能版差異），請務必確認版本以免誤判行情與稅金！</span>`;
+    hint.classList.add("visible");
+  } else {
+    badge.style.display = "none";
+    hint.classList.remove("visible");
+  }
+}
+
+function getSelectedTrim() {
+  const gen = getSelectedGen();
+  return gen.trims[state.selectedTrimIdx] || gen.trims[0];
+}
+
+function getVariantRatio() {
+  const gen = getSelectedGen();
+  const baseTrim = gen.trims[0];
+  const curTrim = getSelectedTrim();
+  if (!baseTrim || !curTrim || !baseTrim.msrp_wan || !curTrim.msrp_wan) return 1.0;
+  return curTrim.msrp_wan / baseTrim.msrp_wan;
+}
+
+function triggerAnim(elId) {
+  const el = document.getElementById(elId);
+  if (!el) return;
+  el.classList.remove("anim-enter");
+  void el.offsetWidth;
+  el.classList.add("anim-enter");
 }
 
 function getCurrentCar() {
@@ -255,19 +312,23 @@ function renderAllCarViews() {
   renderChart();
   renderQuickSpecs();
   renderCostAndMaintenance();
-  if (state.detailsOpen) renderDetailBody();
+  renderDetailBody();
+
+  ["kpiGrid", "quickSpecsGrid", "costEstimationGrid", "detailBody"].forEach(triggerAnim);
 }
 
 function renderHeroAndKpis() {
   const car = getCurrentCar();
   const pt = getSelectedPoint();
   const gen = getSelectedGen();
-  const trim = gen.trims[state.selectedTrimIdx] || gen.trims[0];
+  const trim = getSelectedTrim();
+  const ratio = getVariantRatio();
 
   document.getElementById("heroTitle").innerHTML = `
     ${getBrandLogoSvg(car.brand, true)}
     <span>${car.brand} ${car.model} ・ ${pt.year} 年式</span>
     <span class="tag-blue">${gen.gen_name}</span>
+    <span class="tag-blue" style="background:#dbeafe;color:#1e40af;">${trim.trim_name}</span>
   `;
   document.getElementById("heroSub").textContent = car.summary;
 
@@ -280,18 +341,19 @@ function renderHeroAndKpis() {
   const majorBadge = pt.is_major_change ? `<span class="tag-major">★ 大改款年份</span>` : "";
   document.getElementById("heroBadges").innerHTML = `${majorBadge}${riskBadge}`;
 
-  // 里程與車況微調係數
+  // 里程、車況與版本價差微調係數
   const mileageWan = parseFloat(document.getElementById("inputMileage").value) || 0;
   const condFactor = parseFloat(document.getElementById("selectCondition").value) || 1.0;
   const expectedMileage = pt.age_years * 1.2;
   const mileageFactor = Math.max(0.85, Math.min(1.12, 1 - (mileageWan - expectedMileage) * 0.012));
 
-  const dealerVal = (pt.dealer * mileageFactor * condFactor).toFixed(1);
-  const privateVal = (pt.private * mileageFactor * condFactor).toFixed(1);
-  const bookVal = (pt.book * mileageFactor * condFactor).toFixed(1);
+  const effMsrp = pt.msrp * ratio;
+  const dealerVal = (pt.dealer * ratio * mileageFactor * condFactor).toFixed(1);
+  const privateVal = (pt.private * ratio * mileageFactor * condFactor).toFixed(1);
+  const bookVal = (pt.book * ratio * mileageFactor * condFactor).toFixed(1);
 
   document.getElementById("mileageHint").textContent =
-    `該年式合理參考里程：約 ${expectedMileage.toFixed(1)} 萬 km（當年新車價 ${pt.msrp.toFixed(1)} 萬）`;
+    `該年式合理參考里程：約 ${expectedMileage.toFixed(1)} 萬 km（此版本當年新車價約 ${effMsrp.toFixed(1)} 萬）`;
 
   document.getElementById("kpiGrid").innerHTML = `
     <div class="kpi-box primary">
@@ -302,7 +364,7 @@ function renderHeroAndKpis() {
     <div class="kpi-box">
       <div class="kpi-label">非第三方民間自售實價 (PTT/社團)</div>
       <div class="kpi-value" style="color:var(--green);">${privateVal} 萬</div>
-      <div class="kpi-sub">車商價差約 +${pt.dealer_private_spread_wan.toFixed(1)} 萬</div>
+      <div class="kpi-sub">車商價差約 +${(pt.dealer_private_spread_wan * ratio).toFixed(1)} 萬</div>
     </div>
     <div class="kpi-box">
       <div class="kpi-label">權威車訊 (天書) 收購基準</div>
@@ -312,7 +374,7 @@ function renderHeroAndKpis() {
     <div class="kpi-box">
       <div class="kpi-label">年度稅金 (牌照+燃料費)</div>
       <div class="kpi-value" style="color:var(--text-main);">${trim.annual_tax_ntd.toLocaleString()} 元</div>
-      <div class="kpi-sub">${trim.displacement_cc} cc ・ 年均折舊 ${pt.avg_annual_depreciation_wan} 萬/年</div>
+      <div class="kpi-sub">${trim.displacement_cc} cc ・ 年均折舊 ${(pt.avg_annual_depreciation_wan * ratio).toFixed(2)} 萬/年</div>
     </div>
   `;
 }
@@ -416,7 +478,19 @@ async function loadGenPhoto(gen) {
 
 function renderChart() {
   const car = getCurrentCar();
-  state.chart.setData(car.timeline, state.chartMode, state.selectedYear);
+  const gen = getSelectedGen();
+  const ratio = getVariantRatio();
+  const scaledTimeline = car.timeline.map((pt) => {
+    if (pt.gen_id !== gen.gen_id || ratio === 1.0) return pt;
+    return {
+      ...pt,
+      msrp: +(pt.msrp * ratio).toFixed(1),
+      dealer: +(pt.dealer * ratio).toFixed(1),
+      private: +(pt.private * ratio).toFixed(1),
+      book: +(pt.book * ratio).toFixed(1),
+    };
+  });
+  state.chart.setData(scaledTimeline, state.chartMode, state.selectedYear);
 }
 
 function renderQuickSpecs() {
@@ -452,7 +526,8 @@ function renderCostAndMaintenance() {
   const car = getCurrentCar();
   const pt = getSelectedPoint();
   const gen = getSelectedGen();
-  const trim = gen.trims[state.selectedTrimIdx] || gen.trims[0];
+  const trim = getSelectedTrim();
+  const ratio = getVariantRatio();
 
   const annualKm = parseInt(document.getElementById("selectAnnualKm").value, 10) || 12000;
   const insPlan = document.getElementById("selectInsurancePlan").value || "bing";
@@ -475,10 +550,10 @@ function renderCostAndMaintenance() {
   let bodyIns = 0;
   let bodyInsLabel = "未投保車體險";
   if (insPlan === "bing") {
-    bodyIns = Math.max(4500, Math.round(pt.dealer * 10000 * (isLuxury ? 0.028 : 0.022)));
+    bodyIns = Math.max(4500, Math.round(pt.dealer * ratio * 10000 * (isLuxury ? 0.028 : 0.022)));
     bodyInsLabel = "丙式車碰車險（依殘值估算）";
   } else if (insPlan === "yi") {
-    bodyIns = Math.max(12000, Math.round(pt.dealer * 10000 * (isLuxury ? 0.052 : 0.042)));
+    bodyIns = Math.max(12000, Math.round(pt.dealer * ratio * 10000 * (isLuxury ? 0.052 : 0.042)));
     bodyInsLabel = "乙式全險（依殘值估算）";
   }
   const totalIns = mandatoryIns + thirdPartyIns + bodyIns;
@@ -758,9 +833,9 @@ function renderDetailBody() {
 
 function switchTrim(idx) {
   state.selectedTrimIdx = idx;
-  renderHeroAndKpis();
-  renderQuickSpecs();
-  renderDetailBody();
+  const selTrim = document.getElementById("selectTrim");
+  if (selTrim) selTrim.value = String(idx);
+  renderAllCarViews();
 }
 
 function jumpToGen(genId) {
@@ -770,6 +845,7 @@ function jumpToGen(genId) {
     state.selectedYear = gen.years[0];
     document.getElementById("selectYear").value = String(state.selectedYear);
     state.selectedTrimIdx = 0;
+    populateTrimSelect();
     renderAllCarViews();
   }
 }

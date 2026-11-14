@@ -51,7 +51,7 @@
       </div>
     </section>
 
-    <!-- 1. 品牌 -> 車款 -> 年份 階層式篩選列 -->
+    <!-- 1. 品牌 -> 車款 -> 年份 -> 版本規格 階層式篩選列 -->
     <section class="selector-card">
       <div class="selector-grid">
         <div class="field-group">
@@ -73,10 +73,15 @@
           <select id="selectYear" class="select-blue"></select>
         </div>
         <div class="field-group">
+          <label for="selectTrim">4. 選擇版本規格 (Variant) <span id="trimCountBadge" class="trim-count-badge"></span></label>
+          <select id="selectTrim" class="select-blue"></select>
+        </div>
+        <div class="field-group">
           <label for="quickSearch">快速搜尋車款</label>
-          <input id="quickSearch" type="text" class="input-blue" placeholder="輸入關鍵字 (如 Focus, NX, Golf)..." />
+          <input id="quickSearch" type="text" class="input-blue" placeholder="輸入關鍵字 (如 Swift, Focus, NX)..." />
         </div>
       </div>
+      <div id="trimHint" class="trim-hint"></div>
       <div class="brand-pills" id="brandPills"></div>
     </section>
 
@@ -176,16 +181,18 @@
         <button id="btnToggleDetails" class="btn-outline-blue">展開詳細資料 ▾</button>
       </div>
 
-      <div id="detailsWrapper" class="hidden">
-        <div class="detail-tabs" id="detailTabs">
-          <button class="detail-tab active" data-tab="specs">8891 完整規格</button>
-          <button class="detail-tab" data-tab="issues">單款通病與維修</button>
-          <button class="detail-tab" data-tab="gens">大改款世代差異</button>
-          <button class="detail-tab" data-tab="history">歷年行情明細表</button>
-          <button class="detail-tab" data-tab="sources">公信力資料庫來源</button>
-        </div>
+      <div id="detailsWrapper" class="details-collapse">
+        <div class="details-collapse-inner">
+          <div class="detail-tabs" id="detailTabs">
+            <button class="detail-tab active" data-tab="specs">8891 完整規格</button>
+            <button class="detail-tab" data-tab="issues">單款通病與維修</button>
+            <button class="detail-tab" data-tab="gens">大改款世代差異</button>
+            <button class="detail-tab" data-tab="history">歷年行情明細表</button>
+            <button class="detail-tab" data-tab="sources">公信力資料庫來源</button>
+          </div>
 
-        <div class="detail-body" id="detailBody"></div>
+          <div class="detail-body" id="detailBody"></div>
+        </div>
       </div>
     </section>
   </main>

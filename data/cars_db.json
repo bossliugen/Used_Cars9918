@@ -2,7 +2,7 @@
   "meta": {
     "title": "台灣中古車時價分析與世代通病資料庫",
     "reference_year": 2026,
-    "generated_at": "2026-11-14 23:25:20",
+    "generated_at": "2026-11-14 23:53:50",
     "currency": "新台幣 (萬元)",
     "total_models": 23,
     "total_generations": 70,
@@ -3308,6 +3308,21 @@
               "dimensions": "4258 x 1790 x 1492 mm (軸距 2620 mm)",
               "safety": "7氣囊、MCB二次碰撞預煞、MK7.5高階具ACC",
               "annual_tax_ntd": 11920
+            },
+            {
+              "trim_name": "2.0 GTI 性能鋼砲 (濕式DSG)",
+              "msrp_wan": 148.8,
+              "engine_code": "EA888 Gen3 2.0L TSI 渦輪增壓",
+              "displacement_cc": 1984,
+              "horsepower": "220~245 ps / 4,500~6,200 rpm",
+              "torque": "35.7~37.7 kgm / 1,500~4,400 rpm",
+              "transmission": "DQ250 6速 / DQ381 7速濕式雙離合器",
+              "drivetrain": "前輪驅動 + VAQ 電子限滑差速器",
+              "suspension": "GTI 運動化獨立多連桿懸吊",
+              "fuel_economy": "13.5 km/L",
+              "dimensions": "4268 x 1790 x 1442 mm (軸距 2626 mm)",
+              "safety": "7氣囊、XDS+ 主動電子差速、運動化煞車卡鉗",
+              "annual_tax_ntd": 17410
             }
           ],
           "common_issues": [
@@ -9941,16 +9956,31 @@
           },
           "trims": [
             {
-              "trim_name": "1.8L 汽油尊爵 / Hybrid 油電尊爵",
+              "trim_name": "1.8L 汽油尊爵 / 豪華",
               "msrp_wan": 87.9,
-              "engine_code": "2ZR-FE 1.8L / 2ZR-FXE 1.8L Hybrid",
+              "engine_code": "2ZR-FE 1.8L 自然進氣",
               "displacement_cc": 1798,
-              "horsepower": "140 ps (汽油) / 綜效 122 ps (油電)",
-              "torque": "17.5 kgm",
-              "transmission": "Super CVT-i / E-CVT",
+              "horsepower": "140 ps / 6,400 rpm",
+              "torque": "17.5 kgm / 4,000 rpm",
+              "transmission": "Super CVT-i 模擬7速",
               "drivetrain": "前輪驅動 (FF)",
               "suspension": "前麥花臣 / 後扭力樑",
-              "fuel_economy": "14.5 km/L (汽油) / 21.9 km/L (油電)",
+              "fuel_economy": "14.5 km/L",
+              "dimensions": "4460 x 1825 x 1620 mm (軸距 2640 mm)",
+              "safety": "7氣囊、TSS 2.0",
+              "annual_tax_ntd": 11920
+            },
+            {
+              "trim_name": "1.8L Hybrid 油電尊爵 / GR Sport",
+              "msrp_wan": 95.9,
+              "engine_code": "2ZR-FXE 1.8L Hybrid 油電複合動力",
+              "displacement_cc": 1798,
+              "horsepower": "綜效 122 ps",
+              "torque": "14.5 kgm + 馬達輔助",
+              "transmission": "E-CVT 電子無段變速",
+              "drivetrain": "前輪驅動 (FF)",
+              "suspension": "前麥花臣 / 後扭力樑",
+              "fuel_economy": "21.9 km/L",
               "dimensions": "4460 x 1825 x 1620 mm (軸距 2640 mm)",
               "safety": "7氣囊、TSS 2.0",
               "annual_tax_ntd": 11920
@@ -14369,18 +14399,33 @@
           },
           "trims": [
             {
-              "trim_name": "2.0 汽油 (極推薦) / 2.2D 柴油 (高風險)",
+              "trim_name": "2.0L Skyactiv-G 汽油 (極推薦)",
               "msrp_wan": 106.8,
-              "engine_code": "Skyactiv-G 2.0L / Skyactiv-D 2.2L",
+              "engine_code": "Skyactiv-G 2.0L 自然進氣",
               "displacement_cc": 1998,
-              "horsepower": "155~165 ps (2.0) / 175 ps (2.2D)",
-              "torque": "20.4 kgm / 42.8 kgm",
+              "horsepower": "155~165 ps / 6,000 rpm",
+              "torque": "20.4 kgm / 4,000 rpm",
               "transmission": "6速手自排",
-              "drivetrain": "前驅 / 四驅",
+              "drivetrain": "前驅 (FF)",
               "suspension": "前麥花臣 / 後獨立多連桿",
               "fuel_economy": "13.2 km/L",
               "dimensions": "4540 x 1840 x 1710 mm (軸距 2700 mm)",
               "safety": "6氣囊、DSC",
+              "annual_tax_ntd": 17410
+            },
+            {
+              "trim_name": "2.2D Skyactiv-D 柴油 AWD (高風險)",
+              "msrp_wan": 133.8,
+              "engine_code": "Skyactiv-D 2.2L 雙渦輪柴油",
+              "displacement_cc": 2191,
+              "horsepower": "175 ps / 4,500 rpm",
+              "torque": "42.8 kgm / 2,000 rpm",
+              "transmission": "6速手自排",
+              "drivetrain": "i-ACTIV AWD 四輪驅動",
+              "suspension": "前麥花臣 / 後獨立多連桿",
+              "fuel_economy": "15.2 km/L",
+              "dimensions": "4540 x 1840 x 1710 mm (軸距 2700 mm)",
+              "safety": "6氣囊、DSC、盲點偵測",
               "annual_tax_ntd": 17410
             }
           ],
@@ -20792,6 +20837,21 @@
               "dimensions": "3850 x 1695 x 1510 mm (軸距 2430 mm)",
               "safety": "2氣囊、ABS（無ESP）",
               "annual_tax_ntd": 11920
+            },
+            {
+              "trim_name": "Swift Sport 1.6L (ZC32S 性能版)",
+              "msrp_wan": 79.8,
+              "engine_code": "M16A 1.6L 高轉自然進氣",
+              "displacement_cc": 1586,
+              "horsepower": "136 ps / 6,900 rpm",
+              "torque": "16.3 kgm / 4,400 rpm",
+              "transmission": "6速手排 / 運動化 CVT (附換檔撥片)",
+              "drivetrain": "前輪驅動 (FF)",
+              "suspension": "Monroe 運動化懸吊 / 前麥花臣 後扭力樑",
+              "fuel_economy": "15.1 km/L",
+              "dimensions": "3890 x 1695 x 1510 mm (軸距 2430 mm)",
+              "safety": "6氣囊、ESP 車身動態穩定、HID 頭燈",
+              "annual_tax_ntd": 11920
             }
           ],
           "common_issues": [
@@ -21017,6 +21077,36 @@
               "dimensions": "3845 x 1735 x 1480 mm (軸距 2450 mm)",
               "safety": "6氣囊、ACC 主動定速、AEB",
               "annual_tax_ntd": 8640
+            },
+            {
+              "trim_name": "1.0T GLX Boosterjet 渦輪 (2018-2020)",
+              "msrp_wan": 66.9,
+              "engine_code": "K10C 1.0L 三缸缸內直噴渦輪",
+              "displacement_cc": 998,
+              "horsepower": "111 ps / 5,500 rpm",
+              "torque": "16.3 kgm / 1,500-4,000 rpm",
+              "transmission": "6速手自排 (非CVT)",
+              "drivetrain": "前輪驅動 (FF)",
+              "suspension": "前麥花臣 / 後扭力樑",
+              "fuel_economy": "19.2 km/L",
+              "dimensions": "3840 x 1735 x 1480 mm (軸距 2450 mm)",
+              "safety": "6氣囊、ESP（無ACC）",
+              "annual_tax_ntd": 8640
+            },
+            {
+              "trim_name": "Swift Sport 1.4T (ZC33S 性能鋼砲版)",
+              "msrp_wan": 82.0,
+              "engine_code": "K14C/K14D 1.4L Boosterjet 渦輪 (+48V輕油電)",
+              "displacement_cc": 1373,
+              "horsepower": "140 ps (前期6AT) / 129.2 ps + 電推 (後期6MT)",
+              "torque": "23.5 kgm / 2,500-3,500 rpm",
+              "transmission": "6速手自排 (18-20) / 6速純手排 (20+)",
+              "drivetrain": "前輪驅動 (FF)",
+              "suspension": "Monroe 專屬運動化懸吊 / 專屬寬體空力套件",
+              "fuel_economy": "16.6 ~ 19.5 km/L",
+              "dimensions": "3890 x 1735 x 1480 mm (軸距 2450 mm)",
+              "safety": "6氣囊、ACC、BSM 盲點、雙出排氣尾管",
+              "annual_tax_ntd": 11920
             }
           ],
           "common_issues": [
