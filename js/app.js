@@ -70,8 +70,18 @@ async function initApp() {
 }
 
 function bindEvents() {
-  document.getElementById("selectBrand").addEventListener("change", (e) => {
-    selectBrand(e.target.value);
+  const dropdown = document.getElementById("brandDropdown");
+  const dropdownBtn = document.getElementById("brandDropdownBtn");
+
+  dropdownBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    dropdown.classList.toggle("open");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove("open");
+    }
   });
 
   document.getElementById("selectModel").addEventListener("change", (e) => {
@@ -99,8 +109,18 @@ function bindEvents() {
   });
 
   ["inputMileage", "selectCondition"].forEach((id) => {
-    document.getElementById(id).addEventListener("input", renderHeroAndKpis);
-    document.getElementById(id).addEventListener("change", renderHeroAndKpis);
+    document.getElementById(id).addEventListener("input", () => {
+      renderHeroAndKpis();
+      renderCostAndMaintenance();
+    });
+    document.getElementById(id).addEventListener("change", () => {
+      renderHeroAndKpis();
+      renderCostAndMaintenance();
+    });
+  });
+
+  ["selectAnnualKm", "selectInsurancePlan"].forEach((id) => {
+    document.getElementById(id).addEventListener("change", renderCostAndMaintenance);
   });
 
   document.getElementById("btnModePrice").addEventListener("click", () => {
@@ -143,8 +163,17 @@ function bindEvents() {
 }
 
 function renderBrandControls() {
-  const selBrand = document.getElementById("selectBrand");
-  selBrand.innerHTML = state.brands.map((b) => `<option value="${b}">${b}</option>`).join("");
+  const menu = document.getElementById("brandDropdownMenu");
+  menu.innerHTML = state.brands
+    .map(
+      (b) => `
+      <button type="button" class="custom-dropdown-item" data-brand="${b}" onclick="pickBrandFromMenu('${b}')">
+        ${getBrandLogoSvg(b)}
+        <span>${b}</span>
+      </button>
+    `
+    )
+    .join("");
 
   const pillsEl = document.getElementById("brandPills");
   pillsEl.innerHTML = state.brands
@@ -152,9 +181,17 @@ function renderBrandControls() {
     .join("");
 }
 
+function pickBrandFromMenu(brand) {
+  document.getElementById("brandDropdown").classList.remove("open");
+  selectBrand(brand);
+}
+
 function selectBrand(brand, preferredCarId = null) {
   state.selectedBrand = brand;
-  document.getElementById("selectBrand").value = brand;
+  document.getElementById("brandDropdownLabel").innerHTML = `${getBrandLogoSvg(brand)}<span>${brand}</span>`;
+  document.querySelectorAll(".custom-dropdown-item").forEach((item) => {
+    item.classList.toggle("active", item.dataset.brand === brand);
+  });
 
   document.querySelectorAll(".brand-pill").forEach((p) => {
     p.classList.toggle("active", p.dataset.brand === brand);
@@ -217,6 +254,7 @@ function renderAllCarViews() {
   updateChartLegendAndButtons();
   renderChart();
   renderQuickSpecs();
+  renderCostAndMaintenance();
   if (state.detailsOpen) renderDetailBody();
 }
 
@@ -311,7 +349,9 @@ function renderPhotoStrip() {
       const active = g.gen_id === currentGen.gen_id ? "active" : "";
       return `
         <div class="gen-photo-card ${active}" onclick="jumpToGen('${g.gen_id}')">
-          <img id="img-${g.gen_id}" class="gen-photo-thumb" alt="${car.brand} ${car.model} ${g.gen_name}" />
+          <div class="gen-photo-wrap">
+            <img id="img-${g.gen_id}" class="gen-photo-thumb" alt="${car.brand} ${car.model} ${g.gen_name}" />
+          </div>
           <div class="gen-photo-body">
             <div class="gen-photo-name">${g.gen_name}</div>
             <div class="gen-photo-years">${yr}</div>
@@ -349,11 +389,14 @@ async function loadGenPhoto(gen) {
     const data = await resp.json();
     const pages = data?.query?.pages ? Object.values(data.query.pages) : [];
 
-    // 過濾出真正的照片檔 (jpg/jpeg/png)
-    const valid = pages.find((p) => {
-      const title = (p.title || "").toLowerCase();
-      return (title.endsWith(".jpg") || title.endsWith(".jpeg") || title.endsWith(".png")) && p.imageinfo?.[0]?.thumburl;
-    });
+    // 優先挑選 PNG 去背圖，若無則選 JPG 照片
+    const validPng = pages.find((p) => (p.title || "").toLowerCase().endsWith(".png") && p.imageinfo?.[0]?.thumburl);
+    const valid =
+      validPng ||
+      pages.find((p) => {
+        const title = (p.title || "").toLowerCase();
+        return (title.endsWith(".jpg") || title.endsWith(".jpeg")) && p.imageinfo?.[0]?.thumburl;
+      });
 
     if (valid) {
       const info = valid.imageinfo[0];
@@ -398,6 +441,178 @@ function renderQuickSpecs() {
     `
     )
     .join("");
+}
+
+function parseFuelKmL(str) {
+  const m = String(str || "").match(/([\d.]+)/);
+  return m ? parseFloat(m[1]) : 14.0;
+}
+
+function renderCostAndMaintenance() {
+  const car = getCurrentCar();
+  const pt = getSelectedPoint();
+  const gen = getSelectedGen();
+  const trim = gen.trims[state.selectedTrimIdx] || gen.trims[0];
+
+  const annualKm = parseInt(document.getElementById("selectAnnualKm").value, 10) || 12000;
+  const insPlan = document.getElementById("selectInsurancePlan").value || "bing";
+  const mileageWan = parseFloat(document.getElementById("inputMileage").value) || 8.0;
+
+  // 1. 年度稅金 + 油錢 + 保養 + 保險
+  const tax = trim.annual_tax_ntd;
+  const kmPerL = parseFuelKmL(trim.fuel_economy);
+  const fuelPrice = 30.5; // 95無鉛參考價
+  const annualFuel = Math.round((annualKm / kmPerL) * fuelPrice);
+
+  const isLuxury = ["Lexus", "Mercedes-Benz", "BMW"].includes(car.brand);
+  const isEuro = ["Volkswagen"].includes(car.brand);
+  const isImportJp = ["Mazda", "Subaru", "Suzuki"].includes(car.brand);
+  const baseMaint = car.brand === "Lexus" ? 13000 : isLuxury ? 26000 : isEuro ? 15000 : isImportJp ? 11000 : 8500;
+
+  // 保險估算
+  const mandatoryIns = 1400;
+  const thirdPartyIns = isLuxury ? 9500 : 7500;
+  let bodyIns = 0;
+  let bodyInsLabel = "未投保車體險";
+  if (insPlan === "bing") {
+    bodyIns = Math.max(4500, Math.round(pt.dealer * 10000 * (isLuxury ? 0.028 : 0.022)));
+    bodyInsLabel = "丙式車碰車險（依殘值估算）";
+  } else if (insPlan === "yi") {
+    bodyIns = Math.max(12000, Math.round(pt.dealer * 10000 * (isLuxury ? 0.052 : 0.042)));
+    bodyInsLabel = "乙式全險（依殘值估算）";
+  }
+  const totalIns = mandatoryIns + thirdPartyIns + bodyIns;
+  const totalAnnual = tax + annualFuel + baseMaint + totalIns;
+  const monthlyAvg = Math.round(totalAnnual / 12);
+
+  // 2. 依車齡與里程估算「買後需維修與整備品項」
+  const age = pt.age_years;
+  const maintItems = [];
+
+  if (age >= 3 || mileageWan >= 5) {
+    maintItems.push({
+      name: "全車油水大保養 (機油/變速箱油/煞車油/水箱精)",
+      cost: isLuxury ? "12,000 ~ 20,000 元" : "6,000 ~ 11,000 元",
+      min: isLuxury ? 12000 : 6000,
+      max: isLuxury ? 20000 : 11000,
+      note: "買中古車建議交車即更換重置保養週期",
+    });
+  }
+  if (age >= 4 || mileageWan >= 6) {
+    maintItems.push({
+      name: "輪胎四條 + 電瓶檢測更換",
+      cost: isLuxury ? "20,000 ~ 32,000 元" : "12,000 ~ 18,000 元",
+      min: isLuxury ? 20000 : 12000,
+      max: isLuxury ? 32000 : 18000,
+      note: "依胎紋年份判斷（超過4年建議更換）",
+    });
+  }
+  if (age >= 7 || mileageWan >= 10) {
+    maintItems.push({
+      name: "避震器 / 引擎腳 / 三角架鐵套等底盤橡膠件",
+      cost: isLuxury ? "25,000 ~ 45,000 元" : "12,000 ~ 24,000 元",
+      min: isLuxury ? 25000 : 12000,
+      max: isLuxury ? 45000 : 24000,
+      note: `車齡 ${age} 年橡膠件多已硬化，影響舒適與異音`,
+    });
+  }
+  if (age >= 10 || mileageWan >= 14) {
+    maintItems.push({
+      name: "冷氣壓縮機 / 發電機 / 水箱冷卻水管路預防整理",
+      cost: isLuxury ? "25,000 ~ 45,000 元" : "10,000 ~ 22,000 元",
+      min: isLuxury ? 25000 : 10000,
+      max: isLuxury ? 45000 : 22000,
+      note: "高齡老車顧路主因，建議預先檢查",
+    });
+  }
+  if (trim.engine_code.includes("Hybrid") || trim.engine_code.includes("e:HEV")) {
+    if (age >= 8 || mileageWan >= 15) {
+      maintItems.push({
+        name: "油電大電池健康度檢查 / 預留更換風險",
+        cost: "45,000 ~ 65,000 元",
+        min: 45000,
+        max: 65000,
+        note: "高里程油電車過保後需留意電池壽命",
+      });
+    }
+  }
+
+  // 加上該世代專屬通病提醒
+  const issueSummaries = gen.common_issues.map(
+    (iss) => `
+    <div class="cost-row">
+      <span class="cost-row-name"><strong>[世代通病]</strong> ${iss.part}</span>
+      <span class="cost-row-val" style="color:var(--red);">${iss.repair_cost_ntd}</span>
+    </div>`
+  );
+
+  const minSum = maintItems.reduce((acc, it) => acc + it.min, 0);
+  const maxSum = maintItems.reduce((acc, it) => acc + it.max, 0);
+  const riskExtra = pt.alert_level === "high" ? 30000 : pt.alert_level === "medium" ? 15000 : 0;
+
+  document.getElementById("costEstimationGrid").innerHTML = `
+    <div class="cost-panel">
+      <div class="cost-panel-title">
+        <span>年度養車成本與保險估算</span>
+        <span class="tag-blue">${pt.year} 年式 ・ 年跑 ${(annualKm / 10000).toFixed(1)} 萬 km</span>
+      </div>
+      <div class="cost-list">
+        <div class="cost-row">
+          <span class="cost-row-name">年度稅金（牌照稅 + 燃料費）</span>
+          <span class="cost-row-val">${tax.toLocaleString()} 元</span>
+        </div>
+        <div class="cost-row">
+          <span class="cost-row-name">預估油錢（平均油耗 ${kmPerL} km/L）</span>
+          <span class="cost-row-val">${annualFuel.toLocaleString()} 元</span>
+        </div>
+        <div class="cost-row">
+          <span class="cost-row-name">基礎保養與耗材攤提（機油/濾芯/基本耗材）</span>
+          <span class="cost-row-val">${baseMaint.toLocaleString()} 元</span>
+        </div>
+        <div class="cost-row">
+          <span class="cost-row-name">強制險 + 第三人責任超額險</span>
+          <span class="cost-row-val">${(mandatoryIns + thirdPartyIns).toLocaleString()} 元</span>
+        </div>
+        <div class="cost-row">
+          <span class="cost-row-name">${bodyInsLabel}</span>
+          <span class="cost-row-val">${bodyIns.toLocaleString()} 元</span>
+        </div>
+      </div>
+      <div class="cost-total-box">
+        <div>
+          <div style="font-size:0.78rem;color:var(--text-sub);font-weight:700;">預估每年養車總開銷</div>
+          <div style="font-size:0.74rem;color:var(--text-muted);">平均每月約 ${monthlyAvg.toLocaleString()} 元</div>
+        </div>
+        <div style="font-size:1.3rem;font-weight:800;color:var(--blue-dark);">${totalAnnual.toLocaleString()} 元/年</div>
+      </div>
+    </div>
+
+    <div class="cost-panel">
+      <div class="cost-panel-title">
+        <span>依車齡/里程需維修品項估算</span>
+        <span class="tag-blue">車齡 ${age} 年 ・ ${mileageWan} 萬 km</span>
+      </div>
+      <div class="cost-list">
+        ${maintItems
+          .map(
+            (it) => `
+          <div class="cost-row">
+            <span class="cost-row-name">${it.name}<br><small style="color:var(--text-muted);">${it.note}</small></span>
+            <span class="cost-row-val">${it.cost}</span>
+          </div>`
+          )
+          .join("")}
+        ${issueSummaries.join("")}
+      </div>
+      <div class="cost-total-box">
+        <div>
+          <div style="font-size:0.78rem;color:var(--text-sub);font-weight:700;">建議額外預留「買後整備維修金」</div>
+          <div style="font-size:0.74rem;color:var(--text-muted);">實際費用視前車主已更換項目而定</div>
+        </div>
+        <div style="font-size:1.15rem;font-weight:800;color:var(--orange);">${((minSum + riskExtra) / 10000).toFixed(1)} ~ ${((maxSum + riskExtra) / 10000).toFixed(1)} 萬</div>
+      </div>
+    </div>
+  `;
 }
 
 function renderDetailBody() {

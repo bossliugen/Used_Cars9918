@@ -55,8 +55,14 @@
     <section class="selector-card">
       <div class="selector-grid">
         <div class="field-group">
-          <label for="selectBrand">1. 選擇品牌 (Brand)</label>
-          <select id="selectBrand" class="select-blue"></select>
+          <label>1. 選擇品牌 (Brand)</label>
+          <div class="custom-dropdown" id="brandDropdown">
+            <button type="button" class="custom-dropdown-btn" id="brandDropdownBtn">
+              <span class="custom-dropdown-label" id="brandDropdownLabel">選擇品牌</span>
+              <span>▾</span>
+            </button>
+            <div class="custom-dropdown-menu" id="brandDropdownMenu"></div>
+          </div>
         </div>
         <div class="field-group">
           <label for="selectModel">2. 選擇車款 (Model)</label>
@@ -129,6 +135,35 @@
 
       <!-- 關鍵規格速覽（6項核心規格一眼看完） -->
       <div class="quick-specs-grid" id="quickSpecsGrid"></div>
+    </section>
+
+    <!-- 3.5 養車成本、保險估算 與 依年份需維修品項估算 -->
+    <section class="card">
+      <div class="chart-header">
+        <div>
+          <div class="section-title">養車成本、保險估算與年份整備維修預估</div>
+          <div class="section-desc">依所選車款、排氣量、車齡與里程，幫買家預估每年持有花費及「買回家後可能需整理維修的品項與費用」</div>
+        </div>
+        <div class="adjust-bar" style="margin-top:0;padding:6px 12px;">
+          <label>
+            年行駛里程：
+            <select id="selectAnnualKm">
+              <option value="8000">8,000 km (少開代步)</option>
+              <option value="12000" selected>12,000 km (一般通勤)</option>
+              <option value="20000">20,000 km (高里程業務)</option>
+            </select>
+          </label>
+          <label>
+            車體險方案：
+            <select id="selectInsurancePlan">
+              <option value="basic">僅強制險 + 第三人超額 (高齡老車推薦)</option>
+              <option value="bing" selected>強制 + 第三人 + 丙式車碰車 (中古車主流)</option>
+              <option value="yi">強制 + 第三人 + 乙式全險 (5年內新古車)</option>
+            </select>
+          </label>
+        </div>
+      </div>
+      <div class="cost-grid" id="costEstimationGrid"></div>
     </section>
 
     <!-- 4. 詳細資料（預設收合，點選即可展開檢視 8891 完整規格 / 通病 / 世代差異 / 明細表） -->
