@@ -29,44 +29,17 @@
       </div>
       <div class="header-actions">
         <span class="stat-chip" id="headerMetaChip">載入中...</span>
-        <button id="btnToggleRanking" class="btn-outline-blue">全台車款保值排行</button>
       </div>
     </div>
   </header>
 
   <main class="container" id="mainContainer">
-    <!-- 保值率總覽排行面板（可開關） -->
-    <section class="card ranking-panel" id="rankingPanel">
-      <div class="chart-header">
-        <div>
-          <div class="section-title">台灣市售車款保值率總覽（依近五年車齡平均車商殘值率排序）</div>
-          <div class="section-desc">點擊任一車款即可直接進入該車完整分析</div>
-        </div>
-        <button id="btnCloseRanking" class="btn-outline-blue">關閉排行</button>
-      </div>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>排名</th>
-              <th>品牌 / 車款</th>
-              <th>級距</th>
-              <th>最新世代</th>
-              <th>平均車商殘值率</th>
-              <th>風險標籤</th>
-              <th>操作</th>
-            </tr>
-          </thead>
-          <tbody id="rankingTableBody"></tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- 入口畫面：僅顯示「自選品牌車款」或「不懂車條件找車」（兩者分頁切換、不同時出現，進來不直接顯示車輛分析） -->
+    <!-- 入口畫面：「自選品牌車款」/「不懂車條件找車」/「全台車款保值排行」（三者分頁切換、不同時出現） -->
     <section id="entryScreen" class="entry-screen">
       <div class="entry-mode-tabs" role="tablist" aria-label="選車模式切換">
         <button type="button" class="entry-mode-btn active" data-entry="manual">自選品牌與車款</button>
         <button type="button" class="entry-mode-btn" data-entry="finder">不懂車條件找車</button>
+        <button type="button" class="entry-mode-btn" data-entry="ranking">全台車款保值排行</button>
       </div>
 
       <!-- 模式 A：自選品牌與車款 -->
@@ -171,10 +144,48 @@
               <input id="finderYearMax" type="number" class="input-blue" value="2026" min="1995" max="2026" placeholder="最高年份" />
             </div>
           </div>
+          <div class="field-group">
+            <label for="finderSort">結果排序方式</label>
+            <select id="finderSort" class="select-blue">
+              <option value="default">預設推薦（最新年份 ＋ 高殘值）</option>
+              <option value="year-desc">年份：新 → 舊</option>
+              <option value="year-asc">年份：舊 → 新</option>
+              <option value="price-asc">價格：低 → 高</option>
+              <option value="price-desc">價格：高 → 低</option>
+              <option value="hp-desc">馬力：高 → 低</option>
+              <option value="hp-asc">馬力：低 → 高</option>
+              <option value="cc-asc">排氣量：小 → 大</option>
+              <option value="cc-desc">排氣量：大 → 小</option>
+            </select>
+          </div>
         </div>
 
         <div id="finderResultCount" class="section-desc" style="margin:14px 0 10px;"></div>
         <div id="finderResultsGrid" class="finder-results-grid"></div>
+      </section>
+
+      <!-- 模式 C：全台車款保值排行 -->
+      <section class="card entry-panel" id="entry-ranking">
+        <div class="entry-panel-head">
+          <div class="section-title">台灣市售車款保值率總覽（依近五年車齡平均車商殘值率排序）</div>
+          <div class="section-desc">點擊任一車款即可直接進入該車完整分析，亦可隨時從左上角返回排行頁</div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>排名</th>
+                <th>品牌 / 車款</th>
+                <th>級距</th>
+                <th>最新世代</th>
+                <th>平均車商殘值率</th>
+                <th>風險標籤</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody id="rankingTableBody"></tbody>
+          </table>
+        </div>
       </section>
     </section>
 

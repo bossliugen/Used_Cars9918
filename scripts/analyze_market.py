@@ -28,6 +28,9 @@ if str(SCRIPT_DIR) not in sys.path:
 
 from raw_database import CARS_DATABASE, DATA_SOURCES
 from raw_database_extra import EXTRA_CARS_DATABASE
+from raw_database_catalog import CATALOG_EXTRA_CARS
+from raw_database_catalog_part2 import CATALOG_EXTRA_CARS_PART2
+from raw_database_catalog_part3 import CATALOG_EXTRA_CARS_PART3, EXTRA_GENS_BY_CAR_ID
 
 REFERENCE_YEAR = 2026
 
@@ -165,16 +168,131 @@ def compute_analytics(cars_db, sources):
     }
 
 
+def export_photo_specs(analyzed_cars):
+    """產出給補圖代理專用的詳細規格表：assets/cars/PHOTO_SPEC.json 與 PHOTO_SPEC.md"""
+    cars_dir = ROOT_DIR / "assets" / "cars"
+    cars_dir.mkdir(parents=True, exist_ok=True)
+
+    specs = []
+    ready_cnt = 0
+    needs_cnt = 0
+
+    for car in analyzed_cars:
+        for gen in car["generations"]:
+            gen_id = gen["gen_id"]
+            jpg_path = cars_dir / f"{gen_id}.jpg"
+            has_photo = jpg_path.exists() and jpg_path.stat().st_size > 1000
+            status = "READY" if has_photo else "NEEDS_PHOTO"
+            if has_photo:
+                ready_cnt += 1
+            else:
+                needs_cnt += 1
+
+            ps = gen.get("photo_spec") or {}
+            yrs = gen.get("years") or []
+            yr_range = f"{yrs[0]}-{yrs[-1]}" if yrs else ""
+
+            specs.append(
+                {
+                    "gen_id": gen_id,
+                    "status": status,
+                    "expected_filename": f"assets/cars/{gen_id}.jpg",
+                    "brand": car["brand"],
+                    "model": car["model"],
+                    "gen_name": gen["gen_name"],
+                    "years": yr_range,
+                    "origin": gen.get("origin", ""),
+                    "body_style": ps.get("body_style", car.get("category", "")),
+                    "photo_query": gen.get("photo_query", f"{car['brand']} {car['model']} {yr_range}"),
+                    "visual_cues": ps.get("visual_cues", gen.get("major_change_note", "")),
+                    "target_dimensions": ps.get("dimensions", "640x420"),
+                    "background": ps.get("background", "#FFFFFF (純白背景去背，車輛置中占畫面約 80%-85%)"),
+                    "angle": ps.get("angle", "前斜側 45 度 (Front 3/4 view)"),
+                }
+            )
+
+    spec_json = {
+        "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "summary": {
+            "total_slots": len(specs),
+            "ready_photos": ready_cnt,
+            "needs_photo": needs_cnt,
+        },
+        "global_requirements": {
+            "format": "JPEG (.jpg)",
+            "resolution": "640 x 420 px (4:2.625 橫向)",
+            "background": "純白背景 (#FFFFFF)，車身完整去背不裁切輪胎或後視鏡，底部可保留極淡自然陰影",
+            "angle": "前斜側 45 度角（車頭朝左或朝右皆可），優先挑選台灣市售對應規格外觀",
+            "naming": "務必完全符合 expected_filename，即 assets/cars/<gen_id>.jpg",
+        },
+        "items": specs,
+    }
+
+    with open(cars_dir / "PHOTO_SPEC.json", "w", encoding="utf-8") as f:
+        json.dump(spec_json, f, ensure_ascii=False, indent=2)
+
+    md_lines = [
+        "# 實車去背照片規格清單 (PHOTO_SPEC)",
+        "",
+        f"- 產生時間：{spec_json['generated_at']}",
+        f"- 總車款世代槽位：**{len(specs)}** 張（已完成：**{ready_cnt}** 張 / **待補圖：{needs_cnt}** 張）",
+        "- 統一規格：`640 x 420 px` JPG、純白背景 (`#FFFFFF`) 去背、前斜側 45 度角、勿裁切車頭尾。",
+        "",
+        "## 待補照片清單 (NEEDS_PHOTO)",
+        "",
+        "| `gen_id` | 品牌 / 車款 / 世代 | 年份 | 關鍵搜尋詞 (`photo_query`) | 必看外觀辨識特徵 (`visual_cues`) | 目標檔名 |",
+        "|---|---|---|---|---|---|",
+    ]
+    for s in specs:
+        if s["status"] == "NEEDS_PHOTO":
+            cues = str(s["visual_cues"]).replace("|", "/")
+            md_lines.append(
+                f"| `{s['gen_id']}` | {s['brand']} {s['model']} — {s['gen_name']} | {s['years']} | `{s['photo_query']}` | {cues} | `{s['expected_filename']}` |"
+            )
+
+    md_lines.extend(["", "## 已有照片清單 (READY)", "", "| `gen_id` | 品牌 / 車款 / 世代 | 年份 | 檔名 |", "|---|---|---|---|"])
+    for s in specs:
+        if s["status"] == "READY":
+            md_lines.append(
+                f"| `{s['gen_id']}` | {s['brand']} {s['model']} — {s['gen_name']} | {s['years']} | `{s['expected_filename']}` |"
+            )
+
+    with open(cars_dir / "PHOTO_SPEC.md", "w", encoding="utf-8") as f:
+        f.write("\n".join(md_lines) + "\n")
+
+    print(f"[OK] 已輸出補圖規格書: PHOTO_SPEC.json / PHOTO_SPEC.md (總計 {len(specs)} 槽位: 已有 {ready_cnt} / 待補 {needs_cnt})")
+
+
 def build_database():
-    """產出 data/cars_db.json"""
+    """產出 data/cars_db.json 與 PHOTO_SPEC"""
     data_dir = ROOT_DIR / "data"
     data_dir.mkdir(parents=True, exist_ok=True)
     output_path = data_dir / "cars_db.json"
 
-    all_cars = CARS_DATABASE + EXTRA_CARS_DATABASE
+    import copy
+    base_cars = copy.deepcopy(CARS_DATABASE + EXTRA_CARS_DATABASE)
+    by_id = {c["id"]: c for c in base_cars}
+
+    # 合併既有車系的細分世代
+    for cid, extra_gens in EXTRA_GENS_BY_CAR_ID.items():
+        if cid in by_id:
+            existing_ids = {g["gen_id"] for g in by_id[cid]["generations"]}
+            for g in extra_gens:
+                if g["gen_id"] not in existing_ids:
+                    by_id[cid]["generations"].append(g)
+            by_id[cid]["generations"].sort(key=lambda x: x["years"][0] if x.get("years") else 9999)
+
+    for extra_car in CATALOG_EXTRA_CARS + CATALOG_EXTRA_CARS_PART2 + CATALOG_EXTRA_CARS_PART3:
+        if extra_car["id"] not in by_id:
+            base_cars.append(extra_car)
+            by_id[extra_car["id"]] = extra_car
+
+    all_cars = base_cars
     result = compute_analytics(all_cars, DATA_SOURCES)
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
+
+    export_photo_specs(result["cars"])
 
     print(f"[OK] 已成功計算並輸出資料庫: {output_path}")
     print(

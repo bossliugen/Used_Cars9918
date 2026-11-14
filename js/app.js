@@ -19,6 +19,11 @@ const BRAND_LOGOS = {
   "Mercedes-Benz": `<svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="13" cy="13" r="10.5"/><path d="M13 2.5V13m0 0l-8.8 5.2M13 13l8.8 5.2"/></svg>`,
   BMW: `<svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="13" cy="13" r="10.5"/><circle cx="13" cy="13" r="6.5"/><path d="M13 6.5v13M6.5 13h13"/></svg>`,
   Suzuki: `<svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16.5 3.5L6.5 10l9 4-6 4.5 10 4 0-5.5-8.5-3.5 5.5-4z"/></svg>`,
+  Mitsubishi: `<svg viewBox="0 0 28 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3L17.5 9.5L14 15L10.5 9.5Z"/><path d="M14 15L21.5 15L24.5 21L17 21Z"/><path d="M14 15L6.5 15L3.5 21L11 21Z"/></svg>`,
+  Kia: `<svg viewBox="0 0 36 20" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="18" cy="10" rx="16" ry="8"/><path d="M9 13V7m0 3l3.5-3M9 10l3.5 3M17 7v6M21.5 13L24 7l2.5 6"/></svg>`,
+  Skoda: `<svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="13" cy="13" r="10.5"/><path d="M7 14c3-5 8-5 12-1-4 0-7 2-9 5z"/></svg>`,
+  Volvo: `<svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="14" r="8"/><path d="M17.5 8.5L22 4m0 0h-4.5M22 4v4.5"/></svg>`,
+  Luxgen: `<svg viewBox="0 0 28 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 5v14h11"/><path d="M13 5c3 4 4 8 2 14"/></svg>`,
 };
 
 function getBrandLogoSvg(brand, large = false) {
@@ -187,15 +192,7 @@ function bindEvents() {
     renderAllCarViews();
   });
 
-  document.getElementById("btnToggleRanking").addEventListener("click", () => {
-    document.getElementById("rankingPanel").classList.toggle("open");
-  });
-
-  document.getElementById("btnCloseRanking").addEventListener("click", () => {
-    document.getElementById("rankingPanel").classList.remove("open");
-  });
-
-  ["finderGoal", "finderBody", "finderMaxCc"].forEach((id) => {
+  ["finderGoal", "finderBody", "finderMaxCc", "finderSort"].forEach((id) => {
     document.getElementById(id).addEventListener("change", renderSmartFinder);
   });
   ["finderBudgetMin", "finderBudgetMax", "finderHpMin", "finderHpMax", "finderYearMin", "finderYearMax"].forEach((id) => {
@@ -222,7 +219,6 @@ function enterAnalysisScreen(sourceMode = "manual") {
   state.inAnalysis = true;
   document.getElementById("entryScreen").classList.add("hidden");
   document.getElementById("analysisScreen").classList.remove("hidden");
-  document.getElementById("rankingPanel").classList.remove("open");
   syncAnalysisQuickSelectors();
   renderAllCarViews();
   switchPage("overview");
@@ -519,7 +515,7 @@ async function loadGenPhoto(gen) {
   const creditEl = document.getElementById(`credit-${gen.gen_id}`);
   if (!imgEl || !creditEl) return;
 
-  // 優先使用本地去背白底圖 (assets/cars/<gen_id>.jpg)
+  // 優先使用本地去背白底圖 (assets/cars/<gen_id>.jpg)，若尚未補圖則顯示問號佔位圖
   const localUrl = `assets/cars/${gen.gen_id}.jpg`;
   try {
     const headResp = await fetch(localUrl, { method: "HEAD" });
@@ -529,51 +525,11 @@ async function loadGenPhoto(gen) {
       return;
     }
   } catch (e) {
-    // fallback to Wikimedia API
+    // fallback to placeholder
   }
 
-  const query = gen.photo_query || gen.gen_name;
-  const cacheKey = `wiki_photo_v1_${query}`;
-
-  try {
-    const cached = localStorage.getItem(cacheKey);
-    if (cached) {
-      const parsed = JSON.parse(cached);
-      imgEl.src = parsed.url;
-      creditEl.innerHTML = `出處：<a href="${parsed.pageUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Wikimedia (${parsed.license})</a>`;
-      return;
-    }
-
-    const apiUrl = `https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrnamespace=6&gsrsearch=${encodeURIComponent(
-      query
-    )}&gsrlimit=5&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=480&format=json&origin=*`;
-    const resp = await fetch(apiUrl);
-    const data = await resp.json();
-    const pages = data?.query?.pages ? Object.values(data.query.pages) : [];
-
-    // 優先挑選 PNG 去背圖，若無則選 JPG 照片
-    const validPng = pages.find((p) => (p.title || "").toLowerCase().endsWith(".png") && p.imageinfo?.[0]?.thumburl);
-    const valid =
-      validPng ||
-      pages.find((p) => {
-        const title = (p.title || "").toLowerCase();
-        return (title.endsWith(".jpg") || title.endsWith(".jpeg")) && p.imageinfo?.[0]?.thumburl;
-      });
-
-    if (valid) {
-      const info = valid.imageinfo[0];
-      const license = info.extmetadata?.LicenseShortName?.value || "CC";
-      const pageUrl = info.descriptionurl || `https://commons.wikimedia.org/wiki/${encodeURIComponent(valid.title)}`;
-      const result = { url: info.thumburl, license, pageUrl };
-      localStorage.setItem(cacheKey, JSON.stringify(result));
-      imgEl.src = result.url;
-      creditEl.innerHTML = `出處：<a href="${result.pageUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Wikimedia (${result.license})</a>`;
-    } else {
-      creditEl.textContent = "暫無外型圖（請點此切換世代）";
-    }
-  } catch (e) {
-    creditEl.textContent = "圖片來源：Wikimedia Commons";
-  }
+  imgEl.src = "assets/cars/placeholder.svg";
+  creditEl.textContent = `待補實車去背照 (${gen.gen_id}.jpg)`;
 }
 
 function renderChart() {
@@ -986,7 +942,7 @@ function renderRankingTable() {
 
 function pickFromRanking(brand, carId) {
   selectBrand(brand, carId);
-  enterAnalysisScreen(state.entryMode || "manual");
+  enterAnalysisScreen("ranking");
 }
 
 function parseMaxHp(hpStr) {
@@ -1084,7 +1040,29 @@ function renderSmartFinder() {
     });
   });
 
-  matches.sort((a, b) => b.year - a.year || b.residual - a.residual);
+  const sortMode = document.getElementById("finderSort")?.value || "default";
+  matches.sort((a, b) => {
+    switch (sortMode) {
+      case "year-desc":
+        return b.year - a.year || b.residual - a.residual;
+      case "year-asc":
+        return a.year - b.year || b.residual - a.residual;
+      case "price-asc":
+        return a.price - b.price || b.year - a.year;
+      case "price-desc":
+        return b.price - a.price || b.year - a.year;
+      case "hp-desc":
+        return b.hp - a.hp || b.year - a.year;
+      case "hp-asc":
+        return a.hp - b.hp || b.year - a.year;
+      case "cc-asc":
+        return a.cc - b.cc || b.year - a.year;
+      case "cc-desc":
+        return b.cc - a.cc || b.year - a.year;
+      default:
+        return b.year - a.year || b.residual - a.residual;
+    }
+  });
 
   document.getElementById("finderResultCount").textContent =
     `共找到 ${matches.length} 筆符合條件的世代與版本組合（點擊任一卡片直接進入分析）`;
@@ -1096,12 +1074,12 @@ function renderSmartFinder() {
   }
 
   grid.innerHTML = matches
-    .slice(0, 40)
+    .slice(0, 60)
     .map(
       (m) => `
       <button type="button" class="finder-card" onclick="pickFromFinder('${m.car.brand}','${m.car.id}',${m.year},${m.trimIdx})">
         <div class="finder-card-photo">
-          <img src="assets/cars/${m.gen.gen_id}.jpg" alt="${m.car.brand} ${m.car.model}" loading="lazy" onerror="this.style.opacity='0.2'" />
+          <img src="assets/cars/${m.gen.gen_id}.jpg" alt="${m.car.brand} ${m.car.model}" loading="lazy" onerror="this.onerror=null;this.src='assets/cars/placeholder.svg';" />
         </div>
         <div class="finder-card-top">
           <div>
