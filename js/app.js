@@ -328,7 +328,7 @@ function renderHeroAndKpis() {
     ${getBrandLogoSvg(car.brand, true)}
     <span>${car.brand} ${car.model} ・ ${pt.year} 年式</span>
     <span class="tag-blue">${gen.gen_name}</span>
-    <span class="tag-blue" style="background:#dbeafe;color:#1e40af;">${trim.trim_name}</span>
+    <span class="tag-blue" style="background:var(--sage-soft);border-color:#C8DDD0;color:var(--blue-primary);">${trim.trim_name}</span>
   `;
   document.getElementById("heroSub").textContent = car.summary;
 
@@ -386,16 +386,16 @@ function updateChartLegendAndButtons() {
   const legend = document.getElementById("chartLegend");
   if (state.chartMode === "price") {
     legend.innerHTML = `
-      <span class="legend-item"><span class="legend-line" style="background:#94a3b8;"></span>當年新車 MSRP</span>
-      <span class="legend-item"><span class="legend-line" style="background:#2563eb;"></span>認證車商均價</span>
-      <span class="legend-item"><span class="legend-line" style="background:#10b981;"></span>非第三方民間自售實價</span>
-      <span class="legend-item"><span class="legend-line" style="background:#f59e0b;"></span>權威天書基準</span>
+      <span class="legend-item"><span class="legend-line" style="background:#A8A29E;"></span>當年新車 MSRP</span>
+      <span class="legend-item"><span class="legend-line" style="background:#1B4332;"></span>認證車商均價</span>
+      <span class="legend-item"><span class="legend-line" style="background:#40916C;"></span>非第三方民間自售實價</span>
+      <span class="legend-item"><span class="legend-line" style="background:#B45309;"></span>權威天書基準</span>
     `;
   } else {
     legend.innerHTML = `
-      <span class="legend-item"><span class="legend-line" style="background:#2563eb;"></span>車商殘值率 (%)</span>
-      <span class="legend-item"><span class="legend-line" style="background:#10b981;"></span>民間自售殘值率 (%)</span>
-      <span class="legend-item"><span class="legend-line" style="background:#f59e0b;"></span>天書殘值率 (%)</span>
+      <span class="legend-item"><span class="legend-line" style="background:#1B4332;"></span>車商殘值率 (%)</span>
+      <span class="legend-item"><span class="legend-line" style="background:#40916C;"></span>民間自售殘值率 (%)</span>
+      <span class="legend-item"><span class="legend-line" style="background:#B45309;"></span>天書殘值率 (%)</span>
     `;
   }
 }

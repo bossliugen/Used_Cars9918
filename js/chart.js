@@ -65,26 +65,26 @@ class MarketTrendChart {
   _showTooltip(ptMeta, mouseX, mouseY, containerWidth) {
     const d = ptMeta.data;
     const majorTag = d.is_major_change
-      ? `<span style="color:#7c3aed;font-weight:700;"> ★ 大改款</span>`
+      ? `<span style="color:#1B4332;font-weight:700;"> ★ 大改款</span>`
       : "";
     const riskTag =
       d.alert_level === "high"
-        ? `<div style="color:#dc2626;font-size:0.75rem;margin-top:4px;font-weight:600;">⚠ 高風險通病/殘值劇降區間</div>`
+        ? `<div style="color:#991B1B;font-size:0.75rem;margin-top:4px;font-weight:600;">⚠ 高風險通病/殘值劇降區間</div>`
         : d.alert_level === "medium"
-        ? `<div style="color:#d97706;font-size:0.75rem;margin-top:4px;font-weight:600;">● 需留意特定通病</div>`
+        ? `<div style="color:#B45309;font-size:0.75rem;margin-top:4px;font-weight:600;">● 需留意特定通病</div>`
         : "";
 
     this.tooltip.innerHTML = `
-      <div style="font-weight:700;font-size:0.9rem;color:#0f172a;margin-bottom:2px;">
+      <div style="font-weight:700;font-size:0.9rem;color:#1C1917;margin-bottom:2px;">
         ${d.year} 年式${majorTag}
       </div>
-      <div style="color:#64748b;font-size:0.76rem;margin-bottom:7px;">${d.gen_name}</div>
+      <div style="color:#57534E;font-size:0.76rem;margin-bottom:7px;">${d.gen_name}</div>
       <div style="display:grid;grid-template-columns:1fr auto;gap:3px 14px;font-size:0.8rem;">
-        <span style="color:#64748b;">當年新車 MSRP：</span><strong style="color:#334155;">${d.msrp.toFixed(1)} 萬</strong>
-        <span style="color:#2563eb;">認證車商均價：</span><strong style="color:#1d4ed8;">${d.dealer.toFixed(1)} 萬 (${d.residual_dealer_pct}%)</strong>
-        <span style="color:#059669;">非第三方自售實價：</span><strong style="color:#047857;">${d.private.toFixed(1)} 萬 (${d.residual_private_pct}%)</strong>
-        <span style="color:#d97706;">權威天書基準價：</span><strong style="color:#b45309;">${d.book.toFixed(1)} 萬 (${d.residual_book_pct}%)</strong>
-        <span style="color:#64748b;">車商 / 自售價差：</span><span style="color:#334155;">+${d.dealer_private_spread_wan.toFixed(1)} 萬 (${d.dealer_private_spread_pct}%)</span>
+        <span style="color:#57534E;">當年新車 MSRP：</span><strong style="color:#1C1917;">${d.msrp.toFixed(1)} 萬</strong>
+        <span style="color:#1B4332;">認證車商均價：</span><strong style="color:#143326;">${d.dealer.toFixed(1)} 萬 (${d.residual_dealer_pct}%)</strong>
+        <span style="color:#40916C;">非第三方自售實價：</span><strong style="color:#2D6A4F;">${d.private.toFixed(1)} 萬 (${d.residual_private_pct}%)</strong>
+        <span style="color:#B45309;">權威天書基準價：</span><strong style="color:#92400E;">${d.book.toFixed(1)} 萬 (${d.residual_book_pct}%)</strong>
+        <span style="color:#57534E;">車商 / 自售價差：</span><span style="color:#1C1917;">+${d.dealer_private_spread_wan.toFixed(1)} 萬 (${d.dealer_private_spread_pct}%)</span>
       </div>
       ${riskTag}
     `;
@@ -172,7 +172,7 @@ class MarketTrendChart {
       if (d.is_major_change) {
         const x = xAt(i);
         ctx.save();
-        ctx.strokeStyle = "rgba(124, 58, 237, 0.45)";
+        ctx.strokeStyle = "rgba(27, 67, 50, 0.4)";
         ctx.setLineDash([4, 4]);
         ctx.lineWidth = 1.5;
         ctx.beginPath();
@@ -181,8 +181,8 @@ class MarketTrendChart {
         ctx.stroke();
         ctx.restore();
 
-        ctx.fillStyle = "#6d28d9";
-        ctx.font = "bold 11px sans-serif";
+        ctx.fillStyle = "#1B4332";
+        ctx.font = "600 11px sans-serif";
         ctx.textAlign = "center";
         ctx.fillText(`★ 大改款 ${d.year}`, x, pad.top - 14);
       }
@@ -193,7 +193,7 @@ class MarketTrendChart {
       if (this.selectedYear && d.year === this.selectedYear) {
         const x = xAt(i);
         ctx.save();
-        ctx.strokeStyle = "rgba(37, 99, 235, 0.3)";
+        ctx.strokeStyle = "rgba(27, 67, 50, 0.18)";
         ctx.lineWidth = 6;
         ctx.beginPath();
         ctx.moveTo(x, pad.top);
@@ -210,7 +210,7 @@ class MarketTrendChart {
     this.timeline.forEach((d, i) => {
       const x = xAt(i);
       const isSelected = this.selectedYear && d.year === this.selectedYear;
-      ctx.fillStyle = isSelected ? "#1d4ed8" : "#64748b";
+      ctx.fillStyle = isSelected ? "#1B4332" : "#57534E";
       ctx.font = isSelected ? "bold 12px sans-serif" : "11px sans-serif";
       if (this.timeline.length <= 14 || i % 2 === 0 || d.is_major_change || isSelected || i === this.timeline.length - 1) {
         ctx.fillText(String(d.year), x, pad.top + plotH + 10);
@@ -232,8 +232,8 @@ class MarketTrendChart {
         ctx.lineTo(xAt(0), pad.top + plotH);
         ctx.closePath();
         const grad = ctx.createLinearGradient(0, pad.top, 0, pad.top + plotH);
-        grad.addColorStop(0, "rgba(37, 99, 235, 0.14)");
-        grad.addColorStop(1, "rgba(37, 99, 235, 0.01)");
+        grad.addColorStop(0, "rgba(27, 67, 50, 0.10)");
+        grad.addColorStop(1, "rgba(27, 67, 50, 0.01)");
         ctx.fillStyle = grad;
         ctx.fill();
         ctx.restore();
@@ -269,14 +269,14 @@ class MarketTrendChart {
     };
 
     if (this.mode === "price") {
-      drawLine("msrp", "#94a3b8", true, 1.8, false);
-      drawLine("book", "#f59e0b", true, 2.2, false);
-      drawLine("private", "#10b981", false, 2.6, false);
-      drawLine("dealer", "#2563eb", false, 3.0, true);
+      drawLine("msrp", "#A8A29E", true, 1.8, false);
+      drawLine("book", "#B45309", true, 2.2, false);
+      drawLine("private", "#40916C", false, 2.6, false);
+      drawLine("dealer", "#1B4332", false, 3.0, true);
     } else {
-      drawLine("residual_book_pct", "#f59e0b", true, 2.2, false);
-      drawLine("residual_private_pct", "#10b981", false, 2.6, false);
-      drawLine("residual_dealer_pct", "#2563eb", false, 3.0, true);
+      drawLine("residual_book_pct", "#B45309", true, 2.2, false);
+      drawLine("residual_private_pct", "#40916C", false, 2.6, false);
+      drawLine("residual_dealer_pct", "#1B4332", false, 3.0, true);
     }
 
     if (this.hoverIndex >= 0 && this.hoverIndex < this.timeline.length) {
