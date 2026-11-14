@@ -89,6 +89,44 @@ body {
   color: var(--text-stone);
 }
 
+.header-roofline-svg {
+  height: 36px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* Smooth Entrance & Scroll-Reveal Choreography */
+@keyframes gentleFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes softFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.anim-hero {
+  animation: gentleFadeUp 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.anim-filter {
+  animation: gentleFadeUp 600ms cubic-bezier(0.22, 1, 0.36, 1) 150ms both;
+}
+
 .header-meta {
   display: flex;
   align-items: center;
@@ -297,7 +335,17 @@ body {
   text-align: left;
   display: flex;
   flex-direction: column;
-  transition: border-color 0.18s ease;
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 550ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 550ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 180ms ease;
+}
+
+.listing-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .listing-card:hover {
@@ -432,7 +480,7 @@ body {
   border-left: 1px solid var(--border-warm);
   display: flex;
   flex-direction: column;
-  animation: slideInRight 0.22s ease-out;
+  animation: slideInRight 280ms ease-out both;
 }
 
 .drawer-sm {
@@ -446,8 +494,13 @@ body {
 }
 
 @keyframes slideInRight {
-  from { transform: translateX(24px); opacity: 0.6; }
+  from { transform: translateX(32px); opacity: 0; }
   to { transform: translateX(0); opacity: 1; }
+}
+
+.spec-item,
+.record-card {
+  animation: softFadeIn 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .drawer-header {
@@ -750,7 +803,23 @@ body {
   .spec-table {
     grid-template-columns: 1fr;
   }
-  .brand-tagline {
+  .brand-tagline,
+  .header-roofline-svg {
     display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-hero,
+  .anim-filter,
+  .drawer-panel,
+  .spec-item,
+  .record-card {
+    animation: none !important;
+  }
+  .listing-card {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: border-color 180ms ease !important;
   }
 }

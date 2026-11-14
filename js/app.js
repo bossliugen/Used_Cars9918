@@ -525,7 +525,7 @@ async function loadGenPhoto(gen) {
     const headResp = await fetch(localUrl, { method: "HEAD" });
     if (headResp.ok) {
       imgEl.src = localUrl;
-      creditEl.textContent = "去背白底圖 (Wikimedia Commons)";
+      creditEl.textContent = "去背白底圖 (實拍 / 原廠圖庫)";
       return;
     }
   } catch (e) {

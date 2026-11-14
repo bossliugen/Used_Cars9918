@@ -11,14 +11,21 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- 頂部品牌列：原生 HTML/CSS 繪製 GEN. 字標，透明底色、置左不偏移 -->
+  <!-- 頂部品牌列：原生 HTML/CSS 繪製 GEN. 字標 + Tight-cropped 車頂線條矢量圖 -->
   <header class="site-header">
     <div class="container header-inner">
-      <div class="brand-group">
+      <div class="brand-group anim-hero">
         <a href="#" class="brand-wordmark" aria-label="GEN.">GEN<span class="brand-dot" aria-hidden="true"></span></a>
+        <svg class="header-roofline-svg" viewBox="0 0 180 36" fill="none" aria-hidden="true">
+          <path d="M4 18 C24 18, 42 4, 76 4 C106 4, 128 11, 150 15 L176 18" stroke="#1C1917" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+          <line x1="10" y1="29" x2="170" y2="29" stroke="#DFD9CE" stroke-width="1.5" />
+          <circle cx="38" cy="29" r="3" fill="#1B4332" />
+          <circle cx="90" cy="29" r="3" fill="#1C1917" />
+          <circle cx="142" cy="29" r="3" fill="#1B4332" />
+        </svg>
         <span class="brand-tagline">台灣中古車實價趨勢與世代資料庫</span>
       </div>
-      <div class="header-meta">
+      <div class="header-meta anim-hero">
         <span class="result-count" id="resultCount">載入車源中...</span>
         <button type="button" class="btn-outline" id="btnCompareOpen">比較清單 (<span id="compareCount">0</span>)</button>
       </div>
@@ -26,7 +33,7 @@
   </header>
 
   <!-- 單行置頂冷靜篩選列 -->
-  <div class="sticky-filter-bar">
+  <div class="sticky-filter-bar anim-filter">
     <div class="container filter-bar-inner">
       <div class="search-wrap">
         <input
@@ -76,19 +83,11 @@
 
   <!-- 主列表區 -->
   <main class="container main-feed">
-    <div class="feed-intro">
+    <div class="feed-intro anim-hero">
       <div class="feed-intro-copy">
         <h1 class="feed-title">實價趨勢與在售透明車源</h1>
         <p class="feed-sub" id="activeFilterSummary">整合實價行情、跨世代折舊與養車重點，點擊任一車款可開啟右側抽屜檢視完整資料。</p>
       </div>
-      <!-- 極簡無外框車頂線條與三節點世代時間軸矢量圖（Tight-cropped 2D SVG） -->
-      <svg class="feed-roofline-svg" viewBox="0 0 220 44" fill="none" aria-hidden="true">
-        <path d="M12 22 C36 22, 54 6, 94 6 C128 6, 152 14, 178 18 L208 22" stroke="#1C1917" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
-        <line x1="20" y1="35" x2="200" y2="35" stroke="#DFD9CE" stroke-width="1.5" />
-        <circle cx="48" cy="35" r="3.5" fill="#1B4332" />
-        <circle cx="110" cy="35" r="3.5" fill="#1C1917" />
-        <circle cx="172" cy="35" r="3.5" fill="#1B4332" />
-      </svg>
     </div>
 
     <div class="listing-grid" id="listingGrid"></div>

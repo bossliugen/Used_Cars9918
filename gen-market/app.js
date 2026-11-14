@@ -169,9 +169,32 @@ function renderListings() {
     )
     .join("");
 
-  grid.querySelectorAll(".listing-card").forEach((card) => {
+  const cards = grid.querySelectorAll(".listing-card");
+  cards.forEach((card, idx) => {
+    const colDelay = (idx % 3) * 70;
+    card.style.transitionDelay = `${colDelay}ms, ${colDelay}ms, 0ms`;
     card.addEventListener("click", () => openDetailDrawer(card.dataset.id));
   });
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
+    cards.forEach((c) => c.classList.add("is-visible"));
+    return;
+  }
+
+  if (window._genCardObserver) window._genCardObserver.disconnect();
+  window._genCardObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.08, rootMargin: "0px 0px -24px 0px" }
+  );
+
+  cards.forEach((card) => window._genCardObserver.observe(card));
 }
 
 function openDetailDrawer(id) {

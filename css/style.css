@@ -85,6 +85,22 @@ body {
   flex-shrink: 0;
 }
 
+.header-roofline-svg {
+  height: 36px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-enter,
+  .entry-panel.active,
+  .page-panel.active,
+  .ranking-panel.open {
+    animation: none !important;
+  }
+}
+
 .brand-logo h1 {
   font-family: var(--font-sans);
   font-size: 1.06rem;
