@@ -22,93 +22,18 @@
       </div>
       <div class="header-actions">
         <span class="stat-chip" id="headerMetaChip">載入中...</span>
-        <button id="btnToggleFinder" class="btn-outline-blue">不懂車條件找車</button>
         <button id="btnToggleRanking" class="btn-outline-blue">全台車款保值排行</button>
       </div>
     </div>
   </header>
 
   <main class="container" id="mainContainer">
-    <!-- 不懂車條件找車面板（可開關） -->
-    <section class="card ranking-panel" id="smartFinderPanel">
-      <div class="chart-header">
-        <div>
-          <div class="section-title">不懂車快速找車（依預算、安全保值、馬力、排氣量、車型篩選）</div>
-          <div class="section-desc">設定您的需求條件，系統會從全台資料庫篩出最符合的年份與版本，點擊即可查看完整分析</div>
-        </div>
-        <button id="btnCloseFinder" class="btn-outline-blue">關閉找車</button>
-      </div>
-
-      <div class="finder-filters">
-        <div class="field-group">
-          <label for="finderGoal">購車優先考量</label>
-          <select id="finderGoal" class="select-blue">
-            <option value="all">不限取向</option>
-            <option value="safe-value">安全保值首選（低風險 + 高殘值）</option>
-            <option value="easy-own">省稅省油好養（低養車負擔）</option>
-            <option value="no-high-risk">避開高風險通病車款</option>
-          </select>
-        </div>
-        <div class="field-group">
-          <label for="finderBody">車型種類</label>
-          <select id="finderBody" class="select-blue">
-            <option value="all">全部車型</option>
-            <option value="小車">掀背 / 都會小車</option>
-            <option value="房車">四門房車</option>
-            <option value="休旅">休旅車 (SUV / MPV)</option>
-            <option value="跑車旅行">敞篷跑車 / 旅行車</option>
-          </select>
-        </div>
-        <div class="field-group">
-          <label for="finderBudget">預算上限 (萬元)</label>
-          <select id="finderBudget" class="select-blue">
-            <option value="999">不限預算</option>
-            <option value="30">30 萬以內</option>
-            <option value="50">50 萬以內</option>
-            <option value="80">80 萬以內</option>
-            <option value="120">120 萬以內</option>
-          </select>
-        </div>
-        <div class="field-group">
-          <label for="finderMinYear">出廠年份</label>
-          <select id="finderMinYear" class="select-blue">
-            <option value="0">不限年份 (2000+)</option>
-            <option value="2020">2020 年以後</option>
-            <option value="2015">2015 年以後</option>
-            <option value="2010">2010 年以後</option>
-            <option value="2000-2010">2000 – 2010 經典老車</option>
-          </select>
-        </div>
-        <div class="field-group">
-          <label for="finderMinHp">馬力需求</label>
-          <select id="finderMinHp" class="select-blue">
-            <option value="0">不限馬力</option>
-            <option value="120">120 匹以上（日常夠用）</option>
-            <option value="150">150 匹以上（高速輕快）</option>
-            <option value="180">180 匹以上（動力充沛）</option>
-            <option value="220">220 匹以上（性能鋼砲）</option>
-          </select>
-        </div>
-        <div class="field-group">
-          <label for="finderMaxCc">排氣量上限（省稅金）</label>
-          <select id="finderMaxCc" class="select-blue">
-            <option value="9999">不限排氣量</option>
-            <option value="1200">1,200 cc 以下（年稅 $8,640）</option>
-            <option value="1800">1,800 cc 以下（年稅 $11,920）</option>
-            <option value="2000">2,000 cc 以下（年稅 $17,410）</option>
-          </select>
-        </div>
-      </div>
-
-      <div id="finderResultCount" class="section-desc" style="margin:12px 0 10px;"></div>
-      <div id="finderResultsGrid" class="finder-results-grid"></div>
-    </section>
     <!-- 保值率總覽排行面板（可開關） -->
     <section class="card ranking-panel" id="rankingPanel">
       <div class="chart-header">
         <div>
           <div class="section-title">台灣市售車款保值率總覽（依近五年車齡平均車商殘值率排序）</div>
-          <div class="section-desc">點擊任一車款即可直接切換查看走勢圖與規格</div>
+          <div class="section-desc">點擊任一車款即可直接進入該車完整分析</div>
         </div>
         <button id="btnCloseRanking" class="btn-outline-blue">關閉排行</button>
       </div>
@@ -130,46 +55,147 @@
       </div>
     </section>
 
-    <!-- 1. 品牌 -> 車款 -> 年份 -> 版本規格 階層式篩選列 -->
-    <section class="selector-card">
-      <div class="selector-grid">
-        <div class="field-group">
-          <label>1. 選擇品牌 (Brand)</label>
-          <div class="custom-dropdown" id="brandDropdown">
-            <button type="button" class="custom-dropdown-btn" id="brandDropdownBtn">
-              <span class="custom-dropdown-label" id="brandDropdownLabel">選擇品牌</span>
-              <span>▾</span>
-            </button>
-            <div class="custom-dropdown-menu" id="brandDropdownMenu"></div>
+    <!-- 入口畫面：僅顯示「自選品牌車款」或「不懂車條件找車」（兩者分頁切換、不同時出現，進來不直接顯示車輛分析） -->
+    <section id="entryScreen" class="entry-screen">
+      <div class="entry-mode-tabs" role="tablist" aria-label="選車模式切換">
+        <button type="button" class="entry-mode-btn active" data-entry="manual">自選品牌與車款</button>
+        <button type="button" class="entry-mode-btn" data-entry="finder">不懂車條件找車</button>
+      </div>
+
+      <!-- 模式 A：自選品牌與車款 -->
+      <section class="selector-card entry-panel active" id="entry-manual">
+        <div class="entry-panel-head">
+          <div class="section-title">選擇想查詢的品牌、車款、年份與版本</div>
+          <div class="section-desc">選好條件後點擊下方「查看車輛完整分析」即可進入行情、走勢圖與養車成本頁面</div>
+        </div>
+        <div class="selector-grid">
+          <div class="field-group">
+            <label>1. 選擇品牌 (Brand)</label>
+            <div class="custom-dropdown" id="brandDropdown">
+              <button type="button" class="custom-dropdown-btn" id="brandDropdownBtn">
+                <span class="custom-dropdown-label" id="brandDropdownLabel">選擇品牌</span>
+                <span>▾</span>
+              </button>
+              <div class="custom-dropdown-menu" id="brandDropdownMenu"></div>
+            </div>
+          </div>
+          <div class="field-group">
+            <label for="selectModel">2. 選擇車款 (Model)</label>
+            <select id="selectModel" class="select-blue"></select>
+          </div>
+          <div class="field-group">
+            <label for="selectYear">3. 選擇出廠年份 (Year)</label>
+            <select id="selectYear" class="select-blue"></select>
+          </div>
+          <div class="field-group">
+            <label for="selectTrim">4. 選擇版本規格 (Variant) <span id="trimCountBadge" class="trim-count-badge"></span></label>
+            <select id="selectTrim" class="select-blue"></select>
+          </div>
+          <div class="field-group">
+            <label for="quickSearch">快速搜尋車款</label>
+            <input id="quickSearch" type="text" class="input-blue" placeholder="輸入關鍵字 (如 Swift, Focus, MX-5)..." />
           </div>
         </div>
-        <div class="field-group">
-          <label for="selectModel">2. 選擇車款 (Model)</label>
-          <select id="selectModel" class="select-blue"></select>
+        <div id="trimHint" class="trim-hint"></div>
+        <div class="entry-cta-row">
+          <button type="button" id="btnEnterAnalysis" class="btn-primary-forest">查看車輛完整分析 →</button>
         </div>
-        <div class="field-group">
-          <label for="selectYear">3. 選擇出廠年份 (Year)</label>
-          <select id="selectYear" class="select-blue"></select>
+      </section>
+
+      <!-- 模式 B：不懂車條件找車 -->
+      <section class="card entry-panel" id="entry-finder">
+        <div class="entry-panel-head">
+          <div class="section-title">不懂車快速找車（依預算、安全保值、馬力、排氣量、車型篩選）</div>
+          <div class="section-desc">設定您的需求條件，系統會從全台資料庫篩出最符合的年份與版本，點擊任一結果即可進入分析</div>
         </div>
-        <div class="field-group">
-          <label for="selectTrim">4. 選擇版本規格 (Variant) <span id="trimCountBadge" class="trim-count-badge"></span></label>
-          <select id="selectTrim" class="select-blue"></select>
+
+        <div class="finder-filters">
+          <div class="field-group">
+            <label for="finderGoal">購車優先考量</label>
+            <select id="finderGoal" class="select-blue">
+              <option value="all">不限取向</option>
+              <option value="safe-value">安全保值首選（低風險 + 高殘值）</option>
+              <option value="easy-own">省稅省油好養（低養車負擔）</option>
+              <option value="no-high-risk">避開高風險通病車款</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="finderBody">車型種類</label>
+            <select id="finderBody" class="select-blue">
+              <option value="all">全部車型</option>
+              <option value="小車">掀背 / 都會小車</option>
+              <option value="房車">四門房車</option>
+              <option value="休旅">休旅車 (SUV / MPV)</option>
+              <option value="跑車旅行">敞篷跑車 / 旅行車</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="finderBudget">預算上限 (萬元)</label>
+            <select id="finderBudget" class="select-blue">
+              <option value="999">不限預算</option>
+              <option value="30">30 萬以內</option>
+              <option value="50">50 萬以內</option>
+              <option value="80">80 萬以內</option>
+              <option value="120">120 萬以內</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="finderMinYear">出廠年份</label>
+            <select id="finderMinYear" class="select-blue">
+              <option value="0">不限年份 (2000+)</option>
+              <option value="2020">2020 年以後</option>
+              <option value="2015">2015 年以後</option>
+              <option value="2010">2010 年以後</option>
+              <option value="2000-2010">2000 – 2010 經典老車</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="finderMinHp">馬力需求</label>
+            <select id="finderMinHp" class="select-blue">
+              <option value="0">不限馬力</option>
+              <option value="120">120 匹以上（日常夠用）</option>
+              <option value="150">150 匹以上（高速輕快）</option>
+              <option value="180">180 匹以上（動力充沛）</option>
+              <option value="220">220 匹以上（性能鋼砲）</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="finderMaxCc">排氣量上限（省稅金）</label>
+            <select id="finderMaxCc" class="select-blue">
+              <option value="9999">不限排氣量</option>
+              <option value="1200">1,200 cc 以下（年稅 $8,640）</option>
+              <option value="1800">1,800 cc 以下（年稅 $11,920）</option>
+              <option value="2000">2,000 cc 以下（年稅 $17,410）</option>
+            </select>
+          </div>
         </div>
-        <div class="field-group">
-          <label for="quickSearch">快速搜尋車款</label>
-          <input id="quickSearch" type="text" class="input-blue" placeholder="輸入關鍵字 (如 Swift, Focus, NX)..." />
-        </div>
-      </div>
-      <div id="trimHint" class="trim-hint"></div>
+
+        <div id="finderResultCount" class="section-desc" style="margin:14px 0 10px;"></div>
+        <div id="finderResultsGrid" class="finder-results-grid"></div>
+      </section>
     </section>
 
-    <!-- 頁面式分頁切換列（避免一次全部往下滑） -->
-    <nav class="page-tabs-bar" id="pageTabsBar" aria-label="車款分析分頁">
-      <button type="button" class="page-tab-btn active" data-page="overview">1. 行情總覽與歷代外型</button>
-      <button type="button" class="page-tab-btn" data-page="chart">2. 走勢圖與關鍵規格</button>
-      <button type="button" class="page-tab-btn" data-page="cost">3. 養車與整備維修估算</button>
-      <button type="button" class="page-tab-btn" data-page="details">4. 詳細資料與 8891 規格</button>
-    </nav>
+    <!-- 車輛分析畫面（預設隱藏，選完車或從不懂車找車點進來才會顯示） -->
+    <div id="analysisScreen" class="analysis-screen hidden">
+      <div class="analysis-topbar">
+        <button type="button" id="btnBackToEntry" class="btn-back-entry">← 返回上一頁（重新選車）</button>
+        <div class="analysis-quick-bar">
+          <label>年份：
+            <select id="analysisSelectYear" class="select-blue-sm"></select>
+          </label>
+          <label>版本：
+            <select id="analysisSelectTrim" class="select-blue-sm"></select>
+          </label>
+        </div>
+      </div>
+
+      <!-- 頁面式分頁切換列（避免一次全部往下滑） -->
+      <nav class="page-tabs-bar" id="pageTabsBar" aria-label="車款分析分頁">
+        <button type="button" class="page-tab-btn active" data-page="overview">1. 行情總覽與歷代外型</button>
+        <button type="button" class="page-tab-btn" data-page="chart">2. 走勢圖與關鍵規格</button>
+        <button type="button" class="page-tab-btn" data-page="cost">3. 養車與整備維修估算</button>
+        <button type="button" class="page-tab-btn" data-page="details">4. 詳細資料與 8891 規格</button>
+      </nav>
 
     <!-- 分頁 1：車款核心行情摘要（依所選年份） -->
     <section class="card page-panel active" id="page-overview">
@@ -278,6 +304,7 @@
         <div class="detail-body" id="detailBody"></div>
       </div>
     </section>
+    </div><!-- /#analysisScreen -->
   </main>
 
   <script src="js/chart.js"></script>

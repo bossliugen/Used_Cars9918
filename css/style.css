@@ -1001,6 +1001,134 @@ tr.row-selected {
   animation: fadeSlideIn 0.24s ease;
 }
 
+/* Entry Screen & Mode Tabs */
+.entry-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.entry-mode-tabs {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border-blue);
+  border-radius: 999px;
+  padding: 5px;
+  align-self: flex-start;
+}
+
+.entry-mode-btn {
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  padding: 9px 22px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-sub);
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.entry-mode-btn.active {
+  background: var(--blue-primary);
+  color: #ffffff;
+}
+
+.entry-panel {
+  display: none;
+}
+
+.entry-panel.active {
+  display: block;
+  animation: fadeSlideIn 0.24s ease;
+}
+
+.entry-panel-head {
+  margin-bottom: 16px;
+}
+
+.entry-cta-row {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-primary-forest {
+  background: var(--blue-primary);
+  color: #ffffff;
+  border: 1px solid var(--blue-primary);
+  border-radius: 999px;
+  padding: 10px 26px;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.16s ease;
+}
+
+.btn-primary-forest:hover {
+  background: var(--blue-dark);
+}
+
+/* Analysis Screen & Top-Left Back Button */
+.analysis-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.analysis-topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.btn-back-entry {
+  background: #ffffff;
+  border: 1px solid var(--blue-primary);
+  color: var(--blue-primary);
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.16s ease;
+}
+
+.btn-back-entry:hover {
+  background: var(--blue-primary);
+  color: #ffffff;
+}
+
+.analysis-quick-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--text-sub);
+  font-weight: 600;
+}
+
+.select-blue-sm {
+  background: #ffffff;
+  border: 1px solid var(--border-blue);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-main);
+  outline: none;
+}
+
 /* Page-by-Page Tab Bar */
 .page-tabs-bar {
   display: grid;

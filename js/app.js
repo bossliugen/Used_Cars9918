@@ -34,7 +34,9 @@ const state = {
   selectedYear: null,
   selectedTrimIdx: 0,
   chartMode: "price",
-  detailsOpen: false,
+  entryMode: "manual", // 'manual' | 'finder'
+  lastEntryMode: "manual",
+  inAnalysis: false,
   activeDetailTab: "specs", // 'specs' | 'issues' | 'gens' | 'history' | 'sources'
   chart: null,
 };
@@ -49,8 +51,8 @@ async function initApp() {
   } catch (err) {
     document.getElementById("mainContainer").innerHTML = `
       <div class="card">
-        <h2 style="color:#dc2626;">無法載入資料庫 (data/cars_db.json)</h2>
-        <p style="margin-top:8px;color:#475569;">請雙擊 <strong>啟動中古車分析網站.bat</strong> 或透過 GitHub Pages 開啟。</p>
+        <h2 style="color:#991B1B;">無法載入資料庫 (data/cars_db.json)</h2>
+        <p style="margin-top:8px;color:#57534E;">請雙擊 <strong>啟動中古車分析網站.bat</strong> 或透過 GitHub Pages 開啟。</p>
       </div>
     `;
     return;
@@ -64,9 +66,10 @@ async function initApp() {
   renderRankingTable();
   bindEvents();
 
-  // 預設選 Ford Focus 2014（直接展示大改款與雙離合案例）或第一台
+  // 初始化預設選單值（僅預先填入下拉選單，不主動顯示車輛分析畫面）
   const defaultCar = state.db.cars.find((c) => c.id === "ford-focus") || state.db.cars[0];
   selectBrand(defaultCar.brand, defaultCar.id);
+  renderSmartFinder();
 }
 
 function bindEvents() {
@@ -156,8 +159,35 @@ function bindEvents() {
     });
   });
 
+  document.querySelectorAll(".entry-mode-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      switchEntryMode(btn.dataset.entry);
+    });
+  });
+
+  document.getElementById("btnEnterAnalysis").addEventListener("click", () => {
+    enterAnalysisScreen("manual");
+  });
+
+  document.getElementById("btnBackToEntry").addEventListener("click", () => {
+    backToEntryScreen();
+  });
+
+  document.getElementById("analysisSelectYear").addEventListener("change", (e) => {
+    state.selectedYear = parseInt(e.target.value, 10);
+    document.getElementById("selectYear").value = String(state.selectedYear);
+    state.selectedTrimIdx = 0;
+    populateTrimSelect();
+    renderAllCarViews();
+  });
+
+  document.getElementById("analysisSelectTrim").addEventListener("change", (e) => {
+    state.selectedTrimIdx = parseInt(e.target.value, 10) || 0;
+    document.getElementById("selectTrim").value = String(state.selectedTrimIdx);
+    renderAllCarViews();
+  });
+
   document.getElementById("btnToggleRanking").addEventListener("click", () => {
-    document.getElementById("smartFinderPanel").classList.remove("open");
     document.getElementById("rankingPanel").classList.toggle("open");
   });
 
@@ -165,22 +195,57 @@ function bindEvents() {
     document.getElementById("rankingPanel").classList.remove("open");
   });
 
-  document.getElementById("btnToggleFinder").addEventListener("click", () => {
-    document.getElementById("rankingPanel").classList.remove("open");
-    const panel = document.getElementById("smartFinderPanel");
-    panel.classList.toggle("open");
-    if (panel.classList.contains("open")) {
-      renderSmartFinder();
-    }
-  });
-
-  document.getElementById("btnCloseFinder").addEventListener("click", () => {
-    document.getElementById("smartFinderPanel").classList.remove("open");
-  });
-
   ["finderGoal", "finderBody", "finderBudget", "finderMinYear", "finderMinHp", "finderMaxCc"].forEach((id) => {
     document.getElementById(id).addEventListener("change", renderSmartFinder);
   });
+}
+
+function switchEntryMode(mode) {
+  state.entryMode = mode;
+  document.querySelectorAll(".entry-mode-btn").forEach((b) => {
+    b.classList.toggle("active", b.dataset.entry === mode);
+  });
+  document.querySelectorAll(".entry-panel").forEach((p) => {
+    p.classList.toggle("active", p.id === `entry-${mode}`);
+  });
+  if (mode === "finder") {
+    renderSmartFinder();
+  }
+}
+
+function enterAnalysisScreen(sourceMode = "manual") {
+  state.lastEntryMode = sourceMode;
+  state.inAnalysis = true;
+  document.getElementById("entryScreen").classList.add("hidden");
+  document.getElementById("analysisScreen").classList.remove("hidden");
+  document.getElementById("rankingPanel").classList.remove("open");
+  syncAnalysisQuickSelectors();
+  renderAllCarViews();
+  switchPage("overview");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function backToEntryScreen() {
+  state.inAnalysis = false;
+  document.getElementById("analysisScreen").classList.add("hidden");
+  document.getElementById("entryScreen").classList.remove("hidden");
+  switchEntryMode(state.lastEntryMode || "manual");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function syncAnalysisQuickSelectors() {
+  const mainYear = document.getElementById("selectYear");
+  const mainTrim = document.getElementById("selectTrim");
+  const anaYear = document.getElementById("analysisSelectYear");
+  const anaTrim = document.getElementById("analysisSelectTrim");
+  if (mainYear && anaYear) {
+    anaYear.innerHTML = mainYear.innerHTML;
+    anaYear.value = String(state.selectedYear);
+  }
+  if (mainTrim && anaTrim) {
+    anaTrim.innerHTML = mainTrim.innerHTML;
+    anaTrim.value = String(state.selectedTrimIdx);
+  }
 }
 
 function switchPage(pageKey) {
@@ -322,6 +387,8 @@ function getSelectedGen() {
 }
 
 function renderAllCarViews() {
+  if (!state.inAnalysis) return;
+  syncAnalysisQuickSelectors();
   renderHeroAndKpis();
   renderPhotoStrip();
   updateChartLegendAndButtons();
@@ -902,8 +969,7 @@ function renderRankingTable() {
 
 function pickFromRanking(brand, carId) {
   selectBrand(brand, carId);
-  document.getElementById("rankingPanel").classList.remove("open");
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  enterAnalysisScreen(state.entryMode || "manual");
 }
 
 function parseMaxHp(hpStr) {
@@ -1018,10 +1084,7 @@ function pickFromFinder(brand, carId, year, trimIdx) {
   populateTrimSelect();
   state.selectedTrimIdx = trimIdx;
   document.getElementById("selectTrim").value = String(trimIdx);
-  renderAllCarViews();
-  document.getElementById("smartFinderPanel").classList.remove("open");
-  switchPage("overview");
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  enterAnalysisScreen("finder");
 }
 
 document.addEventListener("DOMContentLoaded", initApp);
