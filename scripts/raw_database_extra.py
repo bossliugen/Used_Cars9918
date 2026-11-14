@@ -2032,5 +2032,556 @@ EXTRA_CARS_DATABASE = [
                 }
             }
         ]
+    },
+    {
+        "id": "mazda-2",
+        "brand": "Mazda",
+        "model": "Mazda2",
+        "model_zh": "馬自達 Mazda2",
+        "category": "進口都會小車",
+        "summary": "2代(DE 2008-2014)以日製進口與靈活操控打入台灣市場；3代(DJ 2015+)換上魂動外型與 Skyactiv 1.5L+6AT，省油耐用且妥善率高。",
+        "generations": [
+            {
+                "gen_id": "mazda2-de",
+                "gen_name": "第 2 代 (DE 日本進口 4AT)",
+                "years": [2008, 2009, 2010, 2011, 2012, 2013, 2014],
+                "is_major_change": True,
+                "major_change_year": 2008,
+                "major_change_note": "2008年日本原裝進口導入，採 1.5L MZR + 4AT 變速箱，底盤輕巧好開，但僅 2 氣囊且無 ESP。",
+                "platform": "Mazda DE / Ford Fiesta 同源平台",
+                "origin": "日本原裝進口",
+                "photo_query": "Mazda2 DE",
+                "depreciation_alert": {
+                    "level": "medium",
+                    "title": "安全配備陽春 (2氣囊無ESP)，但機械極耐操",
+                    "reason": "1.5L 自然進氣與 4AT 結構簡單，二手價 11~19 萬，適合作為低預算市區代步車。"
+                },
+                "trims": [
+                    {
+                        "trim_name": "1.5L 尊貴 / 頂級 (4AT)",
+                        "msrp_wan": 65.5,
+                        "engine_code": "ZY-VE 1.5L 自然進氣",
+                        "displacement_cc": 1498,
+                        "horsepower": "103 ps / 6,000 rpm",
+                        "torque": "13.8 kgm / 4,000 rpm",
+                        "transmission": "4速自排",
+                        "drivetrain": "前輪驅動 (FF)",
+                        "suspension": "前麥花臣 / 後扭力樑",
+                        "fuel_economy": "15.2 km/L",
+                        "dimensions": "3885 x 1695 x 1475 mm (軸距 2490 mm)",
+                        "safety": "2氣囊、ABS"
+                    }
+                ],
+                "common_issues": [
+                    {
+                        "part": "後視鏡收折馬達齒輪崩牙 / 避震器上座異音",
+                        "severity": "一般耗材",
+                        "mileage_range": "8萬公里以上",
+                        "symptom": "電動收折空轉不停、過坑洞前輪異音。",
+                        "repair_cost_ntd": "金屬齒輪更換約 1,500 元/側",
+                        "advice": "通病皆屬小額耗材，引擎變速箱極為穩定。"
+                    }
+                ],
+                "yearly_prices": {
+                    "2008": {"msrp": 59.5, "dealer": 11.0, "private": 8.2, "book": 6.0},
+                    "2009": {"msrp": 61.5, "dealer": 12.2, "private": 9.2, "book": 7.0},
+                    "2010": {"msrp": 63.5, "dealer": 13.5, "private": 10.5, "book": 8.0},
+                    "2011": {"msrp": 64.5, "dealer": 15.0, "private": 11.8, "book": 9.2},
+                    "2012": {"msrp": 65.5, "dealer": 16.5, "private": 13.0, "book": 10.5},
+                    "2013": {"msrp": 65.5, "dealer": 18.0, "private": 14.5, "book": 11.8},
+                    "2014": {"msrp": 65.5, "dealer": 19.8, "private": 16.0, "book": 13.2}
+                }
+            },
+            {
+                "gen_id": "mazda2-dj",
+                "gen_name": "第 3 代 (DJ 魂動 Skyactiv)",
+                "years": [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024],
+                "is_major_change": True,
+                "major_change_year": 2015,
+                "major_change_note": "2015年大改款換裝 Skyactiv-G 1.5L + 6速手自排，質感大幅提升並標配 6氣囊+DSC，2020+ 再加入 GVC Plus。",
+                "platform": "Mazda Skyactiv-Chassis 小型平台",
+                "origin": "泰國 / 日本進口",
+                "photo_query": "Mazda2 DJ",
+                "depreciation_alert": {
+                    "level": "low",
+                    "title": "6AT 穩健耐用 + 1.5L 省稅省油",
+                    "reason": "市場能見度雖不如 Yaris/Swift，但無 CVT 壽命疑慮，內裝質感同級領先。"
+                },
+                "trims": [
+                    {
+                        "trim_name": "1.5L Skyactiv-G 尊榮 / 旗艦",
+                        "msrp_wan": 74.9,
+                        "engine_code": "P5-VPS 1.5L Skyactiv-G 自然進氣",
+                        "displacement_cc": 1496,
+                        "horsepower": "107~116 ps / 6,000 rpm",
+                        "torque": "14.2~15.1 kgm / 4,000 rpm",
+                        "transmission": "6速手自排",
+                        "drivetrain": "前輪驅動 (FF)",
+                        "suspension": "前麥花臣 / 後扭力樑",
+                        "fuel_economy": "17.4 ~ 17.9 km/L",
+                        "dimensions": "4060 x 1695 x 1495 mm (軸距 2570 mm)",
+                        "safety": "6氣囊、DSC、BSM盲點(後期)"
+                    }
+                ],
+                "common_issues": [
+                    {
+                        "part": "後座空間偏窄 / 後視鏡收折馬達",
+                        "severity": "一般耗材",
+                        "mileage_range": "6萬公里以上",
+                        "symptom": "後視鏡收折卡頓、MZD 主機觸控排線偶發漂移。",
+                        "repair_cost_ntd": "收折馬達約 2,000 元",
+                        "advice": "建議 2 人使用為主，4 人家庭建議看 Mazda3。"
+                    }
+                ],
+                "yearly_prices": {
+                    "2015": {"msrp": 69.9, "dealer": 24.5, "private": 20.5, "book": 17.5},
+                    "2016": {"msrp": 69.9, "dealer": 27.0, "private": 22.8, "book": 19.8},
+                    "2017": {"msrp": 74.9, "dealer": 30.0, "private": 25.5, "book": 22.2},
+                    "2018": {"msrp": 74.9, "dealer": 33.0, "private": 28.5, "book": 25.0},
+                    "2019": {"msrp": 74.9, "dealer": 36.5, "private": 31.8, "book": 28.0},
+                    "2020": {"msrp": 74.9, "dealer": 41.0, "private": 36.0, "book": 32.0},
+                    "2021": {"msrp": 74.9, "dealer": 45.0, "private": 40.0, "book": 35.8},
+                    "2022": {"msrp": 74.9, "dealer": 49.5, "private": 44.5, "book": 40.0},
+                    "2023": {"msrp": 78.9, "dealer": 55.0, "private": 49.5, "book": 44.5},
+                    "2024": {"msrp": 78.9, "dealer": 60.5, "private": 55.0, "book": 49.5}
+                }
+            }
+        ]
+    },
+    {
+        "id": "mazda-5",
+        "brand": "Mazda",
+        "model": "Mazda5",
+        "model_zh": "馬自達 Mazda5",
+        "category": "國產側滑門休旅 (MPV)",
+        "summary": "台灣家庭神車代表之一！雙側電動滑門搭配 5+2 座空間，1代(2005-2011)與 2代(2012-2016)皆採 2.0L 自然進氣，因實用性極高至今中古車市場依然搶手。",
+        "generations": [
+            {
+                "gen_id": "mazda5-1",
+                "gen_name": "第 1 代 (CR 國產經典滑門)",
+                "years": [2005, 2006, 2007, 2008, 2009, 2010, 2011],
+                "is_major_change": True,
+                "major_change_year": 2005,
+                "major_change_note": "2005年福特六和國產上市，導入雙側滑門與 6+1 座椅變化，2008年小改款升級 5AT。",
+                "platform": "Mazda CR / C1 平台",
+                "origin": "台灣國產",
+                "photo_query": "Mazda5 CR",
+                "depreciation_alert": {
+                    "level": "medium",
+                    "title": "車齡高、底盤耗材老化，但滑門剛性需求撐住殘值",
+                    "reason": "15年以上老車需預留冷氣與底盤橡膠整理預算，購買時確認側滑門馬達順暢。"
+                },
+                "trims": [
+                    {
+                        "trim_name": "2.0L 尊貴 / 頂級 (4AT / 5AT)",
+                        "msrp_wan": 79.9,
+                        "engine_code": "LF 2.0L DOHC 自然進氣",
+                        "displacement_cc": 1999,
+                        "horsepower": "148 ps / 6,000 rpm",
+                        "torque": "19.2 kgm / 4,500 rpm",
+                        "transmission": "4速/5速手自排",
+                        "drivetrain": "前輪驅動 (FF)",
+                        "suspension": "前麥花臣 / 後多連桿",
+                        "fuel_economy": "11.5 km/L",
+                        "dimensions": "4505 x 1755 x 1665 mm (軸距 2750 mm)",
+                        "safety": "2氣囊、ABS"
+                    }
+                ],
+                "common_issues": [
+                    {
+                        "part": "電動滑門鋼索/馬達老化 & 變速箱電磁閥",
+                        "severity": "中風險",
+                        "mileage_range": "12萬公里以上",
+                        "symptom": "滑門開關卡頓、冷車換檔頓挫、前輪胎內側吃胎。",
+                        "repair_cost_ntd": "單側滑門整理約 6,000 元；後仰角調整器約 4,500 元",
+                        "advice": "優先找 2008 年小改款 5AT 車型，油耗與順暢度較佳。"
+                    }
+                ],
+                "yearly_prices": {
+                    "2006": {"msrp": 76.9, "dealer": 9.8, "private": 7.0, "book": 4.8},
+                    "2007": {"msrp": 76.9, "dealer": 10.8, "private": 7.8, "book": 5.5},
+                    "2008": {"msrp": 79.9, "dealer": 12.5, "private": 9.2, "book": 6.8},
+                    "2009": {"msrp": 79.9, "dealer": 14.0, "private": 10.5, "book": 8.0},
+                    "2010": {"msrp": 80.9, "dealer": 15.8, "private": 12.0, "book": 9.2},
+                    "2011": {"msrp": 81.9, "dealer": 17.5, "private": 13.8, "book": 10.8}
+                }
+            },
+            {
+                "gen_id": "mazda5-2",
+                "gen_name": "第 2 代 (CW 微笑末代滑門)",
+                "years": [2012, 2013, 2014, 2015, 2016],
+                "is_major_change": True,
+                "major_change_year": 2012,
+                "major_change_note": "2012年大改款導入微笑水箱護罩，後期旗艦補齊 6 氣囊與 DSC，2016年停產後無後繼車。",
+                "platform": "Mazda CW 平台",
+                "origin": "台灣國產",
+                "photo_query": "Mazda5 CW",
+                "depreciation_alert": {
+                    "level": "low",
+                    "title": "停產絕版國產滑門 MPV，保值度極強",
+                    "reason": "百萬內唯一雙側滑門 7 人座，至今仍是二胎家庭熱門首選，後期 6 氣囊版最搶手。"
+                },
+                "trims": [
+                    {
+                        "trim_name": "2.0L 旗艦型 (5AT / 6氣囊)",
+                        "msrp_wan": 88.9,
+                        "engine_code": "LF-VDS 2.0L 自然進氣",
+                        "displacement_cc": 1999,
+                        "horsepower": "147 ps / 6,000 rpm",
+                        "torque": "18.8 kgm / 4,500 rpm",
+                        "transmission": "5速手自排",
+                        "drivetrain": "前輪驅動 (FF)",
+                        "suspension": "前麥花臣 / 後獨立多連桿",
+                        "fuel_economy": "12.2 km/L",
+                        "dimensions": "4585 x 1750 x 1615 mm (軸距 2750 mm)",
+                        "safety": "前期2氣囊 / 後期旗艦6氣囊+DSC"
+                    }
+                ],
+                "common_issues": [
+                    {
+                        "part": "後輪吃胎 / 水箱節溫器老化",
+                        "severity": "一般耗材",
+                        "mileage_range": "10萬公里以上",
+                        "symptom": "後輪滾動噪音大、水溫爬升慢。",
+                        "repair_cost_ntd": "後束角拉桿定位整理約 5,000 元",
+                        "advice": "建議挑選 2014-2016 年旗艦版（具 6 氣囊與 DSC）。"
+                    }
+                ],
+                "yearly_prices": {
+                    "2012": {"msrp": 85.9, "dealer": 21.5, "private": 17.5, "book": 14.5},
+                    "2013": {"msrp": 86.9, "dealer": 24.0, "private": 19.8, "book": 16.5},
+                    "2014": {"msrp": 88.9, "dealer": 27.0, "private": 22.5, "book": 19.0},
+                    "2015": {"msrp": 88.9, "dealer": 30.5, "private": 25.8, "book": 22.0},
+                    "2016": {"msrp": 89.9, "dealer": 34.5, "private": 29.5, "book": 25.5}
+                }
+            }
+        ]
+    },
+    {
+        "id": "mazda-6",
+        "brand": "Mazda",
+        "model": "Mazda6",
+        "model_zh": "馬自達 Mazda6",
+        "category": "中大型房車 / 旅行車",
+        "summary": "1代(GG 2002-2007)奠定日式跑房車口碑；3代(GJ/GL 2013+)導入魂動美學與 Wagon 旅行車極受青睞，但 3代前期 2.2D 柴油版與 CX-5 同樣有沖墊片災情。",
+        "generations": [
+            {
+                "gen_id": "mazda6-gg",
+                "gen_name": "第 1 代 (GG 經典日式跑房車)",
+                "years": [2003, 2004, 2005, 2006, 2007],
+                "is_major_change": True,
+                "major_change_year": 2003,
+                "major_change_note": "2003年上市主打 Zoom-Zoom 操控，提供 2.0 / 2.3S 運動版。",
+                "platform": "Mazda GG 平台",
+                "origin": "日本進口 / 國產",
+                "photo_query": "Mazda6 GG",
+                "depreciation_alert": {
+                    "level": "medium",
+                    "title": "車齡逾 19 年，2.3S 版需留意吃機油",
+                    "reason": "二手殘值僅剩代步價 6~11 萬，2.0 汽油相對耐用，2.3L 引擎高里程易耗機油。"
+                },
+                "trims": [
+                    {
+                        "trim_name": "2.0L / 2.3S 運動版",
+                        "msrp_wan": 88.9,
+                        "engine_code": "LF 2.0L / L3 2.3L 自然進氣",
+                        "displacement_cc": 1999,
+                        "horsepower": "147 ps (2.0) / 166 ps (2.3)",
+                        "torque": "18.8 kgm / 21.1 kgm",
+                        "transmission": "4AT / 5AT",
+                        "drivetrain": "前輪驅動 (FF)",
+                        "suspension": "前雙A臂 / 後多連桿",
+                        "fuel_economy": "11.8 km/L",
+                        "dimensions": "4690 x 1780 x 1435 mm (軸距 2675 mm)",
+                        "safety": "2氣囊、ABS"
+                    }
+                ],
+                "common_issues": [
+                    {
+                        "part": "動力方向機油管滲油 / 前雙A臂鐵套異音",
+                        "severity": "中風險",
+                        "mileage_range": "15萬公里以上",
+                        "symptom": "轉向異音、底盤鬆散。",
+                        "repair_cost_ntd": "底盤鐵套整理約 1~1.5 萬",
+                        "advice": "此年份以 2.0L 為主，看車重點在變速箱與冷氣。"
+                    }
+                ],
+                "yearly_prices": {
+                    "2003": {"msrp": 82.9, "dealer": 6.5, "private": 4.2, "book": 2.5},
+                    "2004": {"msrp": 83.9, "dealer": 7.2, "private": 4.8, "book": 3.0},
+                    "2005": {"msrp": 85.9, "dealer": 8.0, "private": 5.5, "book": 3.6},
+                    "2006": {"msrp": 87.9, "dealer": 9.0, "private": 6.2, "book": 4.2},
+                    "2007": {"msrp": 88.9, "dealer": 10.2, "private": 7.2, "book": 5.0}
+                }
+            },
+            {
+                "gen_id": "mazda6-gj",
+                "gen_name": "第 3 代 (GJ/GL 魂動 Sedan / Wagon)",
+                "years": [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023],
+                "is_major_change": True,
+                "major_change_year": 2014,
+                "major_change_note": "日本原裝進口 3代導入魂動設計與 Skyactiv，2017年追加 Wagon 旅行車（後期導入 2.5L NA），二手旅行車極保值。",
+                "platform": "Mazda Skyactiv-Chassis 大型平台",
+                "origin": "日本原裝進口",
+                "photo_query": "Mazda6 GJ Wagon",
+                "depreciation_alert": {
+                    "level": "high",
+                    "title": "務必避開 2.2D 柴油版！2.0 / 2.5 汽油 Wagon 非常保值",
+                    "reason": "2.2D 柴油與 1代 CX-5 同顆引擎存在副水箱噴水災情，導致柴油價崩；2.0/2.5 汽油與 Wagon 旅行車則完全正常且搶手。"
+                },
+                "trims": [
+                    {
+                        "trim_name": "2.0L Skyactiv-G 房車 / Wagon",
+                        "msrp_wan": 116.9,
+                        "engine_code": "PE-VPS 2.0L Skyactiv-G 自然進氣",
+                        "displacement_cc": 1998,
+                        "horsepower": "165 ps / 6,000 rpm",
+                        "torque": "21.7 kgm / 4,000 rpm",
+                        "transmission": "6速手自排",
+                        "drivetrain": "前輪驅動 (FF)",
+                        "suspension": "前麥花臣 / 後獨立多連桿",
+                        "fuel_economy": "14.8 km/L",
+                        "dimensions": "4865 x 1840 x 1450 mm (軸距 2830 mm)",
+                        "safety": "6氣囊、MRCC 全速域定速(後期)"
+                    },
+                    {
+                        "trim_name": "2.5L Skyactiv-G Wagon 旗艦進化型 (旅行車)",
+                        "msrp_wan": 132.9,
+                        "engine_code": "PY-VPS 2.5L Skyactiv-G 自然進氣",
+                        "displacement_cc": 2488,
+                        "horsepower": "194 ps / 6,000 rpm",
+                        "torque": "26.3 kgm / 4,000 rpm",
+                        "transmission": "6速手自排",
+                        "drivetrain": "前輪驅動 (FF)",
+                        "suspension": "前麥花臣 / 後獨立多連桿",
+                        "fuel_economy": "13.0 km/L",
+                        "dimensions": "4805 x 1840 x 1480 mm (軸距 2750 mm)",
+                        "safety": "6氣囊、MRCC 全速域、360環景"
+                    },
+                    {
+                        "trim_name": "2.2D Skyactiv-D 柴油版 (高風險)",
+                        "msrp_wan": 138.9,
+                        "engine_code": "SH-VPTR 2.2L 雙渦輪柴油",
+                        "displacement_cc": 2191,
+                        "horsepower": "175 ps / 4,500 rpm",
+                        "torque": "42.8 kgm / 2,000 rpm",
+                        "transmission": "6速手自排",
+                        "drivetrain": "前輪驅動 (FF)",
+                        "suspension": "前麥花臣 / 後獨立多連桿",
+                        "fuel_economy": "19.0 km/L",
+                        "dimensions": "4865 x 1840 x 1450 mm (軸距 2830 mm)",
+                        "safety": "6氣囊、盲點偵測"
+                    }
+                ],
+                "common_issues": [
+                    {
+                        "part": "2.2D 柴油沖汽缸墊片噴水（僅柴油）",
+                        "severity": "高風險",
+                        "mileage_range": "8萬公里以上",
+                        "symptom": "副水箱噴水、引擎高溫。",
+                        "repair_cost_ntd": "引擎大修約 6~10 萬",
+                        "advice": "買 Mazda6 請直接鎖定 2.0 或 2.5 汽油（尤推 Wagon 旅行車）。"
+                    }
+                ],
+                "yearly_prices": {
+                    "2014": {"msrp": 116.9, "dealer": 29.0, "private": 24.5, "book": 21.0},
+                    "2015": {"msrp": 116.9, "dealer": 33.0, "private": 28.0, "book": 24.5},
+                    "2016": {"msrp": 116.9, "dealer": 37.5, "private": 32.5, "book": 28.5},
+                    "2017": {"msrp": 118.9, "dealer": 43.0, "private": 37.5, "book": 33.0},
+                    "2018": {"msrp": 119.9, "dealer": 49.0, "private": 43.0, "book": 38.0},
+                    "2019": {"msrp": 124.9, "dealer": 56.0, "private": 49.5, "book": 44.0},
+                    "2020": {"msrp": 124.9, "dealer": 63.0, "private": 56.5, "book": 50.5},
+                    "2021": {"msrp": 124.9, "dealer": 70.0, "private": 63.5, "book": 57.0},
+                    "2022": {"msrp": 129.9, "dealer": 78.0, "private": 71.0, "book": 64.5},
+                    "2023": {"msrp": 132.9, "dealer": 86.0, "private": 79.0, "book": 72.0}
+                }
+            }
+        ]
+    },
+    {
+        "id": "mazda-cx30",
+        "brand": "Mazda",
+        "model": "CX-30",
+        "model_zh": "馬自達 CX-30",
+        "category": "跨界休旅車 (SUV)",
+        "summary": "2019年底導入的精品級跨界休旅，採與 4代 Mazda3 相同的 Skyactiv 2.0L + 6AT，內裝質感媲美豪華品牌且完全無嚴重通病，中古行情非常穩健。",
+        "generations": [
+            {
+                "gen_id": "cx30-dm",
+                "gen_name": "第 1 代 (DM 日本進口 Skyactiv)",
+                "years": [2020, 2021, 2022, 2023, 2024, 2025],
+                "is_major_change": True,
+                "major_change_year": 2020,
+                "major_change_note": "2019年底上市，標配 7氣囊與全速域 CTS/MRCC 主動安全，2022年後逐步下放 360 環景與 Bose 音響。",
+                "platform": "Mazda Skyactiv-Vehicle Architecture",
+                "origin": "日本原裝進口",
+                "photo_query": "Mazda CX-30",
+                "depreciation_alert": {
+                    "level": "low",
+                    "title": "6AT 變速箱成熟穩定，內裝質感同級最佳",
+                    "reason": "兼顧都會好停車身尺碼與輕度休旅視野，女性與小家庭買家指名度高。"
+                },
+                "trims": [
+                    {
+                        "trim_name": "20S 尊榮 / 頂級 / Signature (2.0L)",
+                        "msrp_wan": 99.8,
+                        "engine_code": "PE-VPS 2.0L Skyactiv-G 自然進氣",
+                        "displacement_cc": 1998,
+                        "horsepower": "165 ps / 6,000 rpm",
+                        "torque": "21.7 kgm / 4,000 rpm",
+                        "transmission": "6速手自排",
+                        "drivetrain": "前輪驅動 (FF)",
+                        "suspension": "前麥花臣 / 後扭力樑",
+                        "fuel_economy": "15.0 km/L",
+                        "dimensions": "4395 x 1795 x 1540 mm (軸距 2655 mm)",
+                        "safety": "7氣囊、MRCC 全速域、CTS 車道維持"
+                    }
+                ],
+                "common_issues": [
+                    {
+                        "part": "後照鏡收折馬達 / 車身防刮塑料白化",
+                        "severity": "一般耗材",
+                        "mileage_range": "5萬公里以上",
+                        "symptom": "洗車進水後偶發收折不完全；大型輪弧塑料日曬白化。",
+                        "repair_cost_ntd": "保固內免費出保；自費約 2,000 元",
+                        "advice": "機械體質極佳，優先選 2022 年後配備 360 環景與全速域車道置中的年式。"
+                    }
+                ],
+                "yearly_prices": {
+                    "2020": {"msrp": 96.9, "dealer": 54.5, "private": 49.5, "book": 45.0},
+                    "2021": {"msrp": 96.9, "dealer": 59.5, "private": 54.5, "book": 49.8},
+                    "2022": {"msrp": 99.8, "dealer": 65.5, "private": 60.0, "book": 55.0},
+                    "2023": {"msrp": 102.8, "dealer": 72.0, "private": 66.5, "book": 61.0},
+                    "2024": {"msrp": 103.8, "dealer": 79.0, "private": 73.0, "book": 67.5},
+                    "2025": {"msrp": 103.8, "dealer": 86.5, "private": 80.5, "book": 74.5}
+                }
+            }
+        ]
+    },
+    {
+        "id": "mazda-mx5",
+        "brand": "Mazda",
+        "model": "MX-5",
+        "model_zh": "馬自達 MX-5 敞篷跑車",
+        "category": "雙座敞篷跑車",
+        "summary": "全球最暢銷雙座敞篷小跑車！NC 3代(2006-2015)與 ND 4代(2016+)皆以極致輕量化與 50:50 前後配重聞名，台灣中古市場極度保值，幾乎沒有明顯折舊崩盤。",
+        "generations": [
+            {
+                "gen_id": "mx5-nc",
+                "gen_name": "第 3 代 (NC 電動硬頂敞篷)",
+                "years": [2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
+                "is_major_change": True,
+                "major_change_year": 2007,
+                "major_change_note": "導入電動收折硬頂 (PRHT) 與 2.0L 引擎 + 6速手自排，在台灣日常停放更安心。",
+                "platform": "Mazda NC 縱置後驅平台",
+                "origin": "日本原裝進口",
+                "photo_query": "Mazda MX-5 NC",
+                "depreciation_alert": {
+                    "level": "low",
+                    "title": "經典敞篷小跑車，市場保值度驚人",
+                    "reason": "15年車齡仍維持 45~58 萬行情，稀有性高且後驅樂趣純粹。"
+                },
+                "trims": [
+                    {
+                        "trim_name": "2.0L 電動硬頂敞篷 (6AT)",
+                        "msrp_wan": 122.0,
+                        "engine_code": "LF-VE 2.0L 自然進氣",
+                        "displacement_cc": 1999,
+                        "horsepower": "160 ps / 6,700 rpm",
+                        "torque": "19.2 kgm / 5,000 rpm",
+                        "transmission": "6速手自排",
+                        "drivetrain": "前置後驅 (FR)",
+                        "suspension": "前雙A臂 / 後多連桿",
+                        "fuel_economy": "11.5 km/L",
+                        "dimensions": "4020 x 1720 x 1255 mm (軸距 2330 mm)",
+                        "safety": "4氣囊、DSC 車身穩定"
+                    }
+                ],
+                "common_issues": [
+                    {
+                        "part": "電動硬頂排水孔堵塞滲水 / 副水箱塑膠老化",
+                        "severity": "中風險",
+                        "mileage_range": "10年以上",
+                        "symptom": "大雨後座椅後方積水、塑膠副水箱脆化。",
+                        "repair_cost_ntd": "換裝鋁製副水箱約 5,000 元",
+                        "advice": "定期疏通排水孔即可，建議預防性更換鋁製副水箱。"
+                    }
+                ],
+                "yearly_prices": {
+                    "2008": {"msrp": 118.0, "dealer": 46.0, "private": 41.0, "book": 32.0},
+                    "2010": {"msrp": 120.0, "dealer": 50.0, "private": 44.5, "book": 36.0},
+                    "2012": {"msrp": 122.0, "dealer": 55.0, "private": 49.0, "book": 40.0},
+                    "2014": {"msrp": 122.0, "dealer": 60.0, "private": 54.0, "book": 45.0}
+                }
+            },
+            {
+                "gen_id": "mx5-nd",
+                "gen_name": "第 4 代 (ND 軟頂 / RF 硬頂敞篷)",
+                "years": [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+                "is_major_change": True,
+                "major_change_year": 2016,
+                "major_change_note": "2016年大改款車重降至僅約 1 噸！2019年起 ND2 馬力由 160ps 提升至 184ps，並提供 6MT 手排與 RF 硬頂。",
+                "platform": "Mazda ND Skyactiv 輕量化後驅平台",
+                "origin": "日本原裝進口",
+                "photo_query": "Mazda MX-5 ND",
+                "depreciation_alert": {
+                    "level": "low",
+                    "title": "極度保值！184ps 手排版二手價居高不下",
+                    "reason": "2.0L 低稅金純種後驅敞篷，妥善率極佳、養車成本比歐系跑車低非常多。"
+                },
+                "trims": [
+                    {
+                        "trim_name": "2.0L 軟頂敞篷 6MT 手排 (ND2 184ps)",
+                        "msrp_wan": 135.0,
+                        "engine_code": "PE-VPS 2.0L 高轉 Skyactiv-G",
+                        "displacement_cc": 1998,
+                        "horsepower": "184 ps / 7,000 rpm (前期160ps)",
+                        "torque": "20.9 kgm / 4,000 rpm",
+                        "transmission": "6速純手排",
+                        "drivetrain": "前置後驅 (FR) + LSD 限滑差速器",
+                        "suspension": "前雙A臂 / 後多連桿",
+                        "fuel_economy": "14.8 km/L",
+                        "dimensions": "3915 x 1735 x 1230 mm (軸距 2310 mm)",
+                        "safety": "4氣囊、盲點偵測、Bilstein 避震(後期)"
+                    },
+                    {
+                        "trim_name": "2.0L RF 電動硬頂敞篷 (6AT 自排)",
+                        "msrp_wan": 152.0,
+                        "engine_code": "PE-VPS 2.0L Skyactiv-G",
+                        "displacement_cc": 1998,
+                        "horsepower": "184 ps / 7,000 rpm",
+                        "torque": "20.9 kgm / 4,000 rpm",
+                        "transmission": "6速手自排",
+                        "drivetrain": "前置後驅 (FR)",
+                        "suspension": "前雙A臂 / 後多連桿",
+                        "fuel_economy": "14.2 km/L",
+                        "dimensions": "3915 x 1735 x 1235 mm (軸距 2310 mm)",
+                        "safety": "4氣囊、盲點、SCBS 都會煞車"
+                    }
+                ],
+                "common_issues": [
+                    {
+                        "part": "前期 2016 手排變速箱二/三檔齒輪強度（ND1）",
+                        "severity": "中風險",
+                        "mileage_range": "激烈操駕車主",
+                        "symptom": "2016-2017 年式手排大腳換檔偶發崩齒，2018+ 已強化改良。",
+                        "repair_cost_ntd": "強化變速箱約 4~6 萬",
+                        "advice": "強烈建議挑選 2019 年式以後的 ND2（184ps + 改良齒輪）。"
+                    }
+                ],
+                "yearly_prices": {
+                    "2016": {"msrp": 129.8, "dealer": 69.0, "private": 63.0, "book": 54.0},
+                    "2017": {"msrp": 132.0, "dealer": 73.0, "private": 67.0, "book": 58.0},
+                    "2018": {"msrp": 132.0, "dealer": 78.0, "private": 72.0, "book": 63.0},
+                    "2019": {"msrp": 134.0, "dealer": 86.0, "private": 79.5, "book": 70.0},
+                    "2020": {"msrp": 134.0, "dealer": 91.0, "private": 84.5, "book": 75.0},
+                    "2021": {"msrp": 134.0, "dealer": 96.5, "private": 90.0, "book": 80.5},
+                    "2022": {"msrp": 135.0, "dealer": 102.0, "private": 95.5, "book": 86.0},
+                    "2023": {"msrp": 135.0, "dealer": 108.0, "private": 101.5, "book": 92.0},
+                    "2024": {"msrp": 140.0, "dealer": 115.0, "private": 108.0, "book": 98.5},
+                    "2025": {"msrp": 140.0, "dealer": 123.0, "private": 116.0, "book": 106.0}
+                }
+            }
+        ]
     }
 ]

@@ -991,13 +991,122 @@ tr.row-selected {
   background: var(--sage-soft);
 }
 
-/* Ranking Drawer / Panel */
+/* Ranking & Smart Finder Panel */
 .ranking-panel {
   display: none;
 }
 
 .ranking-panel.open {
   display: block;
+  animation: fadeSlideIn 0.24s ease;
+}
+
+/* Page-by-Page Tab Bar */
+.page-tabs-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border-blue);
+  border-radius: 14px;
+  padding: 6px;
+}
+
+.page-tab-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-sub);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  text-align: center;
+}
+
+.page-tab-btn:hover {
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.page-tab-btn.active {
+  background: var(--blue-primary);
+  color: #ffffff;
+  border-color: var(--blue-primary);
+}
+
+.page-panel {
+  display: none;
+}
+
+.page-panel.active {
+  display: block;
+  animation: fadeSlideIn 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Smart Finder */
+.finder-filters {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.finder-results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+  max-height: 440px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.finder-card {
+  background: #ffffff;
+  border: 1px solid var(--border-blue);
+  border-radius: 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-color 0.16s ease, background-color 0.16s ease;
+}
+
+.finder-card:hover {
+  border-color: var(--blue-primary);
+  background: var(--sage-soft);
+}
+
+.finder-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.finder-card-title {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.finder-card-price {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--blue-primary);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.finder-card-meta {
+  font-size: 0.8rem;
+  color: var(--text-sub);
+  font-variant-numeric: tabular-nums;
 }
 
 @media (max-width: 1100px) {
@@ -1007,7 +1116,11 @@ tr.row-selected {
 }
 
 @media (max-width: 900px) {
-  .selector-grid {
+  .selector-grid,
+  .finder-filters {
+    grid-template-columns: 1fr 1fr;
+  }
+  .page-tabs-bar {
     grid-template-columns: 1fr 1fr;
   }
   .kpi-grid {

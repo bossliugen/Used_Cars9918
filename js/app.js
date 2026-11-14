@@ -141,15 +141,10 @@ function bindEvents() {
     renderChart();
   });
 
-  document.getElementById("btnToggleDetails").addEventListener("click", () => {
-    state.detailsOpen = !state.detailsOpen;
-    const wrapper = document.getElementById("detailsWrapper");
-    const btn = document.getElementById("btnToggleDetails");
-    wrapper.classList.toggle("open", state.detailsOpen);
-    btn.textContent = state.detailsOpen ? "收合詳細資料 ▴" : "展開詳細資料 ▾";
-    if (state.detailsOpen) {
-      renderDetailBody();
-    }
+  document.querySelectorAll(".page-tab-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      switchPage(btn.dataset.page);
+    });
   });
 
   document.querySelectorAll(".detail-tab").forEach((btn) => {
@@ -162,12 +157,42 @@ function bindEvents() {
   });
 
   document.getElementById("btnToggleRanking").addEventListener("click", () => {
+    document.getElementById("smartFinderPanel").classList.remove("open");
     document.getElementById("rankingPanel").classList.toggle("open");
   });
 
   document.getElementById("btnCloseRanking").addEventListener("click", () => {
     document.getElementById("rankingPanel").classList.remove("open");
   });
+
+  document.getElementById("btnToggleFinder").addEventListener("click", () => {
+    document.getElementById("rankingPanel").classList.remove("open");
+    const panel = document.getElementById("smartFinderPanel");
+    panel.classList.toggle("open");
+    if (panel.classList.contains("open")) {
+      renderSmartFinder();
+    }
+  });
+
+  document.getElementById("btnCloseFinder").addEventListener("click", () => {
+    document.getElementById("smartFinderPanel").classList.remove("open");
+  });
+
+  ["finderGoal", "finderBody", "finderBudget", "finderMinYear", "finderMinHp", "finderMaxCc"].forEach((id) => {
+    document.getElementById(id).addEventListener("change", renderSmartFinder);
+  });
+}
+
+function switchPage(pageKey) {
+  document.querySelectorAll(".page-tab-btn").forEach((b) => {
+    b.classList.toggle("active", b.dataset.page === pageKey);
+  });
+  document.querySelectorAll(".page-panel").forEach((p) => {
+    p.classList.toggle("active", p.id === `page-${pageKey}`);
+  });
+  if (pageKey === "chart") {
+    requestAnimationFrame(() => renderChart());
+  }
 }
 
 function renderBrandControls() {
@@ -182,11 +207,6 @@ function renderBrandControls() {
     `
     )
     .join("");
-
-  const pillsEl = document.getElementById("brandPills");
-  pillsEl.innerHTML = state.brands
-    .map((b) => `<button class="brand-pill" data-brand="${b}" onclick="selectBrand('${b}')">${getBrandLogoSvg(b)}<span>${b}</span></button>`)
-    .join("");
 }
 
 function pickBrandFromMenu(brand) {
@@ -199,10 +219,6 @@ function selectBrand(brand, preferredCarId = null) {
   document.getElementById("brandDropdownLabel").innerHTML = `${getBrandLogoSvg(brand)}<span>${brand}</span>`;
   document.querySelectorAll(".custom-dropdown-item").forEach((item) => {
     item.classList.toggle("active", item.dataset.brand === brand);
-  });
-
-  document.querySelectorAll(".brand-pill").forEach((p) => {
-    p.classList.toggle("active", p.dataset.brand === brand);
   });
 
   const brandCars = state.db.cars.filter((c) => c.brand === brand);
@@ -887,6 +903,124 @@ function renderRankingTable() {
 function pickFromRanking(brand, carId) {
   selectBrand(brand, carId);
   document.getElementById("rankingPanel").classList.remove("open");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function parseMaxHp(hpStr) {
+  const nums = String(hpStr || "").match(/(\d+(?:\.\d+)?)/g);
+  if (!nums) return 0;
+  return Math.max(...nums.map((n) => parseFloat(n)));
+}
+
+function matchBodyCategory(category, filterVal) {
+  if (filterVal === "all") return true;
+  if (filterVal === "小車") return /小車|掀背/.test(category);
+  if (filterVal === "房車") return /房車/.test(category) && !/休旅/.test(category);
+  if (filterVal === "休旅") return /休旅|SUV|MPV/.test(category);
+  if (filterVal === "跑車旅行") return /敞篷|跑車|旅行車/.test(category);
+  return true;
+}
+
+function renderSmartFinder() {
+  const goal = document.getElementById("finderGoal").value;
+  const body = document.getElementById("finderBody").value;
+  const maxBudget = parseFloat(document.getElementById("finderBudget").value) || 999;
+  const minYearRaw = document.getElementById("finderMinYear").value;
+  const minHp = parseFloat(document.getElementById("finderMinHp").value) || 0;
+  const maxCc = parseInt(document.getElementById("finderMaxCc").value, 10) || 9999;
+
+  const matches = [];
+
+  state.db.cars.forEach((car) => {
+    if (!matchBodyCategory(car.category, body)) return;
+
+    car.generations.forEach((gen) => {
+      const baseMsrp = gen.trims?.[0]?.msrp_wan || 1;
+      if (goal === "no-high-risk" && gen.depreciation_alert.level === "high") return;
+      if (goal === "safe-value" && (gen.depreciation_alert.level !== "low" || gen.avg_residual_dealer_pct < 42)) return;
+
+      (gen.trims || []).forEach((trim, trimIdx) => {
+        const hp = parseMaxHp(trim.horsepower);
+        const cc = parseInt(trim.displacement_cc, 10) || 1800;
+        if (hp < minHp || cc > maxCc) return;
+        if (goal === "easy-own" && (cc > 1800 || gen.depreciation_alert.level === "high")) return;
+
+        const ratio = trim.msrp_wan ? trim.msrp_wan / baseMsrp : 1.0;
+
+        // 找出該世代+版本中，符合年份與預算的最新年份代表
+        const validPts = (gen.year_points || []).filter((pt) => {
+          const effPrice = +(pt.dealer * ratio).toFixed(1);
+          if (effPrice > maxBudget) return false;
+          if (minYearRaw === "2000-2010") {
+            if (pt.year < 2000 || pt.year > 2010) return false;
+          } else {
+            const minY = parseInt(minYearRaw, 10) || 0;
+            if (pt.year < minY) return false;
+          }
+          return true;
+        });
+
+        if (validPts.length) {
+          const bestPt = validPts[validPts.length - 1];
+          matches.push({
+            car,
+            gen,
+            trim,
+            trimIdx,
+            year: bestPt.year,
+            price: +(bestPt.dealer * ratio).toFixed(1),
+            residual: bestPt.residual_dealer_pct,
+            hp,
+            cc,
+            tax: trim.annual_tax_ntd,
+          });
+        }
+      });
+    });
+  });
+
+  matches.sort((a, b) => b.year - a.year || b.residual - a.residual);
+
+  document.getElementById("finderResultCount").textContent =
+    `共找到 ${matches.length} 筆符合條件的世代與版本組合（點擊任一卡片直接切換查看）`;
+
+  const grid = document.getElementById("finderResultsGrid");
+  if (!matches.length) {
+    grid.innerHTML = `<div style="color:var(--text-sub);font-size:0.88rem;padding:14px 0;">目前條件較嚴格，建議稍微放寬預算上限或年份。</div>`;
+    return;
+  }
+
+  grid.innerHTML = matches
+    .slice(0, 36)
+    .map(
+      (m) => `
+      <button type="button" class="finder-card" onclick="pickFromFinder('${m.car.brand}','${m.car.id}',${m.year},${m.trimIdx})">
+        <div class="finder-card-top">
+          <div>
+            <div class="finder-card-title">${m.car.brand} ${m.car.model} ・ ${m.year} 年</div>
+            <div style="font-size:0.78rem;color:var(--blue-primary);font-weight:600;margin-top:2px;">${m.trim.trim_name}</div>
+          </div>
+          <div class="finder-card-price">${m.price.toFixed(1)} 萬</div>
+        </div>
+        <div class="finder-card-meta">
+          ${m.car.category} ・ ${m.hp} ps ・ ${m.cc} cc (年稅 $${m.tax.toLocaleString()}) ・ 殘值 ${m.residual}%
+        </div>
+      </button>
+    `
+    )
+    .join("");
+}
+
+function pickFromFinder(brand, carId, year, trimIdx) {
+  selectBrand(brand, carId);
+  state.selectedYear = year;
+  document.getElementById("selectYear").value = String(year);
+  populateTrimSelect();
+  state.selectedTrimIdx = trimIdx;
+  document.getElementById("selectTrim").value = String(trimIdx);
+  renderAllCarViews();
+  document.getElementById("smartFinderPanel").classList.remove("open");
+  switchPage("overview");
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
