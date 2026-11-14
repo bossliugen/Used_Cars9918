@@ -179,10 +179,13 @@ def serve_website(port=8000):
         def log_message(self, format, *args):
             pass
 
-    httpd = socketserver.TCPServer(("127.0.0.1", actual_port), QuietHandler)
+    class ReusableTCPServer(socketserver.TCPServer):
+        allow_reuse_address = True
+
+    httpd = ReusableTCPServer(("127.0.0.1", actual_port), QuietHandler)
     url = f"http://127.0.0.1:{actual_port}/index.html"
-    print(f"[SERVER] 本地分析網站已啟動: {url}")
-    print("[INFO] 若要關閉伺服器，請直接關閉此視窗或按 Ctrl+C")
+    print(f"[SERVER] 本地分析網站已啟動: {url}", flush=True)
+    print("[INFO] 若要關閉伺服器，請直接關閉此視窗或按 Ctrl+C", flush=True)
 
     threading.Timer(0.8, lambda: webbrowser.open(url)).start()
     try:
