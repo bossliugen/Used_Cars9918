@@ -195,7 +195,11 @@ function bindEvents() {
     document.getElementById("rankingPanel").classList.remove("open");
   });
 
-  ["finderGoal", "finderBody", "finderBudget", "finderMinYear", "finderMinHp", "finderMaxCc"].forEach((id) => {
+  ["finderGoal", "finderBody", "finderMaxCc"].forEach((id) => {
+    document.getElementById(id).addEventListener("change", renderSmartFinder);
+  });
+  ["finderBudgetMin", "finderBudgetMax", "finderHpMin", "finderHpMax", "finderYearMin", "finderYearMax"].forEach((id) => {
+    document.getElementById(id).addEventListener("input", renderSmartFinder);
     document.getElementById(id).addEventListener("change", renderSmartFinder);
   });
 }
@@ -514,6 +518,19 @@ async function loadGenPhoto(gen) {
   const imgEl = document.getElementById(`img-${gen.gen_id}`);
   const creditEl = document.getElementById(`credit-${gen.gen_id}`);
   if (!imgEl || !creditEl) return;
+
+  // 優先使用本地去背白底圖 (assets/cars/<gen_id>.jpg)
+  const localUrl = `assets/cars/${gen.gen_id}.jpg`;
+  try {
+    const headResp = await fetch(localUrl, { method: "HEAD" });
+    if (headResp.ok) {
+      imgEl.src = localUrl;
+      creditEl.textContent = "去背白底圖 (Wikimedia Commons)";
+      return;
+    }
+  } catch (e) {
+    // fallback to Wikimedia API
+  }
 
   const query = gen.photo_query || gen.gen_name;
   const cacheKey = `wiki_photo_v1_${query}`;
@@ -990,10 +1007,22 @@ function matchBodyCategory(category, filterVal) {
 function renderSmartFinder() {
   const goal = document.getElementById("finderGoal").value;
   const body = document.getElementById("finderBody").value;
-  const maxBudget = parseFloat(document.getElementById("finderBudget").value) || 999;
-  const minYearRaw = document.getElementById("finderMinYear").value;
-  const minHp = parseFloat(document.getElementById("finderMinHp").value) || 0;
   const maxCc = parseInt(document.getElementById("finderMaxCc").value, 10) || 9999;
+
+  const minBudget = parseFloat(document.getElementById("finderBudgetMin").value);
+  const maxBudget = parseFloat(document.getElementById("finderBudgetMax").value);
+  const bMin = Number.isFinite(minBudget) ? minBudget : 0;
+  const bMax = Number.isFinite(maxBudget) ? maxBudget : Infinity;
+
+  const minHp = parseFloat(document.getElementById("finderHpMin").value);
+  const maxHp = parseFloat(document.getElementById("finderHpMax").value);
+  const hMin = Number.isFinite(minHp) ? minHp : 0;
+  const hMax = Number.isFinite(maxHp) ? maxHp : Infinity;
+
+  const minYear = parseInt(document.getElementById("finderYearMin").value, 10);
+  const maxYear = parseInt(document.getElementById("finderYearMax").value, 10);
+  const yMin = Number.isFinite(minYear) ? minYear : 2000;
+  const yMax = Number.isFinite(maxYear) ? maxYear : 2026;
 
   const matches = [];
 
@@ -1008,21 +1037,31 @@ function renderSmartFinder() {
       (gen.trims || []).forEach((trim, trimIdx) => {
         const hp = parseMaxHp(trim.horsepower);
         const cc = parseInt(trim.displacement_cc, 10) || 1800;
-        if (hp < minHp || cc > maxCc) return;
+        if (hp < hMin || hp > hMax || cc > maxCc) return;
         if (goal === "easy-own" && (cc > 1800 || gen.depreciation_alert.level === "high")) return;
+
+        if (goal === "handling") {
+          const isHandling =
+            /多連桿|雙A臂|運動|Sport|GTI|ST|後驅|FR|手排|敞篷|跑車|渦輪/.test(
+              `${car.category} ${trim.trim_name} ${trim.suspension} ${trim.transmission} ${trim.drivetrain}`
+            );
+          if (!isHandling) return;
+        }
+        if (goal === "comfort") {
+          const isComfort =
+            /房車|休旅|SUV|MPV|CVT|自排|油電|Hybrid|e:HEV/.test(
+              `${car.category} ${trim.trim_name} ${trim.transmission}`
+            ) && !/純手排|跑車/.test(`${car.category} ${trim.transmission}`);
+          if (!isComfort) return;
+        }
 
         const ratio = trim.msrp_wan ? trim.msrp_wan / baseMsrp : 1.0;
 
-        // 找出該世代+版本中，符合年份與預算的最新年份代表
+        // 找出該世代+版本中，符合年份與預算範圍的最新年份代表
         const validPts = (gen.year_points || []).filter((pt) => {
           const effPrice = +(pt.dealer * ratio).toFixed(1);
-          if (effPrice > maxBudget) return false;
-          if (minYearRaw === "2000-2010") {
-            if (pt.year < 2000 || pt.year > 2010) return false;
-          } else {
-            const minY = parseInt(minYearRaw, 10) || 0;
-            if (pt.year < minY) return false;
-          }
+          if (effPrice < bMin || effPrice > bMax) return false;
+          if (pt.year < yMin || pt.year > yMax) return false;
           return true;
         });
 
@@ -1048,19 +1087,22 @@ function renderSmartFinder() {
   matches.sort((a, b) => b.year - a.year || b.residual - a.residual);
 
   document.getElementById("finderResultCount").textContent =
-    `共找到 ${matches.length} 筆符合條件的世代與版本組合（點擊任一卡片直接切換查看）`;
+    `共找到 ${matches.length} 筆符合條件的世代與版本組合（點擊任一卡片直接進入分析）`;
 
   const grid = document.getElementById("finderResultsGrid");
   if (!matches.length) {
-    grid.innerHTML = `<div style="color:var(--text-sub);font-size:0.88rem;padding:14px 0;">目前條件較嚴格，建議稍微放寬預算上限或年份。</div>`;
+    grid.innerHTML = `<div style="color:var(--text-sub);font-size:0.88rem;padding:14px 0;">目前條件較嚴格，建議稍微放寬預算、馬力或年份範圍。</div>`;
     return;
   }
 
   grid.innerHTML = matches
-    .slice(0, 36)
+    .slice(0, 40)
     .map(
       (m) => `
       <button type="button" class="finder-card" onclick="pickFromFinder('${m.car.brand}','${m.car.id}',${m.year},${m.trimIdx})">
+        <div class="finder-card-photo">
+          <img src="assets/cars/${m.gen.gen_id}.jpg" alt="${m.car.brand} ${m.car.model}" loading="lazy" onerror="this.style.opacity='0.2'" />
+        </div>
         <div class="finder-card-top">
           <div>
             <div class="finder-card-title">${m.car.brand} ${m.car.model} ・ ${m.year} 年</div>

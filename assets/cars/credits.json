@@ -1,0 +1,318 @@
+{
+  "focus-mk1": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Focusmk1hatchback.jpg"
+  },
+  "focus-mk2": {
+    "license": "CC BY-SA 3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Ford_Focus_(Mk2)_XR5_Turbo.jpg"
+  },
+  "focus-mk3": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:FordFocus-CABA-nov2015.jpg"
+  },
+  "focus-mk35": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Ford_Focus_Mk3_Facelift_F.jpg"
+  },
+  "focus-mk4": {
+    "license": "CC BY 2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:1998_Ford_Focus_1.8_LX_(25749942283).jpg"
+  },
+  "altis-9": {
+    "license": "CC0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Moscow,_Toyota_Corolla_(E120)_sedan,_Sept_2025_01.jpg"
+  },
+  "altis-10": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Toyota_Corolla_Altis_1.6_E_2008.jpg"
+  },
+  "altis-11": {
+    "license": "CC0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Toyota_Corolla_Altis_(E170).png"
+  },
+  "altis-12": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:TOYOTA_COROLLA_SEDAN_(E210)_China.jpg"
+  },
+  "golf-mk4": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:1998_Volkswagen_Golf_S_1.4_(Front).jpg"
+  },
+  "golf-mk5": {
+    "license": "Public domain",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:2006_Volkswagen_Golf_(1K_MY07)_R32_4MOTION_5-door_hatchback_(2006-08-06).jpg"
+  },
+  "golf-mk6": {
+    "license": "CC BY 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:DSC05633_%C5%A0koda_Kodiaq_and_Volkswagen_Golf_Variant,_Austrian_Military_Police,_Front_Left,_2023-10.jpg"
+  },
+  "golf-mk7": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:2017_Volkswagen_Golf_5dr_(VII_Mk7_5G)_facelift_rear_(gold)_1.jpg"
+  },
+  "golf-mk8": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:2020_Volkswagen_Golf_Style_1.5_Front.jpg"
+  },
+  "civic-7": {
+    "license": "Public domain",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Guy_Holding_Zellers_Closing_Sale_Signs_%26_Honda_Civics.JPG"
+  },
+  "sentra-180": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:2012_Nissan_Sentra_N16_1.3_GX,_rear_right,_06-01-2024.jpg"
+  },
+  "sentra-g11": {
+    "license": "Public domain",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:NISSAN_BLUEBIRD_SYLPHY_G11_rear.jpg"
+  },
+  "sentra-b17": {
+    "license": "CC0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Nissan_Sentra_(B17).png"
+  },
+  "sentra-b18": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:2024_Nissan_Sentra_(B18)_DSC_3754.jpg"
+  },
+  "rav4-3": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:TOYOTA_RAV4_(XA30)_China.jpg"
+  },
+  "rav4-4": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:13-15_Toyota_RAV4.jpg"
+  },
+  "rav4-5": {
+    "license": "CC0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:2021_Toyota_RAV4_PHV.jpg"
+  },
+  "crv-2": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:HONDA_CR-V_SECOND_GENERATION_REAR_DOUBLE_WISHBONE_SUSPENSION.jpg"
+  },
+  "crv-3": {
+    "license": "Public domain",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:2007-2009_Honda_CR-V_(RE_MY2007)_Sport_wagon_01.jpg"
+  },
+  "crv-4": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:HONDA_CR-V_FOURTH_GENERATION_China.jpg"
+  },
+  "crv-5": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:HONDA_CR-V_FIFTH_GENERATION_%26_ACURA_RDX_A_SPEC_TC1_China.jpg"
+  },
+  "crv-6": {
+    "license": "CC BY-SA 3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:2023_Honda_CR-V_EX-L_4WD_in_Radiant_Red_Metallic,_rear_right.jpg"
+  },
+  "mazda3-1": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:MAZDA3_SEDAN_(BK)_China.jpg"
+  },
+  "mazda3-2": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:MAZDA3_HATCHBACK_(BL)_China.jpg"
+  },
+  "mazda3-3": {
+    "license": "CC BY 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mazda3_Sedan_(BM)_Washington_DC_Metro_Area,_USA.jpg"
+  },
+  "mazda3-4": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mazda3_(BP)_1X7A7264.jpg"
+  },
+  "cc-1": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:2022_Toyota_Corolla_Cross_L_FWD,_Front_Left,_11-21-2021.jpg"
+  },
+  "yaris-2": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:TOYOTA_YARIS_(XP90)_China.jpg"
+  },
+  "yaris-3": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:TOYOTA_YARIS_L_(XP150)_China_(6).jpg"
+  },
+  "camry-5": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:TOYOTA_CAMRY_(XV30)_China_(20).jpg"
+  },
+  "camry-6": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:TOYOTA_CAMRY_(XV40,_ASIA)_China_(3).jpg"
+  },
+  "camry-7": {
+    "license": "CC0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:2011-2014_Toyota_Camry_Hybrid_rear.jpg"
+  },
+  "camry-8": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:TOYOTA_CAMRY_(XV70)_China.jpg"
+  },
+  "fit-2": {
+    "license": "CC0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Honda_DBA-GE8_Fit_RS_(23042814295).jpg"
+  },
+  "fit-3": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Honda_FIT_15XL%E3%83%BBHonda_SENSING_(DBA-GK5).jpg"
+  },
+  "fit-4": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:2022_Honda_Fit_eHEV_ModuloX_(GR)_Front_View.jpg"
+  },
+  "hrv-1": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:HONDA_XR-V_(HONDA_VEZEL_HR-V_(RU)_)_China.jpg"
+  },
+  "hrv-2": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:2022_Honda_HR-V_Elegance_I-MMD_CVT.jpg"
+  },
+  "kuga-mk2": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:2017_Ford_Kuga_Mk2_facelift_front_EU_specification_(white)_1.jpg"
+  },
+  "cx5-1": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:MAZDA_CX-5_(KE)_China.jpg"
+  },
+  "cx5-2": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:2017_Mazda_CX-5_(KF)_Maxx_2WD_wagon_(2018-11-02)_01.jpg"
+  },
+  "kicks-1": {
+    "license": "CC0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:2026_Nissan_Kicks_X.jpg"
+  },
+  "tiguan-1": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:VOLKSWAGEN_TIGUAN_(5N)_China.jpg"
+  },
+  "forester-3": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:SUBARU_FORESTER_(SH)_China.jpg"
+  },
+  "forester-4": {
+    "license": "CC0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:2015-2018_Subaru_Forester_XT.jpg"
+  },
+  "forester-5": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:SUBARU_FORESTER_(SK)_China_(10).jpg"
+  },
+  "tucson-3": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:HYUNDAI_TUCSON_(TL)_China.jpg"
+  },
+  "tucson-4": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Hyundai_Tucson_(NX4)_1X7A0424.jpg"
+  },
+  "nx-1": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:LEXUS_NX_(AZ10)_TAIL_LAMP.jpg"
+  },
+  "nx-2": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:LEXUS_NX_(AZ20)_China.jpg"
+  },
+  "c-w203": {
+    "license": "Public domain",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:%2701-%2704_Mercedes-Benz_W203_Sedan_Taxi.jpg"
+  },
+  "c-w204": {
+    "license": "CC BY-SA 3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mercedes-Benz_C-Class_w204_amk.jpg"
+  },
+  "c-w205": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:0_Mercedes-Benz_W205_(2018)_1.jpg"
+  },
+  "bmw-e46": {
+    "license": "CC0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_3_Series_(E46)_204250.jpg"
+  },
+  "bmw-e90": {
+    "license": "Public domain",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:2005-2008_BMW_320i_(E90)_sedan_01.jpg"
+  },
+  "bmw-f30": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_3-Series_F30_China_2014-04-14.jpg"
+  },
+  "bmw-g20": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:2024_BMW_G20_DSC_7350.jpg"
+  },
+  "swift-2": {
+    "license": "CC0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Tuned_Suzuki_SWIFT_(ZC11S)_front.JPG"
+  },
+  "swift-3": {
+    "license": "CC BY 3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:SUZUKI_SWIFT_ZC72S_F.JPG"
+  },
+  "swift-4": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Silver_Suzuki_SWIFT_XL_(DBA-ZC83S)_rear.jpg"
+  },
+  "mazda2-de": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:2024_Toyota_Yaris_Hybrid_130_(XP210)_IMG_9425.jpg"
+  },
+  "mazda2-dj": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:2023_Mazda2_(DJ)_1X7A1555.jpg"
+  },
+  "mazda5-1": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:MAZDA5,MAZDA_PREMACY_(CR)_China.jpg"
+  },
+  "mazda5-2": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:MAZDA5,MAZDA_PREMACY_(CW)_China_(4).jpg"
+  },
+  "mazda6-gg": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:2003_Mazda6.jpg"
+  },
+  "mazda6-gj": {
+    "license": "Public domain",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:2012_Mazda6_(GJ)_Atenza_station_wagon_(2012-10-26)_01.jpg"
+  },
+  "cx30-dm": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:MAZDA_CX-30_CHINA_VERSION_INTERIOR.jpg"
+  },
+  "mx5-nc": {
+    "license": "Public domain",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:3rd_Mazda_MX-5_--_06-14-2010.jpg"
+  },
+  "mx5-nd": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:2015_Mazda_MX-5_(ND)_Roadster_GT_convertible_(2018-10-30)_01.jpg"
+  },
+  "civic-8": {
+    "license": "Public domain",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:2006-2008_Honda_Civic_LX_sedan_--_09-22-2010.jpg"
+  },
+  "civic-9": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:2013_Honda_Civic_SE_I-DTEC.jpg"
+  },
+  "civic-11": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Honda_Civic_Hybrid_(2022,_Europe)_1X7A1558.jpg"
+  },
+  "kuga-mk3": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:2020_Ford_Kuga_ST-Line_Plug-In_Hybrid_Rear.jpg"
+  },
+  "tiguan-2": {
+    "license": "CC BY-SA 4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:2017_Volkswagen_Tiguan_TDi_2.0_Front.jpg"
+  }
+}

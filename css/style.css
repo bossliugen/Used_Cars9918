@@ -304,23 +304,19 @@ body {
 .gen-photo-wrap {
   position: relative;
   width: 100%;
-  height: 110px;
-  background: radial-gradient(circle at center, #ffffff 45%, #f1f5f9 100%);
+  height: 118px;
+  background: #ffffff;
   overflow: hidden;
-}
-
-.gen-photo-wrap::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  box-shadow: inset 0 0 18px 8px #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
 }
 
 .gen-photo-thumb {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
@@ -1189,6 +1185,44 @@ tr.row-selected {
   max-height: 440px;
   overflow-y: auto;
   padding-right: 4px;
+}
+
+.range-inputs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.range-inputs .input-blue {
+  min-width: 0;
+  padding: 8px 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.range-inputs span {
+  color: var(--text-sub);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.finder-card-photo {
+  width: 100%;
+  height: 132px;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 6px;
+}
+
+.finder-card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .finder-card {

@@ -116,6 +116,8 @@
               <option value="all">不限取向</option>
               <option value="safe-value">安全保值首選（低風險 + 高殘值）</option>
               <option value="easy-own">省稅省油好養（低養車負擔）</option>
+              <option value="handling">操控樂趣優先（獨立懸吊 / 渦輪 / 手排 / 敞篷）</option>
+              <option value="comfort">乘坐舒適優先（房車 / 休旅 / 平順好開）</option>
               <option value="no-high-risk">避開高風險通病車款</option>
             </select>
           </div>
@@ -130,36 +132,6 @@
             </select>
           </div>
           <div class="field-group">
-            <label for="finderBudget">預算上限 (萬元)</label>
-            <select id="finderBudget" class="select-blue">
-              <option value="999">不限預算</option>
-              <option value="30">30 萬以內</option>
-              <option value="50">50 萬以內</option>
-              <option value="80">80 萬以內</option>
-              <option value="120">120 萬以內</option>
-            </select>
-          </div>
-          <div class="field-group">
-            <label for="finderMinYear">出廠年份</label>
-            <select id="finderMinYear" class="select-blue">
-              <option value="0">不限年份 (2000+)</option>
-              <option value="2020">2020 年以後</option>
-              <option value="2015">2015 年以後</option>
-              <option value="2010">2010 年以後</option>
-              <option value="2000-2010">2000 – 2010 經典老車</option>
-            </select>
-          </div>
-          <div class="field-group">
-            <label for="finderMinHp">馬力需求</label>
-            <select id="finderMinHp" class="select-blue">
-              <option value="0">不限馬力</option>
-              <option value="120">120 匹以上（日常夠用）</option>
-              <option value="150">150 匹以上（高速輕快）</option>
-              <option value="180">180 匹以上（動力充沛）</option>
-              <option value="220">220 匹以上（性能鋼砲）</option>
-            </select>
-          </div>
-          <div class="field-group">
             <label for="finderMaxCc">排氣量上限（省稅金）</label>
             <select id="finderMaxCc" class="select-blue">
               <option value="9999">不限排氣量</option>
@@ -167,6 +139,30 @@
               <option value="1800">1,800 cc 以下（年稅 $11,920）</option>
               <option value="2000">2,000 cc 以下（年稅 $17,410）</option>
             </select>
+          </div>
+          <div class="field-group">
+            <label>預算範圍 (萬元)</label>
+            <div class="range-inputs">
+              <input id="finderBudgetMin" type="number" class="input-blue" value="0" min="0" max="500" placeholder="最低" />
+              <span>～</span>
+              <input id="finderBudgetMax" type="number" class="input-blue" min="0" max="500" placeholder="最高 (不限)" />
+            </div>
+          </div>
+          <div class="field-group">
+            <label>馬力範圍 (匹 ps)</label>
+            <div class="range-inputs">
+              <input id="finderHpMin" type="number" class="input-blue" value="0" min="0" max="600" placeholder="最低" />
+              <span>～</span>
+              <input id="finderHpMax" type="number" class="input-blue" min="0" max="600" placeholder="最高 (不限)" />
+            </div>
+          </div>
+          <div class="field-group">
+            <label>出廠年份範圍</label>
+            <div class="range-inputs">
+              <input id="finderYearMin" type="number" class="input-blue" value="2000" min="1995" max="2026" placeholder="最低年份" />
+              <span>～</span>
+              <input id="finderYearMax" type="number" class="input-blue" value="2026" min="1995" max="2026" placeholder="最高年份" />
+            </div>
           </div>
         </div>
 
