@@ -15,8 +15,9 @@
   --orange: #B45309;
   --red: #991B1B;
   --purple: #1B4332;
-  --font-serif: "Noto Serif TC", Georgia, serif;
-  --font-sans: "Inter", "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-brand: "Instrument Serif", Georgia, serif;
+  --font-serif: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --font-sans: "Inter", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
   --radius: 16px;
   --shadow-sm: none;
   --shadow-md: none;
@@ -64,15 +65,15 @@ body {
 }
 
 .brand-wordmark {
-  font-family: var(--font-serif);
-  font-size: 1.75rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  font-family: var(--font-brand);
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
   color: var(--text-main);
   line-height: 1;
   display: inline-flex;
   align-items: baseline;
-  gap: 3px;
+  gap: 2px;
 }
 
 .brand-dot {
@@ -85,9 +86,11 @@ body {
 }
 
 .brand-logo h1 {
-  font-family: var(--font-serif);
-  font-size: 1.08rem;
-  font-weight: 600;
+  font-family: var(--font-sans);
+  font-size: 1.06rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-wrap: balance;
   color: var(--text-main);
 }
 

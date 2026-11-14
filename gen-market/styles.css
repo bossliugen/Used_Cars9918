@@ -9,8 +9,8 @@
   --green-forest: #1B4332;
   --green-sage: #E7EFEA;
 
-  --font-serif: "Noto Serif TC", Georgia, serif;
-  --font-sans: "Inter", "Noto Sans TC", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand: "Instrument Serif", Georgia, serif;
+  --font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Inter", sans-serif;
   --radius-card: 16px;
 }
 
@@ -42,9 +42,9 @@ body {
   padding: 0 24px;
 }
 
-/* Header */
+/* 頂部品牌列：原生透明底色 GEN. 字標 */
 .site-header {
-  background-color: var(--bg-cream);
+  background-color: transparent;
   border-bottom: 1px solid var(--border-warm);
 }
 
@@ -63,20 +63,21 @@ body {
 }
 
 .brand-wordmark {
-  font-family: var(--font-serif);
-  font-size: 1.65rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  font-family: var(--font-brand);
+  font-size: 2.05rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
   color: var(--text-roast);
   text-decoration: none;
   display: inline-flex;
   align-items: baseline;
-  gap: 3px;
+  gap: 2px;
+  line-height: 1;
 }
 
 .brand-dot {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border-radius: 9999px;
   background-color: var(--green-forest);
   display: inline-block;
@@ -100,7 +101,7 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
-/* Buttons & Pills */
+/* 按鈕與標籤 */
 .btn-primary,
 .btn-outline,
 .btn-ghost {
@@ -158,7 +159,7 @@ body {
   border-radius: 9999px;
   background-color: var(--green-sage);
   color: var(--green-forest);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 500;
   white-space: nowrap;
 }
@@ -171,7 +172,7 @@ body {
   background-color: var(--green-forest);
 }
 
-/* 1. 單行置頂冷靜篩選列 */
+/* 單行置頂冷靜篩選列 */
 .sticky-filter-bar {
   position: sticky;
   top: 0;
@@ -188,8 +189,8 @@ body {
 }
 
 .search-wrap {
-  flex: 1 1 260px;
-  min-width: 200px;
+  flex: 1 1 250px;
+  min-width: 190px;
 }
 
 .filter-search {
@@ -245,20 +246,26 @@ body {
   color: var(--green-forest);
 }
 
-/* Main Feed */
+/* 主列表區 */
 .main-feed {
   padding-top: 32px;
   padding-bottom: 72px;
 }
 
 .feed-intro {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
   margin-bottom: 24px;
 }
 
 .feed-title {
-  font-family: var(--font-serif);
-  font-size: 1.65rem;
-  font-weight: 600;
+  font-family: var(--font-sans);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-wrap: balance;
   color: var(--text-roast);
   margin-bottom: 4px;
 }
@@ -268,7 +275,13 @@ body {
   color: var(--text-stone);
 }
 
-/* 2. 克制俐落的列表卡片 */
+.feed-roofline-svg {
+  width: 220px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+/* 克制俐落的列表卡片 */
 .listing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -294,25 +307,20 @@ body {
 .card-photo-wrap {
   width: 100%;
   aspect-ratio: 4 / 3;
-  background-color: var(--bg-sand);
+  background-color: var(--bg-white);
   border-bottom: 1px solid var(--border-warm);
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 10px;
 }
 
 .card-photo-wrap img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
-}
-
-.card-photo-fallback {
-  width: 64%;
-  height: 64%;
-  color: var(--text-stone);
 }
 
 .card-body {
@@ -331,19 +339,20 @@ body {
 }
 
 .card-title {
-  font-family: var(--font-serif);
-  font-size: 1.12rem;
+  font-family: var(--font-sans);
+  font-size: 1.06rem;
   font-weight: 600;
-  line-height: 1.38;
+  letter-spacing: 0.03em;
+  text-wrap: balance;
+  line-height: 1.4;
   color: var(--text-roast);
 }
 
-/* 單行 3 項關鍵指標 */
 .card-metrics-row {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 0.85rem;
+  gap: 8px;
+  font-size: 0.84rem;
   color: var(--text-stone);
   font-variant-numeric: tabular-nums;
   padding-bottom: 12px;
@@ -391,8 +400,10 @@ body {
 }
 
 .empty-title {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
   color: var(--text-roast);
 }
 
@@ -401,7 +412,7 @@ body {
   font-size: 0.92rem;
 }
 
-/* 3. 滑出抽屜 (Slide-Over Drawer) */
+/* 右側滑出抽屜 */
 .drawer-backdrop {
   position: fixed;
   inset: 0;
@@ -431,7 +442,7 @@ body {
 
 .drawer-lg {
   width: 100%;
-  max-width: 640px;
+  max-width: 660px;
 }
 
 @keyframes slideInRight {
@@ -456,9 +467,10 @@ body {
 }
 
 .drawer-title {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
   font-weight: 600;
+  letter-spacing: 0.03em;
   color: var(--text-roast);
 }
 
@@ -477,7 +489,6 @@ body {
   gap: 10px;
 }
 
-/* Filter Drawer Body */
 .filter-drawer-body {
   display: grid;
   gap: 20px;
@@ -537,23 +548,26 @@ body {
   aspect-ratio: 4 / 3;
   border-radius: 12px;
   border: 1px solid var(--border-warm);
-  background-color: var(--bg-sand);
+  background-color: var(--bg-white);
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 8px;
 }
 
 .detail-photo-box img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .detail-title {
-  font-family: var(--font-serif);
-  font-size: 1.38rem;
-  font-weight: 600;
+  font-family: var(--font-sans);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-wrap: balance;
   color: var(--text-roast);
   margin-bottom: 4px;
 }
@@ -589,6 +603,7 @@ body {
 
 .drawer-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 20px;
   border-bottom: 1px solid var(--border-warm);
@@ -597,8 +612,8 @@ body {
 
 .drawer-tab {
   border-radius: 9999px;
-  padding: 7px 16px;
-  font-size: 0.86rem;
+  padding: 7px 15px;
+  font-size: 0.85rem;
   font-weight: 500;
   background-color: var(--bg-cream);
   color: var(--text-stone);
@@ -610,6 +625,32 @@ body {
   background-color: var(--green-forest);
   border-color: var(--green-forest);
   color: var(--bg-white);
+}
+
+/* Trend Canvas inside Drawer */
+.drawer-chart-box {
+  width: 100%;
+  height: 240px;
+  border: 1px solid var(--border-warm);
+  border-radius: 12px;
+  padding: 12px;
+  background-color: var(--bg-white);
+  margin-bottom: 16px;
+}
+
+.drawer-chart-box canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.drawer-chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 0.8rem;
+  color: var(--text-stone);
+  margin-bottom: 14px;
 }
 
 .spec-table {
@@ -650,11 +691,16 @@ body {
   background-color: var(--bg-cream);
 }
 
+.record-card.active-gen {
+  background-color: var(--green-sage);
+  border-color: var(--green-forest);
+}
+
 .record-head {
   display: flex;
   justify-content: space-between;
   gap: 10px;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 0.92rem;
   margin-bottom: 4px;
 }
@@ -664,33 +710,6 @@ body {
   color: var(--text-stone);
 }
 
-.feature-group {
-  margin-bottom: 18px;
-}
-
-.feature-group h4 {
-  font-family: var(--font-serif);
-  font-size: 1rem;
-  margin-bottom: 10px;
-  color: var(--text-roast);
-}
-
-.feature-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.feature-pill {
-  padding: 6px 12px;
-  border-radius: 9999px;
-  border: 1px solid var(--border-warm);
-  background-color: var(--bg-cream);
-  font-size: 0.84rem;
-  color: var(--text-roast);
-}
-
-/* Compare Table */
 .compare-table {
   width: 100%;
   border-collapse: collapse;
@@ -710,7 +729,6 @@ body {
   width: 110px;
 }
 
-/* RWD */
 @media (max-width: 1024px) {
   .listing-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -718,6 +736,9 @@ body {
   .filter-bar-inner {
     flex-direction: column;
     align-items: stretch;
+  }
+  .feed-roofline-svg {
+    display: none;
   }
 }
 
