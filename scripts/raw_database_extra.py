@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-台灣市售車擴充資料庫（國產/進口休旅、跨界、掀背與豪華品牌）
+台灣市售車擴充資料庫（含 2000 年起歷代車型、通病與外型照片搜尋關鍵字）
 """
 
 EXTRA_CARS_DATABASE = [
@@ -21,6 +21,7 @@ EXTRA_CARS_DATABASE = [
                 "major_change_note": "2020年10月全新車系上市，採 TNGA GA-C 平台（後扭力樑），2024年10月小改款升級電子手煞車與 Auto Hold。",
                 "platform": "Toyota TNGA GA-C",
                 "origin": "台灣國產（國瑞汽車）",
+                "photo_query": "Toyota Corolla Cross XG10",
                 "depreciation_alert": {
                     "level": "low",
                     "title": "全台流通量最大跨界休旅，極度保值且轉手極快",
@@ -28,32 +29,18 @@ EXTRA_CARS_DATABASE = [
                 },
                 "trims": [
                     {
-                        "trim_name": "1.8L 汽油尊爵",
+                        "trim_name": "1.8L 汽油尊爵 / Hybrid 油電尊爵",
                         "msrp_wan": 87.9,
-                        "engine_code": "2ZR-FE 1.8L 直列四缸自然進氣",
+                        "engine_code": "2ZR-FE 1.8L / 2ZR-FXE 1.8L Hybrid",
                         "displacement_cc": 1798,
-                        "horsepower": "140 ps / 6,400 rpm",
-                        "torque": "17.5 kgm / 4,000 rpm",
-                        "transmission": "Super CVT-i (模擬7速)",
+                        "horsepower": "140 ps (汽油) / 綜效 122 ps (油電)",
+                        "torque": "17.5 kgm",
+                        "transmission": "Super CVT-i / E-CVT",
                         "drivetrain": "前輪驅動 (FF)",
                         "suspension": "前麥花臣 / 後扭力樑",
-                        "fuel_economy": "14.5 km/L",
+                        "fuel_economy": "14.5 km/L (汽油) / 21.9 km/L (油電)",
                         "dimensions": "4460 x 1825 x 1620 mm (軸距 2640 mm)",
-                        "safety": "7氣囊、TSS 2.0 (2024小改款升至全速域+EPB)"
-                    },
-                    {
-                        "trim_name": "1.8L Hybrid 油電尊爵",
-                        "msrp_wan": 93.9,
-                        "engine_code": "2ZR-FXE 1.8L 油電複合動力",
-                        "displacement_cc": 1798,
-                        "horsepower": "綜效 122 ps",
-                        "torque": "引擎 14.5 kgm + 馬達 16.6 kgm",
-                        "transmission": "E-CVT 電子無段變速",
-                        "drivetrain": "前輪驅動 (FF)",
-                        "suspension": "前麥花臣 / 後扭力樑",
-                        "fuel_economy": "21.9 ~ 23.5 km/L",
-                        "dimensions": "4460 x 1825 x 1620 mm (軸距 2640 mm)",
-                        "safety": "7氣囊、TSS 2.0、大電池8年保固"
+                        "safety": "7氣囊、TSS 2.0"
                     }
                 ],
                 "common_issues": [
@@ -83,17 +70,69 @@ EXTRA_CARS_DATABASE = [
         "model": "Yaris",
         "model_zh": "豐田 Yaris (小鴨)",
         "category": "國產小型掀背車",
-        "summary": "台灣都會代步與新手練車首選，2014年大改款3代(XP150)車身放大、2016年改為 Dual VVT-i + CVT、2019年小改款標配 7 氣囊與 VSC；2023停產由 Yaris Cross 接棒。",
+        "summary": "2006年 2代(XP90) 首度國產化即成都會小車霸主；2014年 3代(XP150)車格放大並於 2016年改裝 CVT；2023停產後二手保值依舊強勁。",
         "generations": [
             {
+                "gen_id": "yaris-2",
+                "gen_name": "第 2 代 (XP90 首代國產小鴨)",
+                "years": [2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
+                "is_major_change": True,
+                "major_change_year": 2006,
+                "major_change_note": "2006年底台灣國產上市，採中置儀表板與 1NZ-FE 1.5L 引擎 + 傳統 4速自排，耐操好停。",
+                "platform": "Toyota B 平台",
+                "origin": "台灣國產（國瑞汽車）",
+                "photo_query": "Toyota Yaris XP90",
+                "depreciation_alert": {
+                    "level": "low",
+                    "title": "極為保值的練車神車，4AT 幾乎開不壞",
+                    "reason": "1.5L 省稅金、車身短好停車，12年以上老鴨至今仍有 13~23 萬行情。"
+                },
+                "trims": [
+                    {
+                        "trim_name": "1.5 E / G / S (4AT)",
+                        "msrp_wan": 57.9,
+                        "engine_code": "1NZ-FE 1.5L VVT-i 自然進氣",
+                        "displacement_cc": 1497,
+                        "horsepower": "109 ps / 6,000 rpm",
+                        "torque": "14.4 kgm / 4,200 rpm",
+                        "transmission": "4速自排",
+                        "drivetrain": "前輪驅動 (FF)",
+                        "suspension": "前麥花臣 / 後扭力樑",
+                        "fuel_economy": "17.4 km/L (美規)",
+                        "dimensions": "3785 x 1695 x 1520 mm (軸距 2460 mm)",
+                        "safety": "2氣囊、ABS"
+                    }
+                ],
+                "common_issues": [
+                    {
+                        "part": "發電機軸承異音 / 避震器上座與引擎腳老化",
+                        "severity": "一般耗材",
+                        "mileage_range": "10萬公里以上",
+                        "symptom": "怠速震動或發電機高頻異音。",
+                        "repair_cost_ntd": "發電機約 4,500 元；引擎腳約 6,000 元",
+                        "advice": "無重大通病，注意確認非租賃或駕訓班淘汰車。"
+                    }
+                ],
+                "yearly_prices": {
+                    "2007": {"msrp": 54.9, "dealer": 15.0, "private": 12.0, "book": 9.5},
+                    "2008": {"msrp": 55.9, "dealer": 16.5, "private": 13.5, "book": 10.8},
+                    "2009": {"msrp": 55.9, "dealer": 18.0, "private": 14.8, "book": 12.0},
+                    "2010": {"msrp": 56.9, "dealer": 19.5, "private": 16.2, "book": 13.5},
+                    "2011": {"msrp": 56.9, "dealer": 21.2, "private": 17.8, "book": 15.0},
+                    "2012": {"msrp": 57.9, "dealer": 23.0, "private": 19.5, "book": 16.5},
+                    "2013": {"msrp": 57.9, "dealer": 24.8, "private": 21.2, "book": 18.0}
+                }
+            },
+            {
                 "gen_id": "yaris-3",
-                "gen_name": "第 3 代 (XP150 經典小鴨)",
+                "gen_name": "第 3 代 (XP150 大鴨)",
                 "years": [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022],
                 "is_major_change": True,
                 "major_change_year": 2014,
-                "major_change_note": "2014年底大改款第3代車格放大，2016年換裝 2NR-FE 引擎與模擬7速 CVT（取代舊款4AT），2019年全面標配 VSC 與 7氣囊。",
+                "major_change_note": "2014年底大改款第3代車格放大，2016年換裝 2NR-FE 引擎與模擬7速 CVT，2019年全面標配 VSC 與 7氣囊。",
                 "platform": "Toyota B 平台",
                 "origin": "台灣國產（國瑞汽車）",
+                "photo_query": "Toyota Yaris XP150",
                 "depreciation_alert": {
                     "level": "low",
                     "title": "停產後中古需求依舊火熱，代步神車極抗跌",
@@ -144,21 +183,171 @@ EXTRA_CARS_DATABASE = [
         "model": "Camry",
         "model_zh": "豐田 Camry",
         "category": "中大型房車",
-        "summary": "7代(2012-2018)為國產商務房車；8代(2018年底+)全面轉為日本原裝進口 TNGA-K 平台，2.5 Hybrid 與 2.0 汽油質感與操控大幅提升。",
+        "summary": "5代(2002-2006)與6代(2006-2011)為經典國產主管房車；7代(2012-2018)導入 Hybrid 油電；8代(2019+)全面轉為日本原裝進口 TNGA-K 平台。",
         "generations": [
+            {
+                "gen_id": "camry-5",
+                "gen_name": "第 5 代 (XV30 國產主管房車)",
+                "years": [2002, 2003, 2004, 2005],
+                "is_major_change": True,
+                "major_change_year": 2002,
+                "major_change_note": "2002年國瑞首度國產化 Camry，採 2.0L 1AZ-FE 與 3.0L V6 搭配 4AT。",
+                "platform": "Toyota K 平台",
+                "origin": "台灣國產（國瑞汽車）",
+                "photo_query": "Toyota Camry XV30",
+                "depreciation_alert": {
+                    "level": "medium",
+                    "title": "1AZ 引擎汽缸蓋螺絲滑牙通病 + 老車內裝龜裂",
+                    "reason": "車齡逾 20 年，高里程 1AZ 引擎容易出現汽缸蓋鋁合金螺牙滑牙滲水，殘值 6~10 萬。"
+                },
+                "trims": [
+                    {
+                        "trim_name": "2.0 E / G (4AT)",
+                        "msrp_wan": 86.9,
+                        "engine_code": "1AZ-FE 2.0L VVT-i 自然進氣",
+                        "displacement_cc": 1998,
+                        "horsepower": "150 ps / 6,000 rpm",
+                        "torque": "20.1 kgm / 4,000 rpm",
+                        "transmission": "4速自排",
+                        "drivetrain": "前輪驅動 (FF)",
+                        "suspension": "前/後麥花臣",
+                        "fuel_economy": "12.0 km/L",
+                        "dimensions": "4815 x 1795 x 1490 mm (軸距 2720 mm)",
+                        "safety": "2氣囊、ABS"
+                    }
+                ],
+                "common_issues": [
+                    {
+                        "part": "1AZ 引擎汽缸蓋螺絲滑牙滲水 / 中控台黏手龜裂",
+                        "severity": "高風險",
+                        "mileage_range": "15萬公里以上",
+                        "symptom": "副水箱冒泡失水、機油乳化。",
+                        "repair_cost_ntd": "重做缸體螺牙套管約 1.5 ~ 2.5 萬",
+                        "advice": "買前務必檢查冷卻水是否混濁與水箱壓力。"
+                    }
+                ],
+                "yearly_prices": {
+                    "2002": {"msrp": 84.9, "dealer": 8.0, "private": 5.5, "book": 3.5},
+                    "2003": {"msrp": 84.9, "dealer": 9.0, "private": 6.2, "book": 4.2},
+                    "2004": {"msrp": 86.9, "dealer": 10.0, "private": 7.0, "book": 4.8},
+                    "2005": {"msrp": 86.9, "dealer": 11.2, "private": 8.0, "book": 5.8}
+                }
+            },
+            {
+                "gen_id": "camry-6",
+                "gen_name": "第 6 代 (XV40 2.0/2.4/3.5)",
+                "years": [2006, 2007, 2008, 2009, 2010, 2011],
+                "is_major_change": True,
+                "major_change_year": 2006,
+                "major_change_note": "2006年大改款，2.0 維持 4AT、2.4 升為 5AT、3.5 V6 採 6AT。",
+                "platform": "Toyota K 平台",
+                "origin": "台灣國產（國瑞汽車）",
+                "photo_query": "Toyota Camry XV40",
+                "depreciation_alert": {
+                    "level": "medium",
+                    "title": "2.4L 2AZ-FE 吃機油通病 + 環保中控台融化",
+                    "reason": "2.4L 引擎高里程易吃機油且稅金高一階，2.0E 反而因省稅且無 2AZ 吃機油問題較好脫手。"
+                },
+                "trims": [
+                    {
+                        "trim_name": "2.0 E (4AT) / 2.4 G (5AT)",
+                        "msrp_wan": 88.9,
+                        "engine_code": "1AZ-FE 2.0L / 2AZ-FE 2.4L",
+                        "displacement_cc": 1998,
+                        "horsepower": "147 ps (2.0) / 167 ps (2.4)",
+                        "torque": "19.4 kgm / 22.9 kgm",
+                        "transmission": "4速自排 / 5速手自排",
+                        "drivetrain": "前輪驅動 (FF)",
+                        "suspension": "前/後麥花臣",
+                        "fuel_economy": "12.5 km/L",
+                        "dimensions": "4825 x 1820 x 1470 mm (軸距 2775 mm)",
+                        "safety": "2氣囊、ABS (高階具 VSC)"
+                    }
+                ],
+                "common_issues": [
+                    {
+                        "part": "中控台環保材質融化反光 / 2.4L 吃機油 / HID霧化",
+                        "severity": "中風險",
+                        "mileage_range": "10萬公里以上",
+                        "symptom": "中控台黏手反光、2.4L 機油消耗。",
+                        "repair_cost_ntd": "包覆皮面約 6,000 元",
+                        "advice": "挑 2.0 版本省稅金，或確認 2.4 是否已整理活塞環。"
+                    }
+                ],
+                "yearly_prices": {
+                    "2006": {"msrp": 84.9, "dealer": 13.5, "private": 10.2, "book": 7.8},
+                    "2007": {"msrp": 84.9, "dealer": 15.0, "private": 11.5, "book": 8.8},
+                    "2008": {"msrp": 86.9, "dealer": 16.8, "private": 13.0, "book": 10.2},
+                    "2009": {"msrp": 86.9, "dealer": 18.5, "private": 14.5, "book": 11.5},
+                    "2010": {"msrp": 88.9, "dealer": 20.5, "private": 16.5, "book": 13.2},
+                    "2011": {"msrp": 88.9, "dealer": 22.8, "private": 18.5, "book": 15.0}
+                }
+            },
+            {
+                "gen_id": "camry-7",
+                "gen_name": "第 7 代 (XV50 國產末代 / Hybrid)",
+                "years": [2012, 2013, 2014, 2015, 2016, 2017, 2018],
+                "is_major_change": True,
+                "major_change_year": 2012,
+                "major_change_note": "2012年大改款首度國產化 2.5 Hybrid 油電；2015年小改款將 2.0L 引擎升級為 6AR-FSE + 6速手自排。",
+                "platform": "Toyota K 平台",
+                "origin": "台灣國產（國瑞汽車）",
+                "photo_query": "Toyota Camry XV50",
+                "depreciation_alert": {
+                    "level": "low",
+                    "title": "2015年後 2.0 6AT 極度穩定，油電版須留意大電池壽命",
+                    "reason": "空間寬敞且保養極省，2015後 2.0 豪華版是中大型國產房車首選。"
+                },
+                "trims": [
+                    {
+                        "trim_name": "2.0 豪華 (6AT) / 2.5 Hybrid",
+                        "msrp_wan": 92.9,
+                        "engine_code": "6AR-FSE 2.0L (2015+) / 2AR-FXE 2.5L Hybrid",
+                        "displacement_cc": 1998,
+                        "horsepower": "167 ps (2.0) / 綜效 205 ps (Hybrid)",
+                        "torque": "20.3 kgm (2.0)",
+                        "transmission": "6速手自排 / E-CVT",
+                        "drivetrain": "前輪驅動 (FF)",
+                        "suspension": "前/後麥花臣",
+                        "fuel_economy": "13.5 km/L (2.0) / 19.6 km/L (Hybrid)",
+                        "dimensions": "4850 x 1825 x 1480 mm (軸距 2775 mm)",
+                        "safety": "2~4氣囊、VSC (高階)"
+                    }
+                ],
+                "common_issues": [
+                    {
+                        "part": "Hybrid 大電池與 ABS 蓄壓器老化 (高里程油電)",
+                        "severity": "中風險",
+                        "mileage_range": "15萬公里或車齡8年以上",
+                        "symptom": "儀表亮 Hybrid 系統檢查燈、煞車泵浦頻繁作動。",
+                        "repair_cost_ntd": "原廠更換大電池約 5~6.5 萬",
+                        "advice": "預算考量建議買 2015 年後 2.0 6AT 汽油版，養護最省心。"
+                    }
+                ],
+                "yearly_prices": {
+                    "2012": {"msrp": 89.9, "dealer": 26.0, "private": 22.0, "book": 18.5},
+                    "2013": {"msrp": 89.9, "dealer": 28.5, "private": 24.5, "book": 21.0},
+                    "2014": {"msrp": 89.9, "dealer": 31.5, "private": 27.2, "book": 23.5},
+                    "2015": {"msrp": 92.9, "dealer": 36.5, "private": 32.0, "book": 28.0},
+                    "2016": {"msrp": 92.9, "dealer": 40.5, "private": 35.8, "book": 31.5},
+                    "2017": {"msrp": 93.9, "dealer": 44.5, "private": 39.5, "book": 35.0},
+                    "2018": {"msrp": 93.9, "dealer": 49.0, "private": 43.8, "book": 39.0}
+                }
+            },
             {
                 "gen_id": "camry-8",
                 "gen_name": "第 8 代 (XV70 日本進口 TNGA)",
                 "years": [2019, 2020, 2021, 2022, 2023, 2024],
                 "is_major_change": True,
-                "major_change_year": 2018,
+                "major_change_year": 2019,
                 "major_change_note": "2018年底大改款由國產轉為日本原裝進口，採 TNGA-K 平台與後雙A臂，2021年新增 2.0L Dynamic Force + Direct Shift-CVT。",
                 "platform": "Toyota TNGA GA-K",
                 "origin": "日本原裝進口",
+                "photo_query": "Toyota Camry XV70",
                 "depreciation_alert": {
                     "level": "low",
                     "title": "進口品質且長途舒適度高，2.0 省稅金版受歡迎",
-                    "reason": "因大型房車市場縮水，前三年折舊較 RAV4 稍多，中古入手性價比極高。"
+                    "reason": "前三年折舊較 RAV4 稍多，中古入手性價比極高。"
                 },
                 "trims": [
                     {
@@ -203,17 +392,69 @@ EXTRA_CARS_DATABASE = [
         "model": "Fit",
         "model_zh": "本田 Fit",
         "category": "國產小型掀背車",
-        "summary": "魔術大空間小車代表。3代(2014-2021)採 1.5 i-VTEC + CVT；4代(2021年底+)大改款導入超省油 e:HEV 油電系統，但新車價拉高至 80 萬級距。",
+        "summary": "魔術大空間小車代表。2代(2008-2014)採耐操 5AT；3代(2015-2020)改搭 CVT；4代(2021年底+)大改款導入超省油 e:HEV 油電系統。",
         "generations": [
+            {
+                "gen_id": "fit-2",
+                "gen_name": "第 2 代 (GE 首代國產 5AT)",
+                "years": [2008, 2009, 2010, 2011, 2012, 2013, 2014],
+                "is_major_change": True,
+                "major_change_year": 2008,
+                "major_change_note": "2008年台灣本田首度國產 Fit，搭載 L15A 1.5L 引擎與耐用的 5速手自排。",
+                "platform": "Honda Global Small Car",
+                "origin": "台灣國產（台灣本田）",
+                "photo_query": "Honda Fit GE8",
+                "depreciation_alert": {
+                    "level": "low",
+                    "title": "5AT 耐操好養且空間驚人，20萬內代步超熱門",
+                    "reason": "同級少見 5速傳統自排，幾乎無變速箱大修災情，殘值非常抗跌。"
+                },
+                "trims": [
+                    {
+                        "trim_name": "1.5 VTi / VTi-S (5AT)",
+                        "msrp_wan": 63.9,
+                        "engine_code": "L15A7 1.5L SOHC i-VTEC",
+                        "displacement_cc": 1497,
+                        "horsepower": "120 ps / 6,600 rpm",
+                        "torque": "14.8 kgm / 4,800 rpm",
+                        "transmission": "5速手自排",
+                        "drivetrain": "前輪驅動 (FF)",
+                        "suspension": "前麥花臣 / 後扭力樑",
+                        "fuel_economy": "14.5 km/L",
+                        "dimensions": "3900 x 1695 x 1525 mm (軸距 2500 mm)",
+                        "safety": "2~4氣囊、ABS"
+                    }
+                ],
+                "common_issues": [
+                    {
+                        "part": "點火考耳(Coil)老化 / 後門防水膜滲水",
+                        "severity": "一般耗材",
+                        "mileage_range": "10萬公里以上",
+                        "symptom": "加速頓挫亮引擎燈、雨天後座腳踏墊積水。",
+                        "repair_cost_ntd": "考耳4支約 4,000 元；門板重貼防水膠約 1,500 元",
+                        "advice": "小問題好處理，注意 2011 小改款後質感較佳。"
+                    }
+                ],
+                "yearly_prices": {
+                    "2008": {"msrp": 59.9, "dealer": 16.0, "private": 13.0, "book": 10.5},
+                    "2009": {"msrp": 59.9, "dealer": 17.5, "private": 14.2, "book": 11.5},
+                    "2010": {"msrp": 61.9, "dealer": 19.2, "private": 15.8, "book": 13.0},
+                    "2011": {"msrp": 63.9, "dealer": 21.5, "private": 18.0, "book": 15.0},
+                    "2012": {"msrp": 63.9, "dealer": 23.5, "private": 19.8, "book": 16.8},
+                    "2013": {"msrp": 63.9, "dealer": 25.5, "private": 21.8, "book": 18.5},
+                    "2014": {"msrp": 63.9, "dealer": 27.5, "private": 23.5, "book": 20.0}
+                }
+            },
             {
                 "gen_id": "fit-3",
                 "gen_name": "第 3 代 (GK 世代)",
                 "years": [2015, 2016, 2017, 2018, 2019, 2020],
                 "is_major_change": True,
-                "major_change_year": 2014,
-                "major_change_note": "2014年大改款3代改搭 Earth Dreams CVT（取代舊款5AT），空間機能極佳，2017小改款提升安全配備。",
+                "major_change_year": 2015,
+                "major_change_note": "大改款3代改搭 Earth Dreams CVT（取代舊款5AT），空間機能極佳，2017小改款提升安全配備。",
                 "platform": "Honda Global Small Car",
                 "origin": "台灣國產（台灣本田）",
+                "photo_query": "Honda Fit GK5",
                 "depreciation_alert": {
                     "level": "low",
                     "title": "空間大且省油耐用，年輕首購族熱門車款",
@@ -260,9 +501,10 @@ EXTRA_CARS_DATABASE = [
                 "years": [2021, 2022, 2023, 2024, 2025],
                 "is_major_change": True,
                 "major_change_year": 2021,
-                "major_change_note": "2021年底大改款！內裝全面極簡化並標配 Honda SENSING，e:HEV 油電版市區油耗達 39.57 km/L，定價大幅拉升至 79.9~82.9 萬。",
+                "major_change_note": "2021年底大改款！內裝極簡化並標配 Honda SENSING，e:HEV 油電版市區油耗達 39.57 km/L。",
                 "platform": "Honda Global Small Car 新世代",
                 "origin": "台灣國產（台灣本田）",
+                "photo_query": "Honda Fit GR e:HEV",
                 "depreciation_alert": {
                     "level": "low",
                     "title": "極致省油都會小車，e:HEV 油電版二手搶手",
@@ -310,7 +552,7 @@ EXTRA_CARS_DATABASE = [
         "model": "HR-V",
         "model_zh": "本田 HR-V",
         "category": "國產跨界休旅 (CUV)",
-        "summary": "1代(2016-2022)採 1.8L 自然進氣引擎；2代(2022年中+)大改款換裝 1.5L 引擎與 Honda SENSING，空間與外型更精緻但動力偏溫順。",
+        "summary": "1代(2016-2021)採 1.8L 自然進氣引擎；2代(2022年中+)大改款換裝 1.5L 引擎與 Honda SENSING，空間與外型更精緻。",
         "generations": [
             {
                 "gen_id": "hrv-1",
@@ -321,6 +563,7 @@ EXTRA_CARS_DATABASE = [
                 "major_change_note": "2016年國產上市，採 1.8L R18 引擎 + CVT，魔術後座空間極大。",
                 "platform": "Honda Global Compact",
                 "origin": "台灣國產（台灣本田）",
+                "photo_query": "Honda HR-V RU",
                 "depreciation_alert": {
                     "level": "low",
                     "title": "結構耐用無渦輪負擔，家庭與女性車主熱門",
@@ -370,6 +613,7 @@ EXTRA_CARS_DATABASE = [
                 "major_change_note": "2022年6月大改款，全車系換裝 1.5L 引擎（121匹）並標配 Honda SENSING 全速域輔助駕駛。",
                 "platform": "Honda 新世代小型 SUV 平台",
                 "origin": "台灣國產（台灣本田）",
+                "photo_query": "Honda HR-V RV 2022",
                 "depreciation_alert": {
                     "level": "low",
                     "title": "1.5L 省稅金與 Level 2 加持，保值度穩健",
@@ -416,21 +660,22 @@ EXTRA_CARS_DATABASE = [
         "model": "Kuga",
         "model_zh": "福特 Kuga",
         "category": "國產中型休旅 (SUV)",
-        "summary": "以強勁渦輪動力與高性價比挑戰 CR-V/RAV4。MK2(2013-2019)有1.5T/2.0T與漏水/積碳通病；MK3(2020+)換裝 C2 平台與 8AT、Co-Pilot360，操控極佳但折舊較快，二手 CP 值極高。",
+        "summary": "以強勁渦輪動力挑戰 CR-V/RAV4。MK2(2013-2019)有1.5T/2.0T與漏水/積碳通病；MK3(2020+)換裝 C2 平台與 8AT、Co-Pilot360，折舊較快使得二手 CP 值極高。",
         "generations": [
             {
                 "gen_id": "kuga-mk2",
                 "gen_name": "MK2 / MK2.5 (EcoBoost 6AT)",
-                "years": [2015, 2016, 2017, 2018, 2019],
+                "years": [2013, 2014, 2015, 2016, 2017, 2018, 2019],
                 "is_major_change": True,
                 "major_change_year": 2013,
-                "major_change_note": "國產歐系休旅，採 SelectShift 6速手自排（非雙離合），2017小改款升級外型與配備。",
+                "major_change_note": "2013年首度國產歐系休旅，採 SelectShift 6速手自排（非雙離合），2017小改款升級外型與配備。",
                 "platform": "Ford Global C-Platform",
                 "origin": "台灣國產（福特六和）",
+                "photo_query": "Ford Kuga Mk2",
                 "depreciation_alert": {
                     "level": "medium",
                     "title": "折舊較日系休旅快，但二手價格極為親民",
-                    "reason": "1.5T / 2.0T 渦輪引擎高里程需留意冷卻系統與積碳整理。"
+                    "reason": "1.5T / 2.0T 渦輪引擎高里程需留意冷卻系統與積碳整理，早期 1.6T 水箱漏水亦須檢查。"
                 },
                 "trims": [
                     {
@@ -459,6 +704,8 @@ EXTRA_CARS_DATABASE = [
                     }
                 ],
                 "yearly_prices": {
+                    "2013": {"msrp": 99.8, "dealer": 21.0, "private": 17.0, "book": 14.0},
+                    "2014": {"msrp": 99.8, "dealer": 24.0, "private": 19.5, "book": 16.5},
                     "2015": {"msrp": 99.8, "dealer": 27.0, "private": 22.5, "book": 19.5},
                     "2016": {"msrp": 99.8, "dealer": 31.0, "private": 26.5, "book": 23.0},
                     "2017": {"msrp": 99.8, "dealer": 36.5, "private": 31.5, "book": 28.0},
@@ -475,10 +722,11 @@ EXTRA_CARS_DATABASE = [
                 "major_change_note": "2020年6月大改款！換裝 C2 平台、旋鈕 8AT 與 Co-Pilot360 Level 2，提供 1.5T 三缸(180匹)與 2.0T ST-Line 四缸(250匹)。",
                 "platform": "Ford C2 模組化底盤",
                 "origin": "台灣國產（福特六和）",
+                "photo_query": "Ford Kuga Mk3",
                 "depreciation_alert": {
                     "level": "medium",
                     "title": "配備與動力同級最強，但折舊幅度明顯大於 CR-V/RAV4",
-                    "reason": "新車折讓與品牌口碑使中古價甜美，1.5T 需留意濕式正時皮帶換油規範，2.0T ST-Line 則為正統四缸較無皮帶隱憂。"
+                    "reason": "1.5T 需留意濕式正時皮帶換油規範，2.0T ST-Line 則為正統四缸較無皮帶隱憂。"
                 },
                 "trims": [
                     {
@@ -503,7 +751,7 @@ EXTRA_CARS_DATABASE = [
                         "mileage_range": "6萬 ~ 10萬公里",
                         "symptom": "1.5T 未用認證機油恐致皮帶劣化；2.0T 較穩定但油耗較高。",
                         "repair_cost_ntd": "預防換皮帶約 2 萬；軟體更新改善頓挫",
-                        "advice": "預算夠且重視長期妥善率可優先考慮 2.0T ST-Line，或確認 1.5T 原廠保養紀錄。"
+                        "advice": "重視長期妥善率可優先考慮 2.0T ST-Line，或確認 1.5T 原廠保養紀錄。"
                     }
                 ],
                 "yearly_prices": {
@@ -523,17 +771,67 @@ EXTRA_CARS_DATABASE = [
         "model": "CX-5",
         "model_zh": "馬自達 CX-5",
         "category": "進口中型休旅 (SUV)",
-        "summary": "進口質感休旅代表，2代(KF 2017+)全面採 2.0L Skyactiv-G + 6AT 為主力（另有 2.5T 渦輪），注意 1代柴油引擎(2.2D)曾有噴水/沖墊片災情，汽油版則極為穩定。",
+        "summary": "1代(KE 2012-2016)曾導入 2.2D 柴油引發大規模噴水/沖墊片災情導致柴油版殘值崩跌；2代(KF 2017+)改以 2.0 汽油為主力，極為穩定保值。",
         "generations": [
+            {
+                "gen_id": "cx5-1",
+                "gen_name": "第 1 代 (KE 世代，含2.2D柴油災情)",
+                "years": [2012, 2013, 2014, 2015, 2016],
+                "is_major_change": True,
+                "major_change_year": 2012,
+                "major_change_note": "2012年導入 Skyactiv 首發休旅 CX-5，提供 2.0 汽油與 2.2D 柴油。",
+                "platform": "Mazda Skyactiv 平台",
+                "origin": "日本原裝進口",
+                "photo_query": "Mazda CX-5 KE",
+                "depreciation_alert": {
+                    "level": "high",
+                    "title": "1代 2.2D 柴油引擎「噴水/沖墊片」災情導致殘值極低",
+                    "reason": "2.2D 柴油版在台灣發生大規模副水箱噴水、機油乳化災情（引發自救會與原廠延保），使 1 代柴油殘值暴跌；2.0 汽油版則完全正常。"
+                },
+                "trims": [
+                    {
+                        "trim_name": "2.0 汽油 (極推薦) / 2.2D 柴油 (高風險)",
+                        "msrp_wan": 106.8,
+                        "engine_code": "Skyactiv-G 2.0L / Skyactiv-D 2.2L",
+                        "displacement_cc": 1998,
+                        "horsepower": "155~165 ps (2.0) / 175 ps (2.2D)",
+                        "torque": "20.4 kgm / 42.8 kgm",
+                        "transmission": "6速手自排",
+                        "drivetrain": "前驅 / 四驅",
+                        "suspension": "前麥花臣 / 後獨立多連桿",
+                        "fuel_economy": "13.2 km/L",
+                        "dimensions": "4540 x 1840 x 1710 mm (軸距 2700 mm)",
+                        "safety": "6氣囊、DSC"
+                    }
+                ],
+                "common_issues": [
+                    {
+                        "part": "2.2D 柴油引擎汽缸蓋墊片沖毀噴水 / 進氣歧管積碳",
+                        "severity": "高風險",
+                        "mileage_range": "8萬 ~ 14萬公里",
+                        "symptom": "高速行駛副水箱噴水、水溫過高、DPF 阻塞。",
+                        "repair_cost_ntd": "引擎大修約 6~10 萬",
+                        "advice": "買 1 代 CX-5 請務必只選 2.0 汽油版，完全避開 2.2D 柴油。"
+                    }
+                ],
+                "yearly_prices": {
+                    "2012": {"msrp": 106.8, "dealer": 24.0, "private": 19.5, "book": 16.5},
+                    "2013": {"msrp": 106.8, "dealer": 26.5, "private": 22.0, "book": 18.5},
+                    "2014": {"msrp": 106.8, "dealer": 29.5, "private": 24.5, "book": 21.0},
+                    "2015": {"msrp": 106.8, "dealer": 33.0, "private": 28.0, "book": 24.0},
+                    "2016": {"msrp": 106.8, "dealer": 37.5, "private": 32.0, "book": 28.0}
+                }
+            },
             {
                 "gen_id": "cx5-2",
                 "gen_name": "第 2 代 (KF 汽油 2.0 / 2.5T)",
                 "years": [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
                 "is_major_change": True,
                 "major_change_year": 2017,
-                "major_change_note": "2017年中大改款2代，車室隔音與豪華感大幅躍升，後續取消問題較多的 2.2D 柴油，改以 2.0 NA 與 2.5T 為主。",
+                "major_change_note": "2017年中大改款2代，車室隔音與豪華感大幅躍升，後續取消 2.2D 柴油，改以 2.0 NA 與 2.5T 為主。",
                 "platform": "Mazda Skyactiv 平台（後獨立多連桿）",
                 "origin": "日本原裝進口",
+                "photo_query": "Mazda CX-5 KF",
                 "depreciation_alert": {
                     "level": "low",
                     "title": "汽油 2.0 + 6AT 極為耐用，中古人氣與保值度穩定",
@@ -562,7 +860,7 @@ EXTRA_CARS_DATABASE = [
                         "mileage_range": "5萬 ~ 9萬公里",
                         "symptom": "後視鏡收折不順、2017-2018早期螢幕偶發分層。",
                         "repair_cost_ntd": "金屬齒輪改裝約 2,000 元/邊",
-                        "advice": "避開早期 2.2D 柴油版本，選 2.0 汽油版幾乎無大毛病。"
+                        "advice": "選 2.0 汽油版幾乎無大毛病。"
                     }
                 ],
                 "yearly_prices": {
@@ -596,6 +894,7 @@ EXTRA_CARS_DATABASE = [
                 "major_change_note": "2018年國產上市；2022年10月大幅度小改款，引擎由 1.5L(124hp) 升級為 1.6L(135hp) 並新增全速域 ICC。",
                 "platform": "Nissan V 平台",
                 "origin": "台灣國產（裕隆汽車）",
+                "photo_query": "Nissan Kicks",
                 "depreciation_alert": {
                     "level": "low",
                     "title": "省油好開且造型討喜，中古流通量大",
@@ -646,17 +945,69 @@ EXTRA_CARS_DATABASE = [
         "model": "Tiguan",
         "model_zh": "福斯 Tiguan",
         "category": "進口中型休旅 (SUV)",
-        "summary": "台灣最熱銷德系進口 SUV。2代(AD1 2016-2024)改用 MQB 平台並全面搭載濕式 DSG（280TSI 為 DQ250 6速濕式、330/380 為 DQ500/DQ381 7速濕式），妥善率較乾式 DQ200 好上許多。",
+        "summary": "1代(2008-2016)採 2.0T + 傳統6AT/濕式DQ500；2代(2017+)改用 MQB 平台並全面搭載濕式 DSG，妥善率較乾式 DQ200 好上許多。",
         "generations": [
+            {
+                "gen_id": "tiguan-1",
+                "gen_name": "第 1 代 (5N PQ35 平台)",
+                "years": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
+                "is_major_change": True,
+                "major_change_year": 2009,
+                "major_change_note": "台灣首代 Tiguan，早期搭愛信 6AT，2012小改款後改搭濕式 7速 DQ500 DSG，1.4TSI 則採濕式 6速 DQ250。",
+                "platform": "VW PQ35 平台",
+                "origin": "德國原裝進口",
+                "photo_query": "Volkswagen Tiguan 5N",
+                "depreciation_alert": {
+                    "level": "high",
+                    "title": "早期 EA888 吃機油/正時鍊條 + 水泵浦漏水拉低殘值",
+                    "reason": "1代 2.0 TSI 搭載早期 EA888 二代引擎，高里程容易吃機油、積碳與鍊條張力器異常，二手價僅 16~30 萬。"
+                },
+                "trims": [
+                    {
+                        "trim_name": "2.0 TSI Trend & Fun / Sport & Style",
+                        "msrp_wan": 144.8,
+                        "engine_code": "EA888 2.0L TSI 渦輪增壓",
+                        "displacement_cc": 1984,
+                        "horsepower": "180 ~ 200 ps",
+                        "torque": "28.6 kgm",
+                        "transmission": "6AT / DQ500 7速濕式 DSG",
+                        "drivetrain": "4MOTION 四輪驅動",
+                        "suspension": "前麥花臣 / 後獨立多連桿",
+                        "fuel_economy": "10.8 km/L",
+                        "dimensions": "4426 x 1809 x 1703 mm (軸距 2604 mm)",
+                        "safety": "6氣囊、ESP"
+                    }
+                ],
+                "common_issues": [
+                    {
+                        "part": "EA888 吃機油 / 正時鍊條 / 塑膠水泵浦滲水",
+                        "severity": "高風險",
+                        "mileage_range": "8萬 ~ 12萬公里",
+                        "symptom": "每兩千公里補機油、冷車啟動異音、天篷脫落。",
+                        "repair_cost_ntd": "整理吃機油與鍊條約 4~6 萬",
+                        "advice": "買前確認是否已大修過活塞環與正時鍊條。"
+                    }
+                ],
+                "yearly_prices": {
+                    "2010": {"msrp": 142.8, "dealer": 18.0, "private": 14.0, "book": 11.0},
+                    "2011": {"msrp": 142.8, "dealer": 20.5, "private": 16.0, "book": 13.0},
+                    "2012": {"msrp": 144.8, "dealer": 23.5, "private": 19.0, "book": 15.5},
+                    "2013": {"msrp": 144.8, "dealer": 26.5, "private": 21.8, "book": 18.0},
+                    "2014": {"msrp": 144.8, "dealer": 30.0, "private": 25.0, "book": 21.0},
+                    "2015": {"msrp": 144.8, "dealer": 34.0, "private": 28.5, "book": 24.5},
+                    "2016": {"msrp": 144.8, "dealer": 38.5, "private": 33.0, "book": 28.5}
+                }
+            },
             {
                 "gen_id": "tiguan-2",
                 "gen_name": "第 2 代 (MQB 濕式 DSG 世代)",
                 "years": [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024],
                 "is_major_change": True,
-                "major_change_year": 2016,
-                "major_change_note": "2016年底大改款採 MQB 平台，全車系搭載「濕式」雙離合器變速箱，2021小改款導入 IQ.DRIVE 與觸控空調。",
+                "major_change_year": 2017,
+                "major_change_note": "大改款採 MQB 平台，全車系搭載「濕式」雙離合器變速箱，2021小改款導入 IQ.DRIVE 與觸控空調。",
                 "platform": "VW MQB 模組化平台",
                 "origin": "德國原裝進口",
+                "photo_query": "Volkswagen Tiguan AD1",
                 "depreciation_alert": {
                     "level": "medium",
                     "title": "濕式 DSG 較耐操，但需留意水泵浦滲水與閥體電腦",
@@ -707,8 +1058,106 @@ EXTRA_CARS_DATABASE = [
         "model": "Forester",
         "model_zh": "速霸陸 Forester (森林人)",
         "category": "進口四驅休旅 (AWD SUV)",
-        "summary": "全時四輪驅動與水平對臥引擎代表，5代(SK 2018+)採 SGP 平台與 EyeSight 主動安全，安全性口碑極佳，但保養成本與折舊較 Toyota 高。",
+        "summary": "3代(SH 2008-2012)採 4AT + 水平對臥；4代(SJ 2013-2017)換裝 CVT 並曾有早期閥體電磁閥通病；5代(SK 2018+)採 SGP 平台與 EyeSight。",
         "generations": [
+            {
+                "gen_id": "forester-3",
+                "gen_name": "第 3 代 (SH 4AT世代)",
+                "years": [2008, 2009, 2010, 2011, 2012],
+                "is_major_change": True,
+                "major_change_year": 2008,
+                "major_change_note": "2008年大改款脫離旅行車外型正式成為正統 SUV，搭 4速手自排與 2.0 NA / 2.5 XT 渦輪。",
+                "platform": "Subaru SI-Chassis",
+                "origin": "日本原裝進口",
+                "photo_query": "Subaru Forester SH",
+                "depreciation_alert": {
+                    "level": "medium",
+                    "title": "水平對臥汽缸床墊片滲油 + 老車油耗高，殘值 13~23 萬",
+                    "reason": "無 CVT 疑慮但水平對臥拆裝工資較高，2.5 XT 渦輪版稅金與油耗亦高。"
+                },
+                "trims": [
+                    {
+                        "trim_name": "2.0 X / 2.5 XT 渦輪 (4AT)",
+                        "msrp_wan": 108.0,
+                        "engine_code": "EJ20 2.0L / EJ255 2.5L 水平對臥",
+                        "displacement_cc": 1994,
+                        "horsepower": "150 ps (2.0) / 230 ps (2.5XT)",
+                        "torque": "20.0 kgm / 32.6 kgm",
+                        "transmission": "4速手自排",
+                        "drivetrain": "SAWD 全時四驅",
+                        "suspension": "前麥花臣 / 後雙A臂",
+                        "fuel_economy": "10.5 km/L",
+                        "dimensions": "4560 x 1780 x 1700 mm (軸距 2615 mm)",
+                        "safety": "6氣囊、VDC"
+                    }
+                ],
+                "common_issues": [
+                    {
+                        "part": "汽缸蓋/汽缸床墊片滲油 / 塑膠副水箱脆裂",
+                        "severity": "中風險",
+                        "mileage_range": "10萬公里以上",
+                        "symptom": "引擎下方漏油滴到排氣管冒白煙、水溫高。",
+                        "repair_cost_ntd": "墊片整理約 1.5 ~ 2.5 萬",
+                        "advice": "頂車檢查引擎下半部油漬與水箱管路。"
+                    }
+                ],
+                "yearly_prices": {
+                    "2008": {"msrp": 102.0, "dealer": 14.5, "private": 11.2, "book": 8.5},
+                    "2009": {"msrp": 102.0, "dealer": 16.5, "private": 13.0, "book": 10.0},
+                    "2010": {"msrp": 105.0, "dealer": 18.5, "private": 14.8, "book": 11.8},
+                    "2011": {"msrp": 108.0, "dealer": 21.0, "private": 17.0, "book": 13.8},
+                    "2012": {"msrp": 108.0, "dealer": 23.5, "private": 19.5, "book": 16.0}
+                }
+            },
+            {
+                "gen_id": "forester-4",
+                "gen_name": "第 4 代 (SJ 2.0i / 2.0XT)",
+                "years": [2013, 2014, 2015, 2016, 2017],
+                "is_major_change": True,
+                "major_change_year": 2013,
+                "major_change_note": "2013年大改款換裝 FB20/FA20 DIT 新世代引擎與 Lineartronic CVT。",
+                "platform": "Subaru SI-Chassis",
+                "origin": "日本原裝進口",
+                "photo_query": "Subaru Forester SJ",
+                "depreciation_alert": {
+                    "level": "medium",
+                    "title": "早期 Lineartronic CVT 電磁閥故障與輪軸承異音",
+                    "reason": "2.0XT 渦輪版動力強但零件保養費較高，導致中古折舊較 RAV4 快。"
+                },
+                "trims": [
+                    {
+                        "trim_name": "2.0 i-L / 2.0 XT (240匹渦輪)",
+                        "msrp_wan": 118.0,
+                        "engine_code": "FB20 2.0L NA / FA20F 2.0L DIT 渦輪",
+                        "displacement_cc": 1995,
+                        "horsepower": "150 ps (NA) / 240 ps (XT)",
+                        "torque": "20.2 kgm / 35.7 kgm",
+                        "transmission": "Lineartronic CVT",
+                        "drivetrain": "SAWD 全時四驅",
+                        "suspension": "前麥花臣 / 後雙A臂",
+                        "fuel_economy": "12.5 km/L",
+                        "dimensions": "4595 x 1795 x 1735 mm (軸距 2640 mm)",
+                        "safety": "7氣囊、VDC"
+                    }
+                ],
+                "common_issues": [
+                    {
+                        "part": "CVT 閥體鎖止電磁閥故障 / 後輪軸承嗡嗡聲",
+                        "severity": "中風險",
+                        "mileage_range": "8萬 ~ 12萬公里",
+                        "symptom": "儀表全亮（ABS/AT/引擎燈齊亮）、車速60以上後方嗡嗡聲。",
+                        "repair_cost_ntd": "電磁閥約 1.5~2.5 萬；軸承約 4,500 元/輪",
+                        "advice": "外廠皆可單換改良電磁閥，不需換整顆變速箱。"
+                    }
+                ],
+                "yearly_prices": {
+                    "2013": {"msrp": 115.0, "dealer": 27.0, "private": 22.5, "book": 19.0},
+                    "2014": {"msrp": 115.0, "dealer": 30.5, "private": 25.8, "book": 22.0},
+                    "2015": {"msrp": 118.0, "dealer": 34.5, "private": 29.5, "book": 25.5},
+                    "2016": {"msrp": 118.0, "dealer": 38.5, "private": 33.5, "book": 29.0},
+                    "2017": {"msrp": 118.0, "dealer": 43.0, "private": 37.8, "book": 33.0}
+                }
+            },
             {
                 "gen_id": "forester-5",
                 "gen_name": "第 5 代 (SK SGP平台)",
@@ -718,10 +1167,11 @@ EXTRA_CARS_DATABASE = [
                 "major_change_note": "2018年大改款換裝 SGP 全球模組化底盤、2.0L 直噴自然進氣引擎與 EyeSight 雙鏡頭輔助系統。",
                 "platform": "Subaru Global Platform (SGP)",
                 "origin": "日本原裝進口",
+                "photo_query": "Subaru Forester SK",
                 "depreciation_alert": {
                     "level": "medium",
-                    "title": "安全配備滿載且中古價親民，留意冷氣與膠條耗材",
-                    "reason": "受品牌保養據點與水平對臥維修成本印象影響，二手折舊較快，反而是高安全性的超值選擇。"
+                    "title": "安全配備滿載且中古價親民，留意 TVC 溫控閥",
+                    "reason": "二手折舊較快，反而是高安全性的超值選擇。"
                 },
                 "trims": [
                     {
@@ -767,8 +1217,57 @@ EXTRA_CARS_DATABASE = [
         "model": "Tucson L",
         "model_zh": "現代 Tucson / Tucson L",
         "category": "國產中型休旅 (SUV)",
-        "summary": "3代(2016-2021)與 4代大改款 Tucson L(2021年底+)外型前衛、軸距放大並提供 1.6T 雙離合與 1.6T 渦輪油電(6AT)，近年妥善與保值度顯著進步。",
+        "summary": "1代(2005)與 ix35(2010)早期品牌保值較低；3代 Tucson(2016)與 4代 Tucson L(2021年底+)質感與動力躍升，油電版採 6AT 尤受歡迎。",
         "generations": [
+            {
+                "gen_id": "tucson-3",
+                "gen_name": "第 3 代 Tucson (2.0 汽油 / 1.6T 雙離合)",
+                "years": [2016, 2017, 2018, 2019, 2020],
+                "is_major_change": True,
+                "major_change_year": 2016,
+                "major_change_note": "2016年大改款恢復 Tucson 車名（取代 ix35），提供 2.0 NA 6AT 與 1.6T 7速雙離合。",
+                "platform": "Hyundai 歐化底盤",
+                "origin": "台灣國產（三陽南陽）",
+                "photo_query": "Hyundai Tucson TL",
+                "depreciation_alert": {
+                    "level": "medium",
+                    "title": "品牌折舊較快，中古價極為便宜",
+                    "reason": "1.6T 雙離合須注意低速頓挫，2.0 NA 6AT 動力較溫順但最耐操。"
+                },
+                "trims": [
+                    {
+                        "trim_name": "2.0 汽油 (6AT) / 1.6T 雙離合",
+                        "msrp_wan": 95.9,
+                        "engine_code": "Nu 2.0L NA / Gamma 1.6L 渦輪",
+                        "displacement_cc": 1999,
+                        "horsepower": "155 ps (2.0) / 177 ps (1.6T)",
+                        "torque": "19.6 kgm / 26.8 kgm",
+                        "transmission": "6速手自排 / 7速雙離合",
+                        "drivetrain": "前輪驅動 (FF)",
+                        "suspension": "前麥花臣 / 後獨立多連桿",
+                        "fuel_economy": "12.8 km/L",
+                        "dimensions": "4475 x 1850 x 1660 mm (軸距 2670 mm)",
+                        "safety": "6氣囊、ESP"
+                    }
+                ],
+                "common_issues": [
+                    {
+                        "part": "1.6T 7速雙離合抖動 / 方向機齒條異音",
+                        "severity": "中風險",
+                        "mileage_range": "6萬公里以上",
+                        "symptom": "低速蠕行抖動、轉向輕微叩叩聲。",
+                        "repair_cost_ntd": "離合器組約 3 萬",
+                        "advice": "預算型買家選 2.0 6AT 最省心。"
+                    }
+                ],
+                "yearly_prices": {
+                    "2016": {"msrp": 89.9, "dealer": 29.0, "private": 24.5, "book": 21.0},
+                    "2017": {"msrp": 93.9, "dealer": 33.5, "private": 28.8, "book": 25.0},
+                    "2018": {"msrp": 95.9, "dealer": 38.0, "private": 33.0, "book": 29.0},
+                    "2019": {"msrp": 95.9, "dealer": 43.0, "private": 37.8, "book": 33.5},
+                    "2020": {"msrp": 95.9, "dealer": 48.0, "private": 42.5, "book": 38.0}
+                }
+            },
             {
                 "gen_id": "tucson-4",
                 "gen_name": "第 4 代 Tucson L (1.6T / 油電)",
@@ -778,6 +1277,7 @@ EXTRA_CARS_DATABASE = [
                 "major_change_note": "2021年底大改款加長軸距至 2755mm（L版），1.6T 汽油採 7速雙離合、2023年新增 1.6T Turbo Hybrid 採 6速手自排。",
                 "platform": "Hyundai N3 第三代平台",
                 "origin": "台灣國產（三陽南陽）",
+                "photo_query": "Hyundai Tucson NX4",
                 "depreciation_alert": {
                     "level": "low",
                     "title": "空間與造型極具競爭力，渦輪油電版尤受青睞",
@@ -825,17 +1325,18 @@ EXTRA_CARS_DATABASE = [
         "model": "NX",
         "model_zh": "凌志 NX",
         "category": "豪華進口中型休旅",
-        "summary": "台灣豪華品牌最暢銷車款！1代(AZ10 2014-2021)的 NX200 以超低故障率與親民售價稱霸；2代(AZ20 2021年底+)換裝 TNGA-K 平台與 LSS+ 3.0，二手保值率稱冠豪華車壇。",
+        "summary": "台灣豪華品牌最暢銷車款！1代(AZ10 2014-2021)的 NX200 以超低故障率與親民售價稱霸；2代(AZ20 2021年底+)換裝 TNGA-K 平台與 LSS+ 3.0。",
         "generations": [
             {
                 "gen_id": "nx-1",
                 "gen_name": "第 1 代 (AZ10 NX200 / NX300h)",
-                "years": [2016, 2017, 2018, 2019, 2020, 2021],
+                "years": [2015, 2016, 2017, 2018, 2019, 2020, 2021],
                 "is_major_change": True,
-                "major_change_year": 2014,
-                "major_change_note": "2017年底推出小改款與高CP值的 NX200 (2.0 NA + CVT) 入門款，銷量爆衝，2020年式全面升級全速域 LSS+ 2.0。",
+                "major_change_year": 2015,
+                "major_change_note": "2014年底上市；2017年底小改款推出高CP值的 NX200 (2.0 NA + CVT) 入門款銷量爆衝，2020年式升級全速域 LSS+ 2.0。",
                 "platform": "Toyota New MC 豪華強化平台",
                 "origin": "日本原裝進口",
+                "photo_query": "Lexus NX AZ10",
                 "depreciation_alert": {
                     "level": "low",
                     "title": "豪華品牌保值之王，養車成本接近日系國產",
@@ -868,6 +1369,7 @@ EXTRA_CARS_DATABASE = [
                     }
                 ],
                 "yearly_prices": {
+                    "2015": {"msrp": 189.0, "dealer": 62.0, "private": 55.5, "book": 50.0},
                     "2016": {"msrp": 189.0, "dealer": 69.0, "private": 62.5, "book": 57.0},
                     "2017": {"msrp": 152.0, "dealer": 76.0, "private": 69.5, "book": 64.0},
                     "2018": {"msrp": 152.0, "dealer": 84.0, "private": 77.0, "book": 71.0},
@@ -881,10 +1383,11 @@ EXTRA_CARS_DATABASE = [
                 "gen_name": "第 2 代 (AZ20 TNGA-K 平台)",
                 "years": [2022, 2023, 2024, 2025],
                 "is_major_change": True,
-                "major_change_year": 2021,
+                "major_change_year": 2022,
                 "major_change_note": "2021年底大改款2代！改採 TNGA-K 平台、電子門把、大螢幕與 LSS+ 3.0，NX200 換裝 173匹 M20A 引擎。",
                 "platform": "Toyota TNGA GA-K",
                 "origin": "日本原裝進口",
+                "photo_query": "Lexus NX AZ20",
                 "depreciation_alert": {
                     "level": "low",
                     "title": "極高流通性與超低折舊，三年內二手價極堅挺",
@@ -929,23 +1432,126 @@ EXTRA_CARS_DATABASE = [
         "id": "benz-c-class",
         "brand": "Mercedes-Benz",
         "model": "C-Class",
-        "model_zh": "賓士 C-Class (C300 / C200)",
+        "model_zh": "賓士 C-Class (C200 / C300)",
         "category": "豪華進口中型房車",
-        "summary": "台灣外匯車與總代理最熱門豪華房車。W205(2014-2021)含大量美規 C300 外匯車；W206(2021年底+)全面換裝 1.5T+48V 輕油電與大螢幕內裝，豪華車前五年折舊幅度較國產車顯著。",
+        "summary": "2000年起 W203、W204 到 W205 皆為台灣最熱門雙B入門房車。早期 W203/W204 受 M271 引擎正時鍊條與環保線組影響殘值掉很快；W205 含大量美規 C300 外匯車。",
         "generations": [
+            {
+                "gen_id": "c-w203",
+                "gen_name": "W203 世代 (C200K / C230K)",
+                "years": [2000, 2001, 2002, 2003, 2004, 2005, 2006],
+                "is_major_change": True,
+                "major_change_year": 2000,
+                "major_change_note": "2000年大改款花生燈造型，台灣主力為 1.8 機械增壓 C200K / C230K 搭 5速手自排。",
+                "platform": "Mercedes W203 後驅平台",
+                "origin": "德國原裝進口",
+                "photo_query": "Mercedes-Benz W203 sedan",
+                "depreciation_alert": {
+                    "level": "high",
+                    "title": "M271 引擎正時鍊條跳齒 + 凸輪軸漏油吃線組，殘值剩 9~16 萬",
+                    "reason": "早期 1.8 機械增壓凸輪軸電磁閥漏油會順著毛細現象滲進 ECU 電腦，維修費動輒數萬，使車價大跌。"
+                },
+                "trims": [
+                    {
+                        "trim_name": "C200 Kompressor (1.8機械增壓 5AT)",
+                        "msrp_wan": 198.0,
+                        "engine_code": "M271 1.8L 直列四缸機械增壓",
+                        "displacement_cc": 1796,
+                        "horsepower": "163 ps / 5,500 rpm",
+                        "torque": "24.5 kgm / 3,000 rpm",
+                        "transmission": "5G-TRONIC 5速手自排",
+                        "drivetrain": "後輪驅動 (FR)",
+                        "suspension": "前麥花臣 / 後獨立多連桿",
+                        "fuel_economy": "11.0 km/L",
+                        "dimensions": "4526 x 1728 x 1426 mm (軸距 2715 mm)",
+                        "safety": "6氣囊、ESP"
+                    }
+                ],
+                "common_issues": [
+                    {
+                        "part": "M271 凸輪軸調整器漏油吃線組 / 正時鍊條拉長",
+                        "severity": "高風險",
+                        "mileage_range": "10萬公里以上",
+                        "symptom": "冷車啟動喀啦異音、ECU 線組含油亮故障燈。",
+                        "repair_cost_ntd": "正時鍊條+齒輪約 3.5~5.0 萬",
+                        "advice": "買 W203 必裝阻油線並檢查正時鍊條。"
+                    }
+                ],
+                "yearly_prices": {
+                    "2001": {"msrp": 195.0, "dealer": 11.0, "private": 8.0, "book": 5.5},
+                    "2002": {"msrp": 195.0, "dealer": 12.0, "private": 8.8, "book": 6.2},
+                    "2003": {"msrp": 198.0, "dealer": 13.0, "private": 9.8, "book": 7.0},
+                    "2004": {"msrp": 198.0, "dealer": 14.2, "private": 10.8, "book": 8.0},
+                    "2005": {"msrp": 202.0, "dealer": 15.8, "private": 12.2, "book": 9.2},
+                    "2006": {"msrp": 202.0, "dealer": 17.5, "private": 13.8, "book": 10.5}
+                }
+            },
+            {
+                "gen_id": "c-w204",
+                "gen_name": "W204 世代 (C200 / C250 / C300)",
+                "years": [2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
+                "is_major_change": True,
+                "major_change_year": 2007,
+                "major_change_note": "2007年大改款方正霸氣造型，2011小改款導入 7G-TRONIC 7AT 與大量美規 C250 1.8T 外匯車。",
+                "platform": "Mercedes W204 後驅平台",
+                "origin": "德國/南非進口（含大量美規外匯）",
+                "photo_query": "Mercedes-Benz W204 sedan",
+                "depreciation_alert": {
+                    "level": "high",
+                    "title": "M271 CGI 凸輪軸齒輪磨損 + ESL 方向盤鎖死經典通病",
+                    "reason": "1.8T 凸輪軸齒輪磨損與插鑰匙方向盤鎖死模組(ESL)損壞是 W204 最出名高價通病。"
+                },
+                "trims": [
+                    {
+                        "trim_name": "C200 / C250 CGI (1.8T 7AT)",
+                        "msrp_wan": 215.0,
+                        "engine_code": "M271 EVO 1.8L 缸內直噴渦輪",
+                        "displacement_cc": 1796,
+                        "horsepower": "184 ps (C200) / 204 ps (C250)",
+                        "torque": "27.5 kgm / 31.6 kgm",
+                        "transmission": "5AT (前期) / 7G-TRONIC (2011+)",
+                        "drivetrain": "後輪驅動 (FR)",
+                        "suspension": "前麥花臣 / 後獨立多連桿",
+                        "fuel_economy": "13.0 km/L",
+                        "dimensions": "4591 x 1770 x 1447 mm (軸距 2760 mm)",
+                        "safety": "7氣囊、ESP"
+                    }
+                ],
+                "common_issues": [
+                    {
+                        "part": "M271 凸輪軸齒輪磨損 / ESL電子方向盤鎖死",
+                        "severity": "高風險",
+                        "mileage_range": "8萬 ~ 14萬公里",
+                        "symptom": "插鑰匙完全無法過電發動（ESL故障）；冷車發動瞬間噠噠異音。",
+                        "repair_cost_ntd": "ESL模擬器約 8,000~15,000 元；凸輪軸齒輪組約 3.5~5.5 萬",
+                        "advice": "買 2011-2014 後期款 C250 須特別聆聽冷車發動瞬間異音。"
+                    }
+                ],
+                "yearly_prices": {
+                    "2007": {"msrp": 205.0, "dealer": 22.0, "private": 17.5, "book": 14.0},
+                    "2008": {"msrp": 205.0, "dealer": 24.5, "private": 19.8, "book": 16.0},
+                    "2009": {"msrp": 209.0, "dealer": 27.5, "private": 22.5, "book": 18.5},
+                    "2010": {"msrp": 209.0, "dealer": 30.5, "private": 25.0, "book": 21.0},
+                    "2011": {"msrp": 215.0, "dealer": 35.5, "private": 29.5, "book": 25.0},
+                    "2012": {"msrp": 215.0, "dealer": 39.5, "private": 33.0, "book": 28.5},
+                    "2013": {"msrp": 218.0, "dealer": 44.0, "private": 37.5, "book": 32.5},
+                    "2014": {"msrp": 218.0, "dealer": 49.0, "private": 42.0, "book": 37.0}
+                }
+            },
             {
                 "gen_id": "c-w205",
                 "gen_name": "W205 世代 (C200 / 外匯 C300)",
                 "years": [2015, 2016, 2017, 2018, 2019, 2020],
                 "is_major_change": True,
-                "major_change_year": 2014,
-                "major_change_note": "2014年底大改款 W205，2018年底小改款換裝 1.5T+48V (C200) 與改良 M264 2.0T (C300) + 9G-TRONIC 變速箱。",
+                "major_change_year": 2015,
+                "major_change_note": "大改款 W205，2018年底小改款換裝 1.5T+48V (C200) 與改良 M264 2.0T (C300) + 9G-TRONIC 變速箱。",
                 "platform": "Mercedes MRA 後驅平台",
                 "origin": "德國/南非/美國進口（含大量美規外匯）",
+                "photo_query": "Mercedes-Benz W205 sedan",
                 "depreciation_alert": {
                     "level": "medium",
                     "title": "外匯車源極多、車價落差大，須嚴防事故/調錶外匯車",
-                    "reason": "豪華車維修保養單價高，過保後折舊明顯；2019小改款 48V BSG 啟動馬達故障率亦須留意。"
+                    "reason": "過保後折舊明顯；2019小改款 48V BSG 啟動馬達故障率亦須留意。"
                 },
                 "trims": [
                     {
@@ -968,9 +1574,9 @@ EXTRA_CARS_DATABASE = [
                         "part": "48V 輕油電 BSG 故障 (2019+小改款) / 高壓油管滲油",
                         "severity": "高風險",
                         "mileage_range": "6萬 ~ 10萬公里",
-                        "symptom": "亮 48V 電池故障無法發動；冷車引擎室汽油味（高壓油管）。",
-                        "repair_cost_ntd": "48V BSG 維修約 3.5 ~ 6.5 萬；凸輪軸感應器滲油約 1.5 萬",
-                        "advice": "外匯車務必查閱 Carfax/AutoCheck 報告並檢驗萊茵認證。"
+                        "symptom": "亮 48V 電池故障無法發動；冷車引擎室汽油味。",
+                        "repair_cost_ntd": "48V BSG 維修約 3.5 ~ 6.5 萬",
+                        "advice": "外匯車務必查閱 Carfax 報告並檢驗萊茵認證。"
                     }
                 ],
                 "yearly_prices": {
@@ -988,10 +1594,161 @@ EXTRA_CARS_DATABASE = [
         "id": "bmw-3-series",
         "brand": "BMW",
         "model": "3 Series",
-        "model_zh": "寶馬 3系列 (320i / 330i)",
+        "model_zh": "寶馬 3系列 (318i / 320i / 330i)",
         "category": "豪華進口中型運動房車",
-        "summary": "豪華後驅操控標竿。F30(2012-2018)後期 B48 引擎大幅改善 N20 漏油問題；G20(2019+)採 CLAR 平台與新世代 B48 引擎 + ZF 8AT，妥善率與操控口碑俱佳。",
+        "summary": "E46(2000-2005)與 E90(2005-2011)因 N42/N46 四缸漏油與氣門油封吃機油通病使殘值跌破20萬；F30(2012-2018)後期換 B48 與 G20(2019+)後妥善率大幅躍升。",
         "generations": [
+            {
+                "gen_id": "bmw-e46",
+                "gen_name": "E46 世代 (經典後驅老寶馬)",
+                "years": [2000, 2001, 2002, 2003, 2004],
+                "is_major_change": True,
+                "major_change_year": 2000,
+                "major_change_note": "經典 E46 世代，前期 318i/320i(M52/M54 六缸)較耐操，後期 318i 換裝 N42 四缸容易吃機油漏油。",
+                "platform": "BMW E46 後驅平台",
+                "origin": "德國原裝進口",
+                "photo_query": "BMW E46 sedan",
+                "depreciation_alert": {
+                    "level": "high",
+                    "title": "冷卻副水箱爆裂 + 漏油通病，老車殘值 9~15 萬",
+                    "reason": "20年以上雙B冷卻塑膠管路脆化極易水溫過高沖墊片，僅 6 缸 M54 車型具玩家收藏價。"
+                },
+                "trims": [
+                    {
+                        "trim_name": "318i / 320i (5AT)",
+                        "msrp_wan": 188.0,
+                        "engine_code": "N42B20 四缸 / M54B22 直列六缸",
+                        "displacement_cc": 1995,
+                        "horsepower": "143 ps (318i) / 170 ps (320i)",
+                        "torque": "20.4 kgm / 21.4 kgm",
+                        "transmission": "5速手自排",
+                        "drivetrain": "後輪驅動 (FR)",
+                        "suspension": "前麥花臣 / 後獨立多連桿",
+                        "fuel_economy": "10.5 km/L",
+                        "dimensions": "4471 x 1739 x 1415 mm (軸距 2725 mm)",
+                        "safety": "6氣囊、DSC"
+                    }
+                ],
+                "common_issues": [
+                    {
+                        "part": "塑膠副水箱爆裂 / 引擎墊片漏油 / 氣門油封老化",
+                        "severity": "高風險",
+                        "mileage_range": "12萬公里以上",
+                        "symptom": "突然爆水管水溫紅燈、怠速踩油門冒藍煙。",
+                        "repair_cost_ntd": "水路全套+油封整理約 2.5~4.0 萬",
+                        "advice": "喜愛 E46 建議找直列六缸 320i/325i/330i。"
+                    }
+                ],
+                "yearly_prices": {
+                    "2000": {"msrp": 182.0, "dealer": 10.0, "private": 7.0, "book": 4.5},
+                    "2001": {"msrp": 182.0, "dealer": 11.0, "private": 7.8, "book": 5.2},
+                    "2002": {"msrp": 188.0, "dealer": 12.0, "private": 8.8, "book": 6.0},
+                    "2003": {"msrp": 188.0, "dealer": 13.5, "private": 9.8, "book": 6.8},
+                    "2004": {"msrp": 188.0, "dealer": 15.0, "private": 11.0, "book": 8.0}
+                }
+            },
+            {
+                "gen_id": "bmw-e90",
+                "gen_name": "E90 世代 (N46 漏油王時期)",
+                "years": [2005, 2006, 2007, 2008, 2009, 2010, 2011],
+                "is_major_change": True,
+                "major_change_year": 2005,
+                "major_change_note": "2005年大改款 E90，全面採失壓續跑胎與 6速手自排，但 318i/320i 搭載惡名昭彰的 N46 四缸引擎。",
+                "platform": "BMW E90 後驅平台",
+                "origin": "德國原裝進口",
+                "photo_query": "BMW E90 sedan",
+                "depreciation_alert": {
+                    "level": "high",
+                    "title": "N46 四缸「氣門油封吃機油 + 全車漏油」導致殘值崩跌",
+                    "reason": "E90 320i 幾乎每台必遇汽門油封硬化冒藍煙、真空泵漏油與變速箱油底殼滲油，造成市場價格僅剩 18~32 萬。"
+                },
+                "trims": [
+                    {
+                        "trim_name": "320i (N46四缸) / 323i・325i (N52六缸)",
+                        "msrp_wan": 199.0,
+                        "engine_code": "N46B20 2.0L 四缸 / N52B25 2.5L 六缸",
+                        "displacement_cc": 1995,
+                        "horsepower": "150~156 ps (320i) / 218 ps (325i)",
+                        "torque": "20.4 kgm / 25.5 kgm",
+                        "transmission": "ZF 6速手自排",
+                        "drivetrain": "後輪驅動 (FR)",
+                        "suspension": "前麥花臣 / 後獨立多連桿",
+                        "fuel_economy": "11.5 km/L",
+                        "dimensions": "4520 x 1817 x 1421 mm (軸距 2760 mm)",
+                        "safety": "6氣囊、DSC"
+                    }
+                ],
+                "common_issues": [
+                    {
+                        "part": "N46 汽門油封硬化冒藍煙 / 引擎墊片漏油",
+                        "severity": "高風險",
+                        "mileage_range": "8萬公里以上",
+                        "symptom": "停紅燈後大腳油門排氣管噴藍煙、引擎室燒機油臭味。",
+                        "repair_cost_ntd": "免拆缸頭換氣門油封+墊片約 2.5~3.5 萬",
+                        "advice": "買 E90 強烈建議挑 N52 直列六缸 (323i/325i)，體質遠勝 N46 四缸。"
+                    }
+                ],
+                "yearly_prices": {
+                    "2005": {"msrp": 192.0, "dealer": 18.0, "private": 14.0, "book": 11.0},
+                    "2006": {"msrp": 192.0, "dealer": 19.8, "private": 15.5, "book": 12.2},
+                    "2007": {"msrp": 195.0, "dealer": 21.8, "private": 17.2, "book": 13.8},
+                    "2008": {"msrp": 195.0, "dealer": 24.0, "private": 19.2, "book": 15.5},
+                    "2009": {"msrp": 199.0, "dealer": 27.0, "private": 21.8, "book": 18.0},
+                    "2010": {"msrp": 199.0, "dealer": 30.0, "private": 24.5, "book": 20.5},
+                    "2011": {"msrp": 199.0, "dealer": 33.5, "private": 27.5, "book": 23.0}
+                }
+            },
+            {
+                "gen_id": "bmw-f30",
+                "gen_name": "F30 世代 (N20前期 / B48後期)",
+                "years": [2012, 2013, 2014, 2015, 2016, 2017, 2018],
+                "is_major_change": True,
+                "major_change_year": 2012,
+                "major_change_note": "2012年大改款 F30 全面渦輪化 + ZF 8AT；前期(2012-2015)採 N20 引擎，2016小改款後換裝極穩定的 B48 引擎。",
+                "platform": "BMW F30 後驅平台",
+                "origin": "德國原裝進口",
+                "photo_query": "BMW F30 sedan",
+                "depreciation_alert": {
+                    "level": "medium",
+                    "title": "前期 N20 正時鍊條導板脆裂風險；2016+ B48 引擎大幅改善",
+                    "reason": "2012-2015 N20 引擎塑膠鍊條導板高里程可能碎裂阻塞機油泵，2016年後 B48 中古價明顯較高。"
+                },
+                "trims": [
+                    {
+                        "trim_name": "320i / 328i / 330i (ZF 8AT)",
+                        "msrp_wan": 203.0,
+                        "engine_code": "N20B20 (12-15) / B48B20 (16-18)",
+                        "displacement_cc": 1998,
+                        "horsepower": "184 ps (320i) / 245~252 ps (328i/330i)",
+                        "torque": "27.5 kgm / 35.7 kgm",
+                        "transmission": "ZF Steptronic 8速手自排",
+                        "drivetrain": "後輪驅動 (FR)",
+                        "suspension": "前麥花臣 / 後獨立多連桿",
+                        "fuel_economy": "14.5 km/L",
+                        "dimensions": "4624 x 1811 x 1429 mm (軸距 2810 mm)",
+                        "safety": "6氣囊、DSC"
+                    }
+                ],
+                "common_issues": [
+                    {
+                        "part": "N20 正時鍊條導板脆裂 (2012-2015) / 渦輪回油管",
+                        "severity": "高風險",
+                        "mileage_range": "8萬 ~ 12萬公里",
+                        "symptom": "高轉異音、機油壓力過低警示。",
+                        "repair_cost_ntd": "預防更換鍊條與導板組約 3.5~4.5 萬",
+                        "advice": "預算夠直接鎖定 2016 年後 LCI 小改款 B48 引擎（320i/330i）。"
+                    }
+                ],
+                "yearly_prices": {
+                    "2012": {"msrp": 192.0, "dealer": 42.0, "private": 35.5, "book": 30.5},
+                    "2013": {"msrp": 192.0, "dealer": 46.5, "private": 39.5, "book": 34.5},
+                    "2014": {"msrp": 195.0, "dealer": 51.5, "private": 44.0, "book": 38.5},
+                    "2015": {"msrp": 195.0, "dealer": 57.0, "private": 49.0, "book": 43.0},
+                    "2016": {"msrp": 203.0, "dealer": 66.0, "private": 58.0, "book": 51.5},
+                    "2017": {"msrp": 203.0, "dealer": 73.0, "private": 64.5, "book": 57.5},
+                    "2018": {"msrp": 203.0, "dealer": 81.0, "private": 72.0, "book": 64.5}
+                }
+            },
             {
                 "gen_id": "bmw-g20",
                 "gen_name": "G20 世代 (B48 + ZF 8AT)",
@@ -1001,6 +1758,7 @@ EXTRA_CARS_DATABASE = [
                 "major_change_note": "2019年大改款 G20，換裝 CLAR 高剛性平台與極成熟的 B48 2.0T 引擎 + ZF 8速手自排，全面標配 5AU 智慧駕駛。",
                 "platform": "BMW CLAR 後驅平台",
                 "origin": "德國原裝進口",
+                "photo_query": "BMW G20 sedan",
                 "depreciation_alert": {
                     "level": "medium",
                     "title": "B48 + ZF8AT 體質極佳，留意歐系冷卻管路耗材",
@@ -1048,18 +1806,120 @@ EXTRA_CARS_DATABASE = [
         "brand": "Suzuki",
         "model": "Swift",
         "model_zh": "鈴木 Swift",
-        "category": "進口都會小車",
-        "summary": "日本原裝進口小車，省稅省油好停車。2021年後改採 1.2L + 12V 輕油電，2024年大改款換裝 1.2L 三缸輕油電，二手保值率在進口小車中名列前茅。",
+        "category": "國產/進口都會小車",
+        "summary": "2代(ZC11S 2005-2010)由太子汽車國產曾爆紅，但後期因太子倒閉停產影響零件供應與殘值；3代(ZC72S 2011-2017)金鈴恢復日本進口；4代(2018+)採輕量化與輕油電，中古極為搶手。",
         "generations": [
             {
+                "gen_id": "swift-2",
+                "gen_name": "第 2 代 (ZC11S/ZC21S 太子國產時期)",
+                "years": [2005, 2006, 2007, 2008, 2009, 2010],
+                "is_major_change": True,
+                "major_change_year": 2005,
+                "major_change_note": "2005年太子汽車首度國產化大改款 Swift，採 1.5L M15A + 4AT 搭配歐風可愛造型，當年熱銷但 2011 年太子停產後原廠零件待料較久。",
+                "platform": "Suzuki ZC 全球戰略小車平台",
+                "origin": "台灣國產（太子汽車）",
+                "photo_query": "Suzuki Swift ZC11S",
+                "depreciation_alert": {
+                    "level": "medium",
+                    "title": "太子汽車停產 + 4AT 散熱/水箱老化，二手價 8~14 萬",
+                    "reason": "雖外型經典好開，但車齡 16 年以上且太子汽車停產後部分國產專用內裝料件較難尋，加上僅2氣囊無ESP。"
+                },
+                "trims": [
+                    {
+                        "trim_name": "1.5 GL / GLX (4AT)",
+                        "msrp_wan": 52.8,
+                        "engine_code": "M15A 1.5L DOHC VVT 自然進氣",
+                        "displacement_cc": 1490,
+                        "horsepower": "110 ps / 6,000 rpm",
+                        "torque": "14.6 kgm / 4,000 rpm",
+                        "transmission": "4速自排",
+                        "drivetrain": "前輪驅動 (FF)",
+                        "suspension": "前麥花臣 / 後扭力樑",
+                        "fuel_economy": "15.2 km/L",
+                        "dimensions": "3695 x 1690 x 1510 mm (軸距 2390 mm)",
+                        "safety": "2氣囊、ABS（無ESP）"
+                    }
+                ],
+                "common_issues": [
+                    {
+                        "part": "水箱散熱不良 / 冷氣壓縮機 / 變速箱油管老化",
+                        "severity": "中風險",
+                        "mileage_range": "10萬公里以上",
+                        "symptom": "怠速開冷氣水溫偏高、4AT 換檔微頓挫、三角架鐵套龜裂。",
+                        "repair_cost_ntd": "換鋁水箱約 5,000 元；壓縮機整理約 7,000 元",
+                        "advice": "M15A 引擎本體耐操，購買時特別檢查冷卻水箱與底盤異音。"
+                    }
+                ],
+                "yearly_prices": {
+                    "2005": {"msrp": 49.8, "dealer": 9.5, "private": 6.8, "book": 4.5},
+                    "2006": {"msrp": 51.8, "dealer": 10.5, "private": 7.5, "book": 5.2},
+                    "2007": {"msrp": 51.8, "dealer": 11.8, "private": 8.5, "book": 6.0},
+                    "2008": {"msrp": 52.8, "dealer": 13.0, "private": 9.5, "book": 7.0},
+                    "2009": {"msrp": 52.8, "dealer": 14.5, "private": 10.8, "book": 8.0},
+                    "2010": {"msrp": 53.8, "dealer": 16.0, "private": 12.2, "book": 9.2}
+                }
+            },
+            {
+                "gen_id": "swift-3",
+                "gen_name": "第 3 代 (ZC72S 恢復日本進口)",
+                "years": [2011, 2012, 2013, 2014, 2015, 2016, 2017],
+                "is_major_change": True,
+                "major_change_year": 2011,
+                "major_change_note": "2011年金鈴汽車改為日本原裝進口導入 3代(1.4L 4AT)，2013年底小改款改為 1.2L K12B + CVT。",
+                "platform": "Suzuki ZC72S 平台",
+                "origin": "日本原裝進口",
+                "photo_query": "Suzuki Swift ZC72S",
+                "depreciation_alert": {
+                    "level": "low",
+                    "title": "日本進口品質穩定，1.4 4AT 與 1.2 CVT 皆極省油",
+                    "reason": "缺點為當時全車系僅 2 氣囊且無 ESP（僅 Sport 手排版例外），壓抑了部分安全取向買家出價。"
+                },
+                "trims": [
+                    {
+                        "trim_name": "1.4 GLX (11-13) / 1.2 GLX (14-17)",
+                        "msrp_wan": 62.8,
+                        "engine_code": "K14B 1.4L / K12B 1.2L 自然進氣",
+                        "displacement_cc": 1242,
+                        "horsepower": "95 ps (1.4) / 94 ps (1.2)",
+                        "torque": "13.3 kgm / 12.0 kgm",
+                        "transmission": "4AT (11-13) / CVT (14-17)",
+                        "drivetrain": "前輪驅動 (FF)",
+                        "suspension": "前麥花臣 / 後扭力樑",
+                        "fuel_economy": "16.5 km/L",
+                        "dimensions": "3850 x 1695 x 1510 mm (軸距 2430 mm)",
+                        "safety": "2氣囊、ABS（無ESP）"
+                    }
+                ],
+                "common_issues": [
+                    {
+                        "part": "前避震器上座異音 / 隔音偏單薄",
+                        "severity": "一般耗材",
+                        "mileage_range": "8萬公里以上",
+                        "symptom": "過坑洞前方叩叩聲、高速風切聲。",
+                        "repair_cost_ntd": "上座李仔串整理約 4,000 ~ 6,000 元",
+                        "advice": "機械耐用度極佳，適合都會代步。"
+                    }
+                ],
+                "yearly_prices": {
+                    "2011": {"msrp": 59.8, "dealer": 19.0, "private": 15.5, "book": 12.8},
+                    "2012": {"msrp": 59.8, "dealer": 21.0, "private": 17.2, "book": 14.5},
+                    "2013": {"msrp": 62.8, "dealer": 23.5, "private": 19.5, "book": 16.5},
+                    "2014": {"msrp": 62.8, "dealer": 25.8, "private": 21.5, "book": 18.5},
+                    "2015": {"msrp": 62.8, "dealer": 28.0, "private": 23.8, "book": 20.5},
+                    "2016": {"msrp": 62.8, "dealer": 30.5, "private": 26.0, "book": 22.8},
+                    "2017": {"msrp": 62.8, "dealer": 33.0, "private": 28.5, "book": 25.0}
+                }
+            },
+            {
                 "gen_id": "swift-4",
-                "gen_name": "第 4 代 (1.0T / 1.2L 輕油電)",
+                "gen_name": "第 4 代 (ZC83S/A2L 輕油電)",
                 "years": [2018, 2019, 2020, 2021, 2022, 2023, 2024],
                 "is_major_change": True,
-                "major_change_year": 2017,
-                "major_change_note": "2017年底大改款採 HEARTECT 輕量化底盤，前期為 1.0T 渦輪+6AT，2021年改為 1.2L 輕油電+CVT並標配 ACC。",
+                "major_change_year": 2018,
+                "major_change_note": "2017年底大改款採 HEARTECT 輕量化底盤並標配 6氣囊+ESP，前期為 1.0T 渦輪+6AT，2021年改為 1.2L 輕油電+CVT並標配 ACC。",
                 "platform": "Suzuki HEARTECT 平台",
                 "origin": "日本原裝進口",
+                "photo_query": "Suzuki Swift ZC83S",
                 "depreciation_alert": {
                     "level": "low",
                     "title": "極省油且日本進口身分，中古搶手度極高",

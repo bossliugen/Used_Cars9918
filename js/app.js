@@ -2,6 +2,30 @@
  * 台灣中古車實價趨勢與世代資料庫 - 白底藍框簡約版主程式
  */
 
+/**
+ * 台灣中古車實價趨勢與世代資料庫 - 白底藍框簡約版主程式
+ */
+
+const BRAND_LOGOS = {
+  Toyota: `<svg viewBox="0 0 36 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="18" cy="12" rx="15" ry="10"/><ellipse cx="18" cy="12" rx="4.5" ry="9.5"/><ellipse cx="18" cy="8.5" rx="11" ry="4"/></svg>`,
+  Honda: `<svg viewBox="0 0 28 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="24" height="20" rx="4"/><path d="M8.5 6v12M19.5 6v12M8.5 12h11"/></svg>`,
+  Ford: `<svg viewBox="0 0 38 20" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="19" cy="10" rx="17" ry="8"/><text x="19" y="13.5" text-anchor="middle" font-size="8.5" font-style="italic" font-weight="700" fill="currentColor" stroke="none">Ford</text></svg>`,
+  Mazda: `<svg viewBox="0 0 28 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="14" cy="12" rx="12" ry="9.5"/><path d="M4.5 9.5L14 14.5l9.5-5"/></svg>`,
+  Nissan: `<svg viewBox="0 0 28 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="14" cy="12" r="9.5"/><rect x="2" y="9" width="24" height="6" rx="1.5" fill="white"/></svg>`,
+  Volkswagen: `<svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="13" cy="13" r="10.5"/><path d="M6.5 6.5L11 16l2-4.5L15 16l4.5-9.5M8.5 5l4.5 7 4.5-7"/></svg>`,
+  Subaru: `<svg viewBox="0 0 32 22" fill="none" stroke="currentColor" stroke-width="1.7"><ellipse cx="16" cy="11" rx="14" ry="9"/><path d="M9 11l2.5-2.5L14 11l-2.5 2.5zM18 7l1.5-1.5L21 7l-1.5 1.5zM21 12l1.5-1.5L24 12l-1.5 1.5z" fill="currentColor" stroke="none"/></svg>`,
+  Hyundai: `<svg viewBox="0 0 34 22" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="17" cy="11" rx="14.5" ry="9"/><path d="M11 16l3.5-10M19.5 16L23 6M12.5 11.5l9-1"/></svg>`,
+  Lexus: `<svg viewBox="0 0 32 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="16" cy="12" rx="13.5" ry="9.5"/><path d="M13 6.5L10 15.5h11"/></svg>`,
+  "Mercedes-Benz": `<svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="13" cy="13" r="10.5"/><path d="M13 2.5V13m0 0l-8.8 5.2M13 13l8.8 5.2"/></svg>`,
+  BMW: `<svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="13" cy="13" r="10.5"/><circle cx="13" cy="13" r="6.5"/><path d="M13 6.5v13M6.5 13h13"/></svg>`,
+  Suzuki: `<svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16.5 3.5L6.5 10l9 4-6 4.5 10 4 0-5.5-8.5-3.5 5.5-4z"/></svg>`,
+};
+
+function getBrandLogoSvg(brand, large = false) {
+  const svg = BRAND_LOGOS[brand] || `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>`;
+  return `<span class="${large ? "brand-icon-lg" : "brand-icon"}">${svg}</span>`;
+}
+
 const state = {
   db: null,
   brands: [],
@@ -124,7 +148,7 @@ function renderBrandControls() {
 
   const pillsEl = document.getElementById("brandPills");
   pillsEl.innerHTML = state.brands
-    .map((b) => `<button class="brand-pill" data-brand="${b}" onclick="selectBrand('${b}')">${b}</button>`)
+    .map((b) => `<button class="brand-pill" data-brand="${b}" onclick="selectBrand('${b}')">${getBrandLogoSvg(b)}<span>${b}</span></button>`)
     .join("");
 }
 
@@ -189,6 +213,7 @@ function getSelectedGen() {
 
 function renderAllCarViews() {
   renderHeroAndKpis();
+  renderPhotoStrip();
   updateChartLegendAndButtons();
   renderChart();
   renderQuickSpecs();
@@ -202,6 +227,7 @@ function renderHeroAndKpis() {
   const trim = gen.trims[state.selectedTrimIdx] || gen.trims[0];
 
   document.getElementById("heroTitle").innerHTML = `
+    ${getBrandLogoSvg(car.brand, true)}
     <span>${car.brand} ${car.model} ・ ${pt.year} 年式</span>
     <span class="tag-blue">${gen.gen_name}</span>
   `;
@@ -271,6 +297,77 @@ function updateChartLegendAndButtons() {
       <span class="legend-item"><span class="legend-line" style="background:#10b981;"></span>民間自售殘值率 (%)</span>
       <span class="legend-item"><span class="legend-line" style="background:#f59e0b;"></span>天書殘值率 (%)</span>
     `;
+  }
+}
+
+function renderPhotoStrip() {
+  const car = getCurrentCar();
+  const currentGen = getSelectedGen();
+  const stripEl = document.getElementById("photoStrip");
+
+  stripEl.innerHTML = car.generations
+    .map((g) => {
+      const yr = `${g.years[0]}–${g.years[g.years.length - 1]}`;
+      const active = g.gen_id === currentGen.gen_id ? "active" : "";
+      return `
+        <div class="gen-photo-card ${active}" onclick="jumpToGen('${g.gen_id}')">
+          <img id="img-${g.gen_id}" class="gen-photo-thumb" alt="${car.brand} ${car.model} ${g.gen_name}" />
+          <div class="gen-photo-body">
+            <div class="gen-photo-name">${g.gen_name}</div>
+            <div class="gen-photo-years">${yr}</div>
+            <div class="gen-photo-credit" id="credit-${g.gen_id}">圖片來源：Wikimedia Commons 載入中...</div>
+          </div>
+        </div>
+      `;
+    })
+    .join("");
+
+  car.generations.forEach((g) => loadGenPhoto(g));
+}
+
+async function loadGenPhoto(gen) {
+  const imgEl = document.getElementById(`img-${gen.gen_id}`);
+  const creditEl = document.getElementById(`credit-${gen.gen_id}`);
+  if (!imgEl || !creditEl) return;
+
+  const query = gen.photo_query || gen.gen_name;
+  const cacheKey = `wiki_photo_v1_${query}`;
+
+  try {
+    const cached = localStorage.getItem(cacheKey);
+    if (cached) {
+      const parsed = JSON.parse(cached);
+      imgEl.src = parsed.url;
+      creditEl.innerHTML = `出處：<a href="${parsed.pageUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Wikimedia (${parsed.license})</a>`;
+      return;
+    }
+
+    const apiUrl = `https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrnamespace=6&gsrsearch=${encodeURIComponent(
+      query
+    )}&gsrlimit=5&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=480&format=json&origin=*`;
+    const resp = await fetch(apiUrl);
+    const data = await resp.json();
+    const pages = data?.query?.pages ? Object.values(data.query.pages) : [];
+
+    // 過濾出真正的照片檔 (jpg/jpeg/png)
+    const valid = pages.find((p) => {
+      const title = (p.title || "").toLowerCase();
+      return (title.endsWith(".jpg") || title.endsWith(".jpeg") || title.endsWith(".png")) && p.imageinfo?.[0]?.thumburl;
+    });
+
+    if (valid) {
+      const info = valid.imageinfo[0];
+      const license = info.extmetadata?.LicenseShortName?.value || "CC";
+      const pageUrl = info.descriptionurl || `https://commons.wikimedia.org/wiki/${encodeURIComponent(valid.title)}`;
+      const result = { url: info.thumburl, license, pageUrl };
+      localStorage.setItem(cacheKey, JSON.stringify(result));
+      imgEl.src = result.url;
+      creditEl.innerHTML = `出處：<a href="${result.pageUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Wikimedia (${result.license})</a>`;
+    } else {
+      creditEl.textContent = "暫無外型圖（請點此切換世代）";
+    }
+  } catch (e) {
+    creditEl.textContent = "圖片來源：Wikimedia Commons";
   }
 }
 
