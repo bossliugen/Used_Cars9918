@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HIBOSSGEN — 溫潤、誠實、耐用的數位系統工作室</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- 1. 單行導覽列 -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="#top" class="brand-name">HIBOSSGEN</a>
+      <nav class="nav-links" aria-label="主導覽列">
+        <a href="#methods">我們的方法</a>
+        <a href="#works">精選實作</a>
+        <a href="#notes">開發隨筆</a>
+      </nav>
+      <a href="#contact" class="btn-primary">聯繫討論</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- 2. 非對稱 Hero 區 -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">安靜做技術，誠實做產品</p>
+          <h1 class="hero-title">把複雜的系統，整理成每天都用得順手的樣子。</h1>
+          <p class="hero-desc">
+            我們是一個專注於長期維護性與使用體感的獨立技術團隊。
+            不追逐炫目的短期概念，只替真正需要解決問題的夥伴打造穩固、乾淨且好理解的數位工具。
+          </p>
+          <div class="hero-actions">
+            <a href="#works" class="btn-primary">看看精選實作</a>
+            <a href="#methods" class="btn-secondary">了解工作方式</a>
+          </div>
+          <ul class="trust-bar" aria-label="團隊承諾">
+            <li><span class="dot"></span>需求與時程坦白溝通</li>
+            <li><span class="dot"></span>交付乾淨可交接的原始碼</li>
+            <li><span class="dot"></span>上線後持續陪跑維護</li>
+          </ul>
+        </div>
+
+        <!-- 右側：可切換三個頁籤的「設計原則」互動卡片 -->
+        <aside class="principle-card" aria-label="設計原則">
+          <div class="principle-head">
+            <h2 class="card-serif-title">設計原則</h2>
+            <div class="principle-tabs" role="tablist">
+              <button type="button" class="tab-pill active" role="tab" aria-selected="true" data-principle="clarity">清晰架構</button>
+              <button type="button" class="tab-pill" role="tab" aria-selected="false" data-principle="longevity">長期耐用</button>
+              <button type="button" class="tab-pill" role="tab" aria-selected="false" data-principle="human">貼近日常</button>
+            </div>
+          </div>
+
+          <div class="principle-body" id="principleContent"></div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 3. 三欄「我們的方法」卡片 -->
+    <section id="methods" class="section-block section-sand">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">工作脈絡</p>
+          <h2 class="section-title">我們的方法</h2>
+          <p class="section-sub">把每一次合作拆成三個踏實的階段，確保方向對了再動手。</p>
+        </div>
+
+        <div class="methods-grid">
+          <article class="method-card">
+            <div class="method-num">01 —</div>
+            <div class="method-illus" aria-hidden="true">
+              <svg viewBox="0 0 120 72" fill="none" stroke="#1B4332" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="38" cy="36" r="18" fill="#E7EFEA" stroke="#1B4332" />
+                <circle cx="82" cy="36" r="18" />
+                <path d="M56 36h8" />
+                <path d="M32 36h12M76 36h12" stroke="#57534E" />
+              </svg>
+            </div>
+            <h3 class="card-serif-title">先聽懂問題，再談技術</h3>
+            <p>
+              在寫下第一行程式前，我們會先花時間梳理業務流程與現場痛點。很多時候，拿掉不必要的步驟比堆疊功能更有效。
+            </p>
+          </article>
+
+          <article class="method-card">
+            <div class="method-num">02 —</div>
+            <div class="method-illus" aria-hidden="true">
+              <svg viewBox="0 0 120 72" fill="none" stroke="#1B4332" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="20" y="14" width="34" height="44" rx="6" fill="#E7EFEA" />
+                <rect x="66" y="14" width="34" height="44" rx="6" />
+                <path d="M54 36h12M28 28h18M28 38h12M74 28h18M74 38h14" stroke="#57534E" />
+              </svg>
+            </div>
+            <h3 class="card-serif-title">節制的架構與明確邊界</h3>
+            <p>
+              選用成熟穩定的技術棧，維持模組職責單純。系統不該只有原作者看得懂，而是任何接手的工程師都能安心修改。
+            </p>
+          </article>
+
+          <article class="method-card">
+            <div class="method-num">03 —</div>
+            <div class="method-illus" aria-hidden="true">
+              <svg viewBox="0 0 120 72" fill="none" stroke="#1B4332" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 50c12-18 24-26 38-20s24-4 38-18" />
+                <circle cx="60" cy="30" r="5" fill="#E7EFEA" />
+                <circle cx="98" cy="12" r="4" fill="#1B4332" />
+                <path d="M20 56h80" stroke="#DFD9CE" />
+              </svg>
+            </div>
+            <h3 class="card-serif-title">小步上線，真實回饋微調</h3>
+            <p>
+              我們偏好盡早讓核心功能進入真實環境試跑，從實際使用者的操作節奏中修正細節，而不是閉門造車半年才一次交付。
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 可依分類篩選的「精選實作」雙欄卡片 -->
+    <section id="works" class="section-block">
+      <div class="container">
+        <div class="section-header-row">
+          <div>
+            <p class="eyebrow">近期紀錄</p>
+            <h2 class="section-title">精選實作</h2>
+          </div>
+          <div class="filter-pills" id="workFilters" role="group" aria-label="作品分類篩選">
+            <button type="button" class="filter-pill active" data-filter="all">全部</button>
+            <button type="button" class="filter-pill" data-filter="system">系統架構</button>
+            <button type="button" class="filter-pill" data-filter="product">數位產品</button>
+            <button type="button" class="filter-pill" data-filter="data">資料工具</button>
+          </div>
+        </div>
+
+        <div class="works-grid" id="worksGrid"></div>
+      </div>
+    </section>
+
+    <!-- 5. 條列式「開發隨筆」清單 -->
+    <section id="notes" class="section-block section-sand">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">日常思考</p>
+          <h2 class="section-title">開發隨筆</h2>
+          <p class="section-sub">記錄我們在專案裡踩過的坑、做過的取捨，以及對工具與設計的觀察。</p>
+        </div>
+
+        <div class="notes-list" id="notesList"></div>
+      </div>
+    </section>
+
+    <!-- 6. 簡潔的「聯繫討論」表單 -->
+    <section id="contact" class="section-block">
+      <div class="container contact-grid">
+        <div class="contact-info">
+          <p class="eyebrow">開始對話</p>
+          <h2 class="section-title">聯繫討論</h2>
+          <p class="contact-desc">
+            無論你手上已經有明確的規格書，還只是一個剛成形的想法，都歡迎寫信告訴我們。我們會在兩個工作天內親自回覆，不推銷不需要的方案。
+          </p>
+          <div class="contact-meta">
+            <div>
+              <span class="meta-label">電子郵件</span>
+              <span class="meta-val">hello@hibossgen.tw</span>
+            </div>
+            <div>
+              <span class="meta-label">合作形式</span>
+              <span class="meta-val">系統建置、舊架構重整、技術顧問陪跑</span>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <label for="cName">你的稱呼</label>
+            <input id="cName" type="text" placeholder="例如：林先生 / 陳小姐" required />
+          </div>
+          <div class="form-row">
+            <label for="cEmail">回覆信箱</label>
+            <input id="cEmail" type="email" placeholder="name@example.com" required />
+          </div>
+          <div class="form-row">
+            <label for="cTopic">想討論的主題</label>
+            <select id="cTopic">
+              <option value="新產品或網站建置">新產品或網站建置</option>
+              <option value="現有系統整理與加速">現有系統整理與加速</option>
+              <option value="資料分析或內部工具開發">資料分析或內部工具開發</option>
+              <option value="單純技術諮詢聊聊">單純技術諮詢聊聊</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="cMsg">簡單說明目前狀況</label>
+            <textarea id="cMsg" rows="4" placeholder="大約想解決什麼問題、預計的時間節奏，幾句話就可以。" required></textarea>
+          </div>
+          <div class="form-footer">
+            <button type="submit" class="btn-primary">送出訊息</button>
+            <span id="formFeedback" class="form-feedback" aria-live="polite"></span>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>HIBOSSGEN</span>
+      <span>以誠實的工程與節制的設計，陪伴每個值得長期經營的產品。</span>
+    </div>
+  </footer>
+
+  <!-- 共用細節與閱讀彈窗 -->
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <span class="tag-sage" id="modalTag"></span>
+        <button type="button" class="modal-close" id="modalCloseBtn" aria-label="關閉視窗">關閉</button>
+      </div>
+      <h3 class="modal-title" id="modalTitle"></h3>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

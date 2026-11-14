@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GEN. — 透明誠實的中古車實價與規格平台</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- 簡潔單行頁首 -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand-group">
+        <a href="#" class="brand-wordmark">GEN.</a>
+        <span class="brand-tagline">實價查驗與車況紀錄平台</span>
+      </div>
+      <div class="header-meta">
+        <span class="result-count" id="resultCount">載入車源中...</span>
+        <button type="button" class="btn-outline" id="btnCompareOpen">比較清單 (<span id="compareCount">0</span>)</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 1. 單行置頂冷靜篩選列 -->
+  <div class="sticky-filter-bar">
+    <div class="container filter-bar-inner">
+      <div class="search-wrap">
+        <input
+          id="filterSearch"
+          type="search"
+          class="filter-search"
+          placeholder="搜尋車款、世代或城市（例如 Swift Sport、Focus、台北）"
+          aria-label="搜尋車款"
+        />
+      </div>
+
+      <div class="filter-pills-row">
+        <select id="filterBrand" class="pill-select" aria-label="選擇品牌">
+          <option value="all">全部品牌</option>
+        </select>
+
+        <select id="filterBudget" class="pill-select" aria-label="預算區間">
+          <option value="all">不限預算</option>
+          <option value="0-35">35 萬以內</option>
+          <option value="35-60">35 – 60 萬</option>
+          <option value="60-90">60 – 90 萬</option>
+          <option value="90-999">90 萬以上</option>
+        </select>
+
+        <select id="filterYear" class="pill-select" aria-label="出廠年份">
+          <option value="all">不限年份</option>
+          <option value="2022-2026">2022 年以後</option>
+          <option value="2018-2021">2018 – 2021 年</option>
+          <option value="2013-2017">2013 – 2017 年</option>
+          <option value="2000-2012">2012 年以前</option>
+        </select>
+
+        <select id="filterCity" class="pill-select" aria-label="所在地區">
+          <option value="all">全部地區</option>
+          <option value="台北">台北</option>
+          <option value="新北">新北</option>
+          <option value="桃園">桃園</option>
+          <option value="台中">台中</option>
+          <option value="台南">台南</option>
+          <option value="高雄">高雄</option>
+        </select>
+
+        <button type="button" class="pill-btn" id="btnMoreFilters">更多篩選</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 主列表區 -->
+  <main class="container main-feed">
+    <div class="feed-intro">
+      <h1 class="feed-title">在售透明車源</h1>
+      <p class="feed-sub" id="activeFilterSummary">顯示全部經查驗與完整紀錄之中古車源，點擊任一車輛可檢視完整規格與保養履歷。</p>
+    </div>
+
+    <div class="listing-grid" id="listingGrid"></div>
+
+    <div class="empty-state hidden" id="emptyState">
+      <h2 class="empty-title">目前沒有符合條件的車源</h2>
+      <p>可以試著放寬預算區間或年份條件，或重設全部篩選。</p>
+      <button type="button" class="btn-primary" id="btnResetFilters">重設全部篩選</button>
+    </div>
+  </main>
+
+  <!-- 「更多篩選」右側滑出抽屜 -->
+  <div class="drawer-backdrop" id="filterDrawerBackdrop" aria-hidden="true">
+    <aside class="drawer-panel drawer-sm" role="dialog" aria-modal="true" aria-labelledby="filterDrawerTitle">
+      <div class="drawer-header">
+        <h2 class="drawer-title" id="filterDrawerTitle">更多篩選條件</h2>
+        <button type="button" class="btn-ghost" id="btnCloseFilterDrawer">關閉</button>
+      </div>
+      <div class="drawer-content filter-drawer-body">
+        <div class="filter-group">
+          <label for="filterFuel">動力型式</label>
+          <select id="filterFuel" class="drawer-select">
+            <option value="all">全部動力</option>
+            <option value="汽油">純汽油</option>
+            <option value="油電">油電 / 輕油電</option>
+            <option value="渦輪">渦輪增壓</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filterTrans">變速箱型式</label>
+          <select id="filterTrans" class="drawer-select">
+            <option value="all">不限變速箱</option>
+            <option value="自排">傳統自排 (AT)</option>
+            <option value="CVT">CVT 無段變速</option>
+            <option value="雙離合">雙離合器自手排</option>
+            <option value="手排">純手排</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filterSort">排序方式</label>
+          <select id="filterSort" class="drawer-select">
+            <option value="default">預設綜合排序</option>
+            <option value="price-asc">售價由低到高</option>
+            <option value="price-desc">售價由高到低</option>
+            <option value="year-desc">年份由新到舊</option>
+            <option value="mileage-asc">里程由少到多</option>
+          </select>
+        </div>
+
+        <label class="checkbox-row">
+          <input type="checkbox" id="filterVerifiedOnly" />
+          <span>僅顯示「已查驗 / 透明車況」車源</span>
+        </label>
+      </div>
+      <div class="drawer-footer">
+        <button type="button" class="btn-outline" id="btnResetInDrawer">清除條件</button>
+        <button type="button" class="btn-primary" id="btnApplyFilterDrawer">套用篩選</button>
+      </div>
+    </aside>
+  </div>
+
+  <!-- 3. 車輛細節滑出抽屜 (Slide-Over Detail Drawer) -->
+  <div class="drawer-backdrop" id="detailDrawerBackdrop" aria-hidden="true">
+    <aside class="drawer-panel drawer-lg" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+      <div class="drawer-header">
+        <div class="drawer-header-meta" id="detailHeaderMeta"></div>
+        <button type="button" class="btn-ghost" id="btnCloseDetailDrawer">關閉</button>
+      </div>
+
+      <div class="drawer-content">
+        <div class="detail-hero">
+          <div class="detail-photo-box">
+            <img id="detailPhoto" alt="" />
+          </div>
+          <div class="detail-summary">
+            <h2 class="detail-title" id="detailTitle"></h2>
+            <p class="detail-subtitle" id="detailSubtitle"></p>
+            <div class="detail-price-row">
+              <span class="detail-price tabular" id="detailPrice"></span>
+              <span class="detail-msrp tabular" id="detailMsrp"></span>
+            </div>
+            <div class="detail-key-strip tabular" id="detailKeyStrip"></div>
+          </div>
+        </div>
+
+        <!-- 抽屜內三大乾淨頁籤 -->
+        <div class="drawer-tabs" role="tablist">
+          <button type="button" class="drawer-tab active" role="tab" data-tab="specs">核心規格</button>
+          <button type="button" class="drawer-tab" role="tab" data-tab="records">保養與紀錄</button>
+          <button type="button" class="drawer-tab" role="tab" data-tab="features">配備清單</button>
+        </div>
+
+        <div class="drawer-tab-panel" id="detailTabBody"></div>
+      </div>
+
+      <div class="drawer-footer">
+        <button type="button" class="btn-outline" id="btnToggleCompare">加入比較清單</button>
+        <button type="button" class="btn-primary" id="btnReserveView">預約現場看車</button>
+      </div>
+    </aside>
+  </div>
+
+  <!-- 比較清單抽屜 -->
+  <div class="drawer-backdrop" id="compareDrawerBackdrop" aria-hidden="true">
+    <aside class="drawer-panel drawer-lg" role="dialog" aria-modal="true" aria-labelledby="compareTitle">
+      <div class="drawer-header">
+        <h2 class="drawer-title" id="compareTitle">車款規格比較</h2>
+        <button type="button" class="btn-ghost" id="btnCloseCompareDrawer">關閉</button>
+      </div>
+      <div class="drawer-content" id="compareBody"></div>
+    </aside>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
