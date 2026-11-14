@@ -3,161 +3,152 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>台灣中古車時價分析與世代通病資料庫</title>
+  <title>台灣中古車實價趨勢與世代資料庫</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <header class="app-header">
     <div class="header-inner">
-      <div class="brand-block">
-        <h1>
-          台灣中古車時價分析與世代通病資料庫
-          <span class="brand-badge">Python 運算 ・ GitHub Pages 靜態架構</span>
-        </h1>
-        <p>
-          整合 8891實價大數據 / 權威車訊(天書) / SUM・ABC認證車商 / 非第三方民間自售紀錄，完整標註大改款世代差異與單款通病
-        </p>
+      <div class="brand-logo">
+        <div class="logo-mark">車</div>
+        <div>
+          <h1>台灣中古車實價趨勢與世代資料庫</h1>
+          <p>整合 8891實價 / 權威天書 / 認證車商 / 非第三方民間自售紀錄</p>
+        </div>
       </div>
-      <div class="header-stats" id="headerStats"></div>
+      <div class="header-actions">
+        <span class="stat-chip" id="headerMetaChip">載入中...</span>
+        <button id="btnToggleRanking" class="btn-outline-blue">全台車款保值排行</button>
+      </div>
     </div>
   </header>
 
-  <div class="layout-container">
-    <aside class="sidebar">
-      <div class="sidebar-title">選擇台灣市售車款</div>
-      <input
-        type="text"
-        id="carSearch"
-        class="search-box"
-        placeholder="搜尋品牌、車款或級距 (如 Focus, Golf)..."
-      />
-      <div class="car-list" id="carList"></div>
-    </aside>
+  <main class="container" id="mainContainer">
+    <!-- 保值率總覽排行面板（可開關） -->
+    <section class="card ranking-panel" id="rankingPanel">
+      <div class="chart-header">
+        <div>
+          <div class="section-title">台灣市售車款保值率總覽（依近五年車齡平均車商殘值率排序）</div>
+          <div class="section-desc">點擊任一車款即可直接切換查看走勢圖與規格</div>
+        </div>
+        <button id="btnCloseRanking" class="btn-outline-blue">關閉排行</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>排名</th>
+              <th>品牌 / 車款</th>
+              <th>級距</th>
+              <th>最新世代</th>
+              <th>平均車商殘值率</th>
+              <th>風險標籤</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="rankingTableBody"></tbody>
+        </table>
+      </div>
+    </section>
 
-    <main class="main-content" id="mainContent">
-      <!-- 1. 車款總覽與世代切換 -->
-      <section class="card">
-        <div class="model-hero-title" id="modelHeroTitle"></div>
-        <p class="model-summary" id="modelSummary"></p>
-        <div class="gen-tabs" id="genTabs"></div>
-        <div id="genAlertArea"></div>
-      </section>
+    <!-- 1. 品牌 -> 車款 -> 年份 階層式篩選列 -->
+    <section class="selector-card">
+      <div class="selector-grid">
+        <div class="field-group">
+          <label for="selectBrand">1. 選擇品牌 (Brand)</label>
+          <select id="selectBrand" class="select-blue"></select>
+        </div>
+        <div class="field-group">
+          <label for="selectModel">2. 選擇車款 (Model)</label>
+          <select id="selectModel" class="select-blue"></select>
+        </div>
+        <div class="field-group">
+          <label for="selectYear">3. 選擇出廠年份 (Year)</label>
+          <select id="selectYear" class="select-blue"></select>
+        </div>
+        <div class="field-group">
+          <label for="quickSearch">快速搜尋車款</label>
+          <input id="quickSearch" type="text" class="input-blue" placeholder="輸入關鍵字 (如 Focus, NX, Golf)..." />
+        </div>
+      </div>
+      <div class="brand-pills" id="brandPills"></div>
+    </section>
 
-      <!-- 2. 時價走勢與殘值率分析圖表 -->
-      <section class="card">
-        <div class="card-header">
-          <div>
-            <div class="card-title">跨世代價格走勢與殘值率分析圖</div>
-            <div class="card-subtitle">
-              比較「認證車商均價」、「非第三方民間自售實價」與「權威天書收購基準」，並標註大改款斷層與高風險通病年份區間
-            </div>
-          </div>
-          <div class="chart-controls">
-            <button id="btnModePrice" class="btn-toggle active">價格走勢 (萬元)</button>
-            <button id="btnModeResidual" class="btn-toggle">殘值率走勢 (%)</button>
-          </div>
+    <!-- 2. 車款核心行情摘要（依所選年份） -->
+    <section class="card">
+      <div class="hero-top">
+        <div>
+          <div class="hero-title" id="heroTitle"></div>
+          <p class="hero-sub" id="heroSub"></p>
         </div>
-        <div class="chart-legend" id="chartLegend"></div>
-        <div class="chart-wrapper">
-          <canvas id="trendCanvas"></canvas>
-          <div class="chart-tooltip" id="chartTooltip"></div>
-        </div>
-      </section>
+        <div id="heroBadges" style="display:flex;gap:6px;flex-wrap:wrap;"></div>
+      </div>
 
-      <!-- 3. 依年份與里程精準估值計算機 -->
-      <section class="card">
-        <div class="card-header">
-          <div>
-            <div class="card-title">單年份與里程即時估價試算</div>
-            <div class="card-subtitle">依車款新舊年份、實際里程數與車況等級，試算車商價、自售合理價與購後通病預留金</div>
-          </div>
-        </div>
-        <div class="calc-grid">
-          <div class="form-group">
-            <label for="calcYear">選擇出廠年式 (依新舊決定基準價值)</label>
-            <select id="calcYear" class="form-control"></select>
-          </div>
-          <div class="form-group">
-            <label for="calcMileage">目前行駛里程 (萬公里)</label>
-            <input id="calcMileage" type="number" class="form-control" value="8.0" min="0" max="40" step="0.5" />
-          </div>
-          <div class="form-group">
-            <label for="calcCondition">車況與認證等級</label>
-            <select id="calcCondition" class="form-control">
-              <option value="1.05">原廠認證 / 極美低里程原鈑件 (+5%)</option>
-              <option value="1.0" selected>正常使用 / 無重大事故泡水 (基準)</option>
-              <option value="0.92">有鈑件更換或待整理耗材 (-8%)</option>
-              <option value="0.82">高風險未整備 / 變速箱或底盤有異音 (-18%)</option>
-            </select>
-          </div>
-        </div>
-        <div class="calc-results" id="calcResults"></div>
-      </section>
+      <div class="kpi-grid" id="kpiGrid"></div>
 
-      <!-- 4. 8891等級詳細引擎與規格資料 -->
-      <section class="card">
-        <div class="card-header">
-          <div>
-            <div class="card-title">8891 等級詳細規格與動力底盤資料庫</div>
-            <div class="card-subtitle">依所選世代與動力編成顯示完整引擎代號、排氣量、馬力扭力、變速箱架構與主動安全配備</div>
-          </div>
-        </div>
-        <div class="trim-tabs" id="trimTabs"></div>
-        <div class="specs-grid" id="specsGrid"></div>
-      </section>
+      <div class="adjust-bar">
+        <label>
+          行駛里程 (萬公里)：
+          <input id="inputMileage" type="number" value="8.0" min="0" max="40" step="0.5" style="width:78px;" />
+        </label>
+        <label>
+          車況等級：
+          <select id="selectCondition">
+            <option value="1.05">原廠認證 / 極美低里程 (+5%)</option>
+            <option value="1.0" selected>正常車況 / 無重大事故 (基準)</option>
+            <option value="0.92">有鈑件更換或待整理 (-8%)</option>
+            <option value="0.82">高風險待修 / 變速箱或底盤異音 (-18%)</option>
+          </select>
+        </label>
+        <span id="mileageHint" style="color:#475569;font-size:0.8rem;"></span>
+      </div>
+    </section>
 
-      <!-- 5. 單款通病深度調查 -->
-      <section class="card">
-        <div class="card-header">
-          <div>
-            <div class="card-title">單款世代通病深度調查與維修預估</div>
-            <div class="card-subtitle">整理各世代已知機械通病、好發里程、台灣維修費用區間與看車避坑重點</div>
-          </div>
+    <!-- 3. 走勢圖 + 關鍵規格速覽（擺在最前面！） -->
+    <section class="card">
+      <div class="chart-header">
+        <div>
+          <div class="section-title">跨世代價格走勢與殘值率分析圖</div>
+          <div class="section-desc">垂直紫線為「★ 大改款年份」，淡紅底色為「高風險通病 / 殘值劇降區間」</div>
         </div>
-        <div class="issues-list" id="issuesList"></div>
-      </section>
+        <div class="mode-pills">
+          <button id="btnModePrice" class="mode-pill active">價格走勢 (萬元)</button>
+          <button id="btnModeResidual" class="mode-pill">殘值率 (%)</button>
+        </div>
+      </div>
+      <div class="chart-legend" id="chartLegend"></div>
+      <div class="chart-box">
+        <canvas id="trendCanvas"></canvas>
+        <div class="chart-tooltip" id="chartTooltip"></div>
+      </div>
 
-      <!-- 6. 歷年詳細數據表 -->
-      <section class="card">
-        <div class="card-header">
-          <div>
-            <div class="card-title">各年份交易行情明細表</div>
-            <div class="card-subtitle">完整列出每一個年份型號之新車價、車商價、非第三方自售價、天書價、價差與年均折舊</div>
-          </div>
-        </div>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>年份</th>
-                <th>所屬世代</th>
-                <th>當年新車價</th>
-                <th>認證車商價</th>
-                <th>非第三方自售價</th>
-                <th>權威天書價</th>
-                <th>車商/自售價差</th>
-                <th>殘值率 (商/私)</th>
-                <th>年均折舊</th>
-                <th>風險評估</th>
-              </tr>
-            </thead>
-            <tbody id="historyTableBody"></tbody>
-          </table>
-        </div>
-      </section>
+      <!-- 關鍵規格速覽（6項核心規格一眼看完） -->
+      <div class="quick-specs-grid" id="quickSpecsGrid"></div>
+    </section>
 
-      <!-- 7. 公信力資料庫架構說明 -->
-      <section class="card">
-        <div class="card-header">
-          <div>
-            <div class="card-title">台灣中古車公信力資料庫與行情來源架構</div>
-            <div class="card-subtitle">本系統結合業界鑑價基準與民間實際過戶行情，區分車商整理成本與純車況裸車價</div>
-          </div>
+    <!-- 4. 詳細資料（預設收合，點選即可展開檢視 8891 完整規格 / 通病 / 世代差異 / 明細表） -->
+    <section class="card">
+      <div class="details-header">
+        <div>
+          <div class="section-title">詳細資料與深度分析</div>
+          <div class="section-desc">包含 8891 完整規格表、單款通病與維修費用、大改款世代差異及歷年交易明細</div>
         </div>
-        <div class="sources-grid" id="sourcesGrid"></div>
-      </section>
-    </main>
-  </div>
+        <button id="btnToggleDetails" class="btn-outline-blue">展開詳細資料 ▾</button>
+      </div>
+
+      <div id="detailsWrapper" class="hidden">
+        <div class="detail-tabs" id="detailTabs">
+          <button class="detail-tab active" data-tab="specs">8891 完整規格</button>
+          <button class="detail-tab" data-tab="issues">單款通病與維修</button>
+          <button class="detail-tab" data-tab="gens">大改款世代差異</button>
+          <button class="detail-tab" data-tab="history">歷年行情明細表</button>
+          <button class="detail-tab" data-tab="sources">公信力資料庫來源</button>
+        </div>
+
+        <div class="detail-body" id="detailBody"></div>
+      </div>
+    </section>
+  </main>
 
   <script src="js/chart.js"></script>
   <script src="js/app.js"></script>

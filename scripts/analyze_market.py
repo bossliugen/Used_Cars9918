@@ -27,8 +27,26 @@ if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
 from raw_database import CARS_DATABASE, DATA_SOURCES
+from raw_database_extra import EXTRA_CARS_DATABASE
 
 REFERENCE_YEAR = 2026
+
+
+def calc_taiwan_annual_tax(cc):
+    """依據台灣自用小客車排氣量級距計算年度牌照稅 + 燃料費 (新台幣)"""
+    if cc <= 600:
+        return 1620 + 2880
+    elif cc <= 1200:
+        return 4320 + 4320
+    elif cc <= 1800:
+        return 7120 + 4800
+    elif cc <= 2400:
+        return 11230 + 6180
+    elif cc <= 3000:
+        return 15210 + 7200
+    elif cc <= 3600:
+        return 28220 + 8640
+    return 28220 + 9830
 
 
 def compute_analytics(cars_db, sources):
@@ -101,9 +119,15 @@ def compute_analytics(cars_db, sources):
                 else 0.0
             )
 
+            trims_with_tax = []
+            for t in gen.get("trims", []):
+                tax = calc_taiwan_annual_tax(int(t.get("displacement_cc", 1800)))
+                trims_with_tax.append({**t, "annual_tax_ntd": tax})
+
             analyzed_gens.append(
                 {
                     **gen,
+                    "trims": trims_with_tax,
                     "avg_residual_dealer_pct": avg_res_dealer,
                     "avg_residual_private_pct": avg_res_private,
                     "year_points": gen_points,
@@ -147,7 +171,8 @@ def build_database():
     data_dir.mkdir(parents=True, exist_ok=True)
     output_path = data_dir / "cars_db.json"
 
-    result = compute_analytics(CARS_DATABASE, DATA_SOURCES)
+    all_cars = CARS_DATABASE + EXTRA_CARS_DATABASE
+    result = compute_analytics(all_cars, DATA_SOURCES)
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
 

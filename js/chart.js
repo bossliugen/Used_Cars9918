@@ -1,6 +1,5 @@
 /**
- * 台灣中古車時價分析互動式 Canvas 圖表引擎
- * 支援：高解析度 Retina 繪製、大改款年份垂直標記、高風險通病區間底色警示、多曲線切換與 Hover Tooltip
+ * 台灣中古車時價分析互動式 Canvas 圖表引擎（白底藍框簡約版）
  */
 
 class MarketTrendChart {
@@ -10,15 +9,17 @@ class MarketTrendChart {
     this.ctx = this.canvas.getContext("2d");
     this.timeline = [];
     this.mode = "price"; // 'price' | 'residual'
+    this.selectedYear = null;
     this.hoverIndex = -1;
     this.pointsMeta = [];
 
     this._bindEvents();
   }
 
-  setData(timeline, mode = "price") {
+  setData(timeline, mode = "price", selectedYear = null) {
     this.timeline = timeline || [];
     this.mode = mode;
+    this.selectedYear = selectedYear;
     this.hoverIndex = -1;
     this.render();
   }
@@ -64,32 +65,32 @@ class MarketTrendChart {
   _showTooltip(ptMeta, mouseX, mouseY, containerWidth) {
     const d = ptMeta.data;
     const majorTag = d.is_major_change
-      ? `<span style="color:#a78bfa;font-weight:700;"> ★ 大改款/新世代</span>`
+      ? `<span style="color:#7c3aed;font-weight:700;"> ★ 大改款</span>`
       : "";
     const riskTag =
       d.alert_level === "high"
-        ? `<div style="color:#f87171;font-size:0.75rem;margin-top:3px;">⚠ 高風險通病/殘值劇降區間</div>`
+        ? `<div style="color:#dc2626;font-size:0.75rem;margin-top:4px;font-weight:600;">⚠ 高風險通病/殘值劇降區間</div>`
         : d.alert_level === "medium"
-        ? `<div style="color:#fb923c;font-size:0.75rem;margin-top:3px;">● 需留意特定通病</div>`
+        ? `<div style="color:#d97706;font-size:0.75rem;margin-top:4px;font-weight:600;">● 需留意特定通病</div>`
         : "";
 
     this.tooltip.innerHTML = `
-      <div style="font-weight:700;font-size:0.88rem;margin-bottom:4px;">
+      <div style="font-weight:700;font-size:0.9rem;color:#0f172a;margin-bottom:2px;">
         ${d.year} 年式${majorTag}
       </div>
-      <div style="color:#94a3b8;font-size:0.76rem;margin-bottom:6px;">${d.gen_name}</div>
-      <div style="display:grid;grid-template-columns:1fr auto;gap:3px 14px;font-size:0.79rem;">
-        <span style="color:#a78bfa;">當年新車 MSRP：</span><strong>${d.msrp.toFixed(1)} 萬</strong>
-        <span style="color:#38bdf8;">認證車商均價：</span><strong>${d.dealer.toFixed(1)} 萬 (${d.residual_dealer_pct}%)</strong>
-        <span style="color:#34d399;">非第三方自售實價：</span><strong>${d.private.toFixed(1)} 萬 (${d.residual_private_pct}%)</strong>
-        <span style="color:#fb923c;">權威天書基準價：</span><strong>${d.book.toFixed(1)} 萬 (${d.residual_book_pct}%)</strong>
-        <span style="color:#94a3b8;">車商 / 自售價差：</span><span>+${d.dealer_private_spread_wan.toFixed(1)} 萬 (${d.dealer_private_spread_pct}%)</span>
+      <div style="color:#64748b;font-size:0.76rem;margin-bottom:7px;">${d.gen_name}</div>
+      <div style="display:grid;grid-template-columns:1fr auto;gap:3px 14px;font-size:0.8rem;">
+        <span style="color:#64748b;">當年新車 MSRP：</span><strong style="color:#334155;">${d.msrp.toFixed(1)} 萬</strong>
+        <span style="color:#2563eb;">認證車商均價：</span><strong style="color:#1d4ed8;">${d.dealer.toFixed(1)} 萬 (${d.residual_dealer_pct}%)</strong>
+        <span style="color:#059669;">非第三方自售實價：</span><strong style="color:#047857;">${d.private.toFixed(1)} 萬 (${d.residual_private_pct}%)</strong>
+        <span style="color:#d97706;">權威天書基準價：</span><strong style="color:#b45309;">${d.book.toFixed(1)} 萬 (${d.residual_book_pct}%)</strong>
+        <span style="color:#64748b;">車商 / 自售價差：</span><span style="color:#334155;">+${d.dealer_private_spread_wan.toFixed(1)} 萬 (${d.dealer_private_spread_pct}%)</span>
       </div>
       ${riskTag}
     `;
 
     this.tooltip.style.display = "block";
-    const tipW = this.tooltip.offsetWidth || 230;
+    const tipW = this.tooltip.offsetWidth || 240;
     const left = mouseX + 16 + tipW > containerWidth ? mouseX - tipW - 14 : mouseX + 14;
     const top = Math.max(10, mouseY - 40);
     this.tooltip.style.left = `${left}px`;
@@ -113,11 +114,10 @@ class MarketTrendChart {
 
     if (!this.timeline.length) return;
 
-    const pad = { top: 34, right: 26, bottom: 42, left: 54 };
+    const pad = { top: 34, right: 26, bottom: 40, left: 54 };
     const plotW = width - pad.left - pad.right;
     const plotH = height - pad.top - pad.bottom;
 
-    // 計算 Y 軸上下限
     let maxVal = 0;
     if (this.mode === "price") {
       this.timeline.forEach((d) => {
@@ -135,14 +135,14 @@ class MarketTrendChart {
     };
     const yAt = (v) => pad.top + plotH - ((v - minVal) / (maxVal - minVal)) * plotH;
 
-    // 1. 高風險區間背景著色
+    // 1. 高風險區間淡紅背景著色
     this.timeline.forEach((d, i) => {
       if (d.alert_level === "high") {
         const x = xAt(i);
         const step = this.timeline.length > 1 ? plotW / (this.timeline.length - 1) : plotW;
         const leftX = Math.max(pad.left, x - step / 2);
         const rightX = Math.min(pad.left + plotW, x + step / 2);
-        ctx.fillStyle = "rgba(248, 113, 113, 0.11)";
+        ctx.fillStyle = "rgba(239, 68, 68, 0.08)";
         ctx.fillRect(leftX, pad.top, rightX - leftX, plotH);
       }
     });
@@ -155,14 +155,14 @@ class MarketTrendChart {
     for (let t = 0; t <= ticks; t++) {
       const val = minVal + ((maxVal - minVal) * t) / ticks;
       const y = yAt(val);
-      ctx.strokeStyle = "rgba(148, 163, 184, 0.14)";
+      ctx.strokeStyle = "#e2e8f0";
       ctx.lineWidth = 1;
       ctx.beginPath();
       ctx.moveTo(pad.left, y);
       ctx.lineTo(pad.left + plotW, y);
       ctx.stroke();
 
-      ctx.fillStyle = "#94a3b8";
+      ctx.fillStyle = "#64748b";
       const label = this.mode === "price" ? `${Math.round(val)}萬` : `${Math.round(val)}%`;
       ctx.fillText(label, pad.left - 8, y);
     }
@@ -172,7 +172,7 @@ class MarketTrendChart {
       if (d.is_major_change) {
         const x = xAt(i);
         ctx.save();
-        ctx.strokeStyle = "rgba(167, 139, 250, 0.55)";
+        ctx.strokeStyle = "rgba(124, 58, 237, 0.45)";
         ctx.setLineDash([4, 4]);
         ctx.lineWidth = 1.5;
         ctx.beginPath();
@@ -181,28 +181,64 @@ class MarketTrendChart {
         ctx.stroke();
         ctx.restore();
 
-        ctx.fillStyle = "#c4b5fd";
+        ctx.fillStyle = "#6d28d9";
         ctx.font = "bold 11px sans-serif";
         ctx.textAlign = "center";
         ctx.fillText(`★ 大改款 ${d.year}`, x, pad.top - 14);
       }
     });
 
-    // 4. X 軸年份標籤
-    ctx.fillStyle = "#94a3b8";
+    // 4. 目前選擇年份高亮指示線
+    this.timeline.forEach((d, i) => {
+      if (this.selectedYear && d.year === this.selectedYear) {
+        const x = xAt(i);
+        ctx.save();
+        ctx.strokeStyle = "rgba(37, 99, 235, 0.3)";
+        ctx.lineWidth = 6;
+        ctx.beginPath();
+        ctx.moveTo(x, pad.top);
+        ctx.lineTo(x, pad.top + plotH);
+        ctx.stroke();
+        ctx.restore();
+      }
+    });
+
+    // 5. X 軸年份標籤
     ctx.font = "11px sans-serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "top";
     this.timeline.forEach((d, i) => {
       const x = xAt(i);
-      // 避免標籤過度擁擠
-      if (this.timeline.length <= 14 || i % 2 === 0 || d.is_major_change || i === this.timeline.length - 1) {
+      const isSelected = this.selectedYear && d.year === this.selectedYear;
+      ctx.fillStyle = isSelected ? "#1d4ed8" : "#64748b";
+      ctx.font = isSelected ? "bold 12px sans-serif" : "11px sans-serif";
+      if (this.timeline.length <= 14 || i % 2 === 0 || d.is_major_change || isSelected || i === this.timeline.length - 1) {
         ctx.fillText(String(d.year), x, pad.top + plotH + 10);
       }
     });
 
-    // 5. 繪製折線函式
-    const drawLine = (key, color, dashed = false, lineWidth = 2.5) => {
+    // 6. 繪製折線與半透明填色
+    const drawLine = (key, color, dashed = false, lineWidth = 2.8, fillArea = false) => {
+      if (fillArea) {
+        ctx.save();
+        ctx.beginPath();
+        this.timeline.forEach((d, i) => {
+          const x = xAt(i);
+          const y = yAt(d[key]);
+          if (i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        });
+        ctx.lineTo(xAt(this.timeline.length - 1), pad.top + plotH);
+        ctx.lineTo(xAt(0), pad.top + plotH);
+        ctx.closePath();
+        const grad = ctx.createLinearGradient(0, pad.top, 0, pad.top + plotH);
+        grad.addColorStop(0, "rgba(37, 99, 235, 0.14)");
+        grad.addColorStop(1, "rgba(37, 99, 235, 0.01)");
+        ctx.fillStyle = grad;
+        ctx.fill();
+        ctx.restore();
+      }
+
       ctx.save();
       ctx.strokeStyle = color;
       ctx.lineWidth = lineWidth;
@@ -217,33 +253,36 @@ class MarketTrendChart {
       ctx.stroke();
       ctx.restore();
 
-      // 節點圓點
       this.timeline.forEach((d, i) => {
         const x = xAt(i);
         const y = yAt(d[key]);
+        const isSel = this.selectedYear && d.year === this.selectedYear;
+        const r = this.hoverIndex === i || isSel ? 5.2 : 3.4;
         ctx.beginPath();
-        ctx.arc(x, y, this.hoverIndex === i ? 5 : 3.2, 0, Math.PI * 2);
-        ctx.fillStyle = color;
+        ctx.arc(x, y, r, 0, Math.PI * 2);
+        ctx.fillStyle = "#ffffff";
         ctx.fill();
+        ctx.lineWidth = 2.2;
+        ctx.strokeStyle = color;
+        ctx.stroke();
       });
     };
 
     if (this.mode === "price") {
-      drawLine("msrp", "#a78bfa", true, 1.8);
-      drawLine("book", "#fb923c", true, 2.0);
-      drawLine("private", "#34d399", false, 2.6);
-      drawLine("dealer", "#38bdf8", false, 2.8);
+      drawLine("msrp", "#94a3b8", true, 1.8, false);
+      drawLine("book", "#f59e0b", true, 2.2, false);
+      drawLine("private", "#10b981", false, 2.6, false);
+      drawLine("dealer", "#2563eb", false, 3.0, true);
     } else {
-      drawLine("residual_book_pct", "#fb923c", true, 2.0);
-      drawLine("residual_private_pct", "#34d399", false, 2.6);
-      drawLine("residual_dealer_pct", "#38bdf8", false, 2.8);
+      drawLine("residual_book_pct", "#f59e0b", true, 2.2, false);
+      drawLine("residual_private_pct", "#10b981", false, 2.6, false);
+      drawLine("residual_dealer_pct", "#2563eb", false, 3.0, true);
     }
 
-    // 6. Hover 垂直準線
     if (this.hoverIndex >= 0 && this.hoverIndex < this.timeline.length) {
       const hx = xAt(this.hoverIndex);
       ctx.save();
-      ctx.strokeStyle = "rgba(241, 245, 249, 0.35)";
+      ctx.strokeStyle = "rgba(37, 99, 235, 0.35)";
       ctx.lineWidth = 1;
       ctx.beginPath();
       ctx.moveTo(hx, pad.top);
@@ -252,7 +291,6 @@ class MarketTrendChart {
       ctx.restore();
     }
 
-    // 更新點位供滑鼠偵測
     this.pointsMeta = this.timeline.map((d, i) => ({
       x: xAt(i),
       data: d,
