@@ -31,12 +31,15 @@ from raw_database_extra import EXTRA_CARS_DATABASE
 from raw_database_catalog import CATALOG_EXTRA_CARS
 from raw_database_catalog_part2 import CATALOG_EXTRA_CARS_PART2
 from raw_database_catalog_part3 import CATALOG_EXTRA_CARS_PART3, EXTRA_GENS_BY_CAR_ID
+from raw_database_taiwan_2000 import TAIWAN_2000_CARS
 
 REFERENCE_YEAR = 2026
 
 
 def calc_taiwan_annual_tax(cc):
     """依據台灣自用小客車排氣量級距計算年度牌照稅 + 燃料費 (新台幣)"""
+    if cc <= 0:
+        return 0
     if cc <= 600:
         return 1620 + 2880
     elif cc <= 1200:
@@ -272,6 +275,7 @@ def build_database():
     import copy
     base_cars = copy.deepcopy(CARS_DATABASE + EXTRA_CARS_DATABASE)
     by_id = {c["id"]: c for c in base_cars}
+    seen_brand_model = {(c["brand"].lower(), c["model"].lower()) for c in base_cars}
 
     # 合併既有車系的細分世代
     for cid, extra_gens in EXTRA_GENS_BY_CAR_ID.items():
@@ -279,13 +283,32 @@ def build_database():
             existing_ids = {g["gen_id"] for g in by_id[cid]["generations"]}
             for g in extra_gens:
                 if g["gen_id"] not in existing_ids:
-                    by_id[cid]["generations"].append(g)
+                    by_id[cid]["generations"].append(copy.deepcopy(g))
             by_id[cid]["generations"].sort(key=lambda x: x["years"][0] if x.get("years") else 9999)
 
-    for extra_car in CATALOG_EXTRA_CARS + CATALOG_EXTRA_CARS_PART2 + CATALOG_EXTRA_CARS_PART3:
-        if extra_car["id"] not in by_id:
-            base_cars.append(extra_car)
-            by_id[extra_car["id"]] = extra_car
+    for extra_car in CATALOG_EXTRA_CARS + CATALOG_EXTRA_CARS_PART2 + CATALOG_EXTRA_CARS_PART3 + TAIWAN_2000_CARS:
+        bm_key = (extra_car["brand"].lower(), extra_car["model"].lower())
+        if extra_car["id"] not in by_id and bm_key not in seen_brand_model:
+            car_copy = copy.deepcopy(extra_car)
+            base_cars.append(car_copy)
+            by_id[car_copy["id"]] = car_copy
+            seen_brand_model.add(bm_key)
+
+    # 確保同一車款跨世代年份不重疊（較新世代優先），並同步 years 與 yearly_prices
+    for car in base_cars:
+        gens = car.get("generations", [])
+        gens.sort(key=lambda x: (min((int(y) for y in x.get("yearly_prices", {}).keys()), default=9999), x["gen_id"]))
+        claimed_years = set()
+        for g in reversed(gens):
+            yp = g.get("yearly_prices", {})
+            for yr in list(yp.keys()):
+                if yr in claimed_years:
+                    del yp[yr]
+                else:
+                    claimed_years.add(yr)
+            if yp:
+                g["years"] = sorted(int(y) for y in yp.keys())
+        car["generations"] = [g for g in gens if g.get("yearly_prices")]
 
     all_cars = base_cars
     result = compute_analytics(all_cars, DATA_SOURCES)

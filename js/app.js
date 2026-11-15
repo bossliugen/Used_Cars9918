@@ -24,6 +24,27 @@ const BRAND_LOGOS = {
   Skoda: `<svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="13" cy="13" r="10.5"/><path d="M7 14c3-5 8-5 12-1-4 0-7 2-9 5z"/></svg>`,
   Volvo: `<svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="14" r="8"/><path d="M17.5 8.5L22 4m0 0h-4.5M22 4v4.5"/></svg>`,
   Luxgen: `<svg viewBox="0 0 28 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 5v14h11"/><path d="M13 5c3 4 4 8 2 14"/></svg>`,
+  MG: `<svg viewBox="0 0 28 24" fill="none" stroke="currentColor" stroke-width="1.7"><polygon points="8,3 20,3 25,8 25,16 20,21 8,21 3,16 3,8"/><text x="14" y="15" text-anchor="middle" font-size="8.5" font-weight="700" fill="currentColor" stroke="none">MG</text></svg>`,
+  Tesla: `<svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7c5-2 11-2 16 0M13 8v13M8 10h10"/></svg>`,
+  Audi: `<svg viewBox="0 0 40 20" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="10" r="5.5"/><circle cx="16.5" cy="10" r="5.5"/><circle cx="24" cy="10" r="5.5"/><circle cx="31.5" cy="10" r="5.5"/></svg>`,
+  Porsche: `<svg viewBox="0 0 24 26" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 4h16v10c0 5-8 9-8 9s-8-4-8-9V4z"/><path d="M4 10h16M12 4v18"/></svg>`,
+  MINI: `<svg viewBox="0 0 36 22" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 8h9M24 8h9M4 12h7M25 12h7"/><circle cx="18" cy="11" r="6"/></svg>`,
+  Peugeot: `<svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 20l3-11 4-4 5 4-2 5-5 1 2 5z"/></svg>`,
+  Infiniti: `<svg viewBox="0 0 32 22" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="16" cy="11" rx="13" ry="8"/><path d="M11 18L16 8l5 10"/></svg>`,
+  "Land Rover": `<svg viewBox="0 0 34 20" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="17" cy="10" rx="15" ry="7.5"/><text x="17" y="12.5" text-anchor="middle" font-size="6.5" font-weight="700" fill="currentColor" stroke="none">LR</text></svg>`,
+  SsangYong: `<svg viewBox="0 0 32 22" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="16" cy="11" rx="13" ry="8"/><path d="M10 11c2-4 10-4 12 0-2 4-10 4-12 0z"/></svg>`,
+  CMC: `<svg viewBox="0 0 30 22" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="24" height="14" rx="3"/><text x="15" y="14" text-anchor="middle" font-size="8" font-weight="700" fill="currentColor" stroke="none">CMC</text></svg>`,
+  Citroen: `<svg viewBox="0 0 26 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 12l7-6 7 6M6 18l7-6 7 6"/></svg>`,
+  Daihatsu: `<svg viewBox="0 0 28 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6h9a6 6 0 0 1 0 12H6V6z"/></svg>`,
+  Opel: `<svg viewBox="0 0 30 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="15" cy="12" r="8"/><path d="M4 12h13l-3 3h12"/></svg>`,
+  Renault: `<svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="13,3 22,13 13,23 4,13"/><polygon points="13,7 18,13 13,19 8,13"/></svg>`,
+  Fiat: `<svg viewBox="0 0 32 22" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="26" height="14" rx="4"/><text x="16" y="14" text-anchor="middle" font-size="8" font-weight="700" fill="currentColor" stroke="none">FIAT</text></svg>`,
+  "Alfa Romeo": `<svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="13" cy="13" r="10"/><path d="M13 3v20M3 13h10"/></svg>`,
+  Saab: `<svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="13" cy="13" r="10"/><text x="13" y="15.5" text-anchor="middle" font-size="7" font-weight="700" fill="currentColor" stroke="none">SAAB</text></svg>`,
+  Jaguar: `<svg viewBox="0 0 34 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 14c6-5 16-6 26-2-6 1-11 2-15 5"/></svg>`,
+  Smart: `<svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 7a6 6 0 1 0 0 12"/><polygon points="18,10 23,13 18,16"/></svg>`,
+  Jeep: `<svg viewBox="0 0 34 20" fill="none" stroke="currentColor" stroke-width="1.8"><text x="17" y="14" text-anchor="middle" font-size="10" font-weight="700" fill="currentColor" stroke="none">Jeep</text></svg>`,
+  Maserati: `<svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 4v18M7 9v5c0 2 6 3 6 3s6-1 6-3V9"/></svg>`,
 };
 
 function getBrandLogoSvg(brand, large = false) {
@@ -500,7 +521,7 @@ function renderPhotoStrip() {
           <div class="gen-photo-body">
             <div class="gen-photo-name">${g.gen_name}</div>
             <div class="gen-photo-years">${yr}</div>
-            <div class="gen-photo-credit" id="credit-${g.gen_id}">圖片來源：Wikimedia Commons 載入中...</div>
+            <div class="gen-photo-credit" id="credit-${g.gen_id}">載入圖片中...</div>
           </div>
         </div>
       `;
@@ -510,26 +531,24 @@ function renderPhotoStrip() {
   car.generations.forEach((g) => loadGenPhoto(g));
 }
 
-async function loadGenPhoto(gen) {
+function loadGenPhoto(gen) {
   const imgEl = document.getElementById(`img-${gen.gen_id}`);
   const creditEl = document.getElementById(`credit-${gen.gen_id}`);
   if (!imgEl || !creditEl) return;
 
-  // 優先使用本地去背白底圖 (assets/cars/<gen_id>.jpg)，若尚未補圖則顯示問號佔位圖
+  // 優先使用本地去背白底圖 (assets/cars/<gen_id>.jpg)，若尚未補圖則顯示佔位圖
   const localUrl = `assets/cars/${gen.gen_id}.jpg`;
-  try {
-    const headResp = await fetch(localUrl, { method: "HEAD" });
-    if (headResp.ok) {
-      imgEl.src = localUrl;
+  imgEl.onload = () => {
+    if (!imgEl.src.endsWith("placeholder.svg")) {
       creditEl.textContent = "去背白底圖 (實拍 / 原廠圖庫)";
-      return;
     }
-  } catch (e) {
-    // fallback to placeholder
-  }
-
-  imgEl.src = "assets/cars/placeholder.svg";
-  creditEl.textContent = `待補實車去背照 (${gen.gen_id}.jpg)`;
+  };
+  imgEl.onerror = () => {
+    imgEl.onerror = null;
+    imgEl.src = "assets/cars/placeholder.svg";
+    creditEl.textContent = `待補實車去背照 (${gen.gen_id}.jpg)`;
+  };
+  imgEl.src = localUrl;
 }
 
 function renderChart() {
@@ -946,17 +965,24 @@ function pickFromRanking(brand, carId) {
 }
 
 function parseMaxHp(hpStr) {
-  const nums = String(hpStr || "").match(/(\d+(?:\.\d+)?)/g);
+  const str = String(hpStr || "");
+  // 優先擷取 ps / hp / 匹 前方的馬力數值，避免抓到轉速 (如 6,000 rpm) 或年份 (如 2022+)
+  const hpMatches = [...str.matchAll(/(\d+(?:\.\d+)?)\s*(?:ps|hp|匹)/gi)];
+  if (hpMatches.length) {
+    return Math.max(...hpMatches.map((m) => parseFloat(m[1])));
+  }
+  const nums = str.match(/(\d+(?:\.\d+)?)/g);
   if (!nums) return 0;
   return Math.max(...nums.map((n) => parseFloat(n)));
 }
 
 function matchBodyCategory(category, filterVal) {
   if (filterVal === "all") return true;
-  if (filterVal === "小車") return /小車|掀背/.test(category);
-  if (filterVal === "房車") return /房車/.test(category) && !/休旅/.test(category);
-  if (filterVal === "休旅") return /休旅|SUV|MPV/.test(category);
-  if (filterVal === "跑車旅行") return /敞篷|跑車|旅行車/.test(category);
+  if (filterVal === "小車") return /小車|掀背|小型|迷你/.test(category) && !/休旅|SUV|越野/.test(category);
+  if (filterVal === "房車") return /房車|轎跑/.test(category) && !/休旅/.test(category);
+  if (filterVal === "休旅") return /休旅|跑旅|轎旅|SUV|MPV|CUV|越野/.test(category);
+  if (filterVal === "跑車旅行") return /敞篷|跑車|旅行車|獵跑/.test(category);
+  if (filterVal === "皮卡商用") return /皮卡|Pickup|商用|商旅|露營/.test(category);
   return true;
 }
 
@@ -992,7 +1018,8 @@ function renderSmartFinder() {
 
       (gen.trims || []).forEach((trim, trimIdx) => {
         const hp = parseMaxHp(trim.horsepower);
-        const cc = parseInt(trim.displacement_cc, 10) || 1800;
+        const parsedCc = parseInt(trim.displacement_cc, 10);
+        const cc = Number.isFinite(parsedCc) ? parsedCc : 1800;
         if (hp < hMin || hp > hMax || cc > maxCc) return;
         if (goal === "easy-own" && (cc > 1800 || gen.depreciation_alert.level === "high")) return;
 
@@ -1089,7 +1116,7 @@ function renderSmartFinder() {
           <div class="finder-card-price">${m.price.toFixed(1)} 萬</div>
         </div>
         <div class="finder-card-meta">
-          ${m.car.category} ・ ${m.hp} ps ・ ${m.cc} cc (年稅 $${m.tax.toLocaleString()}) ・ 殘值 ${m.residual}%
+          ${m.car.category} ・ ${m.hp} ps ・ ${m.cc === 0 ? "純電 (0 cc)" : `${m.cc} cc`} (年稅 $${m.tax.toLocaleString()}) ・ 殘值 ${m.residual}%
         </div>
       </button>
     `

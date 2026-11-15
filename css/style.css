@@ -980,20 +980,28 @@ body {
 
 /* Table */
 .table-wrap {
+  width: 100%;
   overflow-x: auto;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.84rem;
+  font-size: 0.83rem;
 }
 
 th, td {
-  padding: 9px 11px;
+  padding: 9px 10px;
   border-bottom: 1px solid var(--border-light);
   text-align: left;
   white-space: nowrap;
+}
+
+#entry-ranking td:nth-child(2),
+#entry-ranking td:nth-child(3),
+#entry-ranking td:nth-child(4) {
+  white-space: normal;
+  word-break: break-word;
 }
 
 th {
