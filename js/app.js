@@ -1100,27 +1100,64 @@ function renderSmartFinder() {
     return;
   }
 
+  // 計算同車款+同年份出現幾種不同版本，方便標註「同款不同版本」避免新手誤解
+  const sameModelYearCounts = {};
+  matches.slice(0, 60).forEach((m) => {
+    const k = `${m.car.id}_${m.year}`;
+    sameModelYearCounts[k] = (sameModelYearCounts[k] || 0) + 1;
+  });
+
+  function getPowertrainBadge(m) {
+    const txt = `${m.trim.trim_name} ${m.trim.engine_code || ""}`;
+    if (m.cc === 0 || /純電|\bEV\b/i.test(txt)) return { cls: "ev", label: "純電 EV" };
+    if (/Hybrid|油電|e:HEV|e-POWER|PHEV/i.test(txt)) return { cls: "hybrid", label: "油電 Hybrid" };
+    if (/柴油|TDI|BlueHDi|CRDi|\b\d\.\dD\b/i.test(txt)) return { cls: "diesel", label: "柴油動力" };
+    if (/渦輪|Turbo|TSI|TFSI|EcoBoost|GTI|\bST\b|\bRS\b|AMG|Type R|1\.\dT|2\.\dT/i.test(txt)) {
+      return { cls: "turbo", label: "渦輪增壓" };
+    }
+    return { cls: "na", label: "汽油自然進氣" };
+  }
+
+  function getExtraDiffTags(m) {
+    const tags = [];
+    const txt = `${m.trim.trim_name} ${m.trim.drivetrain || ""} ${m.trim.transmission || ""}`;
+    if (m.trim.msrp_wan) tags.push(`新車原價 ${m.trim.msrp_wan} 萬`);
+    if (m.trim.fuel_economy) tags.push(`油耗 ${m.trim.fuel_economy}`);
+    if (/AWD|4WD|Quattro|xDrive|4MATIC|4MOTION|E-Four|ALL4|e-4ORCE|四驅/i.test(txt)) tags.push("四輪驅動");
+    if (/手排|\bMT\b/i.test(txt)) tags.push("手排");
+    if (/GR|Sport|AMG|M Sport|S-Line|R-Line|ST-Line/i.test(m.trim.trim_name)) tags.push("運動套件版");
+    return tags;
+  }
+
   grid.innerHTML = matches
     .slice(0, 60)
-    .map(
-      (m) => `
+    .map((m) => {
+      const ptBadge = getPowertrainBadge(m);
+      const diffTags = getExtraDiffTags(m);
+      const isMultiVariant = sameModelYearCounts[`${m.car.id}_${m.year}`] > 1;
+      return `
       <button type="button" class="finder-card" onclick="pickFromFinder('${m.car.brand}','${m.car.id}',${m.year},${m.trimIdx})">
         <div class="finder-card-photo">
+          <span class="finder-photo-badge ${ptBadge.cls}">${ptBadge.label}</span>
+          ${isMultiVariant ? `<span class="finder-multi-badge">同款不同動力/等級</span>` : ""}
           <img src="assets/cars/${m.gen.gen_id}.jpg" alt="${m.car.brand} ${m.car.model}" loading="lazy" onerror="this.onerror=null;this.src='assets/cars/placeholder.svg';" />
         </div>
         <div class="finder-card-top">
           <div>
             <div class="finder-card-title">${m.car.brand} ${m.car.model} ・ ${m.year} 年</div>
-            <div style="font-size:0.78rem;color:var(--blue-primary);font-weight:600;margin-top:2px;">${m.trim.trim_name}</div>
+            <div class="finder-card-trim-pill">版本：${m.trim.trim_name}</div>
           </div>
           <div class="finder-card-price">${m.price.toFixed(1)} 萬</div>
         </div>
-        <div class="finder-card-meta">
+        <div class="finder-card-diff">
+          ${diffTags.map((t) => `<span class="finder-diff-tag">${t}</span>`).join("")}
+        </div>
+        <div class="finder-card-meta" style="margin-top:6px;">
           ${m.car.category} ・ ${m.hp} ps ・ ${m.cc === 0 ? "純電 (0 cc)" : `${m.cc} cc`} (年稅 $${m.tax.toLocaleString()}) ・ 殘值 ${m.residual}%
         </div>
       </button>
-    `
-    )
+    `;
+    })
     .join("");
 }
 

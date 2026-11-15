@@ -1,154 +1,13 @@
 # 實車去背照片規格清單 (PHOTO_SPEC)
 
-- 產生時間：2026-11-15 10:46:40
-- 總車款世代槽位：**349** 張（已完成：**208** 張 / **待補圖：141** 張）
+- 產生時間：2026-11-15 11:29:21
+- 總車款世代槽位：**349** 張（已完成：**349** 張 / **待補圖：0** 張）
 - 統一規格：`640 x 420 px` JPG、純白背景 (`#FFFFFF`) 去背、前斜側 45 度角、勿裁切車頭尾。
 
 ## 待補照片清單 (NEEDS_PHOTO)
 
 | `gen_id` | 品牌 / 車款 / 世代 | 年份 | 關鍵搜尋詞 (`photo_query`) | 必看外觀辨識特徵 (`visual_cues`) | 目標檔名 |
 |---|---|---|---|---|---|
-| `mg-hs-1` | MG HS — 第 2 代 (1.5T / 2.0T / PHEV) | 2022-2025 | `MG HS 2022-2025 Taiwan` | MG HS 台灣市售規格外觀 | `assets/cars/mg-hs-1.jpg` |
-| `mg-zs-1` | MG ZS — 第 1 代 (1.5L 旗艦版) | 2023-2025 | `MG ZS 2023-2025 Taiwan` | MG ZS 台灣市售規格外觀 | `assets/cars/mg-zs-1.jpg` |
-| `mg-mg4-1` | MG MG4 — 第 1 代 (EV 旗艦 / XPower) | 2024-2025 | `MG MG4 2024-2025 Taiwan` | MG MG4 台灣市售規格外觀 | `assets/cars/mg-mg4-1.jpg` |
-| `tesla-m3-1` | Tesla Model 3 — 第 1 代 & 煥新版 (RWD / LR / Performance) | 2019-2025 | `Tesla Model 3 2019-2025 Taiwan` | Tesla Model 3 台灣市售規格外觀 | `assets/cars/tesla-m3-1.jpg` |
-| `tesla-my-1` | Tesla Model Y — 第 1 代 (RWD / LR / Performance) | 2022-2025 | `Tesla Model Y 2022-2025 Taiwan` | Tesla Model Y 台灣市售規格外觀 | `assets/cars/tesla-my-1.jpg` |
-| `tesla-ms-1` | Tesla Model S — 第 1 代 (75D / 100D / LR / Plaid) | 2017-2024 | `Tesla Model S 2017-2024 Taiwan` | Tesla Model S 台灣市售規格外觀 | `assets/cars/tesla-ms-1.jpg` |
-| `tesla-mx-1` | Tesla Model X — 第 1 代 (75D / 100D / LR / Plaid) | 2017-2024 | `Tesla Model X 2017-2024 Taiwan` | Tesla Model X 台灣市售規格外觀 | `assets/cars/tesla-mx-1.jpg` |
-| `audi-a1-1` | Audi A1 — 8X / GB 世代 (25/30 TFSI) | 2011-2023 | `Audi A1 2011-2023 Taiwan` | Audi A1 台灣市售規格外觀 | `assets/cars/audi-a1-1.jpg` |
-| `audi-a3-1` | Audi A3 — 8P / 8V / 8Y 世代 (30/35/40 TFSI) | 2004-2025 | `Audi A3 2004-2025 Taiwan` | Audi A3 台灣市售規格外觀 | `assets/cars/audi-a3-1.jpg` |
-| `audi-a4-1` | Audi A4 — B6 / B7 / B8 / B9 世代 (40/45 TFSI) | 2001-2025 | `Audi A4 2001-2025 Taiwan` | Audi A4 台灣市售規格外觀 | `assets/cars/audi-a4-1.jpg` |
-| `audi-a5-1` | Audi A5 — B8 / B9 世代 (Sportback / Coupe) | 2008-2025 | `Audi A5 2008-2025 Taiwan` | Audi A5 台灣市售規格外觀 | `assets/cars/audi-a5-1.jpg` |
-| `audi-a6-1` | Audi A6 — C5 / C6 / C7 / C8 世代 | 2000-2025 | `Audi A6 2000-2025 Taiwan` | Audi A6 台灣市售規格外觀 | `assets/cars/audi-a6-1.jpg` |
-| `audi-q2-1` | Audi Q2 — GA 世代 (35 TFSI) | 2017-2024 | `Audi Q2 2017-2024 Taiwan` | Audi Q2 台灣市售規格外觀 | `assets/cars/audi-q2-1.jpg` |
-| `audi-q3-1` | Audi Q3 — 8U / F3 世代 (35/40 TFSI) | 2012-2025 | `Audi Q3 2012-2025 Taiwan` | Audi Q3 台灣市售規格外觀 | `assets/cars/audi-q3-1.jpg` |
-| `audi-q5-1` | Audi Q5 — 8R / FY 世代 (40/45 TFSI) | 2009-2025 | `Audi Q5 2009-2025 Taiwan` | Audi Q5 台灣市售規格外觀 | `assets/cars/audi-q5-1.jpg` |
-| `audi-q7-1` | Audi Q7 — 4L / 4M 世代 | 2006-2024 | `Audi Q7 2006-2024 Taiwan` | Audi Q7 台灣市售規格外觀 | `assets/cars/audi-q7-1.jpg` |
-| `audi-tt-1` | Audi TT — 8N / 8J / 8S 世代 | 2000-2022 | `Audi TT 2000-2022 Taiwan` | Audi TT 台灣市售規格外觀 | `assets/cars/audi-tt-1.jpg` |
-| `porsche-cay-1` | Porsche Cayenne — 955 / 958 / E3 (9Y0) 世代 | 2003-2025 | `Porsche Cayenne 2003-2025 Taiwan` | Porsche Cayenne 台灣市售規格外觀 | `assets/cars/porsche-cay-1.jpg` |
-| `porsche-macan-1` | Porsche Macan — 第 1 代 (前/一改/二改) & EV | 2014-2025 | `Porsche Macan 2014-2025 Taiwan` | Porsche Macan 台灣市售規格外觀 | `assets/cars/porsche-macan-1.jpg` |
-| `porsche-911-1` | Porsche 911 — 996 / 997 / 991 / 992 世代 | 2000-2025 | `Porsche 911 2000-2025 Taiwan` | Porsche 911 台灣市售規格外觀 | `assets/cars/porsche-911-1.jpg` |
-| `porsche-pana-1` | Porsche Panamera — 970 / 971 世代 | 2010-2025 | `Porsche Panamera 2010-2025 Taiwan` | Porsche Panamera 台灣市售規格外觀 | `assets/cars/porsche-pana-1.jpg` |
-| `porsche-718-1` | Porsche 718 Boxster / Cayman — 986 / 987 / 981 / 982 (718) 世代 | 2000-2025 | `Porsche 718 Boxster / Cayman 2000-2025 Taiwan` | Porsche 718 Boxster / Cayman 台灣市售規格外觀 | `assets/cars/porsche-718-1.jpg` |
-| `porsche-taycan-1` | Porsche Taycan — 第 1 代 (Taycan / 4S / Cross Turismo) | 2020-2025 | `Porsche Taycan 2020-2025 Taiwan` | Porsche Taycan 台灣市售規格外觀 | `assets/cars/porsche-taycan-1.jpg` |
-| `mini-cooper-1` | MINI Cooper — R50/R53 / R56 / F55/F56 / F66 世代 | 2002-2025 | `MINI Cooper 2002-2025 Taiwan` | MINI Cooper 台灣市售規格外觀 | `assets/cars/mini-cooper-1.jpg` |
-| `mini-countryman-1` | MINI Countryman — R60 / F60 / U25 世代 | 2011-2025 | `MINI Countryman 2011-2025 Taiwan` | MINI Countryman 台灣市售規格外觀 | `assets/cars/mini-countryman-1.jpg` |
-| `mini-clubman-1` | MINI Clubman — R55 / F54 世代 | 2008-2023 | `MINI Clubman 2008-2023 Taiwan` | MINI Clubman 台灣市售規格外觀 | `assets/cars/mini-clubman-1.jpg` |
-| `peugeot-208-1` | Peugeot 206 / 207 / 208 — 206 / 207 / 208 (含二代) | 2000-2024 | `Peugeot 206 / 207 / 208 2000-2024 Taiwan` | Peugeot 206 / 207 / 208 台灣市售規格外觀 | `assets/cars/peugeot-208-1.jpg` |
-| `peugeot-308-1` | Peugeot 307 / 308 — 307 / 308 (T7/T9/P5) | 2002-2024 | `Peugeot 307 / 308 2002-2024 Taiwan` | Peugeot 307 / 308 台灣市售規格外觀 | `assets/cars/peugeot-308-1.jpg` |
-| `peugeot-2008-1` | Peugeot 2008 — 第 1 代 / 第 2 代 (P24) | 2014-2025 | `Peugeot 2008 2014-2025 Taiwan` | Peugeot 2008 台灣市售規格外觀 | `assets/cars/peugeot-2008-1.jpg` |
-| `peugeot-3008-1` | Peugeot 3008 — 第 1 代 / 第 2 代 (P84) | 2010-2025 | `Peugeot 3008 2010-2025 Taiwan` | Peugeot 3008 台灣市售規格外觀 | `assets/cars/peugeot-3008-1.jpg` |
-| `peugeot-5008-1` | Peugeot 5008 — 第 1 代 / 第 2 代 (P87 7人座) | 2011-2025 | `Peugeot 5008 2011-2025 Taiwan` | Peugeot 5008 台灣市售規格外觀 | `assets/cars/peugeot-5008-1.jpg` |
-| `peugeot-408-1` | Peugeot 408 — 第 1 代 Fastback (P54) | 2023-2025 | `Peugeot 408 2023-2025 Taiwan` | Peugeot 408 台灣市售規格外觀 | `assets/cars/peugeot-408-1.jpg` |
-| `infiniti-fx-1` | Infiniti FX35 / QX70 — FX35 / FX37 / QX70 (S50/S51) | 2003-2017 | `Infiniti FX35 / QX70 2003-2017 Taiwan` | Infiniti FX35 / QX70 台灣市售規格外觀 | `assets/cars/infiniti-fx-1.jpg` |
-| `infiniti-q50-1` | Infiniti Q50 — 第 1 代 (2.0T / 3.5h / 300GT) | 2014-2024 | `Infiniti Q50 2014-2024 Taiwan` | Infiniti Q50 台灣市售規格外觀 | `assets/cars/infiniti-q50-1.jpg` |
-| `infiniti-q30-1` | Infiniti Q30 / QX30 — 第 1 代 (1.6T / 2.0T) | 2016-2020 | `Infiniti Q30 / QX30 2016-2020 Taiwan` | Infiniti Q30 / QX30 台灣市售規格外觀 | `assets/cars/infiniti-q30-1.jpg` |
-| `infiniti-qx50-1` | Infiniti QX50 — 第 2 代 (VC-Turbo 2.0T) | 2018-2025 | `Infiniti QX50 2018-2025 Taiwan` | Infiniti QX50 台灣市售規格外觀 | `assets/cars/infiniti-qx50-1.jpg` |
-| `infiniti-qx60-1` | Infiniti QX60 — 第 1 代 (JX35/QX60) & 第 2 代 | 2013-2025 | `Infiniti QX60 2013-2025 Taiwan` | Infiniti QX60 台灣市售規格外觀 | `assets/cars/infiniti-qx60-1.jpg` |
-| `lr-evoque-1` | Land Rover Range Rover Evoque — 第 1 代 (L538) & 第 2 代 (L551) | 2012-2025 | `Land Rover Range Rover Evoque 2012-2025 Taiwan` | Land Rover Range Rover Evoque 台灣市售規格外觀 | `assets/cars/lr-evoque-1.jpg` |
-| `lr-ds-1` | Land Rover Discovery Sport — 第 1 代 (L550 前/小改款) | 2015-2025 | `Land Rover Discovery Sport 2015-2025 Taiwan` | Land Rover Discovery Sport 台灣市售規格外觀 | `assets/cars/lr-ds-1.jpg` |
-| `lr-defender-1` | Land Rover Defender — L663 新世代 (90 / 110) | 2020-2025 | `Land Rover Defender 2020-2025 Taiwan` | Land Rover Defender 台灣市售規格外觀 | `assets/cars/lr-defender-1.jpg` |
-| `sy-tivoli-1` | SsangYong Tivoli — 第 1 代 (1.6 汽油 / 1.6 柴油 / 1.5T) | 2015-2024 | `SsangYong Tivoli 2015-2024 Taiwan` | SsangYong Tivoli 台灣市售規格外觀 | `assets/cars/sy-tivoli-1.jpg` |
-| `sy-korando-1` | SsangYong Korando — 第 3 代 / 第 4 代 | 2011-2024 | `SsangYong Korando 2011-2024 Taiwan` | SsangYong Korando 台灣市售規格外觀 | `assets/cars/sy-korando-1.jpg` |
-| `sy-rexton-1` | SsangYong Rexton — 第 1 代 / 第 2 代 (G4 Rexton) | 2003-2024 | `SsangYong Rexton 2003-2024 Taiwan` | SsangYong Rexton 台灣市售規格外觀 | `assets/cars/sy-rexton-1.jpg` |
-| `sy-stavic-1` | SsangYong Stavic — 第 1 代 / 第 2 代 (Turismo) | 2005-2019 | `SsangYong Stavic 2005-2019 Taiwan` | SsangYong Stavic 台灣市售規格外觀 | `assets/cars/sy-stavic-1.jpg` |
-| `cmc-veryca-1` | CMC Veryca — 菱利 1.2 / 1.3 / A180 / A190 | 2000-2024 | `CMC Veryca 2000-2024 Taiwan` | CMC Veryca 台灣市售規格外觀 | `assets/cars/cmc-veryca-1.jpg` |
-| `cmc-jspace-1` | CMC J Space — 第 1 代 (1.5L 8AT) | 2024-2025 | `CMC J Space 2024-2025 Taiwan` | CMC J Space 台灣市售規格外觀 | `assets/cars/cmc-jspace-1.jpg` |
-| `citroen-berlingo-1` | Citroen Berlingo — 第 3 代 (短軸 5座 / 長軸 7座) | 2019-2025 | `Citroen Berlingo 2019-2025 Taiwan` | Citroen Berlingo 台灣市售規格外觀 | `assets/cars/citroen-berlingo-1.jpg` |
-| `citroen-c5ac-1` | Citroen C5 Aircross — 第 1 代 (1.2T / 1.6T) | 2019-2025 | `Citroen C5 Aircross 2019-2025 Taiwan` | Citroen C5 Aircross 台灣市售規格外觀 | `assets/cars/citroen-c5ac-1.jpg` |
-| `daihatsu-terios-1` | Daihatsu Terios — 第 1 代 (1.3) & 第 2 代 (1.5 小悍馬) | 2000-2016 | `Daihatsu Terios 2000-2016 Taiwan` | Daihatsu Terios 台灣市售規格外觀 | `assets/cars/daihatsu-terios-1.jpg` |
-| `daihatsu-sirion-1` | Daihatsu Sirion — 第 1 代 / 第 2 代 (1.3 / 1.5) | 2000-2016 | `Daihatsu Sirion 2000-2016 Taiwan` | Daihatsu Sirion 台灣市售規格外觀 | `assets/cars/daihatsu-sirion-1.jpg` |
-| `daihatsu-coo-1` | Daihatsu Coo — 第 1 代 (1.5L) | 2007-2015 | `Daihatsu Coo 2007-2015 Taiwan` | Daihatsu Coo 台灣市售規格外觀 | `assets/cars/daihatsu-coo-1.jpg` |
-| `opel-astra-1` | Opel Astra — G / H / L 世代 | 2000-2024 | `Opel Astra 2000-2024 Taiwan` | Opel Astra 台灣市售規格外觀 | `assets/cars/opel-astra-1.jpg` |
-| `opel-mokka-1` | Opel Mokka — 第 2 代 (1.2T / Mokka-e) | 2022-2025 | `Opel Mokka 2022-2025 Taiwan` | Opel Mokka 台灣市售規格外觀 | `assets/cars/opel-mokka-1.jpg` |
-| `renault-megane-1` | Renault Megane — 第 2 代 (1.6 / 2.0 / RS) | 2000-2009 | `Renault Megane 2000-2009 Taiwan` | Renault Megane 台灣市售規格外觀 | `assets/cars/renault-megane-1.jpg` |
-| `renault-scenic-1` | Renault Scenic — 第 2 代 (1.6 / 2.0) | 2000-2009 | `Renault Scenic 2000-2009 Taiwan` | Renault Scenic 台灣市售規格外觀 | `assets/cars/renault-scenic-1.jpg` |
-| `fiat-500-1` | Fiat 500 — 第 2 代 (1.2 / 1.4 / 0.9 TwinAir) | 2008-2023 | `Fiat 500 2008-2023 Taiwan` | Fiat 500 台灣市售規格外觀 | `assets/cars/fiat-500-1.jpg` |
-| `fiat-punto-1` | Fiat Punto — Mk2 / Grande Punto | 2000-2012 | `Fiat Punto 2000-2012 Taiwan` | Fiat Punto 台灣市售規格外觀 | `assets/cars/fiat-punto-1.jpg` |
-| `alfa-156-1` | Alfa Romeo 156 / 159 — 156 (TwinSpark/JTS) & 159 | 2000-2011 | `Alfa Romeo 156 / 159 2000-2011 Taiwan` | Alfa Romeo 156 / 159 台灣市售規格外觀 | `assets/cars/alfa-156-1.jpg` |
-| `alfa-giulia-1` | Alfa Romeo Giulia / Stelvio — Type 952 / 949 (2.0T / QV) | 2017-2025 | `Alfa Romeo Giulia / Stelvio 2017-2025 Taiwan` | Alfa Romeo Giulia / Stelvio 台灣市售規格外觀 | `assets/cars/alfa-giulia-1.jpg` |
-| `saab-93-1` | Saab 9-3 — 第 2 代 (Linear / Arc / Aero) | 2003-2012 | `Saab 9-3 2003-2012 Taiwan` | Saab 9-3 台灣市售規格外觀 | `assets/cars/saab-93-1.jpg` |
-| `saab-95-1` | Saab 9-5 — 第 1 代 (OG9-5) & 第 2 代 (NG9-5) | 2000-2012 | `Saab 9-5 2000-2012 Taiwan` | Saab 9-5 台灣市售規格外觀 | `assets/cars/saab-95-1.jpg` |
-| `jaguar-xf-1` | Jaguar XF — X250 / X260 世代 | 2008-2023 | `Jaguar XF 2008-2023 Taiwan` | Jaguar XF 台灣市售規格外觀 | `assets/cars/jaguar-xf-1.jpg` |
-| `jaguar-fpace-1` | Jaguar F-Pace — X761 世代 (20t / 25t / P250) | 2016-2025 | `Jaguar F-Pace 2016-2025 Taiwan` | Jaguar F-Pace 台灣市售規格外觀 | `assets/cars/jaguar-fpace-1.jpg` |
-| `smart-453-1` | Smart ForTwo — 450 / 451 / 453 世代 | 2000-2020 | `Smart ForTwo 2000-2020 Taiwan` | Smart ForTwo 台灣市售規格外觀 | `assets/cars/smart-453-1.jpg` |
-| `jeep-wrangler-1` | Jeep Wrangler — JK (2007-2017) & JL (2018-2025) | 2007-2025 | `Jeep Wrangler 2007-2025 Taiwan` | Jeep Wrangler 台灣市售規格外觀 | `assets/cars/jeep-wrangler-1.jpg` |
-| `proton-gen2-1` | Proton Gen-2 — 第 1 代 (1.6L) | 2005-2013 | `Proton Gen-2 2005-2013 Taiwan` | Proton Gen-2 台灣市售規格外觀 | `assets/cars/proton-gen2-1.jpg` |
-| `maserati-ghibli-1` | Maserati Ghibli — M157 (3.0TT / 2.0T MHEV) | 2014-2024 | `Maserati Ghibli 2014-2024 Taiwan` | Maserati Ghibli 台灣市售規格外觀 | `assets/cars/maserati-ghibli-1.jpg` |
-| `maserati-levante-1` | Maserati Levante — M161 (3.0TT / 2.0T GT) | 2016-2024 | `Maserati Levante 2016-2024 Taiwan` | Maserati Levante 台灣市售規格外觀 | `assets/cars/maserati-levante-1.jpg` |
-| `toyota-tercel-1` | Toyota Tercel — L50 世代 (1.3 / 1.5) | 2000-2003 | `Toyota Tercel 2000-2003 Taiwan` | Toyota Tercel 台灣市售規格外觀 | `assets/cars/toyota-tercel-1.jpg` |
-| `toyota-previa-1` | Toyota Previa — XR30 (2001-2005) & XR50 (2006-2020) | 2001-2020 | `Toyota Previa 2001-2020 Taiwan` | Toyota Previa 台灣市售規格外觀 | `assets/cars/toyota-previa-1.jpg` |
-| `toyota-alphard-1` | Toyota Alphard — AH20 / AH30 / AH40 世代 | 2010-2025 | `Toyota Alphard 2010-2025 Taiwan` | Toyota Alphard 台灣市售規格外觀 | `assets/cars/toyota-alphard-1.jpg` |
-| `toyota-innova-1` | Toyota Innova — AN40 世代 (2.7 / 2.0) | 2007-2016 | `Toyota Innova 2007-2016 Taiwan` | Toyota Innova 台灣市售規格外觀 | `assets/cars/toyota-innova-1.jpg` |
-| `toyota-townace-1` | Toyota Town Ace — 第 1 代 (貨卡 / 廂車 1.5L) | 2022-2025 | `Toyota Town Ace 2022-2025 Taiwan` | Toyota Town Ace 台灣市售規格外觀 | `assets/cars/toyota-townace-1.jpg` |
-| `toyota-hilux-1` | Toyota Hilux — 第 8 代 (AN120 2.8D) | 2019-2025 | `Toyota Hilux 2019-2025 Taiwan` | Toyota Hilux 台灣市售規格外觀 | `assets/cars/toyota-hilux-1.jpg` |
-| `toyota-bz4x-1` | Toyota bZ4X — 第 1 代 (前驅版) | 2022-2025 | `Toyota bZ4X 2022-2025 Taiwan` | Toyota bZ4X 台灣市售規格外觀 | `assets/cars/toyota-bz4x-1.jpg` |
-| `toyota-priusc-1` | Toyota Prius c — NHP10 (含 Crossover) | 2012-2021 | `Toyota Prius c 2012-2021 Taiwan` | Toyota Prius c 台灣市售規格外觀 | `assets/cars/toyota-priusc-1.jpg` |
-| `nissan-march-1` | Nissan March — K11 (2000-2007) & K13 (2011-2020) | 2000-2020 | `Nissan March 2000-2020 Taiwan` | Nissan March 台灣市售規格外觀 | `assets/cars/nissan-march-1.jpg` |
-| `nissan-cefiro-1` | Nissan Cefiro — A32 / A33 (2.0 / 3.0 V6) | 2000-2004 | `Nissan Cefiro 2000-2004 Taiwan` | Nissan Cefiro 台灣市售規格外觀 | `assets/cars/nissan-cefiro-1.jpg` |
-| `nissan-bluebird-1` | Nissan Bluebird Sylphy — G11 (2.0L CVT) | 2007-2013 | `Nissan Bluebird Sylphy 2007-2013 Taiwan` | Nissan Bluebird Sylphy 台灣市售規格外觀 | `assets/cars/nissan-bluebird-1.jpg` |
-| `nissan-rogue-1` | Nissan Rogue — S35 (2.5L 2WD/AWD) | 2008-2014 | `Nissan Rogue 2008-2014 Taiwan` | Nissan Rogue 台灣市售規格外觀 | `assets/cars/nissan-rogue-1.jpg` |
-| `nissan-leaf-1` | Nissan Leaf — ZE1 (40kWh / 62kWh) | 2019-2025 | `Nissan Leaf 2019-2025 Taiwan` | Nissan Leaf 台灣市售規格外觀 | `assets/cars/nissan-leaf-1.jpg` |
-| `mitsubishi-savrin-1` | Mitsubishi Savrin — 第 1 代 / 第 2 代 (Inspire 2.0/2.4) | 2001-2014 | `Mitsubishi Savrin 2001-2014 Taiwan` | Mitsubishi Savrin 台灣市售規格外觀 | `assets/cars/mitsubishi-savrin-1.jpg` |
-| `mitsubishi-virage-1` | Mitsubishi Virage — Virage iO (1.8L) | 2000-2006 | `Mitsubishi Virage 2000-2006 Taiwan` | Mitsubishi Virage 台灣市售規格外觀 | `assets/cars/mitsubishi-virage-1.jpg` |
-| `mitsubishi-grunder-1` | Mitsubishi Grunder — 第 1 代 (2.4L) | 2004-2012 | `Mitsubishi Grunder 2004-2012 Taiwan` | Mitsubishi Grunder 台灣市售規格外觀 | `assets/cars/mitsubishi-grunder-1.jpg` |
-| `mitsubishi-pajero-1` | Mitsubishi Pajero — V73 / V93 / V98 (3.0/3.2D/3.8) | 2000-2020 | `Mitsubishi Pajero 2000-2020 Taiwan` | Mitsubishi Pajero 台灣市售規格外觀 | `assets/cars/mitsubishi-pajero-1.jpg` |
-| `ford-tierra-1` | Ford Tierra / Activa — Tierra LS / XT / Aero / Activa | 2000-2008 | `Ford Tierra / Activa 2000-2008 Taiwan` | Ford Tierra / Activa 台灣市售規格外觀 | `assets/cars/ford-tierra-1.jpg` |
-| `ford-escape-1` | Ford Escape — 第 1 代 (2.0 / 2.3 / 3.0 V6) | 2001-2013 | `Ford Escape 2001-2013 Taiwan` | Ford Escape 台灣市售規格外觀 | `assets/cars/ford-escape-1.jpg` |
-| `ford-metrostar-1` | Ford Metrostar — Mk3 (2.0 / 2.5 V6) | 2001-2007 | `Ford Metrostar 2001-2007 Taiwan` | Ford Metrostar 台灣市售規格外觀 | `assets/cars/ford-metrostar-1.jpg` |
-| `ford-imax-1` | Ford i-Max — 第 1 代 (2.0L 5/6/7人座) | 2007-2010 | `Ford i-Max 2007-2010 Taiwan` | Ford i-Max 台灣市售規格外觀 | `assets/cars/ford-imax-1.jpg` |
-| `ford-ecosport-1` | Ford EcoSport — 第 2 代 (1.5 NA / 1.0T) | 2013-2020 | `Ford EcoSport 2013-2020 Taiwan` | Ford EcoSport 台灣市售規格外觀 | `assets/cars/ford-ecosport-1.jpg` |
-| `ford-mustang-1` | Ford Mustang — 第 6 代 & 第 7 代 (2.3T / 5.0 GT) | 2015-2025 | `Ford Mustang 2015-2025 Taiwan` | Ford Mustang 台灣市售規格外觀 | `assets/cars/ford-mustang-1.jpg` |
-| `ford-tourneo-1` | Ford Tourneo Custom — 第 1 代 & 第 2 代 (2.0D 8/9人座) | 2014-2025 | `Ford Tourneo Custom 2014-2025 Taiwan` | Ford Tourneo Custom 台灣市售規格外觀 | `assets/cars/ford-tourneo-1.jpg` |
-| `honda-stream-1` | Honda Stream — RN1 / RN3 (1.7 / 2.0) | 2001-2005 | `Honda Stream 2001-2005 Taiwan` | Honda Stream 台灣市售規格外觀 | `assets/cars/honda-stream-1.jpg` |
-| `honda-crz-1` | Honda CR-Z — ZF1 / ZF2 (1.5L IMA Hybrid) | 2011-2016 | `Honda CR-Z 2011-2016 Taiwan` | Honda CR-Z 台灣市售規格外觀 | `assets/cars/honda-crz-1.jpg` |
-| `mazda-323-1` | Mazda 323 / Isamu — BJ 世代 (1.6 / 1.8) | 2000-2008 | `Mazda 323 / Isamu 2000-2008 Taiwan` | Mazda 323 / Isamu 台灣市售規格外觀 | `assets/cars/mazda-323-1.jpg` |
-| `mazda-tribute-1` | Mazda Tribute — EP 世代 (2.0 / 2.3 / 3.0) | 2001-2010 | `Mazda Tribute 2001-2010 Taiwan` | Mazda Tribute 台灣市售規格外觀 | `assets/cars/mazda-tribute-1.jpg` |
-| `mazda-premacy-1` | Mazda Premacy — CP 世代 (1.8 / 2.0) | 2001-2005 | `Mazda Premacy 2001-2005 Taiwan` | Mazda Premacy 台灣市售規格外觀 | `assets/cars/mazda-premacy-1.jpg` |
-| `suzuki-solio-1` | Suzuki Solio — 第 1 代 (1.3L) | 2002-2009 | `Suzuki Solio 2002-2009 Taiwan` | Suzuki Solio 台灣市售規格外觀 | `assets/cars/suzuki-solio-1.jpg` |
-| `suzuki-gvjp-1` | Suzuki Grand Vitara JP — 第 3 代 (2.0 / 2.7 V6 / 2.4) | 2006-2015 | `Suzuki Grand Vitara JP 2006-2015 Taiwan` | Suzuki Grand Vitara JP 台灣市售規格外觀 | `assets/cars/suzuki-gvjp-1.jpg` |
-| `suzuki-alto-1` | Suzuki Alto — 第 7 代 (1.0L) | 2009-2016 | `Suzuki Alto 2009-2016 Taiwan` | Suzuki Alto 台灣市售規格外觀 | `assets/cars/suzuki-alto-1.jpg` |
-| `hyundai-ix35-1` | Hyundai ix35 — LM 世代 (2.0 汽油 / 2.0 柴油) | 2010-2016 | `Hyundai ix35 2010-2016 Taiwan` | Hyundai ix35 台灣市售規格外觀 | `assets/cars/hyundai-ix35-1.jpg` |
-| `hyundai-matrix-1` | Hyundai Matrix — FC 世代 (1.6 / 1.8) | 2001-2009 | `Hyundai Matrix 2001-2009 Taiwan` | Hyundai Matrix 台灣市售規格外觀 | `assets/cars/hyundai-matrix-1.jpg` |
-| `hyundai-kona-1` | Hyundai Kona — 第 1 代 & 第 2 代 (1.6T / EV) | 2018-2025 | `Hyundai Kona 2018-2025 Taiwan` | Hyundai Kona 台灣市售規格外觀 | `assets/cars/hyundai-kona-1.jpg` |
-| `hyundai-ioniq5-1` | Hyundai Ioniq 5 — NE 世代 (EV400 / EV600) | 2022-2025 | `Hyundai Ioniq 5 2022-2025 Taiwan` | Hyundai Ioniq 5 台灣市售規格外觀 | `assets/cars/hyundai-ioniq5-1.jpg` |
-| `hyundai-staria-1` | Hyundai Staria — US4 世代 (2.2D 7/8/9人座) | 2022-2025 | `Hyundai Staria 2022-2025 Taiwan` | Hyundai Staria 台灣市售規格外觀 | `assets/cars/hyundai-staria-1.jpg` |
-| `kia-carens-1` | Kia Carens — RP 世代 (2.0 汽油 / 1.7 柴油) | 2014-2019 | `Kia Carens 2014-2019 Taiwan` | Kia Carens 台灣市售規格外觀 | `assets/cars/kia-carens-1.jpg` |
-| `kia-morning-1` | Kia Morning — TA 世代 (1.2L 4AT) | 2014-2020 | `Kia Morning 2014-2020 Taiwan` | Kia Morning 台灣市售規格外觀 | `assets/cars/kia-morning-1.jpg` |
-| `kia-sorento-1` | Kia Sorento — UM (2017-2020) & MQ4 (2020-2025) | 2017-2025 | `Kia Sorento 2017-2025 Taiwan` | Kia Sorento 台灣市售規格外觀 | `assets/cars/kia-sorento-1.jpg` |
-| `luxgen-m7-1` | Luxgen M7 / 7 MPV — 7 MPV / M7 Turbo Eco Hyper | 2009-2021 | `Luxgen M7 / 7 MPV 2009-2021 Taiwan` | Luxgen M7 / 7 MPV 台灣市售規格外觀 | `assets/cars/luxgen-m7-1.jpg` |
-| `luxgen-u7-1` | Luxgen U7 / 7 SUV — 7 SUV / U7 Turbo Eco Hyper | 2010-2020 | `Luxgen U7 / 7 SUV 2010-2020 Taiwan` | Luxgen U7 / 7 SUV 台灣市售規格外觀 | `assets/cars/luxgen-u7-1.jpg` |
-| `luxgen-s5-1` | Luxgen S5 / 5 Sedan — 5 Sedan / S5 Turbo / S5 GT | 2012-2020 | `Luxgen S5 / 5 Sedan 2012-2020 Taiwan` | Luxgen S5 / 5 Sedan 台灣市售規格外觀 | `assets/cars/luxgen-s5-1.jpg` |
-| `luxgen-s3-1` | Luxgen S3 — 第 1 代 (1.6L CVT) | 2016-2020 | `Luxgen S3 2016-2020 Taiwan` | Luxgen S3 台灣市售規格外觀 | `assets/cars/luxgen-s3-1.jpg` |
-| `lexus-ct200h-1` | Lexus CT200h — ZWA10 (1.8L Hybrid) | 2011-2021 | `Lexus CT200h 2011-2021 Taiwan` | Lexus CT200h 台灣市售規格外觀 | `assets/cars/lexus-ct200h-1.jpg` |
-| `lexus-gs-1` | Lexus GS — S190 (2006-2011) & L10 (2012-2020) | 2005-2020 | `Lexus GS 2005-2020 Taiwan` | Lexus GS 台灣市售規格外觀 | `assets/cars/lexus-gs-1.jpg` |
-| `lexus-ls-1` | Lexus LS — XF40 (460/600h) & XF50 (500/500h) | 2006-2025 | `Lexus LS 2006-2025 Taiwan` | Lexus LS 台灣市售規格外觀 | `assets/cars/lexus-ls-1.jpg` |
-| `lexus-lm-1` | Lexus LM — LM300h (2020-2023) & LM350h/500h (2023-2025) | 2020-2025 | `Lexus LM 2020-2025 Taiwan` | Lexus LM 台灣市售規格外觀 | `assets/cars/lexus-lm-1.jpg` |
-| `lexus-lbx-1` | Lexus LBX — MAYH10 (1.5L Hybrid) | 2024-2025 | `Lexus LBX 2024-2025 Taiwan` | Lexus LBX 台灣市售規格外觀 | `assets/cars/lexus-lbx-1.jpg` |
-| `benz-b-1` | Mercedes-Benz B-Class — W245 / W246 / W247 世代 | 2006-2025 | `Mercedes-Benz B-Class 2006-2025 Taiwan` | Mercedes-Benz B-Class 台灣市售規格外觀 | `assets/cars/benz-b-1.jpg` |
-| `benz-s-1` | Mercedes-Benz S-Class — W220 / W221 / W222 / W223 世代 | 2000-2025 | `Mercedes-Benz S-Class 2000-2025 Taiwan` | Mercedes-Benz S-Class 台灣市售規格外觀 | `assets/cars/benz-s-1.jpg` |
-| `benz-gle-1` | Mercedes-Benz ML / GLE — W163 / W164 / W166 / V167 世代 | 2000-2025 | `Mercedes-Benz ML / GLE 2000-2025 Taiwan` | Mercedes-Benz ML / GLE 台灣市售規格外觀 | `assets/cars/benz-gle-1.jpg` |
-| `benz-glb-1` | Mercedes-Benz GLB — X247 (GLB 180 / 200 / 250 / 35) | 2020-2025 | `Mercedes-Benz GLB 2020-2025 Taiwan` | Mercedes-Benz GLB 台灣市售規格外觀 | `assets/cars/benz-glb-1.jpg` |
-| `benz-vclass-1` | Mercedes-Benz V-Class / Vito — W447 (V220d / V250d / V300d / Vito) | 2015-2025 | `Mercedes-Benz V-Class / Vito 2015-2025 Taiwan` | Mercedes-Benz V-Class / Vito 台灣市售規格外觀 | `assets/cars/benz-vclass-1.jpg` |
-| `bmw-2at-1` | BMW 2-Series Active Tourer — F45 / F46 (7人座) & U06 (2022+) | 2014-2025 | `BMW 2-Series Active Tourer 2014-2025 Taiwan` | BMW 2-Series Active Tourer 台灣市售規格外觀 | `assets/cars/bmw-2at-1.jpg` |
-| `bmw-4-1` | BMW 4-Series — F32/F36 & G22/G26 (420i / 430i) | 2014-2025 | `BMW 4-Series 2014-2025 Taiwan` | BMW 4-Series 台灣市售規格外觀 | `assets/cars/bmw-4-1.jpg` |
-| `bmw-7-1` | BMW 7-Series — E38 / E65 / F01 / G11 / G70 世代 | 2000-2025 | `BMW 7-Series 2000-2025 Taiwan` | BMW 7-Series 台灣市售規格外觀 | `assets/cars/bmw-7-1.jpg` |
-| `bmw-x4-1` | BMW X4 — F26 (2014-2018) & G02 (2018-2025) | 2014-2025 | `BMW X4 2014-2025 Taiwan` | BMW X4 台灣市售規格外觀 | `assets/cars/bmw-x4-1.jpg` |
-| `bmw-ix1-1` | BMW iX1 — U11 (xDrive30) | 2023-2025 | `BMW iX1 2023-2025 Taiwan` | BMW iX1 台灣市售規格外觀 | `assets/cars/bmw-ix1-1.jpg` |
-| `vw-passat-1` | Volkswagen Passat / Passat Variant — B5 / B6 / B7 / B8 世代 | 2000-2022 | `Volkswagen Passat / Passat Variant 2000-2022 Taiwan` | Volkswagen Passat / Passat Variant 台灣市售規格外觀 | `assets/cars/vw-passat-1.jpg` |
-| `vw-beetle-1` | Volkswagen Beetle — New Beetle (2000-2011) & The Beetle (2012-2019) | 2000-2019 | `Volkswagen Beetle 2000-2019 Taiwan` | Volkswagen Beetle 台灣市售規格外觀 | `assets/cars/vw-beetle-1.jpg` |
-| `vw-sharan-1` | Volkswagen Sharan — 第 2 代 (7N 1.4T / 2.0D) | 2012-2020 | `Volkswagen Sharan 2012-2020 Taiwan` | Volkswagen Sharan 台灣市售規格外觀 | `assets/cars/vw-sharan-1.jpg` |
-| `vw-caddy-1` | Volkswagen Caddy Maxi — 第 3/4 代 (2K) & 第 5 代 (MQB) | 2006-2025 | `Volkswagen Caddy Maxi 2006-2025 Taiwan` | Volkswagen Caddy Maxi 台灣市售規格外觀 | `assets/cars/vw-caddy-1.jpg` |
-| `vw-multivan-1` | Volkswagen Multivan (T5/T6/T7) — T5 / T6 / T6.1 / T7 世代 | 2004-2025 | `Volkswagen Multivan (T5/T6/T7) 2004-2025 Taiwan` | Volkswagen Multivan (T5/T6/T7) 台灣市售規格外觀 | `assets/cars/vw-multivan-1.jpg` |
-| `skoda-superb-1` | Skoda Superb — 第 2 代 & 第 3 代 (1.4T / 1.5T / 2.0T) | 2009-2025 | `Skoda Superb 2009-2025 Taiwan` | Skoda Superb 台灣市售規格外觀 | `assets/cars/skoda-superb-1.jpg` |
-| `skoda-yeti-1` | Skoda Yeti — 5L 世代 (1.2 TSI / 2.0 TDI) | 2010-2017 | `Skoda Yeti 2010-2017 Taiwan` | Skoda Yeti 台灣市售規格外觀 | `assets/cars/skoda-yeti-1.jpg` |
-| `skoda-scala-1` | Skoda Scala — NW1 世代 (1.0 TSI / 1.5 TSI) | 2020-2025 | `Skoda Scala 2020-2025 Taiwan` | Skoda Scala 台灣市售規格外觀 | `assets/cars/skoda-scala-1.jpg` |
-| `volvo-v60-1` | Volvo V60 — 第 1 代 (2011-2018) & 第 2 代 (2019-2025) | 2011-2025 | `Volvo V60 2011-2025 Taiwan` | Volvo V60 台灣市售規格外觀 | `assets/cars/volvo-v60-1.jpg` |
-| `volvo-xc90-1` | Volvo XC90 — 第 1 代 (2003-2014) & 第 2 代 (2015-2025) | 2003-2025 | `Volvo XC90 2003-2025 Taiwan` | Volvo XC90 台灣市售規格外觀 | `assets/cars/volvo-xc90-1.jpg` |
-| `volvo-s90-1` | Volvo S80 / S90 — S80 (2000-2016) & S90 (2017-2025) | 2000-2025 | `Volvo S80 / S90 2000-2025 Taiwan` | Volvo S80 / S90 台灣市售規格外觀 | `assets/cars/volvo-s90-1.jpg` |
-| `subaru-impreza-1` | Subaru Impreza — GD / GH / GP / GT 世代 | 2000-2024 | `Subaru Impreza 2000-2024 Taiwan` | Subaru Impreza 台灣市售規格外觀 | `assets/cars/subaru-impreza-1.jpg` |
-| `subaru-outback-1` | Subaru Legacy / Outback — Legacy (BL/BM/BR) & Outback (BS/BT) | 2004-2025 | `Subaru Legacy / Outback 2004-2025 Taiwan` | Subaru Legacy / Outback 台灣市售規格外觀 | `assets/cars/subaru-outback-1.jpg` |
-| `subaru-brz-1` | Subaru BRZ — ZC6 (1代 2.0) & ZD8 (2代 2.4) | 2013-2025 | `Subaru BRZ 2013-2025 Taiwan` | Subaru BRZ 台灣市售規格外觀 | `assets/cars/subaru-brz-1.jpg` |
 
 ## 已有照片清單 (READY)
 
@@ -362,3 +221,144 @@
 | `tcross-1` | Volkswagen T-Cross — 第 1 代 (230 TSI 1.0T) | 2019-2025 | `assets/cars/tcross-1.jpg` |
 | `karoq-1` | Skoda Karoq — 第 1 代 (1.5 TSI 含黑熊/雪山版) | 2018-2025 | `assets/cars/karoq-1.jpg` |
 | `delica-2020` | Mitsubishi Delica — 新世代安全進化版 (2.4L 6MT/5AT) | 2019-2025 | `assets/cars/delica-2020.jpg` |
+| `mg-hs-1` | MG HS — 第 2 代 (1.5T / 2.0T / PHEV) | 2022-2025 | `assets/cars/mg-hs-1.jpg` |
+| `mg-zs-1` | MG ZS — 第 1 代 (1.5L 旗艦版) | 2023-2025 | `assets/cars/mg-zs-1.jpg` |
+| `mg-mg4-1` | MG MG4 — 第 1 代 (EV 旗艦 / XPower) | 2024-2025 | `assets/cars/mg-mg4-1.jpg` |
+| `tesla-m3-1` | Tesla Model 3 — 第 1 代 & 煥新版 (RWD / LR / Performance) | 2019-2025 | `assets/cars/tesla-m3-1.jpg` |
+| `tesla-my-1` | Tesla Model Y — 第 1 代 (RWD / LR / Performance) | 2022-2025 | `assets/cars/tesla-my-1.jpg` |
+| `tesla-ms-1` | Tesla Model S — 第 1 代 (75D / 100D / LR / Plaid) | 2017-2024 | `assets/cars/tesla-ms-1.jpg` |
+| `tesla-mx-1` | Tesla Model X — 第 1 代 (75D / 100D / LR / Plaid) | 2017-2024 | `assets/cars/tesla-mx-1.jpg` |
+| `audi-a1-1` | Audi A1 — 8X / GB 世代 (25/30 TFSI) | 2011-2023 | `assets/cars/audi-a1-1.jpg` |
+| `audi-a3-1` | Audi A3 — 8P / 8V / 8Y 世代 (30/35/40 TFSI) | 2004-2025 | `assets/cars/audi-a3-1.jpg` |
+| `audi-a4-1` | Audi A4 — B6 / B7 / B8 / B9 世代 (40/45 TFSI) | 2001-2025 | `assets/cars/audi-a4-1.jpg` |
+| `audi-a5-1` | Audi A5 — B8 / B9 世代 (Sportback / Coupe) | 2008-2025 | `assets/cars/audi-a5-1.jpg` |
+| `audi-a6-1` | Audi A6 — C5 / C6 / C7 / C8 世代 | 2000-2025 | `assets/cars/audi-a6-1.jpg` |
+| `audi-q2-1` | Audi Q2 — GA 世代 (35 TFSI) | 2017-2024 | `assets/cars/audi-q2-1.jpg` |
+| `audi-q3-1` | Audi Q3 — 8U / F3 世代 (35/40 TFSI) | 2012-2025 | `assets/cars/audi-q3-1.jpg` |
+| `audi-q5-1` | Audi Q5 — 8R / FY 世代 (40/45 TFSI) | 2009-2025 | `assets/cars/audi-q5-1.jpg` |
+| `audi-q7-1` | Audi Q7 — 4L / 4M 世代 | 2006-2024 | `assets/cars/audi-q7-1.jpg` |
+| `audi-tt-1` | Audi TT — 8N / 8J / 8S 世代 | 2000-2022 | `assets/cars/audi-tt-1.jpg` |
+| `porsche-cay-1` | Porsche Cayenne — 955 / 958 / E3 (9Y0) 世代 | 2003-2025 | `assets/cars/porsche-cay-1.jpg` |
+| `porsche-macan-1` | Porsche Macan — 第 1 代 (前/一改/二改) & EV | 2014-2025 | `assets/cars/porsche-macan-1.jpg` |
+| `porsche-911-1` | Porsche 911 — 996 / 997 / 991 / 992 世代 | 2000-2025 | `assets/cars/porsche-911-1.jpg` |
+| `porsche-pana-1` | Porsche Panamera — 970 / 971 世代 | 2010-2025 | `assets/cars/porsche-pana-1.jpg` |
+| `porsche-718-1` | Porsche 718 Boxster / Cayman — 986 / 987 / 981 / 982 (718) 世代 | 2000-2025 | `assets/cars/porsche-718-1.jpg` |
+| `porsche-taycan-1` | Porsche Taycan — 第 1 代 (Taycan / 4S / Cross Turismo) | 2020-2025 | `assets/cars/porsche-taycan-1.jpg` |
+| `mini-cooper-1` | MINI Cooper — R50/R53 / R56 / F55/F56 / F66 世代 | 2002-2025 | `assets/cars/mini-cooper-1.jpg` |
+| `mini-countryman-1` | MINI Countryman — R60 / F60 / U25 世代 | 2011-2025 | `assets/cars/mini-countryman-1.jpg` |
+| `mini-clubman-1` | MINI Clubman — R55 / F54 世代 | 2008-2023 | `assets/cars/mini-clubman-1.jpg` |
+| `peugeot-208-1` | Peugeot 206 / 207 / 208 — 206 / 207 / 208 (含二代) | 2000-2024 | `assets/cars/peugeot-208-1.jpg` |
+| `peugeot-308-1` | Peugeot 307 / 308 — 307 / 308 (T7/T9/P5) | 2002-2024 | `assets/cars/peugeot-308-1.jpg` |
+| `peugeot-2008-1` | Peugeot 2008 — 第 1 代 / 第 2 代 (P24) | 2014-2025 | `assets/cars/peugeot-2008-1.jpg` |
+| `peugeot-3008-1` | Peugeot 3008 — 第 1 代 / 第 2 代 (P84) | 2010-2025 | `assets/cars/peugeot-3008-1.jpg` |
+| `peugeot-5008-1` | Peugeot 5008 — 第 1 代 / 第 2 代 (P87 7人座) | 2011-2025 | `assets/cars/peugeot-5008-1.jpg` |
+| `peugeot-408-1` | Peugeot 408 — 第 1 代 Fastback (P54) | 2023-2025 | `assets/cars/peugeot-408-1.jpg` |
+| `infiniti-fx-1` | Infiniti FX35 / QX70 — FX35 / FX37 / QX70 (S50/S51) | 2003-2017 | `assets/cars/infiniti-fx-1.jpg` |
+| `infiniti-q50-1` | Infiniti Q50 — 第 1 代 (2.0T / 3.5h / 300GT) | 2014-2024 | `assets/cars/infiniti-q50-1.jpg` |
+| `infiniti-q30-1` | Infiniti Q30 / QX30 — 第 1 代 (1.6T / 2.0T) | 2016-2020 | `assets/cars/infiniti-q30-1.jpg` |
+| `infiniti-qx50-1` | Infiniti QX50 — 第 2 代 (VC-Turbo 2.0T) | 2018-2025 | `assets/cars/infiniti-qx50-1.jpg` |
+| `infiniti-qx60-1` | Infiniti QX60 — 第 1 代 (JX35/QX60) & 第 2 代 | 2013-2025 | `assets/cars/infiniti-qx60-1.jpg` |
+| `lr-evoque-1` | Land Rover Range Rover Evoque — 第 1 代 (L538) & 第 2 代 (L551) | 2012-2025 | `assets/cars/lr-evoque-1.jpg` |
+| `lr-ds-1` | Land Rover Discovery Sport — 第 1 代 (L550 前/小改款) | 2015-2025 | `assets/cars/lr-ds-1.jpg` |
+| `lr-defender-1` | Land Rover Defender — L663 新世代 (90 / 110) | 2020-2025 | `assets/cars/lr-defender-1.jpg` |
+| `sy-tivoli-1` | SsangYong Tivoli — 第 1 代 (1.6 汽油 / 1.6 柴油 / 1.5T) | 2015-2024 | `assets/cars/sy-tivoli-1.jpg` |
+| `sy-korando-1` | SsangYong Korando — 第 3 代 / 第 4 代 | 2011-2024 | `assets/cars/sy-korando-1.jpg` |
+| `sy-rexton-1` | SsangYong Rexton — 第 1 代 / 第 2 代 (G4 Rexton) | 2003-2024 | `assets/cars/sy-rexton-1.jpg` |
+| `sy-stavic-1` | SsangYong Stavic — 第 1 代 / 第 2 代 (Turismo) | 2005-2019 | `assets/cars/sy-stavic-1.jpg` |
+| `cmc-veryca-1` | CMC Veryca — 菱利 1.2 / 1.3 / A180 / A190 | 2000-2024 | `assets/cars/cmc-veryca-1.jpg` |
+| `cmc-jspace-1` | CMC J Space — 第 1 代 (1.5L 8AT) | 2024-2025 | `assets/cars/cmc-jspace-1.jpg` |
+| `citroen-berlingo-1` | Citroen Berlingo — 第 3 代 (短軸 5座 / 長軸 7座) | 2019-2025 | `assets/cars/citroen-berlingo-1.jpg` |
+| `citroen-c5ac-1` | Citroen C5 Aircross — 第 1 代 (1.2T / 1.6T) | 2019-2025 | `assets/cars/citroen-c5ac-1.jpg` |
+| `daihatsu-terios-1` | Daihatsu Terios — 第 1 代 (1.3) & 第 2 代 (1.5 小悍馬) | 2000-2016 | `assets/cars/daihatsu-terios-1.jpg` |
+| `daihatsu-sirion-1` | Daihatsu Sirion — 第 1 代 / 第 2 代 (1.3 / 1.5) | 2000-2016 | `assets/cars/daihatsu-sirion-1.jpg` |
+| `daihatsu-coo-1` | Daihatsu Coo — 第 1 代 (1.5L) | 2007-2015 | `assets/cars/daihatsu-coo-1.jpg` |
+| `opel-astra-1` | Opel Astra — G / H / L 世代 | 2000-2024 | `assets/cars/opel-astra-1.jpg` |
+| `opel-mokka-1` | Opel Mokka — 第 2 代 (1.2T / Mokka-e) | 2022-2025 | `assets/cars/opel-mokka-1.jpg` |
+| `renault-megane-1` | Renault Megane — 第 2 代 (1.6 / 2.0 / RS) | 2000-2009 | `assets/cars/renault-megane-1.jpg` |
+| `renault-scenic-1` | Renault Scenic — 第 2 代 (1.6 / 2.0) | 2000-2009 | `assets/cars/renault-scenic-1.jpg` |
+| `fiat-500-1` | Fiat 500 — 第 2 代 (1.2 / 1.4 / 0.9 TwinAir) | 2008-2023 | `assets/cars/fiat-500-1.jpg` |
+| `fiat-punto-1` | Fiat Punto — Mk2 / Grande Punto | 2000-2012 | `assets/cars/fiat-punto-1.jpg` |
+| `alfa-156-1` | Alfa Romeo 156 / 159 — 156 (TwinSpark/JTS) & 159 | 2000-2011 | `assets/cars/alfa-156-1.jpg` |
+| `alfa-giulia-1` | Alfa Romeo Giulia / Stelvio — Type 952 / 949 (2.0T / QV) | 2017-2025 | `assets/cars/alfa-giulia-1.jpg` |
+| `saab-93-1` | Saab 9-3 — 第 2 代 (Linear / Arc / Aero) | 2003-2012 | `assets/cars/saab-93-1.jpg` |
+| `saab-95-1` | Saab 9-5 — 第 1 代 (OG9-5) & 第 2 代 (NG9-5) | 2000-2012 | `assets/cars/saab-95-1.jpg` |
+| `jaguar-xf-1` | Jaguar XF — X250 / X260 世代 | 2008-2023 | `assets/cars/jaguar-xf-1.jpg` |
+| `jaguar-fpace-1` | Jaguar F-Pace — X761 世代 (20t / 25t / P250) | 2016-2025 | `assets/cars/jaguar-fpace-1.jpg` |
+| `smart-453-1` | Smart ForTwo — 450 / 451 / 453 世代 | 2000-2020 | `assets/cars/smart-453-1.jpg` |
+| `jeep-wrangler-1` | Jeep Wrangler — JK (2007-2017) & JL (2018-2025) | 2007-2025 | `assets/cars/jeep-wrangler-1.jpg` |
+| `proton-gen2-1` | Proton Gen-2 — 第 1 代 (1.6L) | 2005-2013 | `assets/cars/proton-gen2-1.jpg` |
+| `maserati-ghibli-1` | Maserati Ghibli — M157 (3.0TT / 2.0T MHEV) | 2014-2024 | `assets/cars/maserati-ghibli-1.jpg` |
+| `maserati-levante-1` | Maserati Levante — M161 (3.0TT / 2.0T GT) | 2016-2024 | `assets/cars/maserati-levante-1.jpg` |
+| `toyota-tercel-1` | Toyota Tercel — L50 世代 (1.3 / 1.5) | 2000-2003 | `assets/cars/toyota-tercel-1.jpg` |
+| `toyota-previa-1` | Toyota Previa — XR30 (2001-2005) & XR50 (2006-2020) | 2001-2020 | `assets/cars/toyota-previa-1.jpg` |
+| `toyota-alphard-1` | Toyota Alphard — AH20 / AH30 / AH40 世代 | 2010-2025 | `assets/cars/toyota-alphard-1.jpg` |
+| `toyota-innova-1` | Toyota Innova — AN40 世代 (2.7 / 2.0) | 2007-2016 | `assets/cars/toyota-innova-1.jpg` |
+| `toyota-townace-1` | Toyota Town Ace — 第 1 代 (貨卡 / 廂車 1.5L) | 2022-2025 | `assets/cars/toyota-townace-1.jpg` |
+| `toyota-hilux-1` | Toyota Hilux — 第 8 代 (AN120 2.8D) | 2019-2025 | `assets/cars/toyota-hilux-1.jpg` |
+| `toyota-bz4x-1` | Toyota bZ4X — 第 1 代 (前驅版) | 2022-2025 | `assets/cars/toyota-bz4x-1.jpg` |
+| `toyota-priusc-1` | Toyota Prius c — NHP10 (含 Crossover) | 2012-2021 | `assets/cars/toyota-priusc-1.jpg` |
+| `nissan-march-1` | Nissan March — K11 (2000-2007) & K13 (2011-2020) | 2000-2020 | `assets/cars/nissan-march-1.jpg` |
+| `nissan-cefiro-1` | Nissan Cefiro — A32 / A33 (2.0 / 3.0 V6) | 2000-2004 | `assets/cars/nissan-cefiro-1.jpg` |
+| `nissan-bluebird-1` | Nissan Bluebird Sylphy — G11 (2.0L CVT) | 2007-2013 | `assets/cars/nissan-bluebird-1.jpg` |
+| `nissan-rogue-1` | Nissan Rogue — S35 (2.5L 2WD/AWD) | 2008-2014 | `assets/cars/nissan-rogue-1.jpg` |
+| `nissan-leaf-1` | Nissan Leaf — ZE1 (40kWh / 62kWh) | 2019-2025 | `assets/cars/nissan-leaf-1.jpg` |
+| `mitsubishi-savrin-1` | Mitsubishi Savrin — 第 1 代 / 第 2 代 (Inspire 2.0/2.4) | 2001-2014 | `assets/cars/mitsubishi-savrin-1.jpg` |
+| `mitsubishi-virage-1` | Mitsubishi Virage — Virage iO (1.8L) | 2000-2006 | `assets/cars/mitsubishi-virage-1.jpg` |
+| `mitsubishi-grunder-1` | Mitsubishi Grunder — 第 1 代 (2.4L) | 2004-2012 | `assets/cars/mitsubishi-grunder-1.jpg` |
+| `mitsubishi-pajero-1` | Mitsubishi Pajero — V73 / V93 / V98 (3.0/3.2D/3.8) | 2000-2020 | `assets/cars/mitsubishi-pajero-1.jpg` |
+| `ford-tierra-1` | Ford Tierra / Activa — Tierra LS / XT / Aero / Activa | 2000-2008 | `assets/cars/ford-tierra-1.jpg` |
+| `ford-escape-1` | Ford Escape — 第 1 代 (2.0 / 2.3 / 3.0 V6) | 2001-2013 | `assets/cars/ford-escape-1.jpg` |
+| `ford-metrostar-1` | Ford Metrostar — Mk3 (2.0 / 2.5 V6) | 2001-2007 | `assets/cars/ford-metrostar-1.jpg` |
+| `ford-imax-1` | Ford i-Max — 第 1 代 (2.0L 5/6/7人座) | 2007-2010 | `assets/cars/ford-imax-1.jpg` |
+| `ford-ecosport-1` | Ford EcoSport — 第 2 代 (1.5 NA / 1.0T) | 2013-2020 | `assets/cars/ford-ecosport-1.jpg` |
+| `ford-mustang-1` | Ford Mustang — 第 6 代 & 第 7 代 (2.3T / 5.0 GT) | 2015-2025 | `assets/cars/ford-mustang-1.jpg` |
+| `ford-tourneo-1` | Ford Tourneo Custom — 第 1 代 & 第 2 代 (2.0D 8/9人座) | 2014-2025 | `assets/cars/ford-tourneo-1.jpg` |
+| `honda-stream-1` | Honda Stream — RN1 / RN3 (1.7 / 2.0) | 2001-2005 | `assets/cars/honda-stream-1.jpg` |
+| `honda-crz-1` | Honda CR-Z — ZF1 / ZF2 (1.5L IMA Hybrid) | 2011-2016 | `assets/cars/honda-crz-1.jpg` |
+| `mazda-323-1` | Mazda 323 / Isamu — BJ 世代 (1.6 / 1.8) | 2000-2008 | `assets/cars/mazda-323-1.jpg` |
+| `mazda-tribute-1` | Mazda Tribute — EP 世代 (2.0 / 2.3 / 3.0) | 2001-2010 | `assets/cars/mazda-tribute-1.jpg` |
+| `mazda-premacy-1` | Mazda Premacy — CP 世代 (1.8 / 2.0) | 2001-2005 | `assets/cars/mazda-premacy-1.jpg` |
+| `suzuki-solio-1` | Suzuki Solio — 第 1 代 (1.3L) | 2002-2009 | `assets/cars/suzuki-solio-1.jpg` |
+| `suzuki-gvjp-1` | Suzuki Grand Vitara JP — 第 3 代 (2.0 / 2.7 V6 / 2.4) | 2006-2015 | `assets/cars/suzuki-gvjp-1.jpg` |
+| `suzuki-alto-1` | Suzuki Alto — 第 7 代 (1.0L) | 2009-2016 | `assets/cars/suzuki-alto-1.jpg` |
+| `hyundai-ix35-1` | Hyundai ix35 — LM 世代 (2.0 汽油 / 2.0 柴油) | 2010-2016 | `assets/cars/hyundai-ix35-1.jpg` |
+| `hyundai-matrix-1` | Hyundai Matrix — FC 世代 (1.6 / 1.8) | 2001-2009 | `assets/cars/hyundai-matrix-1.jpg` |
+| `hyundai-kona-1` | Hyundai Kona — 第 1 代 & 第 2 代 (1.6T / EV) | 2018-2025 | `assets/cars/hyundai-kona-1.jpg` |
+| `hyundai-ioniq5-1` | Hyundai Ioniq 5 — NE 世代 (EV400 / EV600) | 2022-2025 | `assets/cars/hyundai-ioniq5-1.jpg` |
+| `hyundai-staria-1` | Hyundai Staria — US4 世代 (2.2D 7/8/9人座) | 2022-2025 | `assets/cars/hyundai-staria-1.jpg` |
+| `kia-carens-1` | Kia Carens — RP 世代 (2.0 汽油 / 1.7 柴油) | 2014-2019 | `assets/cars/kia-carens-1.jpg` |
+| `kia-morning-1` | Kia Morning — TA 世代 (1.2L 4AT) | 2014-2020 | `assets/cars/kia-morning-1.jpg` |
+| `kia-sorento-1` | Kia Sorento — UM (2017-2020) & MQ4 (2020-2025) | 2017-2025 | `assets/cars/kia-sorento-1.jpg` |
+| `luxgen-m7-1` | Luxgen M7 / 7 MPV — 7 MPV / M7 Turbo Eco Hyper | 2009-2021 | `assets/cars/luxgen-m7-1.jpg` |
+| `luxgen-u7-1` | Luxgen U7 / 7 SUV — 7 SUV / U7 Turbo Eco Hyper | 2010-2020 | `assets/cars/luxgen-u7-1.jpg` |
+| `luxgen-s5-1` | Luxgen S5 / 5 Sedan — 5 Sedan / S5 Turbo / S5 GT | 2012-2020 | `assets/cars/luxgen-s5-1.jpg` |
+| `luxgen-s3-1` | Luxgen S3 — 第 1 代 (1.6L CVT) | 2016-2020 | `assets/cars/luxgen-s3-1.jpg` |
+| `lexus-ct200h-1` | Lexus CT200h — ZWA10 (1.8L Hybrid) | 2011-2021 | `assets/cars/lexus-ct200h-1.jpg` |
+| `lexus-gs-1` | Lexus GS — S190 (2006-2011) & L10 (2012-2020) | 2005-2020 | `assets/cars/lexus-gs-1.jpg` |
+| `lexus-ls-1` | Lexus LS — XF40 (460/600h) & XF50 (500/500h) | 2006-2025 | `assets/cars/lexus-ls-1.jpg` |
+| `lexus-lm-1` | Lexus LM — LM300h (2020-2023) & LM350h/500h (2023-2025) | 2020-2025 | `assets/cars/lexus-lm-1.jpg` |
+| `lexus-lbx-1` | Lexus LBX — MAYH10 (1.5L Hybrid) | 2024-2025 | `assets/cars/lexus-lbx-1.jpg` |
+| `benz-b-1` | Mercedes-Benz B-Class — W245 / W246 / W247 世代 | 2006-2025 | `assets/cars/benz-b-1.jpg` |
+| `benz-s-1` | Mercedes-Benz S-Class — W220 / W221 / W222 / W223 世代 | 2000-2025 | `assets/cars/benz-s-1.jpg` |
+| `benz-gle-1` | Mercedes-Benz ML / GLE — W163 / W164 / W166 / V167 世代 | 2000-2025 | `assets/cars/benz-gle-1.jpg` |
+| `benz-glb-1` | Mercedes-Benz GLB — X247 (GLB 180 / 200 / 250 / 35) | 2020-2025 | `assets/cars/benz-glb-1.jpg` |
+| `benz-vclass-1` | Mercedes-Benz V-Class / Vito — W447 (V220d / V250d / V300d / Vito) | 2015-2025 | `assets/cars/benz-vclass-1.jpg` |
+| `bmw-2at-1` | BMW 2-Series Active Tourer — F45 / F46 (7人座) & U06 (2022+) | 2014-2025 | `assets/cars/bmw-2at-1.jpg` |
+| `bmw-4-1` | BMW 4-Series — F32/F36 & G22/G26 (420i / 430i) | 2014-2025 | `assets/cars/bmw-4-1.jpg` |
+| `bmw-7-1` | BMW 7-Series — E38 / E65 / F01 / G11 / G70 世代 | 2000-2025 | `assets/cars/bmw-7-1.jpg` |
+| `bmw-x4-1` | BMW X4 — F26 (2014-2018) & G02 (2018-2025) | 2014-2025 | `assets/cars/bmw-x4-1.jpg` |
+| `bmw-ix1-1` | BMW iX1 — U11 (xDrive30) | 2023-2025 | `assets/cars/bmw-ix1-1.jpg` |
+| `vw-passat-1` | Volkswagen Passat / Passat Variant — B5 / B6 / B7 / B8 世代 | 2000-2022 | `assets/cars/vw-passat-1.jpg` |
+| `vw-beetle-1` | Volkswagen Beetle — New Beetle (2000-2011) & The Beetle (2012-2019) | 2000-2019 | `assets/cars/vw-beetle-1.jpg` |
+| `vw-sharan-1` | Volkswagen Sharan — 第 2 代 (7N 1.4T / 2.0D) | 2012-2020 | `assets/cars/vw-sharan-1.jpg` |
+| `vw-caddy-1` | Volkswagen Caddy Maxi — 第 3/4 代 (2K) & 第 5 代 (MQB) | 2006-2025 | `assets/cars/vw-caddy-1.jpg` |
+| `vw-multivan-1` | Volkswagen Multivan (T5/T6/T7) — T5 / T6 / T6.1 / T7 世代 | 2004-2025 | `assets/cars/vw-multivan-1.jpg` |
+| `skoda-superb-1` | Skoda Superb — 第 2 代 & 第 3 代 (1.4T / 1.5T / 2.0T) | 2009-2025 | `assets/cars/skoda-superb-1.jpg` |
+| `skoda-yeti-1` | Skoda Yeti — 5L 世代 (1.2 TSI / 2.0 TDI) | 2010-2017 | `assets/cars/skoda-yeti-1.jpg` |
+| `skoda-scala-1` | Skoda Scala — NW1 世代 (1.0 TSI / 1.5 TSI) | 2020-2025 | `assets/cars/skoda-scala-1.jpg` |
+| `volvo-v60-1` | Volvo V60 — 第 1 代 (2011-2018) & 第 2 代 (2019-2025) | 2011-2025 | `assets/cars/volvo-v60-1.jpg` |
+| `volvo-xc90-1` | Volvo XC90 — 第 1 代 (2003-2014) & 第 2 代 (2015-2025) | 2003-2025 | `assets/cars/volvo-xc90-1.jpg` |
+| `volvo-s90-1` | Volvo S80 / S90 — S80 (2000-2016) & S90 (2017-2025) | 2000-2025 | `assets/cars/volvo-s90-1.jpg` |
+| `subaru-impreza-1` | Subaru Impreza — GD / GH / GP / GT 世代 | 2000-2024 | `assets/cars/subaru-impreza-1.jpg` |
+| `subaru-outback-1` | Subaru Legacy / Outback — Legacy (BL/BM/BR) & Outback (BS/BT) | 2004-2025 | `assets/cars/subaru-outback-1.jpg` |
+| `subaru-brz-1` | Subaru BRZ — ZC6 (1代 2.0) & ZD8 (2代 2.4) | 2013-2025 | `assets/cars/subaru-brz-1.jpg` |
