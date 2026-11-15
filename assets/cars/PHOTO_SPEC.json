@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-15 03:00:12",
+  "generated_at": "2026-11-15 10:07:06",
   "summary": {
     "total_slots": 213,
-    "ready_photos": 81,
-    "needs_photo": 132
+    "ready_photos": 213,
+    "needs_photo": 0
   },
   "global_requirements": {
     "format": "JPEG (.jpg)",
@@ -47,7 +47,7 @@
     },
     {
       "gen_id": "focus-mk25",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/focus-mk25.jpg",
       "brand": "Ford",
       "model": "Focus",
@@ -111,7 +111,7 @@
     },
     {
       "gen_id": "focus-mk45",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/focus-mk45.jpg",
       "brand": "Ford",
       "model": "Focus",
@@ -159,7 +159,7 @@
     },
     {
       "gen_id": "altis-105",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/altis-105.jpg",
       "brand": "Toyota",
       "model": "Corolla Altis",
@@ -191,7 +191,7 @@
     },
     {
       "gen_id": "altis-115",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/altis-115.jpg",
       "brand": "Toyota",
       "model": "Corolla Altis",
@@ -287,7 +287,7 @@
     },
     {
       "gen_id": "golf-mk75",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/golf-mk75.jpg",
       "brand": "Volkswagen",
       "model": "Golf",
@@ -543,7 +543,7 @@
     },
     {
       "gen_id": "crv-45",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/crv-45.jpg",
       "brand": "Honda",
       "model": "CR-V",
@@ -575,7 +575,7 @@
     },
     {
       "gen_id": "crv-55",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/crv-55.jpg",
       "brand": "Honda",
       "model": "CR-V",
@@ -927,7 +927,7 @@
     },
     {
       "gen_id": "cx5-2-fl",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/cx5-2-fl.jpg",
       "brand": "Mazda",
       "model": "CX-5",
@@ -1263,7 +1263,7 @@
     },
     {
       "gen_id": "swift-45",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/swift-45.jpg",
       "brand": "Suzuki",
       "model": "Swift",
@@ -1423,7 +1423,7 @@
     },
     {
       "gen_id": "vios-2",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/vios-2.jpg",
       "brand": "Toyota",
       "model": "Vios",
@@ -1439,7 +1439,7 @@
     },
     {
       "gen_id": "vios-3-pre",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/vios-3-pre.jpg",
       "brand": "Toyota",
       "model": "Vios",
@@ -1455,7 +1455,7 @@
     },
     {
       "gen_id": "vios-3-fl",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/vios-3-fl.jpg",
       "brand": "Toyota",
       "model": "Vios",
@@ -1471,7 +1471,7 @@
     },
     {
       "gen_id": "wish-1",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/wish-1.jpg",
       "brand": "Toyota",
       "model": "Wish",
@@ -1487,7 +1487,7 @@
     },
     {
       "gen_id": "wish-2-pre",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/wish-2-pre.jpg",
       "brand": "Toyota",
       "model": "Wish",
@@ -1503,7 +1503,7 @@
     },
     {
       "gen_id": "wish-2-fl",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/wish-2-fl.jpg",
       "brand": "Toyota",
       "model": "Wish",
@@ -1519,7 +1519,7 @@
     },
     {
       "gen_id": "sienta-1-pre",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/sienta-1-pre.jpg",
       "brand": "Toyota",
       "model": "Sienta",
@@ -1535,7 +1535,7 @@
     },
     {
       "gen_id": "sienta-1-fl",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/sienta-1-fl.jpg",
       "brand": "Toyota",
       "model": "Sienta",
@@ -1551,7 +1551,7 @@
     },
     {
       "gen_id": "prius-3",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/prius-3.jpg",
       "brand": "Toyota",
       "model": "Prius",
@@ -1567,7 +1567,7 @@
     },
     {
       "gen_id": "prius-4",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/prius-4.jpg",
       "brand": "Toyota",
       "model": "Prius",
@@ -1583,7 +1583,7 @@
     },
     {
       "gen_id": "prius-5",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/prius-5.jpg",
       "brand": "Toyota",
       "model": "Prius",
@@ -1599,7 +1599,7 @@
     },
     {
       "gen_id": "chr-1",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/chr-1.jpg",
       "brand": "Toyota",
       "model": "C-HR",
@@ -1615,7 +1615,7 @@
     },
     {
       "gen_id": "86-zn6-pre",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/86-zn6-pre.jpg",
       "brand": "Toyota",
       "model": "86 / GR86",
@@ -1631,7 +1631,7 @@
     },
     {
       "gen_id": "86-zn6-fl",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/86-zn6-fl.jpg",
       "brand": "Toyota",
       "model": "86 / GR86",
@@ -1647,7 +1647,7 @@
     },
     {
       "gen_id": "gr86-zn8",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/gr86-zn8.jpg",
       "brand": "Toyota",
       "model": "86 / GR86",
@@ -1663,7 +1663,7 @@
     },
     {
       "gen_id": "odyssey-5-pre",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/odyssey-5-pre.jpg",
       "brand": "Honda",
       "model": "Odyssey",
@@ -1679,7 +1679,7 @@
     },
     {
       "gen_id": "odyssey-5-fl",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/odyssey-5-fl.jpg",
       "brand": "Honda",
       "model": "Odyssey",
@@ -1695,7 +1695,7 @@
     },
     {
       "gen_id": "city-6",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/city-6.jpg",
       "brand": "Honda",
       "model": "City",
@@ -1711,7 +1711,7 @@
     },
     {
       "gen_id": "cx3-1-pre",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/cx3-1-pre.jpg",
       "brand": "Mazda",
       "model": "CX-3",
@@ -1727,7 +1727,7 @@
     },
     {
       "gen_id": "cx3-1-fl",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/cx3-1-fl.jpg",
       "brand": "Mazda",
       "model": "CX-3",
@@ -1743,7 +1743,7 @@
     },
     {
       "gen_id": "cx9-2",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/cx9-2.jpg",
       "brand": "Mazda",
       "model": "CX-9",
@@ -1791,7 +1791,7 @@
     },
     {
       "gen_id": "mazda5-cw",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/mazda5-cw.jpg",
       "brand": "Mazda",
       "model": "Mazda5",
@@ -1807,7 +1807,7 @@
     },
     {
       "gen_id": "mazda6-gj-pre",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/mazda6-gj-pre.jpg",
       "brand": "Mazda",
       "model": "Mazda6",
@@ -1823,7 +1823,7 @@
     },
     {
       "gen_id": "mazda6-gj-fl",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/mazda6-gj-fl.jpg",
       "brand": "Mazda",
       "model": "Mazda6",
@@ -1839,7 +1839,7 @@
     },
     {
       "gen_id": "tiida-c11",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/tiida-c11.jpg",
       "brand": "Nissan",
       "model": "Tiida",
@@ -1855,7 +1855,7 @@
     },
     {
       "gen_id": "tiida-c12-pre",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/tiida-c12-pre.jpg",
       "brand": "Nissan",
       "model": "Tiida",
@@ -1871,7 +1871,7 @@
     },
     {
       "gen_id": "tiida-c12-fl",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/tiida-c12-fl.jpg",
       "brand": "Nissan",
       "model": "Tiida",
@@ -1887,7 +1887,7 @@
     },
     {
       "gen_id": "xtrail-t32-pre",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/xtrail-t32-pre.jpg",
       "brand": "Nissan",
       "model": "X-Trail",
@@ -1903,7 +1903,7 @@
     },
     {
       "gen_id": "xtrail-t32-fl",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/xtrail-t32-fl.jpg",
       "brand": "Nissan",
       "model": "X-Trail",
@@ -1919,7 +1919,7 @@
     },
     {
       "gen_id": "xtrail-t33",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/xtrail-t33.jpg",
       "brand": "Nissan",
       "model": "X-Trail",
@@ -1935,7 +1935,7 @@
     },
     {
       "gen_id": "livina-2",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/livina-2.jpg",
       "brand": "Nissan",
       "model": "Livina",
@@ -1951,7 +1951,7 @@
     },
     {
       "gen_id": "fiesta-mk65",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/fiesta-mk65.jpg",
       "brand": "Ford",
       "model": "Fiesta",
@@ -1967,7 +1967,7 @@
     },
     {
       "gen_id": "fiesta-mk75",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/fiesta-mk75.jpg",
       "brand": "Ford",
       "model": "Fiesta",
@@ -1983,7 +1983,7 @@
     },
     {
       "gen_id": "mondeo-mk4",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/mondeo-mk4.jpg",
       "brand": "Ford",
       "model": "Mondeo",
@@ -1999,7 +1999,7 @@
     },
     {
       "gen_id": "mondeo-mk5",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/mondeo-mk5.jpg",
       "brand": "Ford",
       "model": "Mondeo",
@@ -2015,7 +2015,7 @@
     },
     {
       "gen_id": "coltplus-2",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/coltplus-2.jpg",
       "brand": "Mitsubishi",
       "model": "Colt Plus",
@@ -2031,7 +2031,7 @@
     },
     {
       "gen_id": "lancer-fortis",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/lancer-fortis.jpg",
       "brand": "Mitsubishi",
       "model": "Lancer",
@@ -2047,7 +2047,7 @@
     },
     {
       "gen_id": "grand-lancer",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/grand-lancer.jpg",
       "brand": "Mitsubishi",
       "model": "Lancer",
@@ -2063,7 +2063,7 @@
     },
     {
       "gen_id": "outlander-3",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/outlander-3.jpg",
       "brand": "Mitsubishi",
       "model": "Outlander",
@@ -2079,7 +2079,7 @@
     },
     {
       "gen_id": "zinger-2",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/zinger-2.jpg",
       "brand": "Mitsubishi",
       "model": "Zinger",
@@ -2095,7 +2095,7 @@
     },
     {
       "gen_id": "zinger-3",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/zinger-3.jpg",
       "brand": "Mitsubishi",
       "model": "Zinger",
@@ -2111,7 +2111,7 @@
     },
     {
       "gen_id": "vitara-4-pre",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/vitara-4-pre.jpg",
       "brand": "Suzuki",
       "model": "Vitara",
@@ -2127,7 +2127,7 @@
     },
     {
       "gen_id": "vitara-4-fl",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/vitara-4-fl.jpg",
       "brand": "Suzuki",
       "model": "Vitara",
@@ -2143,7 +2143,7 @@
     },
     {
       "gen_id": "jimny-jb43",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/jimny-jb43.jpg",
       "brand": "Suzuki",
       "model": "Jimny",
@@ -2159,7 +2159,7 @@
     },
     {
       "gen_id": "jimny-jb74",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/jimny-jb74.jpg",
       "brand": "Suzuki",
       "model": "Jimny",
@@ -2175,7 +2175,7 @@
     },
     {
       "gen_id": "ignis-1",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/ignis-1.jpg",
       "brand": "Suzuki",
       "model": "Ignis",
@@ -2191,7 +2191,7 @@
     },
     {
       "gen_id": "xv-gp",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/xv-gp.jpg",
       "brand": "Subaru",
       "model": "XV / Crosstrek",
@@ -2207,7 +2207,7 @@
     },
     {
       "gen_id": "xv-gt",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/xv-gt.jpg",
       "brand": "Subaru",
       "model": "XV / Crosstrek",
@@ -2223,7 +2223,7 @@
     },
     {
       "gen_id": "crosstrek-gu",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/crosstrek-gu.jpg",
       "brand": "Subaru",
       "model": "XV / Crosstrek",
@@ -2239,7 +2239,7 @@
     },
     {
       "gen_id": "wrx-va",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/wrx-va.jpg",
       "brand": "Subaru",
       "model": "WRX / Levorg",
@@ -2255,7 +2255,7 @@
     },
     {
       "gen_id": "levorg-vm",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/levorg-vm.jpg",
       "brand": "Subaru",
       "model": "WRX / Levorg",
@@ -2271,7 +2271,7 @@
     },
     {
       "gen_id": "elantra-md",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/elantra-md.jpg",
       "brand": "Hyundai",
       "model": "Elantra",
@@ -2287,7 +2287,7 @@
     },
     {
       "gen_id": "elantra-ad",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/elantra-ad.jpg",
       "brand": "Hyundai",
       "model": "Elantra",
@@ -2303,7 +2303,7 @@
     },
     {
       "gen_id": "venue-1",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/venue-1.jpg",
       "brand": "Hyundai",
       "model": "Venue",
@@ -2319,7 +2319,7 @@
     },
     {
       "gen_id": "custin-1",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/custin-1.jpg",
       "brand": "Hyundai",
       "model": "Custin",
@@ -2335,7 +2335,7 @@
     },
     {
       "gen_id": "picanto-ja-pre",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/picanto-ja-pre.jpg",
       "brand": "Kia",
       "model": "Picanto",
@@ -2351,7 +2351,7 @@
     },
     {
       "gen_id": "picanto-ja-fl",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/picanto-ja-fl.jpg",
       "brand": "Kia",
       "model": "Picanto",
@@ -2367,7 +2367,7 @@
     },
     {
       "gen_id": "sportage-nq5",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/sportage-nq5.jpg",
       "brand": "Kia",
       "model": "Sportage",
@@ -2383,7 +2383,7 @@
     },
     {
       "gen_id": "carnival-ka4",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/carnival-ka4.jpg",
       "brand": "Kia",
       "model": "Carnival",
@@ -2399,7 +2399,7 @@
     },
     {
       "gen_id": "polo-aw",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/polo-aw.jpg",
       "brand": "Volkswagen",
       "model": "Polo",
@@ -2415,7 +2415,7 @@
     },
     {
       "gen_id": "touran-5t",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/touran-5t.jpg",
       "brand": "Volkswagen",
       "model": "Touran",
@@ -2431,7 +2431,7 @@
     },
     {
       "gen_id": "octavia-5e-pre",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/octavia-5e-pre.jpg",
       "brand": "Skoda",
       "model": "Octavia",
@@ -2447,7 +2447,7 @@
     },
     {
       "gen_id": "octavia-5e-fl",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/octavia-5e-fl.jpg",
       "brand": "Skoda",
       "model": "Octavia",
@@ -2463,7 +2463,7 @@
     },
     {
       "gen_id": "octavia-nx",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/octavia-nx.jpg",
       "brand": "Skoda",
       "model": "Octavia",
@@ -2479,7 +2479,7 @@
     },
     {
       "gen_id": "kodiaq-ns7",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/kodiaq-ns7.jpg",
       "brand": "Skoda",
       "model": "Kodiaq",
@@ -2495,7 +2495,7 @@
     },
     {
       "gen_id": "xc40-1",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/xc40-1.jpg",
       "brand": "Volvo",
       "model": "XC40",
@@ -2511,7 +2511,7 @@
     },
     {
       "gen_id": "xc60-spa",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/xc60-spa.jpg",
       "brand": "Volvo",
       "model": "XC60",
@@ -2527,7 +2527,7 @@
     },
     {
       "gen_id": "is-xe30-pre",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/is-xe30-pre.jpg",
       "brand": "Lexus",
       "model": "IS",
@@ -2543,7 +2543,7 @@
     },
     {
       "gen_id": "is-xe30-fl",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/is-xe30-fl.jpg",
       "brand": "Lexus",
       "model": "IS",
@@ -2559,7 +2559,7 @@
     },
     {
       "gen_id": "is-xe30-2021",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/is-xe30-2021.jpg",
       "brand": "Lexus",
       "model": "IS",
@@ -2575,7 +2575,7 @@
     },
     {
       "gen_id": "es-xv60",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/es-xv60.jpg",
       "brand": "Lexus",
       "model": "ES",
@@ -2591,7 +2591,7 @@
     },
     {
       "gen_id": "es-xz10",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/es-xz10.jpg",
       "brand": "Lexus",
       "model": "ES",
@@ -2607,7 +2607,7 @@
     },
     {
       "gen_id": "ux-1",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/ux-1.jpg",
       "brand": "Lexus",
       "model": "UX",
@@ -2623,7 +2623,7 @@
     },
     {
       "gen_id": "benz-w176",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/benz-w176.jpg",
       "brand": "Mercedes-Benz",
       "model": "A-Class",
@@ -2639,7 +2639,7 @@
     },
     {
       "gen_id": "benz-w177",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/benz-w177.jpg",
       "brand": "Mercedes-Benz",
       "model": "A-Class",
@@ -2655,7 +2655,7 @@
     },
     {
       "gen_id": "benz-x253-pre",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/benz-x253-pre.jpg",
       "brand": "Mercedes-Benz",
       "model": "GLC",
@@ -2671,7 +2671,7 @@
     },
     {
       "gen_id": "benz-x253-fl",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/benz-x253-fl.jpg",
       "brand": "Mercedes-Benz",
       "model": "GLC",
@@ -2687,7 +2687,7 @@
     },
     {
       "gen_id": "bmw-f20-lci",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/bmw-f20-lci.jpg",
       "brand": "BMW",
       "model": "1-Series",
@@ -2703,7 +2703,7 @@
     },
     {
       "gen_id": "bmw-f40",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/bmw-f40.jpg",
       "brand": "BMW",
       "model": "1-Series",
@@ -2719,7 +2719,7 @@
     },
     {
       "gen_id": "bmw-f10",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/bmw-f10.jpg",
       "brand": "BMW",
       "model": "5-Series",
@@ -2735,7 +2735,7 @@
     },
     {
       "gen_id": "bmw-g30",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/bmw-g30.jpg",
       "brand": "BMW",
       "model": "5-Series",
@@ -2751,7 +2751,7 @@
     },
     {
       "gen_id": "u6-gt",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/u6-gt.jpg",
       "brand": "Luxgen",
       "model": "U6",
@@ -2767,7 +2767,7 @@
     },
     {
       "gen_id": "n7-1",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/n7-1.jpg",
       "brand": "Luxgen",
       "model": "n7",
@@ -2783,7 +2783,7 @@
     },
     {
       "gen_id": "sienna-xl30",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/sienna-xl30.jpg",
       "brand": "Toyota",
       "model": "Sienna",
@@ -2799,7 +2799,7 @@
     },
     {
       "gen_id": "sienna-xl40",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/sienna-xl40.jpg",
       "brand": "Toyota",
       "model": "Sienna",
@@ -2815,7 +2815,7 @@
     },
     {
       "gen_id": "accord-9",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/accord-9.jpg",
       "brand": "Honda",
       "model": "Accord",
@@ -2831,7 +2831,7 @@
     },
     {
       "gen_id": "juke-f15",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/juke-f15.jpg",
       "brand": "Nissan",
       "model": "Juke",
@@ -2847,7 +2847,7 @@
     },
     {
       "gen_id": "juke-f16",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/juke-f16.jpg",
       "brand": "Nissan",
       "model": "Juke",
@@ -2863,7 +2863,7 @@
     },
     {
       "gen_id": "teana-j32",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/teana-j32.jpg",
       "brand": "Nissan",
       "model": "Teana",
@@ -2879,7 +2879,7 @@
     },
     {
       "gen_id": "eclipse-cross-1",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/eclipse-cross-1.jpg",
       "brand": "Mitsubishi",
       "model": "Eclipse Cross",
@@ -2895,7 +2895,7 @@
     },
     {
       "gen_id": "scross-2",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/scross-2.jpg",
       "brand": "Suzuki",
       "model": "SX4 / S-Cross",
@@ -2911,7 +2911,7 @@
     },
     {
       "gen_id": "santafe-tm",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/santafe-tm.jpg",
       "brand": "Hyundai",
       "model": "Santa Fe",
@@ -2927,7 +2927,7 @@
     },
     {
       "gen_id": "stonic-1",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/stonic-1.jpg",
       "brand": "Kia",
       "model": "Stonic",
@@ -2943,7 +2943,7 @@
     },
     {
       "gen_id": "ev6-1",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/ev6-1.jpg",
       "brand": "Kia",
       "model": "EV6",
@@ -2959,7 +2959,7 @@
     },
     {
       "gen_id": "troc-1",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/troc-1.jpg",
       "brand": "Volkswagen",
       "model": "T-Roc",
@@ -2975,7 +2975,7 @@
     },
     {
       "gen_id": "fabia-nj",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/fabia-nj.jpg",
       "brand": "Skoda",
       "model": "Fabia",
@@ -2991,7 +2991,7 @@
     },
     {
       "gen_id": "fabia-pj",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/fabia-pj.jpg",
       "brand": "Skoda",
       "model": "Fabia",
@@ -3007,7 +3007,7 @@
     },
     {
       "gen_id": "kamiq-1",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/kamiq-1.jpg",
       "brand": "Skoda",
       "model": "Kamiq",
@@ -3023,7 +3023,7 @@
     },
     {
       "gen_id": "v40-fl",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/v40-fl.jpg",
       "brand": "Volvo",
       "model": "V40",
@@ -3039,7 +3039,7 @@
     },
     {
       "gen_id": "s60-spa",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/s60-spa.jpg",
       "brand": "Volvo",
       "model": "S60",
@@ -3055,7 +3055,7 @@
     },
     {
       "gen_id": "rx-al10",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/rx-al10.jpg",
       "brand": "Lexus",
       "model": "RX",
@@ -3071,7 +3071,7 @@
     },
     {
       "gen_id": "rx-al20",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/rx-al20.jpg",
       "brand": "Lexus",
       "model": "RX",
@@ -3087,7 +3087,7 @@
     },
     {
       "gen_id": "rx-ala10",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/rx-ala10.jpg",
       "brand": "Lexus",
       "model": "RX",
@@ -3103,7 +3103,7 @@
     },
     {
       "gen_id": "benz-w212",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/benz-w212.jpg",
       "brand": "Mercedes-Benz",
       "model": "E-Class",
@@ -3119,7 +3119,7 @@
     },
     {
       "gen_id": "benz-w213",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/benz-w213.jpg",
       "brand": "Mercedes-Benz",
       "model": "E-Class",
@@ -3135,7 +3135,7 @@
     },
     {
       "gen_id": "benz-gla-x156",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/benz-gla-x156.jpg",
       "brand": "Mercedes-Benz",
       "model": "GLA",
@@ -3151,7 +3151,7 @@
     },
     {
       "gen_id": "benz-gla-h247",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/benz-gla-h247.jpg",
       "brand": "Mercedes-Benz",
       "model": "GLA",
@@ -3167,7 +3167,7 @@
     },
     {
       "gen_id": "bmw-x1-f48",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/bmw-x1-f48.jpg",
       "brand": "BMW",
       "model": "X1",
@@ -3183,7 +3183,7 @@
     },
     {
       "gen_id": "bmw-x1-u11",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/bmw-x1-u11.jpg",
       "brand": "BMW",
       "model": "X1",
@@ -3199,7 +3199,7 @@
     },
     {
       "gen_id": "bmw-x3-g01",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/bmw-x3-g01.jpg",
       "brand": "BMW",
       "model": "X3",
@@ -3215,7 +3215,7 @@
     },
     {
       "gen_id": "urx-1",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/urx-1.jpg",
       "brand": "Luxgen",
       "model": "URX",
@@ -3231,7 +3231,7 @@
     },
     {
       "gen_id": "yc-1",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/yc-1.jpg",
       "brand": "Toyota",
       "model": "Yaris Cross",
@@ -3247,7 +3247,7 @@
     },
     {
       "gen_id": "corolla-sport-1",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/corolla-sport-1.jpg",
       "brand": "Toyota",
       "model": "Corolla Sport",
@@ -3263,7 +3263,7 @@
     },
     {
       "gen_id": "crown-s235",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/crown-s235.jpg",
       "brand": "Toyota",
       "model": "Crown",
@@ -3279,7 +3279,7 @@
     },
     {
       "gen_id": "cx60-1",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/cx60-1.jpg",
       "brand": "Mazda",
       "model": "CX-60",
@@ -3295,7 +3295,7 @@
     },
     {
       "gen_id": "ranger-t7",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/ranger-t7.jpg",
       "brand": "Ford",
       "model": "Ranger",
@@ -3311,7 +3311,7 @@
     },
     {
       "gen_id": "ranger-t62",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/ranger-t62.jpg",
       "brand": "Ford",
       "model": "Ranger",
@@ -3327,7 +3327,7 @@
     },
     {
       "gen_id": "cla-c117",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/cla-c117.jpg",
       "brand": "Mercedes-Benz",
       "model": "CLA",
@@ -3343,7 +3343,7 @@
     },
     {
       "gen_id": "cla-c118",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/cla-c118.jpg",
       "brand": "Mercedes-Benz",
       "model": "CLA",
@@ -3359,7 +3359,7 @@
     },
     {
       "gen_id": "bmw-x5-g05",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/bmw-x5-g05.jpg",
       "brand": "BMW",
       "model": "X5",
@@ -3375,7 +3375,7 @@
     },
     {
       "gen_id": "tcross-1",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/tcross-1.jpg",
       "brand": "Volkswagen",
       "model": "T-Cross",
@@ -3391,7 +3391,7 @@
     },
     {
       "gen_id": "karoq-1",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/karoq-1.jpg",
       "brand": "Skoda",
       "model": "Karoq",
@@ -3407,7 +3407,7 @@
     },
     {
       "gen_id": "delica-2020",
-      "status": "NEEDS_PHOTO",
+      "status": "READY",
       "expected_filename": "assets/cars/delica-2020.jpg",
       "brand": "Mitsubishi",
       "model": "Delica",
