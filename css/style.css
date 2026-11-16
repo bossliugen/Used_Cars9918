@@ -12,12 +12,14 @@
   --blue-primary: #1B4332;
   --blue-dark: #143326;
   --green: #1B4332;
+  --sage-slate: #7D8B82;
   --orange: #B45309;
   --red: #991B1B;
   --purple: #1B4332;
   --font-brand: "Instrument Serif", Georgia, serif;
   --font-serif: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
   --font-sans: "Inter", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --font-mono: "IBM Plex Mono", "Inter", "Noto Sans TC", sans-serif;
   --radius: 16px;
   --shadow-sm: none;
   --shadow-md: none;
@@ -38,42 +40,53 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Header */
+/* Header: 單行 64px 黏性導覽列 */
 .app-header {
   background: #F6F3EC;
   border-bottom: 1px solid var(--border-blue);
-  padding: 14px 24px;
+  min-height: 64px;
+  padding: 0 24px;
   position: sticky;
   top: 0;
   z-index: 60;
+  display: flex;
+  align-items: center;
 }
 
 .header-inner {
+  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
+  min-height: 64px;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 16px;
 }
 
 .brand-logo {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
+  min-width: 0;
 }
 
 .brand-wordmark {
   font-family: var(--font-brand);
-  font-size: 2rem;
+  font-size: 1.95rem;
   font-weight: 400;
   letter-spacing: 0.01em;
   color: var(--text-main);
+  text-decoration: none;
   line-height: 1;
   display: inline-flex;
   align-items: baseline;
   gap: 2px;
+  flex-shrink: 0;
+}
+
+.brand-wordmark:hover {
+  opacity: 0.85;
 }
 
 .brand-dot {
@@ -86,10 +99,78 @@ body {
 }
 
 .header-roofline-svg {
-  height: 36px;
+  height: 30px;
   width: auto;
   display: block;
   flex-shrink: 0;
+}
+
+.brand-title-wrap {
+  min-width: 0;
+}
+
+.brand-logo h1 {
+  font-family: var(--font-sans);
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Cross-Site Switcher */
+.cross-site-switcher {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.switcher-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border-blue);
+  background: #FFFFFF;
+  color: var(--text-sub);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: border-color 0.16s ease, color 0.16s ease, background-color 0.16s ease;
+}
+
+.switcher-pill:hover {
+  border-color: var(--blue-primary);
+  color: var(--text-main);
+}
+
+.switcher-pill.active {
+  background: var(--blue-primary);
+  border-color: var(--blue-primary);
+  color: #FFFFFF;
+}
+
+@media (max-width: 980px) {
+  .app-header {
+    padding: 8px 16px;
+  }
+  .header-inner {
+    flex-wrap: wrap;
+    min-height: 48px;
+    gap: 8px;
+  }
+  .brand-title-wrap {
+    display: none;
+  }
+  .cross-site-switcher {
+    overflow-x: auto;
+    max-width: 100%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -126,11 +207,13 @@ body {
   background: var(--sage-soft);
   border: 1px solid #C8DDD0;
   color: var(--blue-primary);
-  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
   font-weight: 500;
-  padding: 5px 12px;
+  padding: 4px 10px;
   border-radius: 999px;
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
 .btn-outline-blue {
@@ -1353,11 +1436,152 @@ tr.row-selected {
 }
 
 .finder-card-price {
-  font-size: 1.15rem;
+  font-family: var(--font-mono);
+  font-size: 1.12rem;
   font-weight: 600;
   color: var(--blue-primary);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
+}
+
+.finder-verified-pill {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: var(--sage-soft);
+  color: var(--blue-primary);
+  border: 1px solid #C8DDD0;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 999px;
+  z-index: 2;
+}
+
+.finder-card-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-light);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--text-sub);
+  font-variant-numeric: tabular-nums;
+}
+
+.finder-metric-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.finder-metric-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  color: var(--sage-slate);
+}
+
+/* 等寬數字全域強化：價格、年份、里程、表格數據 */
+.kpi-value,
+.cost-val,
+.cost-total-num,
+.table-wrap td,
+.range-inputs input,
+#inputMileage {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* 詳情抽屜底部 YouTube 影音實測連結 */
+.detail-youtube-bar {
+  margin-top: 20px;
+  padding: 14px 18px;
+  background: var(--bg-page);
+  border: 1px solid var(--border-blue);
+  border-radius: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.detail-youtube-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.detail-youtube-tag {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--blue-primary);
+  background: var(--sage-soft);
+  border: 1px solid #C8DDD0;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.detail-youtube-desc {
+  font-size: 0.85rem;
+  color: var(--text-sub);
+}
+
+.detail-youtube-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: var(--blue-primary);
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.16s ease;
+}
+
+.detail-youtube-btn:hover {
+  opacity: 0.9;
+}
+
+/* 統一精簡頁尾 */
+.app-footer {
+  margin-top: 40px;
+  border-top: 1px solid var(--border-blue);
+  background: var(--bg-page);
+  padding: 18px 24px;
+}
+
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.82rem;
+  color: var(--text-sub);
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.footer-links a {
+  color: var(--text-sub);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--blue-primary);
 }
 
 .finder-card-meta {
