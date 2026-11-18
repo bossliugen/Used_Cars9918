@@ -84,7 +84,9 @@ async function initApp() {
     return;
   }
 
-  state.brands = [...new Set(state.db.cars.map((c) => c.brand))];
+  state.brands = [...new Set(state.db.cars.map((c) => c.brand))].sort((a, b) =>
+    a.localeCompare(b, "en", { sensitivity: "base" })
+  );
   document.getElementById("headerMetaChip").textContent =
     `${state.brands.length} 品牌 ・ ${state.db.meta.total_models} 車系 ・ ${state.db.meta.total_year_records} 筆年式`;
 
@@ -213,8 +215,19 @@ function bindEvents() {
     renderAllCarViews();
   });
 
-  ["finderGoal", "finderBody", "finderMaxCc", "finderSort"].forEach((id) => {
-    document.getElementById(id).addEventListener("change", renderSmartFinder);
+  ["finderGoal", "finderBody", "finderMaxCc", "finderTransmission", "finderPowertrain", "finderSort"].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener("change", renderSmartFinder);
+  });
+  document.getElementById("finderPowertrain")?.addEventListener("change", (e) => {
+    const maxCcEl = document.getElementById("finderMaxCc");
+    if (!maxCcEl) return;
+    if (e.target.value === "ev") {
+      maxCcEl.value = maxCcEl.options[0]?.value ?? "9999";
+      maxCcEl.disabled = true;
+    } else {
+      maxCcEl.disabled = false;
+    }
   });
   ["finderBudgetMin", "finderBudgetMax", "finderHpMin", "finderHpMax", "finderYearMin", "finderYearMax"].forEach((id) => {
     document.getElementById(id).addEventListener("input", renderSmartFinder);
@@ -281,6 +294,60 @@ function switchPage(pageKey) {
   }
 }
 
+const BRAND_ZH_MAP = {
+  "Aston Martin": "奧斯頓·馬丁",
+  "Audi": "奧迪",
+  "Bentley": "賓利",
+  "BMW": "寶馬",
+  "Citroen": "雪鐵龍",
+  "Citroën": "雪鐵龍",
+  "Daihatsu": "大發",
+  "Ferrari": "法拉利",
+  "Fiat": "飛雅特",
+  "Ford": "福特",
+  "Honda": "本田",
+  "Hyundai": "現代",
+  "Infiniti": "極致",
+  "Jaguar": "捷豹",
+  "Jeep": "吉普",
+  "Kia": "起亞",
+  "Lamborghini": "藍寶堅尼",
+  "Land Rover": "荒原路華",
+  "Lexus": "凌志",
+  "Luxgen": "納智捷",
+  "Maserati": "瑪莎拉蒂",
+  "Mazda": "馬自達",
+  "McLaren": "麥拉倫",
+  "Mercedes-Benz": "賓士",
+  "MG": "名爵",
+  "MINI": "迷你",
+  "Mini": "迷你",
+  "Mitsubishi": "三菱",
+  "Nissan": "日產",
+  "Opel": "歐寶",
+  "Peugeot": "寶獅",
+  "Porsche": "保時捷",
+  "Proton": "寶騰",
+  "Renault": "雷諾",
+  "Saab": "紳寶",
+  "Skoda": "斯柯達",
+  "Škoda": "斯柯達",
+  "Smart": "司馬特",
+  "SsangYong": "雙龍",
+  "Subaru": "速霸陸",
+  "Suzuki": "鈴木",
+  "Tesla": "特斯拉",
+  "Toyota": "豐田",
+  "Volkswagen": "福斯",
+  "Volvo": "富豪"
+};
+
+function formatBrandLabel(brand) {
+  const clean = String(brand || "").trim();
+  const zh = BRAND_ZH_MAP[clean];
+  return zh ? `${clean} ${zh}` : clean;
+}
+
 function renderBrandControls() {
   const menu = document.getElementById("brandDropdownMenu");
   menu.innerHTML = state.brands
@@ -288,7 +355,7 @@ function renderBrandControls() {
       (b) => `
       <button type="button" class="custom-dropdown-item" data-brand="${b}" onclick="pickBrandFromMenu('${b}')">
         ${getBrandLogoSvg(b)}
-        <span>${b}</span>
+        <span>${formatBrandLabel(b)}</span>
       </button>
     `
     )
@@ -991,10 +1058,30 @@ function matchBodyCategory(category, filterVal) {
   return true;
 }
 
+function getTrimTransmissionType(trim) {
+  const rawTrans = String(trim.transmission || "").trim();
+  const isManual = /(?:^|\b|\d)MT\b|手排|manual/i.test(rawTrans) && !/AMT|自手排/i.test(rawTrans);
+  return isManual ? "manual" : "auto";
+}
+
+function getTrimPowertrainType(car, trim) {
+  const cc = Number(trim.displacement_cc ?? -1);
+  const signature = `${car.category || ""} ${trim.engine_code || ""} ${trim.trim_name || ""}`;
+  if (/\b(BEV|EV)\b|純電|電動車|電動馬達|Single-Speed|單速/i.test(signature) || (cc === 0 && !/hybrid|油電/i.test(signature))) {
+    return "ev";
+  }
+  if (/hybrid|油電|PHEV|HEV|MHEV|e:HEV|THS|48V|輕油電/i.test(signature)) {
+    return "hybrid";
+  }
+  return "ice";
+}
+
 function renderSmartFinder() {
   const goal = document.getElementById("finderGoal").value;
   const body = document.getElementById("finderBody").value;
   const maxCc = parseInt(document.getElementById("finderMaxCc").value, 10) || 9999;
+  const transFilter = document.getElementById("finderTransmission")?.value || "all";
+  const powerFilter = document.getElementById("finderPowertrain")?.value || "all";
 
   const minBudget = parseFloat(document.getElementById("finderBudgetMin").value);
   const maxBudget = parseFloat(document.getElementById("finderBudgetMax").value);
@@ -1022,10 +1109,16 @@ function renderSmartFinder() {
       if (goal === "safe-value" && (gen.depreciation_alert.level !== "low" || gen.avg_residual_dealer_pct < 42)) return;
 
       (gen.trims || []).forEach((trim, trimIdx) => {
+        const trimTransType = getTrimTransmissionType(trim);
+        const trimPowerType = getTrimPowertrainType(car, trim);
+        if (transFilter !== "all" && trimTransType !== transFilter) return;
+        if (powerFilter !== "all" && trimPowerType !== powerFilter) return;
+
         const hp = parseMaxHp(trim.horsepower);
         const parsedCc = parseInt(trim.displacement_cc, 10);
         const cc = Number.isFinite(parsedCc) ? parsedCc : 1800;
-        if (hp < hMin || hp > hMax || cc > maxCc) return;
+        if (hp < hMin || hp > hMax) return;
+        if (trimPowerType !== "ev" && cc > maxCc) return;
         if (goal === "easy-own" && (cc > 1800 || gen.depreciation_alert.level === "high")) return;
 
         if (goal === "handling") {

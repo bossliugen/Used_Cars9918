@@ -1615,3 +1615,33 @@ tr.row-selected {
     grid-template-columns: 1fr;
   }
 }
+
+/* 外行人四大行情白話提示條 */
+.price-legend-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 8px;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+  background-color: #F6F3EC;
+  border: 1px solid #D6D1C4;
+  border-left: 3px solid #1B4332;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: #1C1917;
+}
+.price-legend-bar .legend-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  cursor: help;
+}
+.price-legend-bar .legend-tag {
+  font-weight: 700;
+  color: #1B4332;
+  font-variant-numeric: tabular-nums;
+}
+.price-legend-bar .legend-desc {
+  color: #57534E;
+  font-size: 0.8rem;
+}

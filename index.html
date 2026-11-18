@@ -125,6 +125,23 @@
             </select>
           </div>
           <div class="field-group">
+            <label for="finderTransmission">變速箱（手排 / 自排）</label>
+            <select id="finderTransmission" class="select-blue">
+              <option value="all" selected>不限（自排與手排皆可）</option>
+              <option value="auto">自排（好上手・市區塞車輕鬆）</option>
+              <option value="manual">手排（純粹駕馭・需踩離合器）</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="finderPowertrain">動力類型（能源形式）</label>
+            <select id="finderPowertrain" class="select-blue">
+              <option value="all" selected>不限動力</option>
+              <option value="ice">純燃油車（加油即走）</option>
+              <option value="hybrid">油電混合（省油・無充電焦慮）</option>
+              <option value="ev">純電動車 EV（免燃料稅・安靜零排放）</option>
+            </select>
+          </div>
+          <div class="field-group">
             <label>預算範圍 (萬元)</label>
             <div class="range-inputs">
               <input id="finderBudgetMin" type="number" class="input-blue" value="0" min="0" max="500" placeholder="最低" />
@@ -223,6 +240,25 @@
           <p class="hero-sub" id="heroSub"></p>
         </div>
         <div id="heroBadges" style="display:flex;gap:6px;flex-wrap:wrap;"></div>
+      </div>
+
+      <div class="price-legend-bar" aria-label="四大行情價格白話說明">
+        <div class="legend-item" title="當年新車出廠官方定價，用來衡量這台車折舊了多少">
+          <span class="legend-tag">新車原價 MSRP</span>
+          <span class="legend-desc">當年全新牌價（折舊基準）</span>
+        </div>
+        <div class="legend-item" title="向二手車行購買的市場零售價，通常含基本整備與保固">
+          <span class="legend-tag">車商賣價 Dealer</span>
+          <span class="legend-desc">車行含整備零售價</span>
+        </div>
+        <div class="legend-item" title="直接向原車主購買的價格，省去車行店面與利潤空間">
+          <span class="legend-tag">車主自售 Private</span>
+          <span class="legend-desc">個人私下交易參考價</span>
+        </div>
+        <div class="legend-item" title="銀行車貸可估額度與車行收購底價，賣車給車行約落在此區間">
+          <span class="legend-tag">銀行/天書鑑價 Book</span>
+          <span class="legend-desc">貸款額度與車行收購底價</span>
+        </div>
       </div>
 
       <div class="kpi-grid" id="kpiGrid"></div>
